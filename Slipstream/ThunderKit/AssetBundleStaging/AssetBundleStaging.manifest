@@ -1,0 +1,13 @@
+ManifestFileVersion: 0
+CRC: 215981915
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: ambiguouslocation.ros
+      Dependencies: {}
+    Info_1:
+      Name: definitions.ros
+      Dependencies: {}
+    Info_2:
+      Name: slipstreamassets
+      Dependencies: {}

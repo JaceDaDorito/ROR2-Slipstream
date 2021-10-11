@@ -1,0 +1,39 @@
+ManifestFileVersion: 0
+CRC: 3369359890
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: d55ff989b3a3d77b522518f8fcbd7c82
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 8f4ccb4e2f5c9ae1a2b3c78c2831d028
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+- Class: 114
+  Script: {fileID: 1711215368, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 114
+  Script: {fileID: -149035308, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 114
+  Script: {fileID: 1764384752, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 114
+  Script: {fileID: 1291630405, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 114
+  Script: {fileID: -6086170, guid: d2e201569828c809f3d2502f0471d348, type: 3}
+- Class: 114
+  Script: {fileID: 1522826077, guid: d2e201569828c809f3d2502f0471d348, type: 3}
+- Class: 114
+  Script: {fileID: 1952315469, guid: d2e201569828c809f3d2502f0471d348, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+Assets:
+- Assets/RainOfStages/RoSShared/musictrackdefs/muSong16.asset
+- Assets/RainOfStages/RoSShared/musictrackdefs/muSong13.asset
+- Assets/Slipstream/Definitions/Stagedefs/AmbiguousLocation.asset
+- Assets/Slipstream/TestAmbiguous.prefab
+Dependencies: []
