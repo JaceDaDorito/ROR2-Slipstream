@@ -1,0 +1,31 @@
+{
+    "name": "Slipstream",
+    "references": [
+        "Unity.TextMeshPro"
+    ],
+    "optionalUnityReferences": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "Assembly-CSharp.dll",
+        "BepInEx.Harmony.dll",
+        "BepInEx.Preloader.dll",
+        "BepInEx.MonoMod.HookGenPatcher.dll",
+        "BepInEx.dll",
+        "HGCSharpUtils.dll",
+        "Mono.Cecil.dll",
+        "Mono.Cecil.Pdb.dll",
+        "Mono.Cecil.Rocks.dll",
+        "MonoMod.RuntimeDetour.dll",
+        "MonoMod.Utils.dll",
+        "MMHOOK_Assembly-CSharp.dll",
+        "R2API.dll",
+        "Unity.Postprocessing.Runtime.dll",
+        "Wwise.dll",
+        "Mono.Cecil.Mdb.dll"
+    ],
+    "autoReferenced": true,
+    "defineConstraints": []
+}
