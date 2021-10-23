@@ -51,8 +51,8 @@ namespace Slipstream
             */
 
             //Greens
-            var GlassEyeItem = new GlassEye();
-            GlassEyeItem.Init();
+            //var GlassEyeItem = new GlassEye();
+            //GlassEyeItem.Init();
 
             //Reds
             /*var ChungusItem = new Chungus();

@@ -9,6 +9,7 @@ namespace Slipstream.Items
     public class GlassEye
     {
         public ItemDef itemDef { get; set; } = Assets.mainAssetBundle.LoadAsset<ItemDef>("GlassEye");
+        //public static ItemDef itemDef = ScriptableObject.CreateInstance<ItemDef>();
 
         public void Init()
         {

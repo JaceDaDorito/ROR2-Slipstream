@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 497496324
+CRC: 2354222214
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 9fba8fa5e5d3afa64b47eec07aff94dc
+    Hash: 4c1757d2113d1dfb523b31b60c463c9d
   TypeTreeHash:
     serializedVersion: 2
     Hash: 35a2f8397704067597c5b306907e8755
@@ -31,16 +31,16 @@ Assets:
 - Assets/RainOfStages/RoSShared/musictrackdefs/muSong14.asset
 - Assets/RainOfStages/RoSShared/musictrackdefs/muSong23.asset
 - Assets/RainOfStages/RoSShared/scenedefs/dampcavesimple.asset
-- Assets/Textures/Stages/supermario.mat
+- Assets/Materials/Stages/supermario.mat
 - Assets/RainOfStages/RoSShared/musictrackdefs/muFULLSong07.asset
-- Assets/Textures/Stages/supermario.PNG
+- Assets/Materials/Stages/supermario.PNG
 - Assets/RainOfStages/RoSShared/scenedefs/shipgraveyard.asset
 - Assets/RainOfStages/RoSShared/scenedefs/goolake.asset
 - Assets/RainOfStages/RoSShared/musictrackdefs/muSong16.asset
 - Assets/RainOfStages/RoSShared/scenedefs/golemplains.asset
 - Assets/RainOfStages/RoSShared/musictrackdefs/muSong13.asset
 - Assets/RainOfStages/RoSShared/musictrackdefs/muFULLSong02.asset
-- Assets/Definitions/Stagedefs/AmbiguousLocation.asset
+- Assets/Slipstream/SlipAssets/Stagedefs/AmbiguousLocation.asset
 - Assets/RainOfStages/RoSShared/musictrackdefs/muFULLSong06.asset
 - Assets/RainOfStages/RoSShared/scenedefs/foggyswamp.asset
 - Assets/RainOfStages/RoSShared/musictrackdefs/muSong22.asset
