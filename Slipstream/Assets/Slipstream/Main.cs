@@ -3,7 +3,7 @@ using R2API;
 using R2API.Utils;
 using RoR2;
 using RoR2.ContentManagement;
-using Slipstream.Items;
+using Slipstream.Modules;
 using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
@@ -14,16 +14,16 @@ using static R2API.RecalculateStatsAPI;
 namespace Slipstream
 {
     [BepInDependency("com.bepis.r2api")]
-    [BepInDependency("twiner-rainofstages")]
+    [BepInPlugin(ModGuid, ModName, ModVer)]
     [NetworkCompatibility(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.EveryoneNeedSameModVersion)]
     [R2APISubmoduleDependency(nameof(ItemAPI), nameof(ItemDropAPI), nameof(LanguageAPI), nameof(ResourcesAPI), nameof(PrefabAPI), nameof(BuffAPI), nameof(LoadoutAPI), nameof(ProjectileAPI), nameof(RecalculateStatsAPI))]
     public class SlipstreamPlugin : BaseUnityPlugin
     {
-        public static List<ItemDef> ModItemDefs = new List<ItemDef>();
+        //public static List<ItemDef> ModItemDefs = new List<ItemDef>();
 
-        internal ContentPack contentPack = new ContentPack();
+        //internal ContentPack contentPack = new ContentPack();
 
-        public static AssetBundle AssetBundle = AssetBundle.LoadFromStream(Assembly.GetExecutingAssembly().GetManifestResourceStream("Slipstream.slipstreamassets"));
+        //public static AssetBundle AssetBundle = AssetBundle.LoadFromStream(Assembly.GetExecutingAssembly().GetManifestResourceStream("Slipstream.slipstreamassets"));
 
         private const string ModVer = "0.0.1";
         private const string ModName = "Slipstream";
@@ -51,8 +51,8 @@ namespace Slipstream
             */
 
             //Greens
-            //var GlassEyeItem = new GlassEye();
-            //GlassEyeItem.Init();
+            var GlassEyeItem = new GlassEye();
+            GlassEyeItem.Init();
 
             //Reds
             /*var ChungusItem = new Chungus();
@@ -114,7 +114,7 @@ namespace Slipstream
             get
             {
                 //If I see this name while loading a mod I will make fun of you
-                return "Slipstream";
+                return "";
             }
         }
 

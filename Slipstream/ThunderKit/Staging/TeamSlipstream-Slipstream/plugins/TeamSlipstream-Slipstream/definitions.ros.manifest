@@ -1,0 +1,50 @@
+ManifestFileVersion: 0
+CRC: 497496324
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 9fba8fa5e5d3afa64b47eec07aff94dc
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 35a2f8397704067597c5b306907e8755
+HashAppended: 0
+ClassTypes:
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: -6086170, guid: d2e201569828c809f3d2502f0471d348, type: 3}
+- Class: 114
+  Script: {fileID: 1522826077, guid: d2e201569828c809f3d2502f0471d348, type: 3}
+- Class: 114
+  Script: {fileID: 825212068, guid: d2e201569828c809f3d2502f0471d348, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+Assets:
+- Assets/RainOfStages/RoSShared/musictrackdefs/muFULLSong19.asset
+- Assets/RainOfStages/RoSShared/scenedefs/wispgraveyard.asset
+- Assets/RainOfStages/RoSShared/musictrackdefs/muSong05.asset
+- Assets/RainOfStages/RoSShared/scenedefs/blackbeach.asset
+- Assets/RainOfStages/RoSShared/musictrackdefs/muSong14.asset
+- Assets/RainOfStages/RoSShared/musictrackdefs/muSong23.asset
+- Assets/RainOfStages/RoSShared/scenedefs/dampcavesimple.asset
+- Assets/Textures/Stages/supermario.mat
+- Assets/RainOfStages/RoSShared/musictrackdefs/muFULLSong07.asset
+- Assets/Textures/Stages/supermario.PNG
+- Assets/RainOfStages/RoSShared/scenedefs/shipgraveyard.asset
+- Assets/RainOfStages/RoSShared/scenedefs/goolake.asset
+- Assets/RainOfStages/RoSShared/musictrackdefs/muSong16.asset
+- Assets/RainOfStages/RoSShared/scenedefs/golemplains.asset
+- Assets/RainOfStages/RoSShared/musictrackdefs/muSong13.asset
+- Assets/RainOfStages/RoSShared/musictrackdefs/muFULLSong02.asset
+- Assets/Definitions/Stagedefs/AmbiguousLocation.asset
+- Assets/RainOfStages/RoSShared/musictrackdefs/muFULLSong06.asset
+- Assets/RainOfStages/RoSShared/scenedefs/foggyswamp.asset
+- Assets/RainOfStages/RoSShared/musictrackdefs/muSong22.asset
+- Assets/RainOfStages/RoSShared/musictrackdefs/muFULLSong18.asset
+- Assets/RainOfStages/RoSShared/scenedefs/frozenwall.asset
+- Assets/RainOfStages/RoSShared/scenedefs/skymeadow.asset
+Dependencies: []

@@ -4,16 +4,15 @@ using UnityEngine;
 using static On.RoR2.HealthComponent;
 using static R2API.RecalculateStatsAPI;
 
-namespace Slipstream.Items
+namespace Slipstream.Modules
 {
     public class GlassEye
     {
-        public ItemDef itemDef { get; set; } = Assets.mainAssetBundle.LoadAsset<ItemDef>("GlassEye");
-        //public static ItemDef itemDef = ScriptableObject.CreateInstance<ItemDef>();
+        public ItemDef itemDef  = ContentPackProvider.contentPack.itemDefs.Find("GlassEye");
 
         public void Init()
         {
-            SlipstreamPlugin.ModItemDefs.Add(itemDef);
+            //SlipstreamPlugin.ModItemDefs.Add(itemDef);
             //GlassEyeItem();
             AddLanguageTokens();
             Hooks();

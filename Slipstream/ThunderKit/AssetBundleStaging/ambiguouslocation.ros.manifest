@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 1594174585
+CRC: 985552672
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: a9546bfec52684545b42910f9167caed
+    Hash: 0e69427a16525525fc823e30f98503b8
   TypeTreeHash:
     serializedVersion: 2
-    Hash: af0f11e4b0627cc85cd0fc813b07fd6c
+    Hash: ba68046b9fd607885a08b829c5fa2639
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -46,7 +46,11 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 818754807, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
+  Script: {fileID: 630417361, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 114
   Script: {fileID: 1052602003, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 114
+  Script: {fileID: -1673569841, guid: d2e201569828c809f3d2502f0471d348, type: 3}
 - Class: 114
   Script: {fileID: -1213446, guid: d2e201569828c809f3d2502f0471d348, type: 3}
 - Class: 114
@@ -72,4 +76,4 @@ ClassTypes:
 Assets:
 - Assets/Scenes/AmbiguousLocation.unity
 Dependencies:
-- C:/Users/Jason/Documents/GitHub/ROR2-Slipstream/Slipstream/ThunderKit/AssetBundleStaging/slipstreamassets
+- D:/UnityProjects/Slipstream/ThunderKit/AssetBundleStaging/slipstreamassets
