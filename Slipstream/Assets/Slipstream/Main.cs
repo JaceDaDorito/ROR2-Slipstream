@@ -37,7 +37,18 @@ namespace Slipstream
             //You have to call the Init() method of any items you add to here
             pluginInfo = this.Info;
             Assets.PopulateAssets();
-            
+
+            ContentPackProvider.Initialize();
+
+            RoR2Application.isModded = true;
+
+            Logger.LogMessage(ModName + " Version " + ModVer + " Loaded"); //Text that gets written to the console, this is mainly here just to make sure the mod loads successfully
+
+            if (Assets.mainAssetBundle != null)
+                Logger.LogMessage("Assetbundle was loaded!");
+
+            if (ContentPackProvider.serializedContentPack != null)
+                Logger.LogMessage("ContentPack was loaded!");
 
             #region Item Inits
 
@@ -53,6 +64,9 @@ namespace Slipstream
             //Greens
             var GlassEyeItem = new GlassEye();
             GlassEyeItem.Init();
+            if (GlassEyeItem.Check())
+                Logger.LogMessage("GlassEye does have a definition so what the fuck is happening.");
+
 
             //Reds
             /*var ChungusItem = new Chungus();
@@ -75,10 +89,9 @@ namespace Slipstream
             #endregion Item Inits
 
 
-            RoR2Application.isModded = true;
-            Logger.LogMessage(ModName + " Version " + ModVer + " Loaded"); //Text that gets written to the console, this is mainly here just to make sure the mod loads successfully
 
-            ContentPackProvider.Initialize();
+
+
         }
     }
 
@@ -100,6 +113,7 @@ namespace Slipstream
         {
             mainAssetBundle = AssetBundle.LoadFromFile(Path.Combine(assemblyDir, assetBundleName));
             ContentPackProvider.serializedContentPack = mainAssetBundle.LoadAsset<SerializableContentPack>(ContentPackProvider.contentPackName);
+
         }
     }
     public class ContentPackProvider : IContentPackProvider
@@ -114,7 +128,7 @@ namespace Slipstream
             get
             {
                 //If I see this name while loading a mod I will make fun of you
-                return "";
+                return "com.TeamSlipstream.Slipstream";
             }
         }
 

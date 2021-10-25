@@ -8,7 +8,14 @@ namespace Slipstream.Modules
 {
     public class GlassEye
     {
-        public ItemDef itemDef  = ContentPackProvider.contentPack.itemDefs.Find("GlassEye");
+        public ItemDef itemDef { get; set; } = ContentPackProvider.contentPack.itemDefs.Find("GlassEye (ItemDef)");
+
+        public bool Check() //testing purposes
+        {
+            if (itemDef = null)
+                return false;
+            return true;
+        }
 
         public void Init()
         {
@@ -51,6 +58,7 @@ namespace Slipstream.Modules
 
         private void Hooks()
         {
+            Chat.AddMessage("GlassEye hook was called");
             GetStatCoefficients += GrantBaseShield;
             On.RoR2.HealthComponent.TakeDamage += CritBoost;
         }
