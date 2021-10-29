@@ -1,5 +1,6 @@
 ﻿using R2API;
 using RoR2;
+using BepInEx;
 using UnityEngine;
 using static On.RoR2.HealthComponent;
 using static R2API.RecalculateStatsAPI;
@@ -15,8 +16,6 @@ namespace Slipstream.Modules
         {
             //SlipstreamPlugin.ModItemDefs.Add(itemDef);
             //GlassEyeItem();
-            if (itemDef = null)
-                Chat.AddMessage("lol");
 
             AddLanguageTokens();
             Hooks();
@@ -58,7 +57,7 @@ namespace Slipstream.Modules
             GetStatCoefficients += GrantBaseShield;
             On.RoR2.HealthComponent.TakeDamage += CritBoost;
         }
-        
+
         public void CritBoost(orig_TakeDamage orig, HealthComponent self, DamageInfo damageInfo)
         {
             GameObject damageSource;
@@ -84,7 +83,8 @@ namespace Slipstream.Modules
             }
             orig(self, damageInfo);
         }
-        private void GrantBaseShield(RoR2.CharacterBody sender, StatHookEventArgs args)
+
+        private void GrantBaseShield(CharacterBody sender, StatHookEventArgs args)
         {
             if (sender.inventory.GetItemCount(itemDef) > 0)
             {
