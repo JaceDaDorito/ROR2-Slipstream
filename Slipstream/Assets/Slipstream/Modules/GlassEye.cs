@@ -8,19 +8,16 @@ namespace Slipstream.Modules
 {
     public class GlassEye
     {
-        public ItemDef itemDef { get; set; } = ContentPackProvider.contentPack.itemDefs.Find("GlassEye (ItemDef)");
+        public ItemDef itemDef { get; set; } = ContentPackProvider.contentPack.itemDefs.Find("GlassEye");
 
-        public bool Check() //testing purposes
-        {
-            if (itemDef = null)
-                return false;
-            return true;
-        }
 
         public void Init()
         {
             //SlipstreamPlugin.ModItemDefs.Add(itemDef);
             //GlassEyeItem();
+            if (itemDef = null)
+                Chat.AddMessage("lol");
+
             AddLanguageTokens();
             Hooks();
         }
@@ -58,11 +55,10 @@ namespace Slipstream.Modules
 
         private void Hooks()
         {
-            Chat.AddMessage("GlassEye hook was called");
             GetStatCoefficients += GrantBaseShield;
             On.RoR2.HealthComponent.TakeDamage += CritBoost;
         }
-
+        
         public void CritBoost(orig_TakeDamage orig, HealthComponent self, DamageInfo damageInfo)
         {
             GameObject damageSource;
@@ -88,8 +84,7 @@ namespace Slipstream.Modules
             }
             orig(self, damageInfo);
         }
-
-        private void GrantBaseShield(CharacterBody sender, StatHookEventArgs args)
+        private void GrantBaseShield(RoR2.CharacterBody sender, StatHookEventArgs args)
         {
             if (sender.inventory.GetItemCount(itemDef) > 0)
             {
@@ -98,5 +93,6 @@ namespace Slipstream.Modules
                 args.critAdd += 5;
             }
         }
+
     }
 }

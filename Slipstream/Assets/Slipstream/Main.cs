@@ -64,8 +64,6 @@ namespace Slipstream
             //Greens
             var GlassEyeItem = new GlassEye();
             GlassEyeItem.Init();
-            if (GlassEyeItem.Check())
-                Logger.LogMessage("GlassEye does have a definition so what the fuck is happening.");
 
 
             //Reds
