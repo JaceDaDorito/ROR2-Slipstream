@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 1075622016
+CRC: 333082250
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 3a2ab60dc0b662a25c2b60b0e02a4f60
+    Hash: bd4fc28bfac2b5391c87460b49b1449a
   TypeTreeHash:
     serializedVersion: 2
     Hash: f8f5e66b294c866a5d5258b9aebb3fba
@@ -38,12 +38,13 @@ ClassTypes:
 Assets:
 - Assets/Slipstream/SlipAssets/Prefabs/Item/GlassEye/GlassEyeUNITY2.prefab
 - Assets/Slipstream/SlipAssets/Prefabs/Item/IceTooth/IceTooth.prefab
+- Assets/Slipstream/SlipAssets/ItemDefs/MalachiteUrchinOnKillItem.asset
 - Assets/Models/Raw Models/Items/RottenTooth.obj
 - Assets/Models/Raw Models/Items/IceTooth.obj
-- Assets/Slipstream/SlipAssets/ItemDefs/RottingPerferator.asset
+- Assets/Slipstream/SlipAssets/ItemDefs/RottingPerforator.asset
 - Assets/Materials/Item/RottenTooth/Rotten_Perforator_Tiny.png
 - Assets/Slipstream/SlipAssets/ItemDefs/GlassEye.asset
-- Assets/Slipstream/SlipAssets/ItemDefs/IceTooth.asset
+- Assets/Slipstream/SlipAssets/ItemDefs/SubzeroPerforator.asset
 - Assets/Slipstream/SlipAssets/DefaultDef.asset
 - Assets/Slipstream/SlipstreamContentPack.asset
 - Assets/Materials/Item/GlassEye/GlassRenderTiny.png

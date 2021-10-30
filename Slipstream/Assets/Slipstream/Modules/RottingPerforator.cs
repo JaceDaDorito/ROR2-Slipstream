@@ -1,13 +1,14 @@
-﻿/*using R2API;
+﻿using R2API;
 using RoR2;
 using UnityEngine;
 using UnityEngine.Networking;
 
-namespace Slipstream.Items
+namespace Slipstream.Modules
 {
     public class RottingPerforator
     {
-        public static ItemDef itemDef = ScriptableObject.CreateInstance<ItemDef>();
+        public ItemDef itemDef { get; set; } = ContentPackProvider.contentPack.itemDefs.Find("RottingPerforator");
+        public ItemDef MalachiteUrchinOnKill { get; set; } = ContentPackProvider.contentPack.itemDefs.Find("MalachiteUrchinOnKillItem");
 
         public void Init() //This runs whatever methods you need to for the item, such as language stuff, effects, setting up the item, etc. Init is ran in the Awake() method in the Main.cs file and every item you add you have to run Init() inside of Awake() in the Main.cs file or else it won't work.
         {
@@ -16,7 +17,7 @@ namespace Slipstream.Items
             Hooks();
         }
 
-        private void RottingPerforatorItem()
+        /*private void RottingPerforatorItem()
         {
             itemDef.name = "RottingPerforator"; //Internal name of the item
             itemDef.tier = ItemTier.Boss; //Tier of the item, Tier1 = White. Tier2 = Green, Tier3 = Red. Lunar = Blue. Boss = Yellow
@@ -35,7 +36,7 @@ namespace Slipstream.Items
             itemDisplayRules[0].localScale = new Vector3(2f, 2f, 2f);
 
             SlipstreamPlugin.ModItemDefs.Add(itemDef); //Adds this item to the list of itemDefs in Main.cs, which then gets added to the ContentPack which then gets added to the game's content
-        }
+        }*/
 
         private void AddLanguageTokens()
         {
@@ -45,6 +46,7 @@ namespace Slipstream.Items
             LanguageAPI.Add("ROTTINGPERFORATOR_LORE", "Subject: Rotting Perforator\n\nTechnician: Dema \"Dembones\" Brown\nTable Spec: N/A\nNotes:\n\n> I am NOT touching this thing.\n> Prepare for immediate disposal, this thing is absolutely vile. Not worth experimenting on."); //Lore of the item in the logbook. \n creates a new line.
         }
         public static TeamIndex? teamIndex = new TeamIndex?(TeamIndex.Player);
+
         private void Hooks()
         {
             //Spawning Urchins
@@ -53,7 +55,7 @@ namespace Slipstream.Items
                 if (damageReport?.attackerBody && damageReport?.attackerMaster)
                 {
                     CharacterBody character = damageReport.attackerBody;
-                    if (character.inventory.GetItemCount(itemDef) > 0 && Util.CheckRoll(10f, damageReport.attackerMaster) && damageReport.victimBody.inventory.GetItemCount(MalachiteUrchinOnKill.itemDef) == 0)
+                    if (character.inventory.GetItemCount(itemDef) > 0 && Util.CheckRoll(10f, damageReport.attackerMaster) && damageReport.victimBody.inventory.GetItemCount(MalachiteUrchinOnKill) == 0)
                     {
                         InputBankTest inputBankTest = null;
                         Ray ray = inputBankTest ? inputBankTest.GetAimRay() : new Ray(damageReport.victimBody.transform.position, damageReport.victimBody.transform.rotation * Vector3.forward);
@@ -65,7 +67,7 @@ namespace Slipstream.Items
                         NetworkServer.Spawn(gameObject3);
                         MinionOwnership.MinionGroup.SetMinionOwner(component2.minionOwnership, damageReport.attackerMaster.netId);
                         component2.teamIndex = (TeamIndex)teamIndex;
-                        component2.inventory.GiveItem(MalachiteUrchinOnKill.itemDef, character.inventory.GetItemCount(itemDef));
+                        component2.inventory.GiveItem(MalachiteUrchinOnKill, character.inventory.GetItemCount(itemDef));
                         component2.inventory.GiveItem(RoR2Content.Items.HealthDecay, 1);
                         component2.inventory.GiveItem(RoR2Content.Items.BoostAttackSpeed, 10 * character.inventory.GetItemCount(itemDef) - 1);
                         component2.SpawnBodyHere();
@@ -77,11 +79,11 @@ namespace Slipstream.Items
             //Urchins proccing on kill items when they die
             On.RoR2.CharacterBody.OnDeathStart += (orig, characterBody) =>
             {
-                if (characterBody.master.teamIndex == teamIndex && characterBody.inventory.GetItemCount(MalachiteUrchinOnKill.itemDef) > 0)
+                if (characterBody.master.teamIndex == teamIndex && characterBody.inventory.GetItemCount(MalachiteUrchinOnKill) > 0)
                 {
                     if (NetworkServer.active)
                     {
-                        for (int i = 0; i < characterBody.inventory.GetItemCount(MalachiteUrchinOnKill.itemDef); i++)
+                        for (int i = 0; i < characterBody.inventory.GetItemCount(MalachiteUrchinOnKill); i++)
                         {
                             DamageInfo damageInfo = new DamageInfo
                             {
@@ -104,4 +106,4 @@ namespace Slipstream.Items
             };
         }
     }
-}*/
+}

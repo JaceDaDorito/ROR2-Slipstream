@@ -1,13 +1,13 @@
-﻿/*using R2API;
+﻿using R2API;
 using RoR2;
 using UnityEngine;
 using UnityEngine.Networking;
 
-namespace Slipstream.Items
+namespace Slipstream.Modules
 {
     public class SubzeroPerforator
     {
-        public static ItemDef itemDef = ScriptableObject.CreateInstance<ItemDef>();
+        public ItemDef itemDef { get; set; } = ContentPackProvider.contentPack.itemDefs.Find("SubzeroPerforator");
 
         public void Init() //This runs whatever methods you need to for the item, such as language stuff, effects, setting up the item, etc. Init is ran in the Awake() method in the Main.cs file and every item you add you have to run Init() inside of Awake() in the Main.cs file or else it won't work.
         {
@@ -16,7 +16,7 @@ namespace Slipstream.Items
             Hooks();
         }
 
-        private void SubzeroPerforatorItem()
+        /*private void SubzeroPerforatorItem()
         {
             itemDef.name = "SubzeroPerforator"; //Internal name of the item
             itemDef.tier = ItemTier.Boss; //Tier of the item, Tier1 = White. Tier2 = Green, Tier3 = Red. Lunar = Blue. Boss = Yellow
@@ -35,7 +35,7 @@ namespace Slipstream.Items
             itemDisplayRules[0].localScale = new Vector3(2f, 2f, 2f);
 
             SlipstreamPlugin.ModItemDefs.Add(itemDef); //Adds this item to the list of itemDefs in Main.cs, which then gets added to the ContentPack which then gets added to the game's content
-        }
+        }*/
 
         private void AddLanguageTokens()
         {
@@ -81,4 +81,4 @@ namespace Slipstream.Items
             };
         }
     }
-}*/
+}

@@ -86,11 +86,14 @@ namespace Slipstream.Modules
 
         private void GrantBaseShield(CharacterBody sender, StatHookEventArgs args)
         {
-            if (sender.inventory.GetItemCount(itemDef) > 0)
+            if (!sender.inventory)
             {
-                HealthComponent healthC = sender.GetComponent<HealthComponent>();
-                args.baseShieldAdd += healthC.fullHealth * 0.05f;
-                args.critAdd += 5;
+                if (sender.inventory.GetItemCount(itemDef) > 0)
+                {
+                    HealthComponent healthC = sender.GetComponent<HealthComponent>();
+                    args.baseShieldAdd += healthC.fullHealth * 0.05f;
+                    args.critAdd += 5;
+                }
             }
         }
 

@@ -67,8 +67,8 @@ namespace Slipstream
 
 
             //Reds
-            /*var ChungusItem = new Chungus();
-            ChungusItem.Init();
+            //var ChungusItem = new Chungus();
+            //ChungusItem.Init();
 
             //Yellows
             var RottingPerforatorItem = new RottingPerforator();
@@ -82,8 +82,6 @@ namespace Slipstream
             //Equipment
 
             //Other Stuff
-            var MalachiteUrchinOnKillItem = new MalachiteUrchinOnKill();
-            MalachiteUrchinOnKillItem.Init();*/
             #endregion Item Inits
 
 
