@@ -8,8 +8,8 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: texGPGrassTerrainNormal
-  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: 
+  m_Shader: {fileID: 4800000, guid: 2a46956f20e450b48ba8337e5e8960c0, type: 3}
+  m_ShaderKeywords: BINARYBLEND
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -35,6 +35,14 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _DirtNormalTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DirtTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _EmissionMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -47,6 +55,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _NormalTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -55,23 +67,56 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _SnowNormalTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SnowTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Floats:
+    - _BinaryBlendOn: 1
     - _BumpScale: 1
     - _Cutoff: 0.5
+    - _Depth: 0.2
     - _DetailNormalMapScale: 1
+    - _DirtBias: 0
+    - _DirtOn: 0
+    - _DirtSmoothness: 0
+    - _DirtSpecularExponent: 1
+    - _DirtSpecularStrength: 0
+    - _DitherOn: 0
     - _DstBlend: 0
+    - _Fade: 1
+    - _ForceSpecOn: 0
     - _GlossMapScale: 1
     - _Glossiness: 1
     - _GlossyReflections: 1
+    - _GradientBiasOn: 0
+    - _IgnoreBiasOn: 0
     - _Metallic: 0
     - _Mode: 0
+    - _NormalStrength: 1
     - _OcclusionStrength: 1
     - _Parallax: 0.02
+    - _RampInfo: 0
+    - _Smoothness: 0
     - _SmoothnessTextureChannel: 0
+    - _SnowBias: 0
+    - _SnowOn: 0
+    - _SnowSmoothness: 0
+    - _SnowSpecularExponent: 1
+    - _SnowSpecularStrength: 0
+    - _SpecularExponent: 1
     - _SpecularHighlights: 1
+    - _SpecularStrength: 0
     - _SrcBlend: 1
+    - _TriplanarOn: 0
+    - _TriplanarTextureFactor: 1
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _GradientBiasVector: {r: 0, g: 0, b: 0, a: 0}

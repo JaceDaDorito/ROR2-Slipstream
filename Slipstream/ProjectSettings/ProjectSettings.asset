@@ -532,15 +532,15 @@ PlayerSettings:
   webGLLinkerTarget: 1
   webGLThreadsSupport: 0
   scriptingDefineSymbols:
-    1: thunderkit;bbepis-bepinexpack;twiner-rainofstages;riskofthunder-hookgenpatcher;tristanmcpherson-r2api;ebkr-r2modman;teammoonstorm-starstorm2
-    7: thunderkit;bbepis-bepinexpack;twiner-rainofstages;riskofthunder-hookgenpatcher;tristanmcpherson-r2api;ebkr-r2modman;teammoonstorm-starstorm2
-    13: thunderkit;bbepis-bepinexpack;twiner-rainofstages;riskofthunder-hookgenpatcher;tristanmcpherson-r2api;ebkr-r2modman;teammoonstorm-starstorm2
-    19: thunderkit;bbepis-bepinexpack;twiner-rainofstages;riskofthunder-hookgenpatcher;tristanmcpherson-r2api;ebkr-r2modman;teammoonstorm-starstorm2
-    21: thunderkit;bbepis-bepinexpack;twiner-rainofstages;riskofthunder-hookgenpatcher;tristanmcpherson-r2api;ebkr-r2modman;teammoonstorm-starstorm2
-    25: thunderkit;bbepis-bepinexpack;twiner-rainofstages;riskofthunder-hookgenpatcher;tristanmcpherson-r2api;ebkr-r2modman;teammoonstorm-starstorm2
-    26: thunderkit;bbepis-bepinexpack;twiner-rainofstages;riskofthunder-hookgenpatcher;tristanmcpherson-r2api;ebkr-r2modman;teammoonstorm-starstorm2
-    27: thunderkit;bbepis-bepinexpack;twiner-rainofstages;riskofthunder-hookgenpatcher;tristanmcpherson-r2api;ebkr-r2modman;teammoonstorm-starstorm2
-    28: thunderkit;bbepis-bepinexpack;twiner-rainofstages;riskofthunder-hookgenpatcher;tristanmcpherson-r2api;ebkr-r2modman;teammoonstorm-starstorm2
+    1: thunderkit;bbepis-bepinexpack;twiner-rainofstages;riskofthunder-hookgenpatcher;tristanmcpherson-r2api;ebkr-r2modman;teammoonstorm-starstorm2;valex-stubbedshaderconverter
+    7: thunderkit;bbepis-bepinexpack;twiner-rainofstages;riskofthunder-hookgenpatcher;tristanmcpherson-r2api;ebkr-r2modman;teammoonstorm-starstorm2;valex-stubbedshaderconverter
+    13: thunderkit;bbepis-bepinexpack;twiner-rainofstages;riskofthunder-hookgenpatcher;tristanmcpherson-r2api;ebkr-r2modman;teammoonstorm-starstorm2;valex-stubbedshaderconverter
+    19: thunderkit;bbepis-bepinexpack;twiner-rainofstages;riskofthunder-hookgenpatcher;tristanmcpherson-r2api;ebkr-r2modman;teammoonstorm-starstorm2;valex-stubbedshaderconverter
+    21: thunderkit;bbepis-bepinexpack;twiner-rainofstages;riskofthunder-hookgenpatcher;tristanmcpherson-r2api;ebkr-r2modman;teammoonstorm-starstorm2;valex-stubbedshaderconverter
+    25: thunderkit;bbepis-bepinexpack;twiner-rainofstages;riskofthunder-hookgenpatcher;tristanmcpherson-r2api;ebkr-r2modman;teammoonstorm-starstorm2;valex-stubbedshaderconverter
+    26: thunderkit;bbepis-bepinexpack;twiner-rainofstages;riskofthunder-hookgenpatcher;tristanmcpherson-r2api;ebkr-r2modman;teammoonstorm-starstorm2;valex-stubbedshaderconverter
+    27: thunderkit;bbepis-bepinexpack;twiner-rainofstages;riskofthunder-hookgenpatcher;tristanmcpherson-r2api;ebkr-r2modman;teammoonstorm-starstorm2;valex-stubbedshaderconverter
+    28: thunderkit;bbepis-bepinexpack;twiner-rainofstages;riskofthunder-hookgenpatcher;tristanmcpherson-r2api;ebkr-r2modman;teammoonstorm-starstorm2;valex-stubbedshaderconverter
   platformArchitecture: {}
   scriptingBackend: {}
   il2cppCompilerConfiguration: {}

@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 1621493542
+CRC: 464893827
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 4bd58bc40d0f239f2325d6f8c692b02d
+    Hash: 9a04d6102122763b86f0f9fbb25057e9
   TypeTreeHash:
     serializedVersion: 2
-    Hash: e2af2d9bf88352d361751ec275eb6b9c
+    Hash: a4d461d9cd6c32095e7412b922e75c40
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -44,6 +44,8 @@ ClassTypes:
 - Class: 114
   Script: {fileID: -1674629239, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
+  Script: {fileID: -376374237, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 114
   Script: {fileID: -609359282, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
   Script: {fileID: 818754807, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
@@ -51,6 +53,8 @@ ClassTypes:
   Script: {fileID: 630417361, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
   Script: {fileID: 1052602003, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 114
+  Script: {fileID: -1895344032, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
   Script: {fileID: -1673569841, guid: d2e201569828c809f3d2502f0471d348, type: 3}
 - Class: 114
@@ -74,6 +78,8 @@ ClassTypes:
 - Class: 198
   Script: {instanceID: 0}
 - Class: 199
+  Script: {instanceID: 0}
+- Class: 208
   Script: {instanceID: 0}
 Assets:
 - Assets/Scenes/AmbiguousLocation.unity

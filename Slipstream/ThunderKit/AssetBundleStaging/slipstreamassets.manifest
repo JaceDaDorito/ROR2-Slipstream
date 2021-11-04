@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 333082250
+CRC: 2322432019
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: bd4fc28bfac2b5391c87460b49b1449a
+    Hash: b07942a02200b522cea8d0384b50fd0a
   TypeTreeHash:
     serializedVersion: 2
     Hash: f8f5e66b294c866a5d5258b9aebb3fba
@@ -36,19 +36,27 @@ ClassTypes:
 - Class: 213
   Script: {instanceID: 0}
 Assets:
-- Assets/Slipstream/SlipAssets/Prefabs/Item/GlassEye/GlassEyeUNITY2.prefab
 - Assets/Slipstream/SlipAssets/Prefabs/Item/IceTooth/IceTooth.prefab
 - Assets/Slipstream/SlipAssets/ItemDefs/MalachiteUrchinOnKillItem.asset
 - Assets/Models/Raw Models/Items/RottenTooth.obj
+- Assets/Materials/Item/GlassEye/matGlass.mat
+- Assets/Slipstream/SlipAssets/Prefabs/Item/GlassEye/glasseye.prefab
+- Assets/Materials/Item/GlassEye/glasseye_diffuse_2.png
 - Assets/Models/Raw Models/Items/IceTooth.obj
 - Assets/Slipstream/SlipAssets/ItemDefs/RottingPerforator.asset
+- Assets/Models/Raw Models/Items/glasseye3.fbx
 - Assets/Materials/Item/RottenTooth/Rotten_Perforator_Tiny.png
+- Assets/Materials/Item/GlassEye/ColorRamp.png
 - Assets/Slipstream/SlipAssets/ItemDefs/GlassEye.asset
+- Assets/Models/Raw Models/Items/GlassEyeCornea.fbx
 - Assets/Slipstream/SlipAssets/ItemDefs/SubzeroPerforator.asset
 - Assets/Slipstream/SlipAssets/DefaultDef.asset
 - Assets/Slipstream/SlipstreamContentPack.asset
 - Assets/Materials/Item/GlassEye/GlassRenderTiny.png
-- Assets/Models/Raw Models/Items/GlassEyeUNITY2.obj
+- Assets/Materials/Item/GlassEye/glasseye_emission_2.png
 - Assets/Slipstream/SlipAssets/Prefabs/Item/RottenTooth/RottenTooth.prefab
+- Assets/StubbedShaders/StubbedShaders/deferred/stubbed_hgstandard.shader
+- Assets/StubbedShaders/StubbedShaders/fx/stubbed_hgcloudremap.shader
+- Assets/Materials/Item/GlassEye/matGlassEye.mat
 - Assets/Materials/Item/IceTooth/Subzero_Perforator_Tiny.png
 Dependencies: []

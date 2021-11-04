@@ -4,6 +4,7 @@ using R2API.Utils;
 using RoR2;
 using RoR2.ContentManagement;
 using Slipstream.Modules;
+using StubbedConverter;
 using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
@@ -14,6 +15,7 @@ using static R2API.RecalculateStatsAPI;
 namespace Slipstream
 {
     [BepInDependency("com.bepis.r2api")]
+    [BepInDependency("com.valex.ShaderConverter", BepInDependency.DependencyFlags.HardDependency)]
     [BepInPlugin(ModGuid, ModName, ModVer)]
     [NetworkCompatibility(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.EveryoneNeedSameModVersion)]
     [R2APISubmoduleDependency(nameof(ItemAPI), nameof(ItemDropAPI), nameof(LanguageAPI), nameof(ResourcesAPI), nameof(PrefabAPI), nameof(BuffAPI), nameof(LoadoutAPI), nameof(ProjectileAPI), nameof(RecalculateStatsAPI))]
@@ -35,6 +37,8 @@ namespace Slipstream
         private void Awake() //Awake() is run when the mod loads upon starting your game
         {
             //You have to call the Init() method of any items you add to here
+
+
             pluginInfo = this.Info;
             Assets.PopulateAssets();
 
@@ -108,6 +112,7 @@ namespace Slipstream
         public static void PopulateAssets()
         {
             mainAssetBundle = AssetBundle.LoadFromFile(Path.Combine(assemblyDir, assetBundleName));
+            ShaderConverter.ConvertStubbedShaders(Assets.mainAssetBundle, true);
             ContentPackProvider.serializedContentPack = mainAssetBundle.LoadAsset<SerializableContentPack>(ContentPackProvider.contentPackName);
 
         }

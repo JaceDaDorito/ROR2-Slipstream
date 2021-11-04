@@ -49,6 +49,7 @@ namespace Slipstream.Modules
             LanguageAPI.Add("GLASSEYE_NAME", "Glass Eye");
             LanguageAPI.Add("GLASSEYE_PICKUP", "Increased critical strike damage while blue shields are active. Grants blue shields and critical strike chance.");
             LanguageAPI.Add("GLASSEYE_DESC", "Gain a shield equal to <style=cIsHealing>5%</style> of your maximum health. Increases critical strike chance by <style=cIsDamage>5%</style>, and critical strikes do <style=cIsDamage>10%</style> <style=cStack>(10% per stack)</style> extra damage while shields are active.");
+            //LanguageAPI.Add("GLASSEYE_LORE", "WHAT THE HELL ARE YOU DOING");
             LanguageAPI.Add("GLASSEYE_LORE", "Like most technological marvels before it, bionics – touted as the greatest advancement in medical science since discovery of Penicillin – quickly became a topic of public obsession, to the point of hysteria across both Earth & Mars. \nMany people desiring bionic “upgrades” – for one reason or another – went to extreme lengths in order to reach their goals. Some repeatedly broke bones in order to qualify for titanium implants throughout their bodies, others arranged accidents in order to gain a mechanical arm or leg. \nIn one case, the famous ‘William R Smith’ – known as an early advocate for personal shielding technologies – reportedly gouged out their right eye with a pair of gardening sheers with the intent of replacing the eye with a self-made, bionic glass eye. \nUniquely, this bionic eye used an integrated shield generator in place of the standard mechanical lens used at the time, using the glass structure of the eye as a medium to control the shield-based lens instead. \n-    A history of early bionics, Chapter 2 – Public Perception");
         }
 
@@ -75,18 +76,18 @@ namespace Slipstream.Modules
             {
                 if (body.inventory.GetItemCount(itemDef) > 0)
                 {
-                    if (body.GetComponent<HealthComponent>().shield > 0 && damageInfo.crit)
+                    if (body.GetComponent<HealthComponent>().shield > 0 && (damageInfo.crit || BackstabManager.IsBackstab(-(body.corePosition - damageInfo.position), self.body)))
                     {
                         damageInfo.damage *= (float)(1 + (0.2 * body.inventory.GetItemCount(itemDef)));
                     }
-                }
+                }   
             }
             orig(self, damageInfo);
         }
 
         private void GrantBaseShield(CharacterBody sender, StatHookEventArgs args)
         {
-            if (!sender.inventory)
+            if (sender.inventory != null)
             {
                 if (sender.inventory.GetItemCount(itemDef) > 0)
                 {
