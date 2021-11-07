@@ -101,7 +101,7 @@ MonoBehaviour:
   - assetBundleName: AmbiguousLocation.RoS
     assets:
     - {fileID: 102900000, guid: 4096305abc5017f4bac13394a477c990, type: 3}
-  - assetBundleName: Definitions.RoS
+  - assetBundleName: definitions.RoS
     assets:
     - {fileID: 11400000, guid: 06b12fdb6f6b04e4ea0d01a09c2f44d1, type: 2}
   - assetBundleName: slipstreamassets
