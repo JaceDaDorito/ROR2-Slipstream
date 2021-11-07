@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 2322432019
+CRC: 1101642261
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: b07942a02200b522cea8d0384b50fd0a
+    Hash: 34060d1b77286dbfd58b8f3350d0ae04
   TypeTreeHash:
     serializedVersion: 2
     Hash: f8f5e66b294c866a5d5258b9aebb3fba
@@ -38,9 +38,9 @@ ClassTypes:
 Assets:
 - Assets/Slipstream/SlipAssets/Prefabs/Item/IceTooth/IceTooth.prefab
 - Assets/Slipstream/SlipAssets/ItemDefs/MalachiteUrchinOnKillItem.asset
-- Assets/Models/Raw Models/Items/RottenTooth.obj
 - Assets/Materials/Item/GlassEye/matGlass.mat
-- Assets/Slipstream/SlipAssets/Prefabs/Item/GlassEye/glasseye.prefab
+- Assets/Models/Raw Models/Items/RottenTooth.obj
+- Assets/Slipstream/SlipAssets/Prefabs/Item/GlassEye/GlassEyePickup.prefab
 - Assets/Materials/Item/GlassEye/glasseye_diffuse_2.png
 - Assets/Models/Raw Models/Items/IceTooth.obj
 - Assets/Slipstream/SlipAssets/ItemDefs/RottingPerforator.asset

@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 464893827
+CRC: 2032920048
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 9a04d6102122763b86f0f9fbb25057e9
+    Hash: 772a3af706568fb9bc6ef49e4ab00206
   TypeTreeHash:
     serializedVersion: 2
     Hash: a4d461d9cd6c32095e7412b922e75c40
@@ -82,6 +82,6 @@ ClassTypes:
 - Class: 208
   Script: {instanceID: 0}
 Assets:
-- Assets/Scenes/AmbiguousLocation.unity
+- Assets/Scenes/AmbiguousLocation/AmbiguousLocation.unity
 Dependencies:
 - D:/UnityProjects/Slipstream/ThunderKit/AssetBundleStaging/slipstreamassets
