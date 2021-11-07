@@ -1,0 +1,21 @@
+ManifestFileVersion: 0
+CRC: 2804098599
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: ef78c734727f1255882ac388b7e210b2
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 513c1eb159a8850cf79010b8d59f83b3
+HashAppended: 0
+ClassTypes:
+- Class: 114
+  Script: {fileID: -1284244208, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 114
+  Script: {fileID: -281164913, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+Assets:
+- Assets/Slipstream/Definitions/ItemDefs/Yellow/RottingPerferator.asset
+- Assets/Slipstream/Assets/SlipstreamContentPack.asset
+Dependencies: []
