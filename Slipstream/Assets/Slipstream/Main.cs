@@ -58,12 +58,12 @@ namespace Slipstream
 
             //Whites
 
-            /*
-            var SnakeEyesItem = new SnakeEyes();
-            SnakeEyesItem.Init(); 
 
-            (THIS IS COMMENTED OUT JUST SO IT DOESNT LOAD CAUSE SNAKEEYES IS JUST AN EXAMPLE)
-            */
+            //var SnakeEyesItem = new SnakeEyes();
+            //SnakeEyesItem.Init(); 
+
+            var PepperSprayItem = new PepperSpray();
+            PepperSprayItem.Init();
 
             //Greens
             var GlassEyeItem = new GlassEye();

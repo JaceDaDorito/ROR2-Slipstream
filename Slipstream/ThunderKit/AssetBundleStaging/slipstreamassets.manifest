@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 1101642261
+CRC: 98017698
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 34060d1b77286dbfd58b8f3350d0ae04
+    Hash: 55f873e62b8593edca8e5359f15401a8
   TypeTreeHash:
     serializedVersion: 2
     Hash: f8f5e66b294c866a5d5258b9aebb3fba
@@ -44,12 +44,15 @@ Assets:
 - Assets/Materials/Item/GlassEye/glasseye_diffuse_2.png
 - Assets/Models/Raw Models/Items/IceTooth.obj
 - Assets/Slipstream/SlipAssets/ItemDefs/RottingPerforator.asset
+- Assets/Materials/Item/PepperSpray/pepper_spray_icon.png
 - Assets/Models/Raw Models/Items/glasseye3.fbx
 - Assets/Materials/Item/RottenTooth/Rotten_Perforator_Tiny.png
 - Assets/Materials/Item/GlassEye/ColorRamp.png
 - Assets/Slipstream/SlipAssets/ItemDefs/GlassEye.asset
 - Assets/Models/Raw Models/Items/GlassEyeCornea.fbx
+- Assets/Models/Raw Models/Items/DefaultCube.prefab
 - Assets/Slipstream/SlipAssets/ItemDefs/SubzeroPerforator.asset
+- Assets/Slipstream/SlipAssets/ItemDefs/PepperSpray.asset
 - Assets/Slipstream/SlipAssets/DefaultDef.asset
 - Assets/Slipstream/SlipstreamContentPack.asset
 - Assets/Materials/Item/GlassEye/GlassRenderTiny.png
