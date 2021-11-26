@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 98017698
+CRC: 2121198715
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 55f873e62b8593edca8e5359f15401a8
+    Hash: 8a0ade1872fe03722e52a7b01c88d004
   TypeTreeHash:
     serializedVersion: 2
     Hash: f8f5e66b294c866a5d5258b9aebb3fba
@@ -42,6 +42,7 @@ Assets:
 - Assets/Models/Raw Models/Items/RottenTooth.obj
 - Assets/Slipstream/SlipAssets/Prefabs/Item/GlassEye/GlassEyePickup.prefab
 - Assets/Materials/Item/GlassEye/glasseye_diffuse_2.png
+- Assets/Slipstream/SlipAssets/ItemDefs/TestItem.asset
 - Assets/Models/Raw Models/Items/IceTooth.obj
 - Assets/Slipstream/SlipAssets/ItemDefs/RottingPerforator.asset
 - Assets/Materials/Item/PepperSpray/pepper_spray_icon.png

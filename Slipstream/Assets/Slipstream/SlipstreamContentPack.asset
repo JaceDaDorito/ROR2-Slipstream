@@ -26,6 +26,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4a09191969b36944cb36037c94a8f4b5, type: 2}
   - {fileID: 11400000, guid: e3077c87c9d4a114e86e04584ac07a02, type: 2}
   - {fileID: 11400000, guid: e43c5f5a8f5dcd042bae0b70eb30aa5e, type: 2}
+  - {fileID: 11400000, guid: dc70bf845436dc249a3be9f7d9500494, type: 2}
   equipmentDefs: []
   buffDefs: []
   eliteDefs: []

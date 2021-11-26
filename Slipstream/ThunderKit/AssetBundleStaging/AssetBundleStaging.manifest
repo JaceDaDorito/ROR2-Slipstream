@@ -1,5 +1,5 @@
 ManifestFileVersion: 0
-CRC: 2930175791
+CRC: 3518209265
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
@@ -10,5 +10,9 @@ AssetBundleManifest:
       Name: definitions.ros
       Dependencies: {}
     Info_2:
+      Name: foggyswamp2.ros
+      Dependencies:
+        Dependency_0: slipstreamassets
+    Info_3:
       Name: slipstreamassets
       Dependencies: {}

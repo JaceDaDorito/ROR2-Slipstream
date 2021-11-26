@@ -1,14 +1,18 @@
 ManifestFileVersion: 0
-CRC: 497496324
+CRC: 4210659136
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 9fba8fa5e5d3afa64b47eec07aff94dc
+    Hash: c951d53ff2f9e17cf9b9ffcb608184e5
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 35a2f8397704067597c5b306907e8755
+    Hash: fa3965eed5e33a99d5f6b97591975d20
 HashAppended: 0
 ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
 - Class: 21
   Script: {instanceID: 0}
 - Class: 28
@@ -16,11 +20,25 @@ ClassTypes:
 - Class: 48
   Script: {instanceID: 0}
 - Class: 114
+  Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+- Class: 114
+  Script: {fileID: 1711215368, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 114
+  Script: {fileID: -149035308, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 114
+  Script: {fileID: 1764384752, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 114
+  Script: {fileID: -794597441, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 114
+  Script: {fileID: 1291630405, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 114
   Script: {fileID: -6086170, guid: d2e201569828c809f3d2502f0471d348, type: 3}
 - Class: 114
   Script: {fileID: 1522826077, guid: d2e201569828c809f3d2502f0471d348, type: 3}
 - Class: 114
   Script: {fileID: 825212068, guid: d2e201569828c809f3d2502f0471d348, type: 3}
+- Class: 114
+  Script: {fileID: 1952315469, guid: d2e201569828c809f3d2502f0471d348, type: 3}
 - Class: 115
   Script: {instanceID: 0}
 Assets:
@@ -31,19 +49,21 @@ Assets:
 - Assets/RainOfStages/RoSShared/musictrackdefs/muSong14.asset
 - Assets/RainOfStages/RoSShared/musictrackdefs/muSong23.asset
 - Assets/RainOfStages/RoSShared/scenedefs/dampcavesimple.asset
-- Assets/Textures/Stages/supermario.mat
+- Assets/Scenes/foggyswamp2/foggyswamp2test.prefab
+- Assets/Materials/Stages/Materials/supermario.mat
 - Assets/RainOfStages/RoSShared/musictrackdefs/muFULLSong07.asset
-- Assets/Textures/Stages/supermario.PNG
+- Assets/Materials/Stages/supermario.PNG
 - Assets/RainOfStages/RoSShared/scenedefs/shipgraveyard.asset
 - Assets/RainOfStages/RoSShared/scenedefs/goolake.asset
 - Assets/RainOfStages/RoSShared/musictrackdefs/muSong16.asset
 - Assets/RainOfStages/RoSShared/scenedefs/golemplains.asset
 - Assets/RainOfStages/RoSShared/musictrackdefs/muSong13.asset
 - Assets/RainOfStages/RoSShared/musictrackdefs/muFULLSong02.asset
-- Assets/Definitions/Stagedefs/AmbiguousLocation.asset
+- Assets/Slipstream/SlipAssets/Stagedefs/AmbiguousLocation.asset
 - Assets/RainOfStages/RoSShared/musictrackdefs/muFULLSong06.asset
 - Assets/RainOfStages/RoSShared/scenedefs/foggyswamp.asset
 - Assets/RainOfStages/RoSShared/musictrackdefs/muSong22.asset
+- Assets/Slipstream/SlipAssets/Stagedefs/foggyswamp2.asset
 - Assets/RainOfStages/RoSShared/musictrackdefs/muFULLSong18.asset
 - Assets/RainOfStages/RoSShared/scenedefs/frozenwall.asset
 - Assets/RainOfStages/RoSShared/scenedefs/skymeadow.asset

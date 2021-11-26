@@ -30,7 +30,6 @@ namespace Slipstream.Modules
         private void Hooks()
         {
             GetStatCoefficients += GrantBaseShield;
-           // On.RoR2.CharacterBody.FixedUpdate += Validate;
             TakeDamage += Trigger;
         }
 

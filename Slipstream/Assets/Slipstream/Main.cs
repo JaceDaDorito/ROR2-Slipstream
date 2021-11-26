@@ -16,6 +16,7 @@ namespace Slipstream
 {
     [BepInDependency("com.bepis.r2api")]
     [BepInDependency("com.valex.ShaderConverter", BepInDependency.DependencyFlags.HardDependency)]
+    //[BepInDependency("com.teammoonstorm.MoonstormSharedUtils")]
     [BepInPlugin(ModGuid, ModName, ModVer)]
     [NetworkCompatibility(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.EveryoneNeedSameModVersion)]
     [R2APISubmoduleDependency(nameof(ItemAPI), nameof(ItemDropAPI), nameof(LanguageAPI), nameof(ResourcesAPI), nameof(PrefabAPI), nameof(BuffAPI), nameof(LoadoutAPI), nameof(ProjectileAPI), nameof(RecalculateStatsAPI))]
