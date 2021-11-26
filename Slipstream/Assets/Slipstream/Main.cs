@@ -14,9 +14,9 @@ using static R2API.RecalculateStatsAPI;
 
 namespace Slipstream
 {
-    [BepInDependency("com.bepis.r2api")]
+    [BepInDependency("com.bepis.r2api", BepInDependency.DependencyFlags.HardDependency)]
     [BepInDependency("com.valex.ShaderConverter", BepInDependency.DependencyFlags.HardDependency)]
-    //[BepInDependency("com.teammoonstorm.MoonstormSharedUtils")]
+    [BepInDependency("com.TeamMoonstorm.MoonstormSharedUtils", BepInDependency.DependencyFlags.HardDependency)]
     [BepInPlugin(ModGuid, ModName, ModVer)]
     [NetworkCompatibility(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.EveryoneNeedSameModVersion)]
     [R2APISubmoduleDependency(nameof(ItemAPI), nameof(ItemDropAPI), nameof(LanguageAPI), nameof(ResourcesAPI), nameof(PrefabAPI), nameof(BuffAPI), nameof(LoadoutAPI), nameof(ProjectileAPI), nameof(RecalculateStatsAPI))]
@@ -88,10 +88,6 @@ namespace Slipstream
 
             //Other Stuff
             #endregion Item Inits
-
-
-
-
 
         }
     }
