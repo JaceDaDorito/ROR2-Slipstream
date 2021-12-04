@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "com.passivepicasso.thunderkit":"https://github.com/PassivePicasso/ThunderKit.git",
+    "com.passivepicasso.thunderkit": "https://github.com/PassivePicasso/ThunderKit.git",
     "com.unity.ads": "2.0.8",
     "com.unity.analytics": "3.2.2",
     "com.unity.assetbundlebrowser": "1.7.0",
@@ -42,7 +42,7 @@
   "lock": {
     "com.passivepicasso.thunderkit": {
       "revision": "HEAD",
-      "hash": "ed3514689f49c860642ec1ae5b2200986a2b1e7e"
+      "hash": "c1128579abd4579a16062e1d0cda8a59c6cf46b3"
     }
   }
 }

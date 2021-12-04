@@ -1,0 +1,12 @@
+{
+    "name": "MoonstormSharedUtils",
+    "version_number": "0.5.1",
+    "website_url": "https://github.com/TeamMoonstorm/MoonstormSharedUtils",
+    "description": "Utility, content and module classes used by members of Team Moonstorm",
+    "dependencies": [
+        "bbepis-BepInExPack-5.4.9",
+        "tristanmcpherson-R2API-3.0.52",
+        "RiskofThunder-FixPluginTypesSerialization-1.0.1",
+        "RiskofThunder-Microsoft_CSharp-4.6.57"
+    ]
+}

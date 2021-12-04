@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 18
-  productGUID: 87e1255012c03ab42b64c15e5fee308b
+  productGUID: ecacd496e1cc85247b9292c3c5c335bf
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
@@ -532,15 +532,15 @@ PlayerSettings:
   webGLLinkerTarget: 1
   webGLThreadsSupport: 0
   scriptingDefineSymbols:
-    1: thunderkit;bbepis-bepinexpack;twiner-rainofstages;riskofthunder-hookgenpatcher;tristanmcpherson-r2api;ebkr-r2modman;teammoonstorm-starstorm2;valex-stubbedshaderconverter
-    7: thunderkit;bbepis-bepinexpack;twiner-rainofstages;riskofthunder-hookgenpatcher;tristanmcpherson-r2api;ebkr-r2modman;teammoonstorm-starstorm2;valex-stubbedshaderconverter
-    13: thunderkit;bbepis-bepinexpack;twiner-rainofstages;riskofthunder-hookgenpatcher;tristanmcpherson-r2api;ebkr-r2modman;teammoonstorm-starstorm2;valex-stubbedshaderconverter
-    19: thunderkit;bbepis-bepinexpack;twiner-rainofstages;riskofthunder-hookgenpatcher;tristanmcpherson-r2api;ebkr-r2modman;teammoonstorm-starstorm2;valex-stubbedshaderconverter
-    21: thunderkit;bbepis-bepinexpack;twiner-rainofstages;riskofthunder-hookgenpatcher;tristanmcpherson-r2api;ebkr-r2modman;teammoonstorm-starstorm2;valex-stubbedshaderconverter
-    25: thunderkit;bbepis-bepinexpack;twiner-rainofstages;riskofthunder-hookgenpatcher;tristanmcpherson-r2api;ebkr-r2modman;teammoonstorm-starstorm2;valex-stubbedshaderconverter
-    26: thunderkit;bbepis-bepinexpack;twiner-rainofstages;riskofthunder-hookgenpatcher;tristanmcpherson-r2api;ebkr-r2modman;teammoonstorm-starstorm2;valex-stubbedshaderconverter
-    27: thunderkit;bbepis-bepinexpack;twiner-rainofstages;riskofthunder-hookgenpatcher;tristanmcpherson-r2api;ebkr-r2modman;teammoonstorm-starstorm2;valex-stubbedshaderconverter
-    28: thunderkit;bbepis-bepinexpack;twiner-rainofstages;riskofthunder-hookgenpatcher;tristanmcpherson-r2api;ebkr-r2modman;teammoonstorm-starstorm2;valex-stubbedshaderconverter
+    1: thunderkit;riskofrain2;bbepis-bepinexpack;riskofthunder-hookgenpatcher;tristanmcpherson-r2api;twiner-rainofstages;riskofthunder-fixplugintypesserialization;riskofthunder-microsoft_csharp;teammoonstorm-moonstormsharedutils;ror2editorkitteam-ror2editorkit;teammoonstorm-moonstormsharededitorutils;themysticsword-mysticsrisky2utils;themysticsword-aspectabilities;iharbhd-debugtoolkit
+    7: thunderkit;riskofrain2;bbepis-bepinexpack;riskofthunder-hookgenpatcher;tristanmcpherson-r2api;twiner-rainofstages;riskofthunder-fixplugintypesserialization;riskofthunder-microsoft_csharp;teammoonstorm-moonstormsharedutils;ror2editorkitteam-ror2editorkit;teammoonstorm-moonstormsharededitorutils;themysticsword-mysticsrisky2utils;themysticsword-aspectabilities;iharbhd-debugtoolkit
+    13: thunderkit;riskofrain2;bbepis-bepinexpack;riskofthunder-hookgenpatcher;tristanmcpherson-r2api;twiner-rainofstages;riskofthunder-fixplugintypesserialization;riskofthunder-microsoft_csharp;teammoonstorm-moonstormsharedutils;ror2editorkitteam-ror2editorkit;teammoonstorm-moonstormsharededitorutils;themysticsword-mysticsrisky2utils;themysticsword-aspectabilities;iharbhd-debugtoolkit
+    19: thunderkit;riskofrain2;bbepis-bepinexpack;riskofthunder-hookgenpatcher;tristanmcpherson-r2api;twiner-rainofstages;riskofthunder-fixplugintypesserialization;riskofthunder-microsoft_csharp;teammoonstorm-moonstormsharedutils;ror2editorkitteam-ror2editorkit;teammoonstorm-moonstormsharededitorutils;themysticsword-mysticsrisky2utils;themysticsword-aspectabilities;iharbhd-debugtoolkit
+    21: thunderkit;riskofrain2;bbepis-bepinexpack;riskofthunder-hookgenpatcher;tristanmcpherson-r2api;twiner-rainofstages;riskofthunder-fixplugintypesserialization;riskofthunder-microsoft_csharp;teammoonstorm-moonstormsharedutils;ror2editorkitteam-ror2editorkit;teammoonstorm-moonstormsharededitorutils;themysticsword-mysticsrisky2utils;themysticsword-aspectabilities;iharbhd-debugtoolkit
+    25: thunderkit;riskofrain2;bbepis-bepinexpack;riskofthunder-hookgenpatcher;tristanmcpherson-r2api;twiner-rainofstages;riskofthunder-fixplugintypesserialization;riskofthunder-microsoft_csharp;teammoonstorm-moonstormsharedutils;ror2editorkitteam-ror2editorkit;teammoonstorm-moonstormsharededitorutils;themysticsword-mysticsrisky2utils;themysticsword-aspectabilities;iharbhd-debugtoolkit
+    26: thunderkit;riskofrain2;bbepis-bepinexpack;riskofthunder-hookgenpatcher;tristanmcpherson-r2api;twiner-rainofstages;riskofthunder-fixplugintypesserialization;riskofthunder-microsoft_csharp;teammoonstorm-moonstormsharedutils;ror2editorkitteam-ror2editorkit;teammoonstorm-moonstormsharededitorutils;themysticsword-mysticsrisky2utils;themysticsword-aspectabilities;iharbhd-debugtoolkit
+    27: thunderkit;riskofrain2;bbepis-bepinexpack;riskofthunder-hookgenpatcher;tristanmcpherson-r2api;twiner-rainofstages;riskofthunder-fixplugintypesserialization;riskofthunder-microsoft_csharp;teammoonstorm-moonstormsharedutils;ror2editorkitteam-ror2editorkit;teammoonstorm-moonstormsharededitorutils;themysticsword-mysticsrisky2utils;themysticsword-aspectabilities;iharbhd-debugtoolkit
+    28: thunderkit;riskofrain2;bbepis-bepinexpack;riskofthunder-hookgenpatcher;tristanmcpherson-r2api;twiner-rainofstages;riskofthunder-fixplugintypesserialization;riskofthunder-microsoft_csharp;teammoonstorm-moonstormsharedutils;ror2editorkitteam-ror2editorkit;teammoonstorm-moonstormsharededitorutils;themysticsword-mysticsrisky2utils;themysticsword-aspectabilities;iharbhd-debugtoolkit
   platformArchitecture: {}
   scriptingBackend: {}
   il2cppCompilerConfiguration: {}
