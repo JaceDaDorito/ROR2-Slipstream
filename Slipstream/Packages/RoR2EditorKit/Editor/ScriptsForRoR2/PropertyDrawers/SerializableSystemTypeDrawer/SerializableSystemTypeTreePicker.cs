@@ -1,8 +1,10 @@
-﻿using RoR2EditorKit.Common;
+﻿
+using RoR2EditorKit.Common;
 using System;
 using System.Linq;
 using UnityEditor;
 using UnityEngine;
+using RoR2EditorKit.Core;
 
 namespace RoR2EditorKit.RoR2.PropertyDrawers
 {
@@ -88,6 +90,7 @@ namespace RoR2EditorKit.RoR2.PropertyDrawers
 
         public class PickerCreator
         {
+            public SerializedProperty parentProperty;
             public SerializedProperty systemTypeReference;
             public Rect pickerPosition;
             public SerializedObject serializedObject;
@@ -119,11 +122,14 @@ namespace RoR2EditorKit.RoR2.PropertyDrawers
                 typeTreePicker.serializableSystemTypeReference = systemTypeReference;
                 typeTreePicker.serializedObject = serializedObject;
 
+                //First lookup for the required base type attribute.
                 Type typeOfObject = serializedObject.targetObject.GetType();
+
 
                 var field = typeOfObject.GetFields()
                                          .Where(fieldInfo => fieldInfo.GetCustomAttributes(typeof(HG.SerializableSystemType.RequiredBaseTypeAttribute), true) != null)
-                                         .First();
+                                         .Where(fieldInfo => fieldInfo.Name == parentProperty.name)
+                                         .FirstOrDefault();
 
                 Type requiredBaseType = null;
                 if (field != null)
@@ -132,6 +138,30 @@ namespace RoR2EditorKit.RoR2.PropertyDrawers
                     if (attribute != null)
                     {
                         requiredBaseType = attribute.type;
+                    }
+                }
+
+                //If the lookup fails, look for it using this different method.
+                if (requiredBaseType == null)
+                {
+                    var path = parentProperty.propertyPath;
+                    path = path.Substring(0, path.LastIndexOf("."));
+                    var pProp = serializedObject.FindProperty(path);
+                    var parentType = AppDomain.CurrentDomain.GetAssemblies().SelectMany(asm => asm.GetTypes()).FirstOrDefault(t => t.Name == pProp.type);
+
+                    var fieldInfo = parentType.GetField(parentProperty.name);
+                    var requiredBaseTypeAttribute = fieldInfo.GetCustomAttributes(typeof(HG.SerializableSystemType.RequiredBaseTypeAttribute), true).FirstOrDefault();
+
+                    if (fieldInfo != null)
+                    {
+                        if (requiredBaseTypeAttribute != null)
+                        {
+                            HG.SerializableSystemType.RequiredBaseTypeAttribute attribute = (HG.SerializableSystemType.RequiredBaseTypeAttribute)requiredBaseTypeAttribute;
+                            if (attribute != null)
+                            {
+                                requiredBaseType = attribute.type;
+                            }
+                        }
                     }
                 }
 

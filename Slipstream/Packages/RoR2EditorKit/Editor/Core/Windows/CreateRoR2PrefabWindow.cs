@@ -1,4 +1,4 @@
-﻿/*using RoR2EditorKit.Settings;
+﻿using RoR2EditorKit.Settings;
 using System.Linq;
 using UnityEditor;
 using UnityEngine;
@@ -59,4 +59,3 @@ namespace RoR2EditorKit.Core.Windows
         }
     }
 }
-*/

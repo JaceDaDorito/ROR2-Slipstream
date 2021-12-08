@@ -57,5 +57,11 @@ namespace RoR2EditorKit.Core.Inspectors
                 DrawDefaultInspector();
             }
         }
+
+        protected void DrawField(string propName) => EditorGUILayout.PropertyField(serializedObject.FindProperty(propName), true);
+        protected void DrawField(SerializedProperty property, string propName) => EditorGUILayout.PropertyField(property.FindPropertyRelative(propName), true);
+        protected void DrawField(SerializedProperty property) => EditorGUILayout.PropertyField(property, true);
+        protected void Header(string label) => EditorGUILayout.LabelField(new GUIContent(label), EditorStyles.boldLabel);
+        protected void Header(string label, string tooltip) => EditorGUILayout.LabelField(new GUIContent(label, tooltip), EditorStyles.boldLabel);
     }
 }

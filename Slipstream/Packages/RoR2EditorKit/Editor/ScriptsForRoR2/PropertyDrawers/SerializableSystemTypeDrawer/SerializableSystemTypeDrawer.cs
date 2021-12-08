@@ -37,9 +37,10 @@ namespace RoR2EditorKit.RoR2.PropertyDrawers
             {
                 new SerializableSystemTypeTreePicker.PickerCreator
                 {
+                    parentProperty = property,
                     systemTypeReference = typeReference,
                     pickerPosition = GetLastRectAbsolute(position),
-                    serializedObject = property.serializedObject
+                    serializedObject = property.serializedObject,
                 };
             }
 

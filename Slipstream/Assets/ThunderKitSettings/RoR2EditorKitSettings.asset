@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23c3a884997f30143ab7a1ec0a39ba90, type: 3}
   m_Name: RoR2EditorKitSettings
   m_EditorClassIdentifier: 
-  TokenPrefix: 
-  MainManifest: {fileID: 0}
+  TokenPrefix: SLIPSTREAM_MANIFEST
+  MainManifest: {fileID: 11400000, guid: e8cea3bdb2b2548f320faec237a0013b, type: 2}
   CloseWindowWhenAssetIsCreated: 1
