@@ -12,7 +12,7 @@ namespace Slipstream
         public void Init()
         {
             contentPack = serializableContentPack.CreateContentPack();
-            //contentPack.identifier = identifier;
+            contentPack.identifier = identifier;
             ContentManager.collectContentPackProviders += ContentManager_collectContentPackProviders;
         }
 

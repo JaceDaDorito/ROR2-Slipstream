@@ -7,11 +7,18 @@ using System.Linq;
 using System.Security;
 using System.Security.Permissions;
 
+#pragma warning disable CS0618
+[assembly: SecurityPermission(SecurityAction.RequestMinimum, SkipVerification = true)]
+
 namespace Slipstream
 {
+    //Not all modules are implemented, I will continue making them. If you want to take it on yourself then reference LIT. Ask NebNeb questions too.
+
+    //Dependencies
     [BepInDependency("com.bepis.r2api", BepInDependency.DependencyFlags.HardDependency)]
     [BepInDependency("com.TeamMoonstorm.MoonstormSharedUtils", BepInDependency.DependencyFlags.HardDependency)]
     [BepInDependency("com.TheMysticSword.AspectAbilities", BepInDependency.DependencyFlags.SoftDependency)]
+
     [NetworkCompatibility(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.EveryoneNeedSameModVersion)]
     [BepInPlugin(ModGuid, ModName, ModVer)]
     [R2APISubmoduleDependency(nameof(ItemAPI), nameof(ItemDropAPI), nameof(LanguageAPI), nameof(ResourcesAPI), nameof(PrefabAPI), nameof(BuffAPI), nameof(LoadoutAPI), nameof(ProjectileAPI), nameof(RecalculateStatsAPI))]
@@ -36,7 +43,9 @@ namespace Slipstream
 
         public void Awake()
         {
+            //Allows organized configurable fields of public static fields.
             ConfigurableFieldManager.AddMod(Config);
+            //Updates in game tokens to reflect changed config options. For example changing damage of x to 8 would show that it does 8 damage in game. Relies onthe actual item token though too.
             TokenModifierManager.AddMod();
 
             instance = this;

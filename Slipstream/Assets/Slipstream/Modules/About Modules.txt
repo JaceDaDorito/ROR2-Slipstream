@@ -1,0 +1,3 @@
+﻿The Modules folder contains the basic skeleton of transfering our content to MSU as well as the actual content itself. The entire folder pretty much has a pattern of
+sending MSU our content, iterating through it to see if its disabled, and populate it in its own contentpack. That is all this folder does. If you have any questions ask me
+and if I tell you I don't know (which I probably will) go ask Neb. He is cool.
