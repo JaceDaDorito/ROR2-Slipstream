@@ -4,7 +4,6 @@ using System;
 using System.Linq;
 using UnityEditor;
 using UnityEngine;
-using RoR2EditorKit.Core;
 
 namespace RoR2EditorKit.RoR2.PropertyDrawers
 {

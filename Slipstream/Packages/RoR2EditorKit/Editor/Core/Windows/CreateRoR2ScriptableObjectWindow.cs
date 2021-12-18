@@ -1,5 +1,4 @@
-﻿using RoR2EditorKit.Settings;
-using System.Linq;
+﻿using System.Linq;
 using UnityEngine;
 
 namespace RoR2EditorKit.Core.Windows

@@ -1,4 +1,5 @@
-﻿using Moonstorm;
+﻿using Slipstream.Utils;
+using Moonstorm;
 using R2API;
 using RoR2.ContentManagement;
 using System;
@@ -22,7 +23,7 @@ namespace Slipstream
 
         private static string MainAssetBundlePath { get => Path.Combine(AssemblyDir, mainAssetBundle); }
 
-        private const string mainAssetBundle = "SlipAssets";
+        private const string mainAssetBundle = "slipassets";
 
         public static AssetBundle SlipAssets { get; } = AssetBundle.LoadFromFile(MainAssetBundlePath);
 
@@ -39,15 +40,19 @@ namespace Slipstream
 
         private static void SwapShaders(List<Material> materials)
         {
+            var cloudMat = Resources.Load<GameObject>("Prefabs/Effects/OrbEffects/LightningStrikeOrbEffect").transform.Find("Ring").GetComponent<ParticleSystemRenderer>().material;
             materials.ForEach(Material =>
             {
                 if (Material.shader.name.StartsWith("StubbedShader"))
                 {
                     Material.shader = Resources.Load<Shader>("shaders" + Material.shader.name.Substring(13));
-                    /*if (Material.shader.name.Contains("Cloud Remap"))
+                    if (Material.shader.name.Contains("Cloud Remap"))
                     {
-                        this relates to cloudremap shader, don't worry about it just yet I will figure this out trust me.
-                    }*/
+                        var eatShit = new RuntimeCloudMaterialMapper(Material);
+                        Material.CopyPropertiesFromMaterial(cloudMat);
+                        eatShit.SetMaterialValues(ref Material);
+                        HG.ArrayUtils.ArrayAppend(ref cloudRemaps, Material);
+                    }
                 }
             });
         }

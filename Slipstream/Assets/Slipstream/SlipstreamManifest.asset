@@ -82,9 +82,9 @@ MonoBehaviour:
   StagingPaths:
   - <ManifestPluginStaging>
   assetBundles:
-  - assetBundleName: SlipAssets
+  - assetBundleName: slipassets
     assets:
-    - {fileID: 11400000, guid: bd6735d8e552a8848b98f058893b70e7, type: 2}
+    - {fileID: 102900000, guid: a5c161e57cad8934aa6c6805f906f01a, type: 3}
 --- !u!114 &114454666886794288
 MonoBehaviour:
   m_ObjectHideFlags: 0

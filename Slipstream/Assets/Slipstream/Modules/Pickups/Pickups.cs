@@ -21,10 +21,12 @@ namespace Slipstream.Modules
             base.Init();
             if (SlipConfig.EnableItems.Value)
             {
+                SlipLogger.LogD($"Initializing Slipstream Items");
                 InitializeItems();
             }
             if (SlipConfig.EnableEquipments.Value) 
             {
+                SlipLogger.LogD($"Initializing Slipstream Equipment");
                 InitializeEquipments();
                 InitializeEliteEquipments();
             }

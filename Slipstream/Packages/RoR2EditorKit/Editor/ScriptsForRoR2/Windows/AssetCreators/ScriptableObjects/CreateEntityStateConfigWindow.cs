@@ -1,7 +1,6 @@
 ﻿using HG.GeneralSerializer;
 using RoR2;
 using RoR2EditorKit.Common;
-using RoR2EditorKit.Core;
 using RoR2EditorKit.Core.Windows;
 using System;
 using System.Linq;

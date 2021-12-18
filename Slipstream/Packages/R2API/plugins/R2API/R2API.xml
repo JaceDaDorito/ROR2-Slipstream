@@ -39,16 +39,6 @@
             Return true if the submodule is loaded.
             </summary>
         </member>
-        <member name="M:R2API.ArtifactCodeAPI.PrintSha256HashCode(On.RoR2.PortalDialerController.orig_PerformActionServer,RoR2.PortalDialerController,System.Byte[])">
-            <summary>
-            Prints the Artifact Code that the player inputs in the dialer. Useful for mod creators.
-            </summary>
-        </member>
-        <member name="M:R2API.ArtifactCodeAPI.AddCodes(On.RoR2.PortalDialerController.orig_Awake,RoR2.PortalDialerController)">
-            <summary>
-            Adds custom ArtifactCodes to the portal dialer controller instance found in sky meadow.
-            </summary>
-        </member>
         <member name="M:R2API.ArtifactCodeAPI.AddCode(RoR2.ArtifactDef,RoR2.Sha256HashAsset)">
             <summary>
             Add a custom Artifact code to the SkyMeadow Artifact portal dialer.
@@ -1108,7 +1098,7 @@
             <param name="interval"></param>
             <param name="damageCoefficient"></param>
             <param name="colorIndex"></param>
-            <param name="associatedBuff"></param>
+            <param name="associatedBuff">The buff associated with the DOT, can be null</param>
             <param name="customDotBehaviour"></param>
             <param name="customDotVisual"></param>
             <returns></returns>
@@ -1729,7 +1719,7 @@
             </summary>
         </member>
         <member name="F:R2API.RecalculateStatsAPI.StatHookEventArgs.healthMultAdd">
-            <summary>Added to the direct multiplier to base health. MAX_HEALTH ~ (BASE_HEALTH + baseHealthAdd) * (HEALTH_MULT + healthMultAdd).</summary>
+            <summary>Added to the direct multiplier to base health. MAX_HEALTH ~ (BASE_HEALTH + baseHealthAdd) * (HEALTH_MULT + healthMultAdd) / (BASE_CURSE_PENALTY + baseCurseAdd).</summary>
         </member>
         <member name="F:R2API.RecalculateStatsAPI.StatHookEventArgs.baseHealthAdd">
             <summary>Added to base health. MAX_HEALTH ~ (BASE_HEALTH + baseHealthAdd) * (HEALTH_MULT + healthMultAdd).</summary>
@@ -1753,7 +1743,7 @@
             <summary>Added reduction multiplier to move speed. MOVE_SPEED ~ (BASE_MOVE_SPEED + baseMoveSpeedAdd) * (MOVE_SPEED_MULT + moveSpeedMultAdd / MOVE_SPEED_REDUCTION_MULT + moveSpeedReductionMultAdd)</summary>
         </member>
         <member name="F:R2API.RecalculateStatsAPI.StatHookEventArgs.jumpPowerMultAdd">
-            <summary>Added to the direct multiplier to jump power. JUMP_POWER ~ BASE_JUMP_POWER * (JUMP_POWER_MULT + jumpPowerMultAdd)</summary>
+            <summary>Added to the direct multiplier to jump power. JUMP_POWER ~ (BASE_JUMP_POWER + baseJumpPowerAdd) * (JUMP_POWER_MULT + jumpPowerMultAdd)</summary>
         </member>
         <member name="F:R2API.RecalculateStatsAPI.StatHookEventArgs.damageMultAdd">
             <summary>Added to the direct multiplier to base damage. DAMAGE ~ (BASE_DAMAGE + baseDamageAdd) * (DAMAGE_MULT + damageMultAdd).</summary>
@@ -1772,6 +1762,39 @@
         </member>
         <member name="F:R2API.RecalculateStatsAPI.StatHookEventArgs.armorAdd">
             <summary>Added to armor. ARMOR ~ BASE_ARMOR + armorAdd.</summary>
+        </member>
+        <member name="F:R2API.RecalculateStatsAPI.StatHookEventArgs.baseCurseAdd">
+            <summary> Added to Curse Penalty.MAX_HEALTH ~ (BASE_HEALTH + baseHealthAdd) * (HEALTH_MULT + healthMultAdd) / (BASE_CURSE_PENALTY + baseCurseAdd)</summary>
+        </member>
+        <member name="F:R2API.RecalculateStatsAPI.StatHookEventArgs.cooldownReductionAdd">
+            <summary>Added to flat cooldown reduction. COOLDOWN ~ BASE_COOLDOWN * (BASE_COOLDOWN_MULT + cooldownMultAdd) - (BASE_FLAT_REDUCTION + cooldownReductionAdd) </summary>
+        </member>
+        <member name="F:R2API.RecalculateStatsAPI.StatHookEventArgs.cooldownMultAdd">
+            <summary>Added to the direct multiplier to cooldown timers. COOLDOWN ~ BASE_COOLDOWN * (BASE_COOLDOWN_MULT + cooldownMultAdd) - (BASE_FLAT_REDUCTION + cooldownReductionAdd)</summary>
+        </member>
+        <member name="F:R2API.RecalculateStatsAPI.StatHookEventArgs.primaryCooldownMultAdd">
+            <summary> (Primary) Added to the direct multiplier to cooldown timers. COOLDOWN ~ BASE_COOLDOWN * (BASE_COOLDOWN_MULT + cooldownMultAdd + primaryCooldownMultAdd) - (BASE_FLAT_REDUCTION + cooldownReductionAdd)</summary>
+        </member>
+        <member name="F:R2API.RecalculateStatsAPI.StatHookEventArgs.secondaryCooldownMultAdd">
+            <summary> (Secondary) Added to the direct multiplier to cooldown timers. COOLDOWN ~ BASE_COOLDOWN * (BASE_COOLDOWN_MULT + cooldownMultAdd+ secondaryCooldownMultAdd) - (BASE_FLAT_REDUCTION + cooldownReductionAdd)</summary>
+        </member>
+        <member name="F:R2API.RecalculateStatsAPI.StatHookEventArgs.utilityCooldownMultAdd">
+            <summary> (Utility) Added to the direct multiplier to cooldown timers. COOLDOWN ~ BASE_COOLDOWN * (BASE_COOLDOWN_MULT + cooldownMultAdd + utilityCooldownMultAdd) - (BASE_FLAT_REDUCTION + cooldownReductionAdd)</summary>
+        </member>
+        <member name="F:R2API.RecalculateStatsAPI.StatHookEventArgs.specialCooldownMultAdd">
+            <summary> (Special) Added to the direct multiplier to cooldown timers. COOLDOWN ~ BASE_COOLDOWN * (BASE_COOLDOWN_MULT + cooldownMultAdd + specialCooldownMultAdd) - (BASE_FLAT_REDUCTION + cooldownReductionAdd)</summary>
+        </member>
+        <member name="F:R2API.RecalculateStatsAPI.StatHookEventArgs.shieldMultAdd">
+            <summary>Added to the direct multiplier to base shield</summary>
+        </member>
+        <member name="F:R2API.RecalculateStatsAPI.StatHookEventArgs.baseJumpPowerAdd">
+            <summary>Added to base jump power. JUMP_POWER ~ (BASE_JUMP_POWER + baseJumpPowerAdd)* (JUMP_POWER_MULT + jumpPowerMultAdd)</summary>
+        </member>
+        <member name="F:R2API.RecalculateStatsAPI.StatHookEventArgs.levelMultAdd">
+            <summary>Added to the direct multiplier to level scaling. EFFECTIVE LEVEL ~ (BASE LEVEL * (BASE_LEVEL_SCALING + levelMultAdd)</summary>
+        </member>
+        <member name="F:R2API.RecalculateStatsAPI.StatHookEventArgs.moveSpeedRootCount">
+            <summary>Amount of Root effects currently applied. MOVE_SPEED ~ (moveSpeedRootCount > 0) ? 0 : MOVE_SPEED </summary>
         </member>
         <member name="T:R2API.RecalculateStatsAPI.StatHookEventHandler">
             <summary>
@@ -1828,9 +1851,14 @@
             Scriptable object to ease the creation of Artifact codes.
             </summary>
         </member>
-        <member name="F:R2API.ArtifactCode.ArtifactCompounds">
+        <member name="F:R2API.ArtifactCode.middleRow">
             <summary>
-            The code for the Artifact. for a list of accepted vanilla compound values, check ArtifactCodeAPI.CompoundValues
+            Compound values that represent the middle 3 compounds. For a list of accepted vanilla compound values, check ArtifactCodeAPI.CompoundValues
+            </summary>
+        </member>
+        <member name="F:R2API.ArtifactCode.bottomRow">
+            <summary>
+            Compound values that represent the bottom 3 compounds. For a list of accepted vanila compound values, check ArtifactCodeAPI.CompoundValues
             </summary>
         </member>
         <member name="F:R2API.ArtifactCode.hashAsset">
@@ -1909,7 +1937,7 @@
         </member>
         <member name="F:R2API.SoundAPI.SoundBanks.Bank.Memory">
             <summary>
-            Pointer for the wwise engine
+            Handle for BankData array
             </summary>
         </member>
         <member name="F:R2API.SoundAPI.SoundBanks.Bank.BankID">
@@ -2074,6 +2102,11 @@
             Set the states to 0 to the Wwise sound engine
             </summary>
         </member>
+        <member name="M:R2API.SoundAPI.Music.PauseMusicIfGameMusicBankNotInUse(MonoMod.Cil.ILContext)">
+            <summary>
+            Needed otherwise the vanilla music system plays the default track of the bank on top of the custom music
+            </summary>
+        </member>
         <member name="M:R2API.SoundAPI.Music.Add(R2API.SoundAPI.Music.CustomMusicData)">
             <summary>
             Please refer to the <see cref="T:R2API.SoundAPI.Music.CustomMusicData"/> fields documentation
@@ -2106,6 +2139,39 @@
             </summary>
             <param name="survivor">The survivor to add.</param>
             <returns>true if survivor will be added</returns>
+        </member>
+        <member name="T:R2API.TempVisualEffectAPI">
+            <summary>
+            API for adding custom TemporaryVisualEffects to CharacterBody components.
+            </summary>
+        </member>
+        <member name="P:R2API.TempVisualEffectAPI.Loaded">
+            <summary>
+            Return true if the submodule is loaded.
+            </summary>
+        </member>
+        <member name="T:R2API.TempVisualEffectAPI.EffectCondition">
+            <summary>
+            Delegate used for checking if TVE should be active (bool active). <see cref="M:RoR2.CharacterBody.UpdateSingleTemporaryVisualEffect(RoR2.TemporaryVisualEffect@,System.String,System.Single,System.Boolean,System.String)"/>
+            </summary>
+            <param name="body"></param>
+        </member>
+        <member name="M:R2API.TempVisualEffectAPI.AddTemporaryVisualEffect(UnityEngine.GameObject,R2API.TempVisualEffectAPI.EffectCondition,System.Boolean,System.String)">
+            <summary>
+            Adds a custom TemporaryVisualEffect (TVEs) to the static tves List and Dict.
+            Custom TVEs are used and updated in the CharacterBody just after vanilla TVEs.
+            Must be called before R2APIContentPackProvider.WhenContentPackReady. Will fail if called after.
+            Returns true if successful.
+            </summary>
+            <param name="effectPrefab">MUST contain a TemporaryVisualEffect component.</param>
+            <param name="useBestFitRadius"></param>
+            /// <param name="condition"></param>
+            <param name="childLocatorOverride"></param>
+        </member>
+        <member name="T:R2API.R2APITVEController">
+            <summary>
+            Contains a local list of custom TemporaryVisualEffects for each CharacterBody.
+            </summary>
         </member>
         <member name="T:R2API.Tweaks.ILLine">
             <summary>
@@ -2189,6 +2255,13 @@
             Return true if the submodule is loaded.
             </summary>
         </member>
+        <member name="M:R2API.UnlockableAPI.AddAchievement(RoR2.AchievementDef)">
+            <summary>
+            Adds an AchievementDef to the list of achievements to add to the game
+            </summary>
+            <param name="achievementDef">The achievementDef to add</param>
+            <returns>True if succesful, false otherwise</returns>
+        </member>
         <member name="M:R2API.UnlockableAPI.AddUnlockable``1(System.Type,RoR2.UnlockableDef)">
             <summary>
             Add an unlockable tied to an achievement.
@@ -2199,6 +2272,7 @@
             <param name="unlockableDef">For UnlockableDefs created in advance. Leaving null will generate an UnlockableDef instead.</param>
             <returns></returns>
         </member>
+        <!-- Badly formed XML comment ignored for member "M:R2API.UnlockableAPI.AddUnlockable(System.Type,System.Type,RoR2.UnlockableDef)" -->
         <member name="T:R2API.Utils.R2APISubmoduleDependency">
             <summary>
             Attribute to have at the top of your BaseUnityPlugin class if you want to load a specific R2API Submodule.
@@ -2681,218 +2755,6 @@
             </summary>
             <param name="type"></param>
             <returns></returns>
-        </member>
-        <member name="T:System.Diagnostics.CodeAnalysis.AllowNullAttribute">
-            <summary>
-                Specifies that <see langword="null"/> is allowed as an input even if the
-                corresponding type disallows it.
-            </summary>
-        </member>
-        <member name="M:System.Diagnostics.CodeAnalysis.AllowNullAttribute.#ctor">
-            <summary>
-                Initializes a new instance of the <see cref="T:System.Diagnostics.CodeAnalysis.AllowNullAttribute"/> class.
-            </summary>
-        </member>
-        <member name="T:System.Diagnostics.CodeAnalysis.DisallowNullAttribute">
-            <summary>
-                Specifies that <see langword="null"/> is disallowed as an input even if the
-                corresponding type allows it.
-            </summary>
-        </member>
-        <member name="M:System.Diagnostics.CodeAnalysis.DisallowNullAttribute.#ctor">
-            <summary>
-                Initializes a new instance of the <see cref="T:System.Diagnostics.CodeAnalysis.DisallowNullAttribute"/> class.
-            </summary>
-        </member>
-        <member name="T:System.Diagnostics.CodeAnalysis.DoesNotReturnAttribute">
-            <summary>
-                Specifies that a method that will never return under any circumstance.
-            </summary>
-        </member>
-        <member name="M:System.Diagnostics.CodeAnalysis.DoesNotReturnAttribute.#ctor">
-             <summary>
-                 Initializes a new instance of the <see cref="T:System.Diagnostics.CodeAnalysis.DoesNotReturnAttribute"/> class.
-             </summary>
-            
-        </member>
-        <member name="T:System.Diagnostics.CodeAnalysis.DoesNotReturnIfAttribute">
-            <summary>
-                Specifies that the method will not return if the associated <see cref="T:System.Boolean"/>
-                parameter is passed the specified value.
-            </summary>
-        </member>
-        <member name="P:System.Diagnostics.CodeAnalysis.DoesNotReturnIfAttribute.ParameterValue">
-            <summary>
-                Gets the condition parameter value.
-                Code after the method is considered unreachable by diagnostics if the argument
-                to the associated parameter matches this value.
-            </summary>
-        </member>
-        <member name="M:System.Diagnostics.CodeAnalysis.DoesNotReturnIfAttribute.#ctor(System.Boolean)">
-            <summary>
-                Initializes a new instance of the <see cref="T:System.Diagnostics.CodeAnalysis.DoesNotReturnIfAttribute"/>
-                class with the specified parameter value.
-            </summary>
-            <param name="parameterValue">
-                The condition parameter value.
-                Code after the method is considered unreachable by diagnostics if the argument
-                to the associated parameter matches this value.
-            </param>
-        </member>
-        <member name="T:System.Diagnostics.CodeAnalysis.MaybeNullAttribute">
-            <summary>
-                Specifies that an output may be <see langword="null"/> even if the
-                corresponding type disallows it.
-            </summary>
-        </member>
-        <member name="M:System.Diagnostics.CodeAnalysis.MaybeNullAttribute.#ctor">
-            <summary>
-                Initializes a new instance of the <see cref="T:System.Diagnostics.CodeAnalysis.MaybeNullAttribute"/> class.
-            </summary>
-        </member>
-        <member name="T:System.Diagnostics.CodeAnalysis.MaybeNullWhenAttribute">
-            <summary>
-                Specifies that when a method returns <see cref="P:System.Diagnostics.CodeAnalysis.MaybeNullWhenAttribute.ReturnValue"/>, 
-                the parameter may be <see langword="null"/> even if the corresponding type disallows it.
-            </summary>
-        </member>
-        <member name="P:System.Diagnostics.CodeAnalysis.MaybeNullWhenAttribute.ReturnValue">
-            <summary>
-                Gets the return value condition.
-                If the method returns this value, the associated parameter may be <see langword="null"/>.
-            </summary>
-        </member>
-        <member name="M:System.Diagnostics.CodeAnalysis.MaybeNullWhenAttribute.#ctor(System.Boolean)">
-            <summary>
-                 Initializes the attribute with the specified return value condition.
-            </summary>
-            <param name="returnValue">
-                The return value condition.
-                If the method returns this value, the associated parameter may be <see langword="null"/>.
-            </param>
-        </member>
-        <member name="T:System.Diagnostics.CodeAnalysis.MemberNotNullAttribute">
-            <summary>
-                Specifies that the method or property will ensure that the listed field and property members have
-                not-<see langword="null"/> values.
-            </summary>
-        </member>
-        <member name="P:System.Diagnostics.CodeAnalysis.MemberNotNullAttribute.Members">
-            <summary>
-                Gets field or property member names.
-            </summary>
-        </member>
-        <member name="M:System.Diagnostics.CodeAnalysis.MemberNotNullAttribute.#ctor(System.String)">
-            <summary>
-                Initializes the attribute with a field or property member.
-            </summary>
-            <param name="member">
-                The field or property member that is promised to be not-null.
-            </param>
-        </member>
-        <member name="M:System.Diagnostics.CodeAnalysis.MemberNotNullAttribute.#ctor(System.String[])">
-            <summary>
-                Initializes the attribute with the list of field and property members.
-            </summary>
-            <param name="members">
-                The list of field and property members that are promised to be not-null.
-            </param>
-        </member>
-        <member name="T:System.Diagnostics.CodeAnalysis.MemberNotNullWhenAttribute">
-            <summary>
-                Specifies that the method or property will ensure that the listed field and property members have
-                non-<see langword="null"/> values when returning with the specified return value condition.
-            </summary>
-        </member>
-        <member name="P:System.Diagnostics.CodeAnalysis.MemberNotNullWhenAttribute.ReturnValue">
-            <summary>
-                Gets the return value condition.
-            </summary>
-        </member>
-        <member name="P:System.Diagnostics.CodeAnalysis.MemberNotNullWhenAttribute.Members">
-            <summary>
-                Gets field or property member names.
-            </summary>
-        </member>
-        <member name="M:System.Diagnostics.CodeAnalysis.MemberNotNullWhenAttribute.#ctor(System.Boolean,System.String)">
-            <summary>
-                Initializes the attribute with the specified return value condition and a field or property member.
-            </summary>
-            <param name="returnValue">
-                The return value condition. If the method returns this value,
-                the associated parameter will not be <see langword="null"/>.
-            </param>
-            <param name="member">
-                The field or property member that is promised to be not-<see langword="null"/>.
-            </param>
-        </member>
-        <member name="M:System.Diagnostics.CodeAnalysis.MemberNotNullWhenAttribute.#ctor(System.Boolean,System.String[])">
-            <summary>
-                Initializes the attribute with the specified return value condition and list
-                of field and property members.
-            </summary>
-            <param name="returnValue">
-                The return value condition. If the method returns this value,
-                the associated parameter will not be <see langword="null"/>.
-            </param>
-            <param name="members">
-                The list of field and property members that are promised to be not-null.
-            </param>
-        </member>
-        <member name="T:System.Diagnostics.CodeAnalysis.NotNullAttribute">
-            <summary>
-                Specifies that an output is not <see langword="null"/> even if the
-                corresponding type allows it.
-            </summary>
-        </member>
-        <member name="M:System.Diagnostics.CodeAnalysis.NotNullAttribute.#ctor">
-            <summary>
-                Initializes a new instance of the <see cref="T:System.Diagnostics.CodeAnalysis.NotNullAttribute"/> class.
-            </summary>
-        </member>
-        <member name="T:System.Diagnostics.CodeAnalysis.NotNullIfNotNullAttribute">
-            <summary>
-                Specifies that the output will be non-<see langword="null"/> if the
-                named parameter is non-<see langword="null"/>.
-            </summary>
-        </member>
-        <member name="P:System.Diagnostics.CodeAnalysis.NotNullIfNotNullAttribute.ParameterName">
-            <summary>
-                Gets the associated parameter name.
-                The output will be non-<see langword="null"/> if the argument to the
-                parameter specified is non-<see langword="null"/>.
-            </summary>
-        </member>
-        <member name="M:System.Diagnostics.CodeAnalysis.NotNullIfNotNullAttribute.#ctor(System.String)">
-            <summary>
-                Initializes the attribute with the associated parameter name.
-            </summary>
-            <param name="parameterName">
-                The associated parameter name.
-                The output will be non-<see langword="null"/> if the argument to the
-                parameter specified is non-<see langword="null"/>.
-            </param>
-        </member>
-        <member name="T:System.Diagnostics.CodeAnalysis.NotNullWhenAttribute">
-            <summary>
-                Specifies that when a method returns <see cref="P:System.Diagnostics.CodeAnalysis.NotNullWhenAttribute.ReturnValue"/>,
-                the parameter will not be <see langword="null"/> even if the corresponding type allows it.
-            </summary>
-        </member>
-        <member name="P:System.Diagnostics.CodeAnalysis.NotNullWhenAttribute.ReturnValue">
-            <summary>
-                Gets the return value condition.
-                If the method returns this value, the associated parameter will not be <see langword="null"/>.
-            </summary>
-        </member>
-        <member name="M:System.Diagnostics.CodeAnalysis.NotNullWhenAttribute.#ctor(System.Boolean)">
-            <summary>
-                Initializes the attribute with the specified return value condition.
-            </summary>
-            <param name="returnValue">
-                The return value condition.
-                If the method returns this value, the associated parameter will not be <see langword="null"/>.
-            </param>
         </member>
     </members>
 </doc>

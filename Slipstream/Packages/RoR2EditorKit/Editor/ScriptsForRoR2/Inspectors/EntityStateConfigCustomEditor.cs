@@ -11,7 +11,7 @@ using UnityEngine;
 namespace RoR2EditorKit.RoR2.Inspectors
 {
     [CustomEditor(typeof(EntityStateConfiguration))]
-    public class EntityStateConfigCustomEditor : ExtendedInspector
+    public class EntityStateConfigCustomEditor : ScriptableObjectInspector
     {
         private delegate object FieldDrawHandler(FieldInfo fieldInfo, object value);
         private static readonly Dictionary<Type, FieldDrawHandler> typeDrawers = new Dictionary<Type, FieldDrawHandler>
@@ -49,9 +49,9 @@ namespace RoR2EditorKit.RoR2.Inspectors
             var collectionProperty = serializedObject.FindProperty(nameof(EntityStateConfiguration.serializedFieldsCollection));
             var systemTypeProp = serializedObject.FindProperty(nameof(EntityStateConfiguration.targetType));
             var assemblyQuallifiedName = systemTypeProp.FindPropertyRelative("assemblyQualifiedName").stringValue;
-            
+
             EditorGUILayout.PropertyField(systemTypeProp);
-            
+
             if (entityStateType?.AssemblyQualifiedName != assemblyQuallifiedName)
             {
                 entityStateType = Type.GetType(assemblyQuallifiedName);
@@ -208,7 +208,8 @@ namespace RoR2EditorKit.RoR2.Inspectors
             {
                 bool canSerialize = SerializedValue.CanSerializeField(fieldInfo);
                 bool shouldSerialize = !fieldInfo.IsStatic || (fieldInfo.DeclaringType == entityStateType);
-                return canSerialize && shouldSerialize;
+                bool doesNotHaveAttribute = fieldInfo.GetCustomAttribute<HideInInspector>() == null;
+                return canSerialize && shouldSerialize && doesNotHaveAttribute;
             });
 
             serializableStaticFields.AddRange(filteredFields.Where(fieldInfo => fieldInfo.IsStatic));

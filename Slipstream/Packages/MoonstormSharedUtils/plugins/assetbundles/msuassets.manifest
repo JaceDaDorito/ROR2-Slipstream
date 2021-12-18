@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 2847118539
+CRC: 2852226834
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 8bbd364e8f4cdf02316c4e57a2bae783
+    Hash: 3fa10c9d67c126a11d586ae68e0d2454
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 30b1f74269ab394b940c0b6c964171ae
+    Hash: 9bcea4107042f5df599188230c69de54
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -36,6 +36,8 @@ ClassTypes:
 - Class: 114
   Script: {fileID: -281164913, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
+  Script: {fileID: -1746479147, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 114
   Script: {fileID: 11500000, guid: ac7b3e366420599418ecc7cf3d32fed0, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 52a44ac676c8ff547be985bc3a8ae891, type: 3}
@@ -51,6 +53,7 @@ Assets:
 - Assets/Moonstorm/MoonstormSharedUtils/MSUAssets/curveLinear.asset
 - Assets/Moonstorm/MoonstormSharedUtils/MSUAssets/ContentPack.asset
 - Assets/Moonstorm/MoonstormSharedUtils/MSUAssets/Prefabs/MaterialTester.prefab
+- Assets/Moonstorm/MoonstormSharedUtils/MSUAssets/Test.UnlockableTest.asset
 - Assets/Moonstorm/MoonstormSharedUtils/MSUAssets/MeshesForMaterialTester/meshPlane.mesh
 - Assets/Moonstorm/MoonstormSharedUtils/MSUAssets/MeshesForMaterialTester/meshQuad.asset
 - Assets/Moonstorm/MoonstormSharedUtils/MSUAssets/Prefabs/MSUEventDirector.prefab

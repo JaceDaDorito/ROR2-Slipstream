@@ -82,7 +82,7 @@ namespace RoR2EditorKit.Core.Windows
 
             property.arraySize = EditorGUILayout.DelayedIntField($"Array Size", property.arraySize);
 
-            if(property.arraySize != 0)
+            if (property.arraySize != 0)
             {
                 foreach (SerializedProperty prop in property)
                 {
@@ -159,7 +159,7 @@ namespace RoR2EditorKit.Core.Windows
 
             property.arraySize = EditorGUILayout.DelayedIntField($"Array Size", property.arraySize);
 
-            if(property.arraySize != 0)
+            if (property.arraySize != 0)
             {
                 foreach (SerializedProperty prop in property)
                 {
@@ -304,7 +304,7 @@ namespace RoR2EditorKit.Core.Windows
             else
                 EditorGUILayout.PropertyField(property, includeChildren);
         }
-        
+
         /// <summary>
         /// Draws a field directly from the main serialized object.
         /// </summary>

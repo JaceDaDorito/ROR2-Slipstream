@@ -82,13 +82,13 @@ namespace RoR2EditorKit.RoR2.EditorWindows
             EditorGUILayout.BeginHorizontal("box");
             EditorGUILayout.BeginVertical("box", GUILayout.MaxWidth(500));
 
-            if(SimpleButton($"Populate with all {mainCurrentProp.displayName}"))
+            if (SimpleButton($"Populate with all {mainCurrentProp.displayName}"))
             {
                 try
                 {
                     if (!Settings.MainManifest)
                         ErrorShorthands.ThrowNullMainManifest();
-                    
+
                     switch (mainCurrentProp.name)
                     {
                         case "bodyPrefabs":
@@ -153,7 +153,7 @@ namespace RoR2EditorKit.RoR2.EditorWindows
                             break;
                     }
                 }
-                catch(Exception e)
+                catch (Exception e)
                 {
                     Debug.LogError($"An error occured while trying to fill the {mainCurrentProp.displayName} Array: {e}");
                 }
@@ -176,18 +176,18 @@ namespace RoR2EditorKit.RoR2.EditorWindows
 
             List<ScriptableObject> scriptablesThatMatchType = new List<ScriptableObject>();
 
-            foreach(string assetPath in explicitAssetPaths)
+            foreach (string assetPath in explicitAssetPaths)
             {
                 var asset = AssetDatabase.LoadAssetAtPath<Object>(assetPath);
 
-                if(asset && asset.GetType() == type)
+                if (asset && asset.GetType() == type)
                 {
                     scriptablesThatMatchType.Add(asset as ScriptableObject);
                 }
             }
 
             mainCurrentProp.ClearArray();
-            for(int i = 0; i < scriptablesThatMatchType.Count; i++)
+            for (int i = 0; i < scriptablesThatMatchType.Count; i++)
             {
                 var index = i + 1;
                 mainCurrentProp.arraySize = index;
@@ -208,13 +208,13 @@ namespace RoR2EditorKit.RoR2.EditorWindows
 
             List<GameObject> prefabsThatHaveMainType = new List<GameObject>();
 
-            foreach(string path in explicitAssetPaths)
+            foreach (string path in explicitAssetPaths)
             {
                 var asset = AssetDatabase.LoadAssetAtPath<Object>(path);
-                if(asset && asset is GameObject go)
+                if (asset && asset is GameObject go)
                 {
                     var component = go.GetComponent(mainType);
-                    if(component)
+                    if (component)
                     {
                         prefabsThatHaveMainType.Add(go);
                     }
@@ -243,7 +243,7 @@ namespace RoR2EditorKit.RoR2.EditorWindows
 
             List<GameObject> prefabsThatHaveMainType = new List<GameObject>();
 
-            foreach(string path in explicitAssetPaths)
+            foreach (string path in explicitAssetPaths)
             {
                 var asset = AssetDatabase.LoadAssetAtPath<Object>(path);
                 if (asset && asset is GameObject go)
@@ -259,7 +259,7 @@ namespace RoR2EditorKit.RoR2.EditorWindows
                                 shouldAdd = false;
                             }
                         });
-                        if(shouldAdd)
+                        if (shouldAdd)
                         {
                             prefabsThatHaveMainType.Add(go);
                         }
@@ -280,9 +280,9 @@ namespace RoR2EditorKit.RoR2.EditorWindows
         private void AddAllEntityStateTypes()
         {
             List<Type> entityStates = new List<Type>();
-            foreach(var asm in AppDomain.CurrentDomain.GetAssemblies())
+            foreach (var asm in AppDomain.CurrentDomain.GetAssemblies())
             {
-                if(AssemblyDefinitions.Any(x => x.definitions.Any(y => asm.Location.Contains(y.name))))
+                if (AssemblyDefinitions.Any(x => x.definitions.Any(y => asm.Location.Contains(y.name))))
                 {
                     asm.GetTypes()
                        .Where(type => typeof(EntityStates.EntityState).IsAssignableFrom(type))

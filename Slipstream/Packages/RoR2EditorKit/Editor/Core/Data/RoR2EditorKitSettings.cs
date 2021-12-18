@@ -1,14 +1,8 @@
-﻿using RoR2EditorKit.Common;
-using RoR2EditorKit.Core.Inspectors;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using ThunderKit.Core.Data;
+﻿using ThunderKit.Core.Data;
 using ThunderKit.Core.Manifests;
 using ThunderKit.Markdown;
 using UnityEditor;
 using UnityEditor.Experimental.UIElements;
-using UnityEngine;
 using UnityEngine.Experimental.UIElements;
 
 namespace RoR2EditorKit.Settings

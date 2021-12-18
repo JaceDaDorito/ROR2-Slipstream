@@ -5,7 +5,9 @@
         "ThunderKit.Markdown"
     ],
     "optionalUnityReferences": [],
-    "includePlatforms": [],
+    "includePlatforms": [
+        "Editor"
+    ],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": true,
@@ -14,7 +16,5 @@
         "Assembly-CSharp.dll"
     ],
     "autoReferenced": true,
-    "defineConstraints": [
-        "UNITY_EDITOR"
-    ]
+    "defineConstraints": []
 }

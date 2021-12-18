@@ -1,10 +1,14 @@
 ﻿using RoR2EditorKit.Settings;
 using UnityEditor;
-using System.Linq;
 using UnityEngine;
 
 namespace RoR2EditorKit.Core.Inspectors
 {
+    /// <summary>
+    /// Base inspector for all the RoR2EditorKit Inspectors.
+    /// <para>If you want to make a Scriptable Object Inspector, you'll probably want to use the ScriptableInspector</para>
+    /// <para>If you want to make an Inspector for a Component, you'll probably want to use the ComponentInspector</para>
+    /// </summary>
     public abstract class ExtendedInspector : Editor
     {
         public static RoR2EditorKitSettings Settings { get => RoR2EditorKitSettings.GetOrCreateSettings<RoR2EditorKitSettings>(); }
@@ -13,7 +17,7 @@ namespace RoR2EditorKit.Core.Inspectors
         {
             get
             {
-                if(_inspectorSetting == null)
+                if (_inspectorSetting == null)
                 {
                     var setting = Settings.InspectorSettings.GetOrCreateInspectorSetting(GetType());
                     _inspectorSetting = setting;
@@ -22,7 +26,7 @@ namespace RoR2EditorKit.Core.Inspectors
             }
             set
             {
-                if(_inspectorSetting != value)
+                if (_inspectorSetting != value)
                 {
                     var index = Settings.InspectorSettings.EnabledInspectors.IndexOf(_inspectorSetting);
                     Settings.InspectorSettings.EnabledInspectors[index] = value;
@@ -35,21 +39,6 @@ namespace RoR2EditorKit.Core.Inspectors
 
         public bool InspectorEnabled { get => InspectorSetting.isEnabled; set => InspectorSetting.isEnabled = value; }
 
-        private void OnEnable()
-        {
-            InspectorEnabled = InspectorSetting.isEnabled;
-            finishedDefaultHeaderGUI += DrawEnableToggle;
-        }
-        private void OnDisable() => finishedDefaultHeaderGUI -= DrawEnableToggle;
-
-        private void DrawEnableToggle(Editor obj)
-        {
-            if(obj is ExtendedInspector extendedInspector)
-            {
-                InspectorEnabled = EditorGUILayout.ToggleLeft($"Enable {ObjectNames.NicifyVariableName(extendedInspector.target.GetType().Name)} Inspector", InspectorEnabled);
-            }
-        }
-
         public override void OnInspectorGUI()
         {
             if (!InspectorEnabled)
@@ -58,6 +47,7 @@ namespace RoR2EditorKit.Core.Inspectors
             }
         }
 
+        protected bool CreateEnableInsepctorToggle(string inspectorName) => EditorGUILayout.ToggleLeft($"Enable {ObjectNames.NicifyVariableName(target.GetType().Name)} Inspector", InspectorEnabled);
         protected void DrawField(string propName) => EditorGUILayout.PropertyField(serializedObject.FindProperty(propName), true);
         protected void DrawField(SerializedProperty property, string propName) => EditorGUILayout.PropertyField(property.FindPropertyRelative(propName), true);
         protected void DrawField(SerializedProperty property) => EditorGUILayout.PropertyField(property, true);

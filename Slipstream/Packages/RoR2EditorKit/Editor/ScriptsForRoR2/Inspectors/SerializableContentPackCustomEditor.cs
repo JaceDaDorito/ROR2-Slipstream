@@ -9,7 +9,7 @@ using UnityEngine;
 namespace RoR2EditorKit.RoR2.Inspectors
 {
     [CustomEditor(typeof(SerializableContentPack))]
-    public class SerializableContentPackCustomEditor : ExtendedInspector
+    public class SerializableContentPackCustomEditor : ScriptableObjectInspector
     {
         [OnOpenAsset]
         public static bool OpenEditor(int instanceID, int line)

@@ -52,7 +52,7 @@ namespace RoR2EditorKit.RoR2.PropertyDrawers
             Type type;
             if (string.IsNullOrEmpty(reference) || (type = Type.GetType(reference, false)) == null)
                 return (string.Empty, string.Empty);
-            
+
             return (type.Name, type.FullName);
         }
 

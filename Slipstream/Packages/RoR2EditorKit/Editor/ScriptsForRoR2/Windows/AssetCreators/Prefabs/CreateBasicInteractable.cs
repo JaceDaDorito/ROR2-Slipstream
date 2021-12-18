@@ -55,9 +55,9 @@ namespace RoR2EditorKit.RoR2.EditorWindows
             var networkStateMachine = mainPrefab.AddComponent<NetworkStateMachine>();
             var type = networkStateMachine.GetType();
             var field = type.GetField("stateMachines", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
-            if(field != null)
+            if (field != null)
                 field.SetValue(networkStateMachine, new EntityStateMachine[] { MainComponent });
-            
+
             //Adding mdl base and the mdl children
             var baseAndChild = AddMdlChild();
             var mdlLocator = mainPrefab.AddComponent<ModelLocator>();
@@ -103,7 +103,7 @@ namespace RoR2EditorKit.RoR2.EditorWindows
 
             nameField = EditorGUILayout.TextField(new GUIContent("Interactable Name", "The name of this interactable, will be used on token creation."), nameField);
             hasCost = EditorGUILayout.Toggle(new GUIContent("Has Cost", "Wether or not this interactable costs something, enabling this enables extra settings."), hasCost);
-            if(hasCost)
+            if (hasCost)
             {
                 EditorGUILayout.BeginHorizontal();
                 EditorGUILayout.BeginVertical("box");
@@ -117,10 +117,10 @@ namespace RoR2EditorKit.RoR2.EditorWindows
 
             createMatchingInteractableSpawnCard = EditorGUILayout.Toggle(new GUIContent("Create Matching ISC", "Wether or not a matching interactable spawn card will be created for this interactable."), createMatchingInteractableSpawnCard);
 
-            if(SimpleButton("Create Interactable"))
+            if (SimpleButton("Create Interactable"))
             {
                 var result = CreateInteractable();
-                if(result)
+                if (result)
                 {
                     Debug.Log($"Succesfully Created Interactable {nameField}");
                     TryToClose();

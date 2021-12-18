@@ -4,7 +4,7 @@ using RoR2.ContentManagement;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Slipstream.Modules
+namespace Slipstream.Buffs
 {
     public class Buffs : BuffModuleBase
     {

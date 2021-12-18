@@ -7,7 +7,7 @@ namespace Slipstream
     {
         public static SerializableContentPack serializableContentPack;
         internal ContentPack contentPack;
-        public string identifier => SlipMain.ModGuid;
+        public string identifier => SlipMain.GUID;
 
         public void Init()
         {

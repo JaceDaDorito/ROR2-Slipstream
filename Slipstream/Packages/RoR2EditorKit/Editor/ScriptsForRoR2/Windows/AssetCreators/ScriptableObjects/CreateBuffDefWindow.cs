@@ -1,11 +1,8 @@
-﻿using HG.GeneralSerializer;
-using RoR2;
+﻿using RoR2;
 using RoR2EditorKit.Common;
 using RoR2EditorKit.Core;
 using RoR2EditorKit.Core.Windows;
 using System;
-using System.Linq;
-using System.Reflection;
 using UnityEditor;
 using UnityEngine;
 
@@ -47,7 +44,7 @@ namespace RoR2EditorKit.RoR2.EditorWindows
 
             SwitchButton("Extra Settings", ref drawExtraSettings);
 
-            if(drawExtraSettings)
+            if (drawExtraSettings)
             {
                 EditorGUILayout.BeginHorizontal();
                 EditorGUILayout.BeginVertical("box");
@@ -56,10 +53,10 @@ namespace RoR2EditorKit.RoR2.EditorWindows
                 EditorGUILayout.EndHorizontal();
             }
 
-            if(SimpleButton("Create Buff"))
+            if (SimpleButton("Create Buff"))
             {
                 var result = CreateBuff();
-                if(result)
+                if (result)
                 {
                     Debug.Log($"Succesfully Created Buff {nameField}");
                     TryToClose();
@@ -88,7 +85,7 @@ namespace RoR2EditorKit.RoR2.EditorWindows
 
                 buff.name = actualName;
 
-                if(!string.IsNullOrEmpty(startEventString))
+                if (!string.IsNullOrEmpty(startEventString))
                 {
                     buff.startSfx = CreateStartSFX();
                 }

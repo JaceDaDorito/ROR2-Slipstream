@@ -1,5 +1,6 @@
 ﻿using BepInEx;
 using BepInEx.Configuration;
+using Slipstream.Modules;
 using Moonstorm;
 using R2API;
 using R2API.Utils;
@@ -9,6 +10,8 @@ using System.Security.Permissions;
 
 #pragma warning disable CS0618
 [assembly: SecurityPermission(SecurityAction.RequestMinimum, SkipVerification = true)]
+#pragma warning restore CS0618
+[module: UnverifiableCode]
 
 namespace Slipstream
 {
@@ -20,18 +23,15 @@ namespace Slipstream
     [BepInDependency("com.TheMysticSword.AspectAbilities", BepInDependency.DependencyFlags.SoftDependency)]
 
     [NetworkCompatibility(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.EveryoneNeedSameModVersion)]
-    [BepInPlugin(ModGuid, ModName, ModVer)]
+    [BepInPlugin(GUID, MODNAME, VERSION)]
     [R2APISubmoduleDependency(nameof(ItemAPI), nameof(ItemDropAPI), nameof(LanguageAPI), nameof(ResourcesAPI), nameof(PrefabAPI), nameof(BuffAPI), nameof(LoadoutAPI), nameof(ProjectileAPI), nameof(RecalculateStatsAPI))]
     public class SlipMain : BaseUnityPlugin
     {
         //Literally copying LIT setup I'm so sorry. I'm studying the code I swear don't get mad at me Neb.
 
-        internal const string ModGuid = "com.TeamSlipstream.Slipstream";
-        internal const string ModName = "Slipstream";
-        internal const string ModVer = "0.0.1";
-
-        public static string MODPREFIX = "@Slipstream:";
-        public string identifier => "com.TeamSlipstream.Slipstream";
+        internal const string GUID = "com.TeamSlipstream.Slipstream";
+        internal const string MODNAME = "Slipstream";
+        internal const string VERSION = "0.0.1";
 
         public static SlipMain instance;
 
@@ -51,6 +51,7 @@ namespace Slipstream
             instance = this;
             pluginInfo = Info;
             config = Config;
+            SlipLogger.logger = Logger;
 
             Init();
             new SlipContent().Init();
@@ -59,9 +60,17 @@ namespace Slipstream
         private void Init()
         {
             Assets.Init();
+            SlipLanguage.Initialize();
             SlipConfig.Init(config);
 
-            //new Buffs.Buffs().Init;
+            new Modules.Projectiles().Init();
+            new Pickups().Init();
+            new Buffs.Buffs().Init();
+
+            GetType().Assembly.GetTypes()
+              .Where(type => typeof(EntityStates.EntityState).IsAssignableFrom(type))
+              .ToList()
+              .ForEach(state => HG.ArrayUtils.ArrayAppend(ref SlipContent.serializableContentPack.entityStateTypes, new EntityStates.SerializableEntityStateType(state)));
         }
 
     }

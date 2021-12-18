@@ -11,7 +11,7 @@ namespace RoR2EditorKit.RoR2.EditorWindows
     public class CreateSurvivorDefWindow : CreateRoR2ScriptableObjectWindow<SurvivorDef>
     {
         public SurvivorDef survivor;
-    
+
         private bool drawExtraSettings;
         private bool deriveNameFromBodyPrefab;
         private bool deriveDisplayPrefabFromBody;
@@ -43,7 +43,7 @@ namespace RoR2EditorKit.RoR2.EditorWindows
 
             deriveNameFromBodyPrefab = EditorGUILayout.Toggle("Set SurvivorDef Name from BodyPrefab Name", deriveNameFromBodyPrefab);
 
-            if(!deriveNameFromBodyPrefab)
+            if (!deriveNameFromBodyPrefab)
             {
                 nameField = EditorGUILayout.TextField("Survivor Name", nameField);
             }
@@ -58,7 +58,7 @@ namespace RoR2EditorKit.RoR2.EditorWindows
             DrawField("desiredSortPosition");
 
             SwitchButton("Extra Settings", ref drawExtraSettings);
-            if(drawExtraSettings)
+            if (drawExtraSettings)
             {
                 EditorGUILayout.BeginHorizontal();
                 EditorGUILayout.BeginVertical("box");
@@ -67,10 +67,10 @@ namespace RoR2EditorKit.RoR2.EditorWindows
                 EditorGUILayout.EndVertical();
             }
 
-            if(SimpleButton("Create Survivor"))
+            if (SimpleButton("Create Survivor"))
             {
                 var result = CreateSurivorDef();
-                if(result)
+                if (result)
                 {
                     Debug.Log($"Succesfully Created Survivor {survivor.cachedName}");
                     TryToClose();

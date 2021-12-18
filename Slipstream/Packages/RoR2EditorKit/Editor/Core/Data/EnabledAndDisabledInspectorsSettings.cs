@@ -1,11 +1,6 @@
-﻿using RoR2EditorKit.Common;
-using RoR2EditorKit.Core.Inspectors;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using ThunderKit.Core.Data;
-using ThunderKit.Core.Manifests;
-using ThunderKit.Markdown;
 using UnityEditor;
 using UnityEditor.Experimental.UIElements;
 using UnityEngine;
@@ -40,7 +35,7 @@ namespace RoR2EditorKit.Settings
         public List<InspectorSetting> EnabledInspectors = new List<InspectorSetting>();
 
         public RoR2EditorKitSettings MainSettings { get => GetOrCreateSettings<RoR2EditorKitSettings>(); }
-        
+
         public override void CreateSettingsUI(VisualElement rootElement)
         {
             var enabledInspectors = CreateStandardField(nameof(EnabledInspectors));
