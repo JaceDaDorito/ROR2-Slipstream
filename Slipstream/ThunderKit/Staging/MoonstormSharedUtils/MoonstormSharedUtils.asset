@@ -19,7 +19,7 @@ MonoBehaviour:
   Author: TeamMoonstorm
   Name: MoonstormSharedUtils
   Description: Utility, content and module classes used by members of Team Moonstorm
-  Version: 0.6.0
+  Version: 0.7.0
   Dependencies: 
   - {fileID: 11400000, guid: 2d4d09ec817c24698d35dc9bf0704fdc, type: 2}
   - {fileID: 11400000, guid: 7fb5b3d290bed6011ed7e8daf230df89, type: 2}

@@ -11,9 +11,9 @@ namespace Slipstream.Modules
     public class Pickups : PickupModuleBase
     {
         public static Pickups Instance { get; set; }
-        public static ItemDef[] LoadedSlipItems { get => SlipContent.serializableContentPack.itemDefs; }
-        public static EquipmentDef[] LoadedSlipEquipsments { get => SlipContent.serializableContentPack.equipmentDefs; }
-        public override SerializableContentPack ContentPack { get; set; } = SlipContent.serializableContentPack;
+        public static ItemDef[] LoadedSlipItems { get => SlipContent.Instance.SerializableContentPack.itemDefs; }
+        public static EquipmentDef[] LoadedSlipEquipsments { get => SlipContent.Instance.SerializableContentPack.equipmentDefs; }
+        public override SerializableContentPack ContentPack { get; set; } = SlipContent.Instance.SerializableContentPack;
 
         public override void Init()
         {

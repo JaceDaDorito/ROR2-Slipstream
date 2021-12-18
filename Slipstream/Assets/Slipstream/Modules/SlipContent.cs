@@ -1,43 +1,110 @@
 ﻿using RoR2.ContentManagement;
-using System.Collections;
+using Moonstorm.Loaders;
+using System;
+using Slipstream.Modules;
+using System.Linq;
+using RoR2;
 
 namespace Slipstream
 {
-    internal class SlipContent : IContentPackProvider
+    public class SlipContent : ContentLoader<SlipContent>
     {
-        public static SerializableContentPack serializableContentPack;
-        internal ContentPack contentPack;
-        public string identifier => SlipMain.GUID;
-
-        public void Init()
+        public static class Buffs
         {
-            contentPack = serializableContentPack.CreateContentPack();
-            contentPack.identifier = identifier;
-            ContentManager.collectContentPackProviders += ContentManager_collectContentPackProviders;
+            //Buffs go here
         }
 
-        private void ContentManager_collectContentPackProviders(ContentManager.AddContentPackProviderDelegate addContentPackProvider)
+        /*public static class Elites
         {
-            addContentPackProvider(this);
+            //Elites go here, don't put anything here though
+        }*/
+        
+        public static class Equipments
+        {
+            //Equipments go here
+            #region Orange equips
+            #endregion
+
+            #region Lunar equips
+            #endregion
         }
 
-        public IEnumerator FinalizeAsync(FinalizeAsyncArgs args)
+        public static class Items
         {
-            args.ReportProgress(1f);
-            yield break;
-        }
+            //Items go here
+            #region White items
+            #endregion
 
-        public IEnumerator GenerateContentPackAsync(GetContentPackAsyncArgs args)
-        {
-            ContentPack.Copy(contentPack, args.output);
-            args.ReportProgress(1f);
-            yield break;
-        }
+            #region Green items
+            #endregion
 
-        public IEnumerator LoadStaticContentAsync(LoadStaticContentAsyncArgs args)
+            #region Red items
+            public static ItemDef TestItem;
+            #endregion
+
+            #region Yellow items
+            #endregion
+
+            #region Lunar items
+            #endregion
+
+            #region Untiered items
+            //very rarely used
+            #endregion
+
+        }
+        public override string identifier => SlipMain.GUID;
+
+        public override SerializableContentPack SerializableContentPack { get; protected set; } = SlipAssets.Instance.MainAssetBundle.LoadAsset<SerializableContentPack>("ContentPack");
+        public override Action[] LoadDispatchers { get; protected set; }
+        public override Action[] PopulateFieldsDispatchers { get; protected set; }
+
+        public override void Init()
         {
-            args.ReportProgress(1f);
-            yield break;
+            base.Init();
+            LoadDispatchers = new Action[]
+            {
+                #region delegates
+                delegate
+                {
+                    new Slipstream.Buffs.Buffs().Init();
+                },
+                delegate
+                {
+                    new Pickups().Init();
+                },
+                delegate
+                {
+                    typeof(SlipContent).Assembly.GetTypes()
+                        .Where(type => typeof(EntityStates.EntityState).IsAssignableFrom(type))
+                        .ToList()
+                        .ForEach(state => HG.ArrayUtils.ArrayAppend(ref SerializableContentPack.entityStateTypes, new EntityStates.SerializableEntityStateType(state)));
+                },
+                delegate
+                {
+                   SlipAssets.Instance.SwapMaterialShaders();
+                }
+                #endregion
+            };
+
+            PopulateFieldsDispatchers = new Action[]
+            {
+                #region delegates
+                delegate
+                {
+                    PopulateTypeFields(typeof(Buffs), ContentPack.buffDefs);
+                },
+                delegate
+                {
+                    PopulateTypeFields(typeof(Equipments), ContentPack.equipmentDefs);
+                },
+                delegate
+                {
+                    PopulateTypeFields(typeof(Items), ContentPack.itemDefs);
+                }
+                #endregion
+            };
         }
     }
 }
+   

@@ -1,0 +1,9 @@
+﻿{
+    "strings":
+    {
+        "TESTITEM_NAME": "Test Item",
+        "TESTITEM_PICKUP": "Literally does nothing",
+        "TESTITEM_DESC": "I'm serious it literally does nothing",
+        "TESTITEM_LORE": "Yeah uh."
+    }
+}

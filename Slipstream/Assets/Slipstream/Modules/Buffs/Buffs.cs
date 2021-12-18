@@ -9,13 +9,14 @@ namespace Slipstream.Buffs
     public class Buffs : BuffModuleBase
     {
         public static Buffs Instance { get; set; }
-        public static BuffDef[] LoadedSlipBuffs { get => SlipContent.serializableContentPack.buffDefs; }
-        public override SerializableContentPack ContentPack { get; set; } = SlipContent.serializableContentPack;
+        public static BuffDef[] LoadedSlipBuffs { get => SlipContent.Instance.SerializableContentPack.buffDefs; }
+        public override SerializableContentPack ContentPack { get; set; } = SlipContent.Instance.SerializableContentPack;
 
         public override void Init()
         {
             Instance = this;
             base.Init();
+            SlipLogger.LogI($"Initializing Slipstream Buffs");
             InitializeBuffs();
         }
 

@@ -1,26 +1,16 @@
 ﻿using RoR2;
-using System.Collections.Generic;
-using Zio;
-using Zio.FileSystems;
+using Moonstorm.Loaders;
 
 namespace Slipstream.Modules
 {
-    public static class SlipLanguage
+    public class SlipLanguage : LanguageLoader<SlipLanguage>
     {
-        public static FileSystem FileSystem { get; private set; }
+        public override string AssemblyDir => SlipAssets.Instance.AssemblyDir;
+        public override string LanguagesFolderName => "Languages";
 
-        public static void Initialize()
+        internal void Init()
         {
-            PhysicalFileSystem physicalFileSystem = new PhysicalFileSystem();
-            FileSystem = new SubFileSystem(physicalFileSystem, physicalFileSystem.ConvertPathFromInternal(Assets.AssemblyDir), true);
-
-            if (FileSystem.DirectoryExists("/Languages/"))
-            {
-                Language.collectLanguageRootFolders += delegate (List<DirectoryEntry> list)
-                {
-                    list.Add(FileSystem.GetDirectoryEntry("/Languages/"));
-                };
-            }
+            LoadLanguages();
         }
     }
 }

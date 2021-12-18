@@ -9,8 +9,8 @@ namespace Slipstream.Modules
     public class Projectiles : ProjectileModuleBase
     {
         public static Projectiles Instance { get; set; }
-        public override SerializableContentPack ContentPack { get; set; } = SlipContent.serializableContentPack;
-        public override AssetBundle AssetBundle { get; set; } = Assets.SlipAssets;
+        public override SerializableContentPack ContentPack { get; set; } = SlipContent.Instance.SerializableContentPack;
+        public override AssetBundle AssetBundle { get; set; } = SlipAssets.Instance.MainAssetBundle;
         public override void Init()
         {
             Instance = this;

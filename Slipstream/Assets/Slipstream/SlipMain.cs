@@ -27,7 +27,8 @@ namespace Slipstream
     [R2APISubmoduleDependency(nameof(ItemAPI), nameof(ItemDropAPI), nameof(LanguageAPI), nameof(ResourcesAPI), nameof(PrefabAPI), nameof(BuffAPI), nameof(LoadoutAPI), nameof(ProjectileAPI), nameof(RecalculateStatsAPI))]
     public class SlipMain : BaseUnityPlugin
     {
-        //Literally copying LIT setup I'm so sorry. I'm studying the code I swear don't get mad at me Neb.
+        //Big credit to Starstorm/Lost in Transit devs Swuff and NebNeb, the structure of the mod is purely based off of LIT and without them I wouldn't know what to do.
+        //To Swuff and Neb: Don't get made at me for this ^ lol, but seriously if you have any problems with Slipstream's structure being extremely based off of LIT please let me know. -JaceDaDorito
 
         internal const string GUID = "com.TeamSlipstream.Slipstream";
         internal const string MODNAME = "Slipstream";
@@ -53,24 +54,12 @@ namespace Slipstream
             config = Config;
             SlipLogger.logger = Logger;
 
-            Init();
+            new SlipAssets().Init();
+            new SlipLanguage().Init();
+            SlipConfig.Init(Config);
             new SlipContent().Init();
-        }
 
-        private void Init()
-        {
-            Assets.Init();
-            SlipLanguage.Initialize();
-            SlipConfig.Init(config);
-
-            new Modules.Projectiles().Init();
-            new Pickups().Init();
-            new Buffs.Buffs().Init();
-
-            GetType().Assembly.GetTypes()
-              .Where(type => typeof(EntityStates.EntityState).IsAssignableFrom(type))
-              .ToList()
-              .ForEach(state => HG.ArrayUtils.ArrayAppend(ref SlipContent.serializableContentPack.entityStateTypes, new EntityStates.SerializableEntityStateType(state)));
+            //Slipstream now loads alongside the game "and will properly show percentage increase in the loading screen" -Neb
         }
 
     }

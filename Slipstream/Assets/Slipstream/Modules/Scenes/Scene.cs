@@ -9,7 +9,7 @@ namespace Slipstream.Modules
     public class Scenes : SceneModuleBase
     {
         public static Scenes Instance { get; set; }
-        public override SerializableContentPack ContentPack { get; set; } = SlipContent.serializableContentPack;
+        public override SerializableContentPack ContentPack { get; set; } = SlipContent.Instance.SerializableContentPack;
 
         public override void Init()
         {

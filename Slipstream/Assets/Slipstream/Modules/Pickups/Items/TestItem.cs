@@ -9,7 +9,7 @@ namespace Slipstream.Items
     public class TestItem : ItemBase
     {
         private const string token = "TESTITEM_DESC";
-        public override ItemDef ItemDef { get; set; } = Assets.SlipAssets.LoadAsset<ItemDef>("TestItem");
+        public override ItemDef ItemDef { get; set; } = SlipAssets.Instance.MainAssetBundle.LoadAsset<ItemDef>("TestItem");
 
         public static string section;
 
