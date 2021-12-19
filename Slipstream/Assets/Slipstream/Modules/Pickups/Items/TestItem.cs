@@ -6,8 +6,7 @@ using System;
 
 namespace Slipstream.Items
 {
-    /*
-    public class TestItem : ItemBase
+    /*public class TestItem : ItemBase
     {
         private const string token = "TESTITEM_DESCRIPTION";
         public override ItemDef ItemDef { get; set; } = SlipAssets.Instance.MainAssetBundle.LoadAsset<ItemDef>("TestItem");
