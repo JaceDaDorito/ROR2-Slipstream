@@ -35,7 +35,7 @@ MonoBehaviour:
   ErrorMessage: 
   ErrorStacktrace: 
   StagingPaths:
-  - <ManifestPluginStaging>
+  - <ManifestStagingRoot>
   definitions:
   - {fileID: 5897886265953266890, guid: 2cbb769401b9df946bcaf3d16a76af01, type: 3}
 --- !u!114 &114211852988908172
@@ -56,7 +56,7 @@ MonoBehaviour:
   StagingPaths:
   - <ManifestPluginStaging>
   Author: Team Slipstream
-  Name: Slipstream
+  Name: TeamSlipstream-Slipstream
   Description: A content mod aimed to give more variety to RoR2 with stages, items,
     and enemies.
   Version: 0.0.1
@@ -80,7 +80,7 @@ MonoBehaviour:
   ErrorMessage: 
   ErrorStacktrace: 
   StagingPaths:
-  - <ManifestPluginStaging>
+  - <StageInAssetFolder>
   assetBundles:
   - assetBundleName: slipassets
     assets:
@@ -123,3 +123,4 @@ MonoBehaviour:
   files:
   - {fileID: 2800000, guid: 5fc53213b7358dd49b9953c29358a105, type: 3}
   - {fileID: 4900000, guid: 0b27e82d489512f449d7161bf8b76757, type: 3}
+  - {fileID: 102900000, guid: bc8e7116a2170a9429d5e79c467101ac, type: 3}

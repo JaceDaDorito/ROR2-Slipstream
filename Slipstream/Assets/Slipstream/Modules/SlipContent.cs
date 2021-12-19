@@ -33,13 +33,14 @@ namespace Slipstream
         {
             //Items go here
             #region White items
+            public static ItemDef PepperSpray;
             #endregion
 
             #region Green items
             #endregion
 
             #region Red items
-            public static ItemDef TestItem;
+            //public static ItemDef TestItem;
             #endregion
 
             #region Yellow items

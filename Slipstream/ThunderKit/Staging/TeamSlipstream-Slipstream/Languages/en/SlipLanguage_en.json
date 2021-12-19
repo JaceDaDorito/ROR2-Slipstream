@@ -1,0 +1,9 @@
+﻿{
+    "strings":
+    {
+        "TESTITEM_NAME": "Test Item",
+        "TESTITEM_PICKUP": "Literally does nothing",
+        "TESTITEM_DESCRIPTION": "I mean it when I say it does nothing. Yeah <style=cIsUtility>{0}%</style>",
+        "TESTITEM_LORE": "Yeah uh."
+    }
+}

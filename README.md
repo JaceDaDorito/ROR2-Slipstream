@@ -7,7 +7,7 @@ Message (JaceDaDorito#7035) on Discord if there are any issues regarding the mod
 * Code - JaceDaDorito, Atlantean/Dot/Org, Zach, MoonlitWyvern
 * Expert Code/Unity Support - NebNeb, swuff, Twiner
 * 2D Concept Artists - Kamei, Runefield, Vaikyia, JaceDaDorito, Dodu, splet, Hans, Koopahunter197
-* 3D Artists/Modlers -  Kamei, dotflare, foodrelatedname
+* 3D Artists/Moddlers -  Kamei, dotflare, foodrelatedname
 * Lore Writers - splet, LordBidoof, JaceDaDorito
 * Special Thanks - TheTimesweeper, PlasmaCore, Alexis, Knowledge, Afzofa, Alph, Spacecats, SilverSinz, Ochus, Hyperin, Schmizz, AmazonPrime25, Lompl, the rest of the Ocean Kingdom server, and the RoR2 Modding server.
 

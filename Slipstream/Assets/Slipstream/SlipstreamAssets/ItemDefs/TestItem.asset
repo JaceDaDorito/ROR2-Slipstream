@@ -15,7 +15,7 @@ MonoBehaviour:
   tier: 2
   nameToken: TESTITEM_NAME
   pickupToken: TESTITEM_PICKUP
-  descriptionToken: TESTITEM_DESC
+  descriptionToken: TESTITEM_DESCRIPTION
   loreToken: TESTITEM_LORE
   unlockableDef: {fileID: 0}
   pickupModelPrefab: {fileID: 7929237051835553819, guid: a10de8559b0060946865c49cac0e6a0f,

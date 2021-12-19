@@ -43,7 +43,7 @@ namespace Slipstream
 
         private string GetAssetBundlePaths()
         {
-            return Path.Combine(AssemblyDir, "slipassets");
+            return Path.Combine(AssemblyDir, "assetbundles", "slipassets");
         }
 
         /*private void LoadSoundBank()

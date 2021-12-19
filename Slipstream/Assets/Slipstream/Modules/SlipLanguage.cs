@@ -10,6 +10,7 @@ namespace Slipstream.Modules
 
         internal void Init()
         {
+            SlipLogger.LogD($"Initializing Slipstream Languages");
             LoadLanguages();
         }
     }
