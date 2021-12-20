@@ -1,0 +1,52 @@
+ManifestFileVersion: 0
+CRC: 1325503851
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: ef973c94a6ef799fcd6366c1bbc3c914
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 749cf0af0b15359577631ea4e8df6b9a
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 20
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 108
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: -1284244208, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 114
+  Script: {fileID: -281164913, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 135
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+Assets:
+- Assets/Icons/iconPepperSpray.png
+- Packages/teammoonstorm-moonstormsharededitorutils/StubbedShaders/deferred/hgstandard.shader
+- Assets/Materials/matPepperSpray.png
+- Assets/Materials/matPepperSpray.mat
+- Assets/Slipstream/SlipstreamAssets/Prefabs/Pickups/PickupTestItem.prefab
+- Assets/Slipstream/SlipstreamAssets/Prefabs/Pickups/PickupPepperSpray.prefab
+- Assets/Mesh/meshPepperSpray.fbx
+- Assets/Slipstream/SlipstreamAssets/ItemDefs/PepperSpray.asset
+- Assets/Slipstream/SlipstreamAssets/ContentPack.asset
+Dependencies: []

@@ -21,6 +21,12 @@ namespace Slipstream.Items
         [ConfigurableField(ConfigName = "Shield Threshold", ConfigDesc = "Percentage of total shield in order to trigger the effect.")]
         public static float threshold = 0.5f;
 
+        [ConfigurableField(ConfigName = "Base Radius", ConfigDesc = "Initial radius of the stun effect.")]
+        public static float baseRadius = 30.0f;
+
+        [ConfigurableField(ConfigName = "Radius Increase", ConfigDesc = "Amount of increased stun radius per stack.")]
+        public static float radiusPerStack = 3.0f;
+
         public override void AddBehavior(ref CharacterBody body, int stack)
         {
             SlipLogger.LogD($"Initializing Test Item");
@@ -51,13 +57,33 @@ namespace Slipstream.Items
                 //Checks if the body went below the threshhold
                 if(body.healthComponent.shield < body.healthComponent.fullShield * threshold && shouldTrigger)
                 {
-                    Chat.AddMessage("Trigger");
                     shouldTrigger = false;
+                    FireStunSpray();
+                    Util.PlaySound(EntityStates.Bison.PrepCharge.enterSoundString, gameObject);
                 }
 
             }
 
+            private void FireStunSpray()
+            {
+                Vector3 corePosition = Util.GetCorePosition(body.gameObject);
+                float radius = baseRadius + radiusPerStack * (stack - 1f);
+                GameObject gameObject2 = UnityEngine.Object.Instantiate(Resources.Load<GameObject>("Prefabs/NetworkedObjects/GenericDelayBlast"), corePosition, Quaternion.identity);
+                gameObject2.transform.localScale = new Vector3(radius, radius, radius);
+                DelayBlast sprayAttack = gameObject2.GetComponent<DelayBlast>();
 
+                sprayAttack.position = corePosition;
+                sprayAttack.radius = radius;
+                sprayAttack.attacker = body.gameObject;
+                sprayAttack.falloffModel = BlastAttack.FalloffModel.None;
+                sprayAttack.maxTimer = 0f;
+                sprayAttack.damageType = DamageType.Stun1s;
+                sprayAttack.explosionEffect = Resources.Load<GameObject>("Prefabs/Effects/ImpactEffects/AffixWhiteExplosion");
+                //sprayAttack.delayEffect = Resources.Load<GameObject>("Prefabs/Effects/ImpactEffects/AffixWhiteExplosion");
+                gameObject2.GetComponent<TeamFilter>().teamIndex = TeamComponent.GetObjectTeam(body.gameObject);
+
+                NetworkServer.Spawn(gameObject2);
+            }
         }
     }
 }
