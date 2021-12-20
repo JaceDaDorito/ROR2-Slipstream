@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 2671368740
+CRC: 1325503851
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: b92d58851983d67c41186525ed2eb123
+    Hash: ef973c94a6ef799fcd6366c1bbc3c914
   TypeTreeHash:
     serializedVersion: 2
     Hash: 749cf0af0b15359577631ea4e8df6b9a
@@ -40,16 +40,13 @@ ClassTypes:
 - Class: 213
   Script: {instanceID: 0}
 Assets:
-- Assets/Slipstream/SlipstreamAssets/ItemDefs/GlassEye.asset
 - Assets/Icons/iconPepperSpray.png
-- Assets/Slipstream/SlipstreamAssets/ItemDefs/TestItem.asset
 - Packages/teammoonstorm-moonstormsharededitorutils/StubbedShaders/deferred/hgstandard.shader
 - Assets/Materials/matPepperSpray.png
 - Assets/Materials/matPepperSpray.mat
 - Assets/Slipstream/SlipstreamAssets/Prefabs/Pickups/PickupTestItem.prefab
 - Assets/Slipstream/SlipstreamAssets/Prefabs/Pickups/PickupPepperSpray.prefab
-- Assets/Icons/Capture.PNG
 - Assets/Mesh/meshPepperSpray.fbx
-- Assets/Slipstream/SlipstreamAssets/ItemDefs/Slip_PepperSpray.asset
+- Assets/Slipstream/SlipstreamAssets/ItemDefs/PepperSpray.asset
 - Assets/Slipstream/SlipstreamAssets/ContentPack.asset
 Dependencies: []

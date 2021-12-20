@@ -7,31 +7,27 @@ using System;
 
 namespace Slipstream.Items
 {
-    public class PepperSpray : ItemBase
+    public class PepperSpray: ItemBase
     {
         private const string token = "SLIP_ITEM_PEPPERSPRAY_DESC";
-        public override ItemDef ItemDef { get; set; } = SlipAssets.Instance.MainAssetBundle.LoadAsset<ItemDef>("Slip_PepperSpray");
+        public override ItemDef ItemDef { get; set; } = SlipAssets.Instance.MainAssetBundle.LoadAsset<ItemDef>("PepperSpray");
 
         public static string section;
 
-        [ConfigurableField(ConfigName = "Shield Trigger Threshold", ConfigDesc = "Determines what percentage of your total shield you should be below in order to trigger the Pepper Spray effect.")]
+        [ConfigurableField(ConfigName = "Base Shield", ConfigDesc = "Initial shield gain when you have at least one Pepper Spray.")]
         //[TokenModifier(token, StatTypes.Default, 0)]
-        public static float threshold = 0.5f;
-
-        [ConfigurableField(ConfigName = "Base Shield", ConfigDesc = "Base shield amount when you have Pepper Spray in your inventory.")]
         public static float baseShield = 5.0f;
 
-        //public static float baseRadius = 1.0f;
-        //public static float radiusIncrease = 1.0f;
-        //public static float buffDuration = 1.0f;
-        //public static float moveSpeed = 1.0f;
+        [ConfigurableField(ConfigName = "Shield Threshold", ConfigDesc = "Percentage of total shield in order to trigger the effect.")]
+        public static float threshold = 0.5f;
 
         public override void AddBehavior(ref CharacterBody body, int stack)
         {
+            SlipLogger.LogD($"Initializing Test Item");
             body.AddItemBehavior<PepperSprayBehavior>(stack);
-        }
 
-        public class PepperSprayBehavior : CharacterBody.ItemBehavior//,  IOnTakeDamageServerReceiver
+        }
+        public class PepperSprayBehavior : CharacterBody.ItemBehavior, IBodyStatArgModifier, IOnTakeDamageServerReceiver
         {
             private bool shouldTrigger = false;
             public void ModifyStatArguments(RecalculateStatsAPI.StatHookEventArgs args)
@@ -39,25 +35,29 @@ namespace Slipstream.Items
                 args.baseShieldAdd += baseShield;
             }
 
+            //The trigger should only happen once until you recharge, not after everytime you get hit below the threshold
             private void FixedUpdate()
             {
                 if (NetworkServer.active)
                 {
-                    //Will check every frame if player is at full shield, once it is at full it will only do it once.
-
+                    //Checks if the body is at full shield.
                     if (body.healthComponent.shield == body.healthComponent.fullShield && !shouldTrigger)
                         shouldTrigger = true;
                 }
             }
+
             public void OnTakeDamageServer(DamageReport damageReport)
             {
-                if (body.healthComponent.shield < body.healthComponent.fullShield * threshold && shouldTrigger)
+                //Checks if the body went below the threshhold
+                if(body.healthComponent.shield < body.healthComponent.fullShield * threshold && shouldTrigger)
                 {
-                    Chat.AddMessage("triggered");
+                    Chat.AddMessage("Trigger");
+                    shouldTrigger = false;
                 }
+
             }
 
-            
+
         }
     }
 }

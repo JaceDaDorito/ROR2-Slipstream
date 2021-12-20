@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: RoR2EditorKitSettings
   m_EditorClassIdentifier: 
   TokenPrefix: 
-  MainManifest: {fileID: 11400000, guid: e8cea3bdb2b2548f320faec237a0013b, type: 2}
+  MainManifest: {fileID: 11400000, guid: 386537ef776c4c17a2e8e27fbd9dc53e, type: 2}
   CloseWindowWhenAssetIsCreated: 1
