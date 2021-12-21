@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 1325503851
+CRC: 811570959
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: ef973c94a6ef799fcd6366c1bbc3c914
+    Hash: 5cd1e4ef6abba1f99bbde6fa9ca0c264
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 749cf0af0b15359577631ea4e8df6b9a
+    Hash: 65a9570241c723d13887b66ff726404a
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -30,6 +30,8 @@ ClassTypes:
 - Class: 108
   Script: {instanceID: 0}
 - Class: 114
+  Script: {fileID: -1783169300, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 114
   Script: {fileID: -1284244208, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
   Script: {fileID: -281164913, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
@@ -42,6 +44,8 @@ ClassTypes:
 Assets:
 - Assets/Icons/iconPepperSpray.png
 - Packages/teammoonstorm-moonstormsharededitorutils/StubbedShaders/deferred/hgstandard.shader
+- Assets/Icons/iconPepperSpeed.png
+- Assets/Slipstream/SlipstreamAssets/BuffDefs/PepperSpeed.asset
 - Assets/Materials/matPepperSpray.png
 - Assets/Materials/matPepperSpray.mat
 - Assets/Slipstream/SlipstreamAssets/Prefabs/Pickups/PickupTestItem.prefab

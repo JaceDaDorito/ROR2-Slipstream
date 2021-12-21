@@ -12,6 +12,7 @@ namespace Slipstream
         public static class Buffs
         {
             //Buffs go here
+            public static BuffDef PepperSpeed;
         }
 
         /*public static class Elites
@@ -73,6 +74,10 @@ namespace Slipstream
                 delegate
                 {
                     new Pickups().Init();
+                },
+                delegate
+                {
+                    new ItemDisplays().Init();
                 },
                 delegate
                 {

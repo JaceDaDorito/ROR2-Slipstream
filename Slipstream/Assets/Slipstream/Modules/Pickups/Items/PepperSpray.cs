@@ -1,4 +1,5 @@
 ﻿using Moonstorm;
+using Slipstream.Buffs;
 using RoR2;
 using UnityEngine;
 using UnityEngine.Networking;
@@ -14,9 +15,9 @@ namespace Slipstream.Items
 
         public static string section;
 
-        [ConfigurableField(ConfigName = "Base Shield", ConfigDesc = "Initial shield gain when you have at least one Pepper Spray.")]
+        [ConfigurableField(ConfigName = "Base Shield", ConfigDesc = "Shield percentage after having at least one stack.")]
         //[TokenModifier(token, StatTypes.Default, 0)]
-        public static float baseShield = 5.0f;
+        public static float baseShield = 0.05f;
 
         [ConfigurableField(ConfigName = "Shield Threshold", ConfigDesc = "Percentage of total shield in order to trigger the effect.")]
         public static float threshold = 0.5f;
@@ -27,18 +28,27 @@ namespace Slipstream.Items
         [ConfigurableField(ConfigName = "Radius Increase", ConfigDesc = "Amount of increased stun radius per stack.")]
         public static float radiusPerStack = 3.0f;
 
+        [ConfigurableField(ConfigName = "Speed Increase", ConfigDesc = "Movement speed increase when Pepper Speed is active")]
+        public static float speedIncrease = 0.5f;
+
+        [ConfigurableField(ConfigName = "Base Speed Duration", ConfigDesc = "Initial speed duration with theoretically no shield (which is impossible but you get the point).")]
+        public static float baseDuration = 1.0f;
+
+        [ConfigurableField(ConfigName = "Speed Duration Multiplier", ConfigDesc = "Increased Pepper Speed duration per shield")]
+        public static float durationMultiplier = 0.5f;
+
         public override void AddBehavior(ref CharacterBody body, int stack)
         {
             SlipLogger.LogD($"Initializing Test Item");
             body.AddItemBehavior<PepperSprayBehavior>(stack);
 
         }
-        public class PepperSprayBehavior : CharacterBody.ItemBehavior, IBodyStatArgModifier, IOnTakeDamageServerReceiver
+        public class PepperSprayBehavior : CharacterBody.ItemBehavior, IBodyStatArgModifier
         {
             private bool shouldTrigger = false;
             public void ModifyStatArguments(RecalculateStatsAPI.StatHookEventArgs args)
             {
-                args.baseShieldAdd += baseShield;
+                args.baseShieldAdd += body.healthComponent.fullHealth * baseShield;
             }
 
             //The trigger should only happen once until you recharge, not after everytime you get hit below the threshold
@@ -49,18 +59,20 @@ namespace Slipstream.Items
                     //Checks if the body is at full shield.
                     if (body.healthComponent.shield == body.healthComponent.fullShield && !shouldTrigger)
                         shouldTrigger = true;
+
+                    if (body.healthComponent.shield < body.healthComponent.fullShield * threshold && shouldTrigger)
+                    {
+                        shouldTrigger = false;
+                        FireStunSpray();
+                        //AddBuff();
+                        body.AddTimedBuff(PepperSpeed.buff, baseDuration + durationMultiplier * body.healthComponent.fullShield);
+                        Util.PlaySound(EntityStates.Bison.PrepCharge.enterSoundString, gameObject);
+                    }
                 }
             }
 
-            public void OnTakeDamageServer(DamageReport damageReport)
+            private void AddBuff()
             {
-                //Checks if the body went below the threshhold
-                if(body.healthComponent.shield < body.healthComponent.fullShield * threshold && shouldTrigger)
-                {
-                    shouldTrigger = false;
-                    FireStunSpray();
-                    Util.PlaySound(EntityStates.Bison.PrepCharge.enterSoundString, gameObject);
-                }
 
             }
 
