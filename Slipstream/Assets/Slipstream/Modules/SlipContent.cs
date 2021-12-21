@@ -9,16 +9,17 @@ namespace Slipstream
 {
     public class SlipContent : ContentLoader<SlipContent>
     {
+        //Handles Content implementation, add Definitions to items here accordingly.
         public static class Buffs
         {
             //Buffs go here
             public static BuffDef PepperSpeed;
         }
 
-        /*public static class Elites
+        public static class Elites
         {
-            //Elites go here, don't put anything here though
-        }*/
+            //Elites go here, don't put anything here though, I have't implmented stuff regarding elites yet. We aren't doing anything regarding elites yet too.
+        }
         
         public static class Equipments
         {
@@ -41,7 +42,6 @@ namespace Slipstream
             #endregion
 
             #region Red items
-            //public static ItemDef TestItem;
             #endregion
 
             #region Yellow items

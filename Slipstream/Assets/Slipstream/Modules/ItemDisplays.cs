@@ -6,6 +6,7 @@ namespace Slipstream.Modules
 {
     public class ItemDisplays : ItemDisplayModuleBase
     {
+        //I have no fucking clue how this works yet hold on. Just skip past this.
         public static ItemDisplays Instance { get; set; }
         public override AssetBundle AssetBundle { get; set; } = SlipAssets.Instance.MainAssetBundle;
         public override SerializableContentPack ContentPack { get; set; } = SlipContent.Instance.SerializableContentPack;

@@ -8,6 +8,7 @@ namespace Slipstream.Buffs
 {
     public class Buffs : BuffModuleBase
     {
+        //Loads all Slipstream buffs
         public static Buffs Instance { get; set; }
         public static BuffDef[] LoadedSlipBuffs { get => SlipContent.Instance.SerializableContentPack.buffDefs; }
         public override SerializableContentPack ContentPack { get; set; } = SlipContent.Instance.SerializableContentPack;

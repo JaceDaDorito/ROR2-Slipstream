@@ -5,6 +5,8 @@ namespace Slipstream
 {
     public class SlipLogger
     {
+        //Establishes a console log for Slipstream. Call by doing SlipLogger.LogD($"[x]")
+
         public static ManualLogSource logger = null;
 
         public SlipLogger(ManualLogSource logger_)

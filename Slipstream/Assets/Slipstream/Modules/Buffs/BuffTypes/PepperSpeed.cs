@@ -6,6 +6,7 @@ namespace Slipstream.Buffs
 {
     public class PepperSpeed : BuffBase
     {
+        //Establishes buff PepperSpeed
         public override BuffDef BuffDef { get; set; } = SlipAssets.Instance.MainAssetBundle.LoadAsset<BuffDef>("PepperSpeed");
         public static BuffDef buff;
 
@@ -23,6 +24,7 @@ namespace Slipstream.Buffs
         {
             public void ModifyStatArguments(RecalculateStatsAPI.StatHookEventArgs args)
             {
+                //Post Condition to make sure the buff is applied, for some reason the move speed is bugged unless I do this.
                 if(body.HasBuff(buff))
                     args.moveSpeedMultAdd += Slipstream.Items.PepperSpray.speedIncrease;
             }

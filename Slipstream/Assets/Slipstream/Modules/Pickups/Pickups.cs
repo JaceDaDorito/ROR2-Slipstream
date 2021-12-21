@@ -10,6 +10,7 @@ namespace Slipstream.Modules
 {
     public class Pickups : PickupModuleBase
     {
+        //Loads all Slipstream pickups like Equipment and Items
         public static Pickups Instance { get; set; }
         public static ItemDef[] LoadedSlipItems { get => SlipContent.Instance.SerializableContentPack.itemDefs; }
         public static EquipmentDef[] LoadedSlipEquipsments { get => SlipContent.Instance.SerializableContentPack.equipmentDefs; }

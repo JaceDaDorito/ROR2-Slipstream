@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 811570959
+CRC: 3839201673
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 5cd1e4ef6abba1f99bbde6fa9ca0c264
+    Hash: deb58ca601e6a511b1ad487fe035afdf
   TypeTreeHash:
     serializedVersion: 2
     Hash: 65a9570241c723d13887b66ff726404a
@@ -49,6 +49,7 @@ Assets:
 - Assets/Materials/matPepperSpray.png
 - Assets/Materials/matPepperSpray.mat
 - Assets/Slipstream/SlipstreamAssets/Prefabs/Pickups/PickupTestItem.prefab
+- Assets/Slipstream/SlipstreamAssets/Prefabs/DisplayPrefabs/DisplayPepperSpray.prefab
 - Assets/Slipstream/SlipstreamAssets/Prefabs/Pickups/PickupPepperSpray.prefab
 - Assets/Mesh/meshPepperSpray.fbx
 - Assets/Slipstream/SlipstreamAssets/ItemDefs/PepperSpray.asset

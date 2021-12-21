@@ -10,10 +10,14 @@ namespace Slipstream.Items
 {
     public class PepperSpray: ItemBase
     {
+        //Ok so this isn't the most ideal item to reference off of as a beginner but don't be intimidated by the sheer girth of the code here.
+
         private const string token = "SLIP_ITEM_PEPPERSPRAY_DESC";
         public override ItemDef ItemDef { get; set; } = SlipAssets.Instance.MainAssetBundle.LoadAsset<ItemDef>("PepperSpray");
 
         public static string section;
+
+        //Establishes the config fields to allow easy changes in values in certain calculations and such.
 
         [ConfigurableField(ConfigName = "Base Shield", ConfigDesc = "Shield percentage after having at least one stack.")]
         //[TokenModifier(token, StatTypes.Default, 0)]
@@ -31,11 +35,8 @@ namespace Slipstream.Items
         [ConfigurableField(ConfigName = "Speed Increase", ConfigDesc = "Movement speed increase when Pepper Speed is active")]
         public static float speedIncrease = 0.5f;
 
-        [ConfigurableField(ConfigName = "Base Speed Duration", ConfigDesc = "Initial speed duration with theoretically no shield (which is impossible but you get the point).")]
-        public static float baseDuration = 1.0f;
-
-        [ConfigurableField(ConfigName = "Speed Duration Multiplier", ConfigDesc = "Increased Pepper Speed duration per shield")]
-        public static float durationMultiplier = 0.5f;
+        [ConfigurableField(ConfigName = "Max Speed Duration", ConfigDesc = "The time on your buff if your entire healthbar is shield.")]
+        public static float maxBuffTime = 14.0f;
 
         public override void AddBehavior(ref CharacterBody body, int stack)
         {
@@ -46,6 +47,8 @@ namespace Slipstream.Items
         public class PepperSprayBehavior : CharacterBody.ItemBehavior, IBodyStatArgModifier
         {
             private bool shouldTrigger = false;
+
+            //This just adds an initial shield when you have atleast one stack.
             public void ModifyStatArguments(RecalculateStatsAPI.StatHookEventArgs args)
             {
                 args.baseShieldAdd += body.healthComponent.fullHealth * baseShield;
@@ -56,34 +59,31 @@ namespace Slipstream.Items
             {
                 if (NetworkServer.active)
                 {
-                    //Checks if the body is at full shield.
+                    //Checks if the body is at full shield. shouldTrigger is just a switch to make sure that the effect doesn't trigger more than once below the shield threshold.
                     if (body.healthComponent.shield == body.healthComponent.fullShield && !shouldTrigger)
-                        shouldTrigger = true;
+                        shouldTrigger = true; 
 
+                    //Checks if the body is lower than the shield threshold percentage.
                     if (body.healthComponent.shield < body.healthComponent.fullShield * threshold && shouldTrigger)
                     {
                         shouldTrigger = false;
                         FireStunSpray();
-                        //AddBuff();
-                        body.AddTimedBuff(PepperSpeed.buff, baseDuration + durationMultiplier * body.healthComponent.fullShield);
+                        body.AddTimedBuff(PepperSpeed.buff, maxBuffTime * (body.healthComponent.fullShield/(body.healthComponent.fullShield + body.healthComponent.fullHealth)));
                         Util.PlaySound(EntityStates.Bison.PrepCharge.enterSoundString, gameObject);
                     }
                 }
             }
 
-            private void AddBuff()
-            {
-
-            }
-
             private void FireStunSpray()
             {
+                //Establishes a gameobject for the explosion
                 Vector3 corePosition = Util.GetCorePosition(body.gameObject);
                 float radius = baseRadius + radiusPerStack * (stack - 1f);
-                GameObject gameObject2 = UnityEngine.Object.Instantiate(Resources.Load<GameObject>("Prefabs/NetworkedObjects/GenericDelayBlast"), corePosition, Quaternion.identity);
-                gameObject2.transform.localScale = new Vector3(radius, radius, radius);
-                DelayBlast sprayAttack = gameObject2.GetComponent<DelayBlast>();
+                GameObject hitBoxStun = UnityEngine.Object.Instantiate(Resources.Load<GameObject>("Prefabs/NetworkedObjects/GenericDelayBlast"), corePosition, Quaternion.identity);
+                hitBoxStun.transform.localScale = new Vector3(radius, radius, radius);
+                DelayBlast sprayAttack = hitBoxStun.GetComponent<DelayBlast>();
 
+                //Fills characteristics of the explosion such as the damage type stunning
                 sprayAttack.position = corePosition;
                 sprayAttack.radius = radius;
                 sprayAttack.attacker = body.gameObject;
@@ -92,9 +92,10 @@ namespace Slipstream.Items
                 sprayAttack.damageType = DamageType.Stun1s;
                 sprayAttack.explosionEffect = Resources.Load<GameObject>("Prefabs/Effects/ImpactEffects/AffixWhiteExplosion");
                 //sprayAttack.delayEffect = Resources.Load<GameObject>("Prefabs/Effects/ImpactEffects/AffixWhiteExplosion");
-                gameObject2.GetComponent<TeamFilter>().teamIndex = TeamComponent.GetObjectTeam(body.gameObject);
+                hitBoxStun.GetComponent<TeamFilter>().teamIndex = TeamComponent.GetObjectTeam(body.gameObject);
 
-                NetworkServer.Spawn(gameObject2);
+                //Fires the explosion
+                NetworkServer.Spawn(hitBoxStun);
             }
         }
     }

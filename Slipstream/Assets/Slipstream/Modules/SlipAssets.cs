@@ -13,6 +13,8 @@ namespace Slipstream
 {
     public class SlipAssets: AssetsLoader<SlipAssets>
     {
+        //Loads all assets such as models, effects, and soundbanks (not yet but soon)
+
         public static ReadOnlyCollection<AssetBundle> assetBundles;
         public override AssetBundle MainAssetBundle => assetBundles[0];
         public override string AssemblyDir => Path.GetDirectoryName(SlipMain.pluginInfo.Location);
