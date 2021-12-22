@@ -40,7 +40,7 @@ namespace Slipstream.Items
 
         public override void AddBehavior(ref CharacterBody body, int stack)
         {
-            SlipLogger.LogD($"Initializing Test Item");
+            //SlipLogger.LogD($"Initializing Test Item");
             body.AddItemBehavior<PepperSprayBehavior>(stack);
 
         }

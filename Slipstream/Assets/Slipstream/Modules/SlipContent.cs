@@ -39,6 +39,7 @@ namespace Slipstream
             #endregion
 
             #region Green items
+            public static ItemDef JaceHat;
             #endregion
 
             #region Red items
@@ -73,6 +74,10 @@ namespace Slipstream
                 },
                 delegate
                 {
+                    new Modules.Projectiles().Init();
+                },
+                delegate
+                {
                     new Pickups().Init();
                 },
                 delegate
@@ -85,6 +90,10 @@ namespace Slipstream
                         .Where(type => typeof(EntityStates.EntityState).IsAssignableFrom(type))
                         .ToList()
                         .ForEach(state => HG.ArrayUtils.ArrayAppend(ref SerializableContentPack.entityStateTypes, new EntityStates.SerializableEntityStateType(state)));
+                },
+                delegate
+                {
+                    SlipAssets.Instance.LoadEffectDefs();
                 },
                 delegate
                 {

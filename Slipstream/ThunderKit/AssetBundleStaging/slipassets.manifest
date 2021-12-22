@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 3839201673
+CRC: 1196924467
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: deb58ca601e6a511b1ad487fe035afdf
+    Hash: ff5ffc94dd5769e0e58b40d7ec63e87d
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 65a9570241c723d13887b66ff726404a
+    Hash: 3182cd79504601fe7dc12d8edfe64261
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -39,17 +39,23 @@ ClassTypes:
   Script: {instanceID: 0}
 - Class: 135
   Script: {instanceID: 0}
+- Class: 136
+  Script: {instanceID: 0}
 - Class: 213
   Script: {instanceID: 0}
 Assets:
+- Assets/Materials/matDefaultItem.mat
 - Assets/Icons/iconPepperSpray.png
 - Packages/teammoonstorm-moonstormsharededitorutils/StubbedShaders/deferred/hgstandard.shader
 - Assets/Icons/iconPepperSpeed.png
 - Assets/Slipstream/SlipstreamAssets/BuffDefs/PepperSpeed.asset
 - Assets/Materials/matPepperSpray.png
+- Assets/Slipstream/SlipstreamAssets/Prefabs/Projectiles/projJaceHat.prefab
 - Assets/Materials/matPepperSpray.mat
 - Assets/Slipstream/SlipstreamAssets/Prefabs/Pickups/PickupTestItem.prefab
 - Assets/Slipstream/SlipstreamAssets/Prefabs/DisplayPrefabs/DisplayPepperSpray.prefab
+- Assets/Slipstream/SlipstreamAssets/ItemDefs/JaceHat.asset
+- Assets/Icons/Capture.PNG
 - Assets/Slipstream/SlipstreamAssets/Prefabs/Pickups/PickupPepperSpray.prefab
 - Assets/Mesh/meshPepperSpray.fbx
 - Assets/Slipstream/SlipstreamAssets/ItemDefs/PepperSpray.asset
