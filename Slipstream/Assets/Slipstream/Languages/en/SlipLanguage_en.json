@@ -1,9 +1,0 @@
-﻿{
-    "strings":
-    {
-        "SLIP_ITEM_PEPPERSPRAY_NAME": "Pepper Spray",
-        "SLIP_ITEM_PEPPERSPRAY_PICKUP": "When below a percentage of your total shield, stun all enemies around you and gain a speed boost. Speed boost duration scales with total shield.",
-        "SLIP_ITEM_PEPPERSPRAY_DESC": "WIP description",
-        "SLIP_ITEM_PEPPERSPRAY_LORE": "WIP lore"
-    }
-}

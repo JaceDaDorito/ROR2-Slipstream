@@ -28,12 +28,13 @@ namespace Slipstream.Items
 
         public override void AddBehavior(ref CharacterBody body, int stack)
         {
-            SlipLogger.LogD($"Initializing Jace Hat");
+            //SlipLogger.LogD($"Initializing Jace Hat");
             body.AddItemBehavior<JaceHatBehavior>(stack);
         }
 
         public class JaceHatBehavior : CharacterBody.ItemBehavior
         {
+            public static GameObject projectile;
             public void Start()
             {
                 body.onSkillActivatedServer += OnSkillActivated;
@@ -49,10 +50,9 @@ namespace Slipstream.Items
                 {
                     if (body.skillLocator.FindSkill(skill.skillName))
                     {
-                        SlipLogger.LogD($"general skill activation");
                         if (body.skillLocator.secondary.Equals(skill))
                         {
-                            //behavior
+                            CreateProjectile();
                             Chat.AddMessage("<color=#e77118>secondary activation</color>");
                         }
                     }

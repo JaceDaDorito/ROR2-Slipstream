@@ -20,22 +20,27 @@ namespace Slipstream.Items
         //Establishes the config fields to allow easy changes in values in certain calculations and such.
 
         [ConfigurableField(ConfigName = "Base Shield", ConfigDesc = "Shield percentage after having at least one stack.")]
-        //[TokenModifier(token, StatTypes.Default, 0)]
+        [TokenModifier(token, StatTypes.Percentage, 0)]
         public static float baseShield = 0.05f;
 
         [ConfigurableField(ConfigName = "Shield Threshold", ConfigDesc = "Percentage of total shield in order to trigger the effect.")]
+        [TokenModifier(token, StatTypes.Percentage, 1)]
         public static float threshold = 0.5f;
 
         [ConfigurableField(ConfigName = "Base Radius", ConfigDesc = "Initial radius of the stun effect.")]
+        [TokenModifier(token, StatTypes.Default, 2)]
         public static float baseRadius = 30.0f;
 
         [ConfigurableField(ConfigName = "Radius Increase", ConfigDesc = "Amount of increased stun radius per stack.")]
+        [TokenModifier(token, StatTypes.Default, 3)]
         public static float radiusPerStack = 3.0f;
 
         [ConfigurableField(ConfigName = "Speed Increase", ConfigDesc = "Movement speed increase when Pepper Speed is active")]
+        [TokenModifier(token, StatTypes.Percentage, 4)]
         public static float speedIncrease = 0.5f;
 
         [ConfigurableField(ConfigName = "Max Speed Duration", ConfigDesc = "The time on your buff if your entire healthbar is shield.")]
+        [TokenModifier(token, StatTypes.Default, 5)]
         public static float maxBuffTime = 14.0f;
 
         public override void AddBehavior(ref CharacterBody body, int stack)
