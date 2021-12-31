@@ -26,7 +26,7 @@ namespace Slipstream.Buffs
             {
                 //Post Condition to make sure the buff is applied, for some reason the move speed is bugged unless I do this.
                 if(body.HasBuff(buff))
-                    args.moveSpeedMultAdd += Slipstream.Items.PepperSpray.speedIncrease;
+                    args.moveSpeedMultAdd += Items.PepperSpray.speedIncrease;
             }
         }
 

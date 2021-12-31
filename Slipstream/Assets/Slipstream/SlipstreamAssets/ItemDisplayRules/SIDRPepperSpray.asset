@@ -1,0 +1,95 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 751239416, guid: af7c96524aaf41be6a9f8939c088ce66, type: 3}
+  m_Name: SIDRPepperSpray
+  m_EditorClassIdentifier: 
+  keyAssetName: pepperspray
+  displayPrefabName: pepperspraydisplayprefab_0
+  singleItemDisplayRules:
+  - vanillaIDRSKey: idrsCommando
+    itemDisplayRules:
+    - ruleType: 0
+      IDPHValues: Stomach,0.21624,0.07648,-0.00074,0,180,0,4.5,4.5,4.5
+      limbMask: 0
+  - vanillaIDRSKey: idrsHuntress
+    itemDisplayRules:
+    - ruleType: 0
+      IDPHValues: ThighR,-0.12915,0.10542,0.06382,5.99956,213.282,177.7281,4.5,4.5,4.5
+      limbMask: 0
+  - vanillaIDRSKey: idrsBandit2
+    itemDisplayRules:
+    - ruleType: 0
+      IDPHValues: Stomach,0.22238,0.04627,0.0608,356.1688,163.6772,355.8419,4.5,4.5,4.5
+      limbMask: 0
+  - vanillaIDRSKey: idrsToolbotbody
+    itemDisplayRules:
+    - ruleType: 0
+      IDPHValues: Chest,-0.41808,2.15866,-1.60362,0,0,270,90,90,90
+      limbMask: 0
+  - vanillaIDRSKey: idrsEngi
+    itemDisplayRules:
+    - ruleType: 0
+      IDPHValues: Stomach,-0.27738,-0.06298,-0.02603,341.6373,359.7538,3.3767,4.5,4.5,4.5
+      limbMask: 0
+  - vanillaIDRSKey: idrsMerc
+    itemDisplayRules:
+    - ruleType: 0
+      IDPHValues: Pelvis,-0.21608,0.03825,-0.05063,28.14085,94.53446,88.01296,4.5,4.5,4.5
+      limbMask: 0
+  - vanillaIDRSKey: idrsMage
+    itemDisplayRules:
+    - ruleType: 0
+      IDPHValues: Chest,0.20118,0.02454,-0.31213,352.3127,226.0623,355.4964,4.5,4.5,4.5
+      limbMask: 0
+  - vanillaIDRSKey: idrstreebot
+    itemDisplayRules:
+    - ruleType: 0
+      IDPHValues: PlatformBase,-0.26382,0.55305,0.78605,354.6116,25.86167,98.63171,9,9,9
+      limbMask: 0
+  - vanillaIDRSKey: idrsLoader
+    itemDisplayRules:
+    - ruleType: 0
+      IDPHValues: MechHandR,0.02836,0.26955,0.00565,1.95034,35.22103,276.5789,4.5,4.5,4.5
+      limbMask: 0
+  - vanillaIDRSKey: idrsCroco
+    itemDisplayRules:
+    - ruleType: 0
+      IDPHValues: Chest,-1.14704,-0.16653,6.63521,0.33133,169.7374,97.56905,40,40,40
+      limbMask: 0
+  - vanillaIDRSKey: idrsCaptain
+    itemDisplayRules:
+    - ruleType: 0
+      IDPHValues: HandL,-0.1139,0.1769,0.00409,0,0,0,4.5,4.5,4.5
+      limbMask: 0
+  - vanillaIDRSKey: idrsScav
+    itemDisplayRules:
+    - ruleType: 0
+      IDPHValues: Weapon,0.01445,7.35524,-0.23807,-0.00001,180,180,600,600,600
+      limbMask: 0
+  - vanillaIDRSKey: idrsengiturret
+    itemDisplayRules:
+    - ruleType: 0
+      IDPHValues: Neck,0.33056,-0.14145,-0.05847,0,182.3102,0,15,15,15
+      limbMask: 0
+  - vanillaIDRSKey: idrsengiwalkerturret
+    itemDisplayRules:
+    - ruleType: 0
+      IDPHValues: Head,0.86521,1.03196,-0.33155,273.4315,270,270,15,15,15
+      limbMask: 0
+  - vanillaIDRSKey: idrsenforcer
+    itemDisplayRules:
+    - ruleType: 0
+      IDPHValues: ThighR,0.21548,0.20988,0.03315,6.13269,41.79895,185.57,4,4,4
+      limbMask: 0
+    - ruleType: 0
+      IDPHValues: ThighR,0.23184,0.21699,-0.05781,5.69842,38.93716,183.9095,4,4,4
+      limbMask: 0
