@@ -4,6 +4,9 @@ using RoR2;
 using UnityEngine;
 using UnityEngine.Networking;
 using R2API;
+using R2API.Utils;
+using RoR2;
+using RoR2.Projectile;
 using System;
 
 namespace Slipstream.Items
@@ -25,6 +28,8 @@ namespace Slipstream.Items
 
         [ConfigurableField(ConfigName = "Max Radius", ConfigDesc = "The farthest the hat will go before returning")]
         public static float maxRadius = 5f;
+
+        public static GameObject ProjectilePrefab { get; set; } = SlipAssets.Instance.MainAssetBundle.LoadAsset<GameObject>("projJaceHat");
 
         public override void AddBehavior(ref CharacterBody body, int stack)
         {
@@ -60,7 +65,26 @@ namespace Slipstream.Items
             }
             public void CreateProjectile()
             {
-                
+                InputBankTest inputBank = body.inputBank;
+                if(inputBank && body)
+                {
+                    Ray aimRay = new Ray(inputBank.aimOrigin, inputBank.aimDirection);
+                    Quaternion rotation = Util.QuaternionSafeLookRotation(aimRay.direction);
+                    ProjectileManager.instance.FireProjectile(Projectiles.JaceHatProjectile.hatProj, aimRay.origin, rotation, body.gameObject, body.damage * 50, 0f, Util.CheckRoll(body.crit, body?.master), DamageColorIndex.Item, null);
+                }
+
+                /*
+                FireProjectileInfo fireProjectileInfo = new FireProjectileInfo
+                {
+                    projectilePrefab = sawProj,
+                    crit = body.RollCrit(),
+                    damage = body.damage,
+                    damageColorIndex = DamageColorIndex.Item,
+                    force = 10f,
+                    owner = gameObject,
+                    position = body.corePosition,
+                };
+                ProjectileManager.instance.FireProjectile(fireProjectileInfo);*/
             }
         }
     }
