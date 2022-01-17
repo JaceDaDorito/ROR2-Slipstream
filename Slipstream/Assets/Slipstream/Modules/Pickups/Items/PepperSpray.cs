@@ -95,7 +95,7 @@ namespace Slipstream.Items
                 sprayAttack.falloffModel = BlastAttack.FalloffModel.None;
                 sprayAttack.maxTimer = 0f;
                 sprayAttack.damageType = DamageType.Stun1s;
-                sprayAttack.explosionEffect = Resources.Load<GameObject>("Prefabs/Effects/ImpactEffects/AffixWhiteExplosion");
+                sprayAttack.explosionEffect = SlipAssets.Instance.MainAssetBundle.LoadAsset<GameObject>("PepperSprayExplosion");
                 //sprayAttack.delayEffect = Resources.Load<GameObject>("Prefabs/Effects/ImpactEffects/AffixWhiteExplosion");
                 hitBoxStun.GetComponent<TeamFilter>().teamIndex = TeamComponent.GetObjectTeam(body.gameObject);
 

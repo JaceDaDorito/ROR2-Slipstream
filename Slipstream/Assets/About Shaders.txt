@@ -1,0 +1,7 @@
+Ok so I am putting this note here because the Shaders folder deals with official Hopoo Games shaders. If you are not dealing with shaders,
+making visual effects, or making stages (or anything similar) DO NOT touch the folder. However, if you are theres a few concerns.
+
+-If you got your hands on the official hgshaders via GameImporter (they must have the .asset suffix. If its .shader it doesn't work.) just drop them in their
+respective meta file locations.
+-If you are working with shaders, make sure  to swap the materials using the shaders back to the stubbed version when building the mod,
+I have yet to create a custom pipeline to circumvent this.

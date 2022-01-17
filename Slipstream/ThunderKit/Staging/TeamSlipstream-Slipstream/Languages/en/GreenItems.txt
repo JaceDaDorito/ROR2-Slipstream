@@ -1,9 +1,0 @@
-{
-    "strings":
-    {
-        "SLIP_ITEM_GLASSEYE_NAME": "Glass Eye",
-	"SLIP_ITEM_GLASSEYE_PICKUP": "When shield is active, gain a crit damage boost.",
-	"SLIP_ITEM_GLASSEYE_DESC": "WIP Desc",
-	"SLIP_ITEM_GLASSEYE_LORE": "Pussy"
-    }
-}
