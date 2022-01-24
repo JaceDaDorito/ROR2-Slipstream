@@ -36,6 +36,7 @@ namespace Slipstream
         internal void LoadEffectDefs()
         {
             SlipContent.Instance.SerializableContentPack.effectDefs = LoadEffectDefsFromHolders(MainAssetBundle);
+            SlipContent.Instance.SerializableContentPack.effectDefs = LoadEffectDefsFromPrefabs(MainAssetBundle);
         }
 
         internal void SwapMaterialShaders()

@@ -7,6 +7,7 @@ using R2API.Utils;
 using System.Linq;
 using System.Security;
 using System.Security.Permissions;
+using UnityEngine;
 
 #pragma warning disable CS0618
 [assembly: SecurityPermission(SecurityAction.RequestMinimum, SkipVerification = true)]
@@ -63,6 +64,7 @@ namespace Slipstream
 
             //Slipstream now loads alongside the game "and will properly show percentage increase in the loading screen" -Neb
         }
+
 
     }
 }

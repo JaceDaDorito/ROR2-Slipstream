@@ -532,15 +532,15 @@ PlayerSettings:
   webGLLinkerTarget: 1
   webGLThreadsSupport: 0
   scriptingDefineSymbols:
-    1: thunderkit;twiner-unitygameimporter;riskofrain2
-    7: thunderkit;twiner-unitygameimporter;riskofrain2
-    13: thunderkit;twiner-unitygameimporter;riskofrain2
-    19: thunderkit;twiner-unitygameimporter;riskofrain2
-    21: thunderkit;twiner-unitygameimporter;riskofrain2
-    25: thunderkit;twiner-unitygameimporter;riskofrain2
-    26: thunderkit;twiner-unitygameimporter;riskofrain2
-    27: thunderkit;twiner-unitygameimporter;riskofrain2
-    28: thunderkit;twiner-unitygameimporter;riskofrain2
+    1: thunderkit;twiner-unitygameimporter;riskofrain2;teammoonstorm-moonstormsharedutils;teammoonstorm-moonstormsharededitorutils
+    7: thunderkit;twiner-unitygameimporter;riskofrain2;teammoonstorm-moonstormsharedutils;teammoonstorm-moonstormsharededitorutils
+    13: thunderkit;twiner-unitygameimporter;riskofrain2;teammoonstorm-moonstormsharedutils;teammoonstorm-moonstormsharededitorutils
+    19: thunderkit;twiner-unitygameimporter;riskofrain2;teammoonstorm-moonstormsharedutils;teammoonstorm-moonstormsharededitorutils
+    21: thunderkit;twiner-unitygameimporter;riskofrain2;teammoonstorm-moonstormsharedutils;teammoonstorm-moonstormsharededitorutils
+    25: thunderkit;twiner-unitygameimporter;riskofrain2;teammoonstorm-moonstormsharedutils;teammoonstorm-moonstormsharededitorutils
+    26: thunderkit;twiner-unitygameimporter;riskofrain2;teammoonstorm-moonstormsharedutils;teammoonstorm-moonstormsharededitorutils
+    27: thunderkit;twiner-unitygameimporter;riskofrain2;teammoonstorm-moonstormsharedutils;teammoonstorm-moonstormsharededitorutils
+    28: thunderkit;twiner-unitygameimporter;riskofrain2;teammoonstorm-moonstormsharedutils;teammoonstorm-moonstormsharededitorutils
   platformArchitecture: {}
   scriptingBackend: {}
   il2cppCompilerConfiguration: {}

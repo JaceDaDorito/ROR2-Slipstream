@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: matPepperSpray
-  m_Shader: {fileID: 4800000, guid: b4634813a454fa041862ecba03ce8662, type: 3}
+  m_Shader: {fileID: 4800000, guid: 5bdba6f7a7c94525baf0a58d928ad3bc, type: 3}
   m_ShaderKeywords: DITHER FORCE_SPEC
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
