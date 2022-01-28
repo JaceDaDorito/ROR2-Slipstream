@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: matPepperSprayEmit
-  m_Shader: {fileID: 4800000, guid: 7a2955c512914d92881753c455346dd9, type: 3}
+  m_Shader: {fileID: 4800000, guid: a18339a8c6424e4e81ec960469b7cd4d, type: 2}
   m_ShaderKeywords: EMISSIONFROMALBEDO VERTEXCOLOR
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -74,7 +74,7 @@ Material:
     m_Floats:
     - _AlphaBias: 0.214
     - _AlphaBoost: 0.8
-    - _Boost: 4.78
+    - _Boost: 5.77
     - _BumpScale: 1
     - _CalcTextureAlphaOn: 0
     - _CloudNormalMap: 0

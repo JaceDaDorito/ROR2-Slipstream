@@ -73,7 +73,7 @@ namespace Slipstream.Items
                         shouldTrigger = true; 
 
                     //Checks if the body is lower than the shield threshold percentage.
-                    if (body.healthComponent.shield < body.healthComponent.fullShield * threshold && shouldTrigger || Input.GetKeyDown("k") /*Remove Input.GetKeyDown later*/)
+                    if (body.healthComponent.shield < body.healthComponent.fullShield * threshold && shouldTrigger)
                     {
                         shouldTrigger = false;
                         FireStunSpray();

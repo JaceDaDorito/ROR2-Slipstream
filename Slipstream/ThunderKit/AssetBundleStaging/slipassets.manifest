@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 434131786
+CRC: 3942996901
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: fbbe1ca7669ff6fe115bb85d93a267a4
+    Hash: ba7605e25f461cb6029afdda33d9b42e
   TypeTreeHash:
     serializedVersion: 2
-    Hash: dc1361513aea68de85128c0fca74d469
+    Hash: bf548dc3777ebbee2488ea6149cb455f
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -56,6 +56,8 @@ ClassTypes:
 - Class: 114
   Script: {fileID: -1479993534, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
+  Script: {fileID: 296141222, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 114
   Script: {fileID: -1848696948, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
   Script: {fileID: 1790887305, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
@@ -84,7 +86,7 @@ ClassTypes:
 - Class: 213
   Script: {instanceID: 0}
 Assets:
-- Assets/Materials/texRampTritone2.png
+- Assets/Materials/matPepperSprayExplosion.mat
 - Assets/Materials/texRampPepperRad.png
 - Assets/Materials/matDefaultItem.mat
 - Assets/Slipstream/SlipstreamAssets/ItemDefs/GlassEye.asset
@@ -93,7 +95,6 @@ Assets:
 - Assets/Materials/texRampGreaterWisp.png
 - Assets/Slipstream/SlipstreamAssets/ItemDisplayRules/Key Asset Display Pair Holder.asset
 - Assets/Icons/iconPepperSpeed.png
-- Assets/Materials/matPepperSprayExplosion.mat
 - Assets/Slipstream/SlipstreamAssets/BuffDefs/PepperSpeed.asset
 - Assets/Materials/matPepperSpray.png
 - Assets/Slipstream/SlipstreamAssets/Prefabs/Projectiles/projJaceHat.prefab
@@ -101,31 +102,24 @@ Assets:
 - Assets/Materials/matPepperSprayEmit - Copy.mat
 - Assets/Materials/matPepperSpray.mat
 - Assets/Slipstream/SlipstreamAssets/Prefabs/Pickups/PickupTestItem.prefab
-- Assets/Materials/texBasicMask.png
 - Assets/StubbedShaders/fx/hgcloudremap.shader
 - Assets/Slipstream/SlipstreamAssets/Prefabs/DisplayPrefabs/DisplayPepperSpray.prefab
-- Assets/Materials/texBanditSkullMask.png
-- Assets/Materials/rampPepperSpray.png
 - Assets/Materials/glasseye_Diffuse.png
 - Assets/StubbedShaders/deferred/hgstandard.shader
+- Assets/Materials/texSmokeExplosionMask.png
 - Assets/Materials/texCloudOrganic1.png
-- Assets/Materials/texOmniHitspark1Mask.png
 - Assets/Materials/glasseye_Normal.png
 - Assets/Slipstream/SlipstreamAssets/Prefabs/Effects/PepperSprayExplosion.prefab
-- Assets/Materials/texRampHealingMedkit.png
 - Assets/StubbedShaders/fx/hgintersectioncloudremap.shader
 - Assets/Slipstream/SlipstreamAssets/Prefabs/Projectiles/README.txt
 - Assets/Slipstream/SlipstreamAssets/ItemDefs/JaceHat.asset
+- Assets/Materials/matPepperRim.mat
 - Assets/Slipstream/SlipstreamAssets/Prefabs/DisplayPrefabs/DisplayGlassEye.prefab
-- Assets/Materials/texPepperSprayCloud.png
 - Assets/Materials/texOmniShockwave1Mask.png
 - Assets/Materials/matGlassEye.mat
-- Assets/Materials/texEgyptThing.png
+- Assets/Mesh/donut5Mesh.asset
 - Assets/Materials/texGlowPaintMask.png
-- Assets/Materials/matPepperSprayParticle.mat
-- Assets/Materials/texParticleDust3Mask.png
 - Assets/Materials/texCloudPixel.png
-- Assets/Materials/texCloudDifferenceBW2.png
 - Assets/Slipstream/SlipstreamAssets/ItemDisplayRules/SIDRPepperSpray.asset
 - Assets/Icons/Capture.PNG
 - Assets/Slipstream/SlipstreamAssets/Prefabs/Pickups/PickupPepperSpray.prefab
@@ -136,5 +130,4 @@ Assets:
 - Assets/Mesh/Sphere.asset
 - Assets/Materials/matPepperSprayEmit.mat
 - Assets/Mesh/glasseye.fbx
-- Assets/Materials/texRampPepperEmit.png
 Dependencies: []
