@@ -12,4 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3ed1fbf916ccdb4e90ec5cf623fe1be, type: 3}
   m_Name: EnabledAndDisabledInspectorsSettings
   m_EditorClassIdentifier: 
-  EnabledInspectors: []
+  EnabledInspectors:
+  - inspectorName: SerializableContentPackCustomEditor
+    typeReference: RoR2EditorKit.RoR2.Inspectors.SerializableContentPackCustomEditor,
+      RoR2EditorKit, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    isEnabled: 1
+  - inspectorName: VanillaSkinDefInspector
+    typeReference: Moonstorm.EditorUtils.Inspectors.VanillaSkinDefInspector, MoonstormEditorUtils,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    isEnabled: 1
+  - inspectorName: SIDRInspector
+    typeReference: Moonstorm.EditorUtils.Inspectors.SIDRInspector, MoonstormEditorUtils,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    isEnabled: 1
+  - inspectorName: KADPHInspector
+    typeReference: Moonstorm.EditorUtils.Inspectors.KADPHInspector, MoonstormEditorUtils,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    isEnabled: 1
+  - inspectorName: MSIDRSInspector
+    typeReference: Moonstorm.EditorUtils.Inspectors.MSIDRSInspector, MoonstormEditorUtils,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    isEnabled: 1

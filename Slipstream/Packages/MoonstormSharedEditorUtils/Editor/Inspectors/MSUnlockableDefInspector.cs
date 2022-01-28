@@ -6,17 +6,7 @@ namespace Moonstorm.EditorUtils.Inspectors
     [CustomEditor(typeof(MSUnlockableDef))]
     public class MSUnlockableDefInspector : ScriptableObjectInspector
     {
-        public override void OnInspectorGUI()
-        {
-            base.OnInspectorGUI();
-            if (InspectorEnabled)
-            {
-                DrawCustomInspector();
-                serializedObject.ApplyModifiedProperties();
-            }
-        }
-
-        private void DrawCustomInspector()
+        public override void DrawCustomInspector()
         {
             Header("UnlockableDef", "Section pertaining to the UnlockableDef itself");
 

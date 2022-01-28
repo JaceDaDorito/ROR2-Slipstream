@@ -24,10 +24,10 @@ namespace Moonstorm.EditorUtils.Inspectors
             }
             return false;
         }
-        public override void OnInspectorGUI()
+
+        public override void DrawCustomInspector()
         {
-            base.OnInspectorGUI();
-            if (InspectorEnabled && GUILayout.Button("Open Editor"))
+            if(GUILayout.Button("Open Editor"))
             {
                 ExtendedEditorWindow.OpenEditorWindow<KADPHEditorWindow>(target, "Key Asset Display Pair Holder Window");
             }

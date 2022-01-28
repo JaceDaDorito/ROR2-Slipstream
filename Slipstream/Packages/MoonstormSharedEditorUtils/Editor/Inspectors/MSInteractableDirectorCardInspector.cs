@@ -6,17 +6,7 @@ namespace Moonstorm.EditorUtils.Inspectors
     [CustomEditor(typeof(MSInteractableDirectorCard))]
     public class MSInteractableDirectorCardInspector : ScriptableObjectInspector
     {
-        public override void OnInspectorGUI()
-        {
-            base.OnInspectorGUI();
-            if (InspectorEnabled)
-            {
-                DrawCustomInspector();
-                serializedObject.ApplyModifiedProperties();
-            }
-        }
-
-        private void DrawCustomInspector()
+        public override void DrawCustomInspector()
         {
             Header("Interactable Spawn Card", "Section pertaining to the Interactable Spawn Card");
 

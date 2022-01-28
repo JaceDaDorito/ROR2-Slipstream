@@ -13,11 +13,32 @@ MonoBehaviour:
   m_Name: Stage
   m_EditorClassIdentifier: 
   Data:
-  - {fileID: 114520525572577756}
   - {fileID: 114643622350610336}
   - {fileID: 114537630434205182}
   - {fileID: 114366308522735304}
+  - {fileID: 114225940365364898}
   manifest: {fileID: 11400000, guid: 386537ef776c4c17a2e8e27fbd9dc53e, type: 2}
+--- !u!114 &114225940365364898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 162923f5fc933e84c9cb1980f8770cca, type: 3}
+  m_Name: SwapShadersAndStageAssetBundles
+  m_EditorClassIdentifier: 
+  Errored: 0
+  ErrorMessage: 
+  ErrorStacktrace: 
+  Active: 1
+  AssetBundleBuildOptions: 1
+  buildTarget: 5
+  recurseDirectories: 1
+  simulate: 0
+  BundleArtifactPath: <AssetBundleStaging>
 --- !u!114 &114366308522735304
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -34,27 +55,6 @@ MonoBehaviour:
   ErrorMessage: 
   ErrorStacktrace: 
   Active: 1
---- !u!114 &114520525572577756
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 924ee63e6c016f14d8a1560b288f15a3, type: 3}
-  m_Name: StageAssetBundles
-  m_EditorClassIdentifier: 
-  Errored: 0
-  ErrorMessage: 
-  ErrorStacktrace: 
-  Active: 1
-  AssetBundleBuildOptions: 1
-  buildTarget: 5
-  recurseDirectories: 1
-  simulate: 0
-  BundleArtifactPath: <AssetBundleStaging>
 --- !u!114 &114537630434205182
 MonoBehaviour:
   m_ObjectHideFlags: 1

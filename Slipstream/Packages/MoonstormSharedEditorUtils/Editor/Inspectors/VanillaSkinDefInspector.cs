@@ -24,11 +24,9 @@ namespace Moonstorm.EditorUtils.Inspectors
             }
             return false;
         }
-        public override void OnInspectorGUI()
+        public override void DrawCustomInspector()
         {
-            base.OnInspectorGUI();
-
-            if (InspectorEnabled && GUILayout.Button("Open Editor"))
+            if (GUILayout.Button("Open Editor"))
             {
                 ExtendedEditorWindow.OpenEditorWindow<VanillaSkinDefEditorWindow>(target, "Vanilla Skin Def Editor Window");
             }

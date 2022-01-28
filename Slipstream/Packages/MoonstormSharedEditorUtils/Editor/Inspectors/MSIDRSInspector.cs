@@ -24,11 +24,10 @@ namespace Moonstorm.EditorUtils.Inspectors
             }
             return false;
         }
-        public override void OnInspectorGUI()
-        {
-            base.OnInspectorGUI();
 
-            if (InspectorEnabled && GUILayout.Button("Open Editor"))
+        public override void DrawCustomInspector()
+        {
+            if(GUILayout.Button("Open Editor"))
             {
                 ExtendedEditorWindow.OpenEditorWindow<MSIDRSEditorWindow>(target, "String Item Display Rule Set Editor Window");
             }

@@ -29,17 +29,21 @@ namespace Slipstream.Items
 
         [ConfigurableField(ConfigName = "Base Radius", ConfigDesc = "Initial radius of the stun effect.")]
         [TokenModifier(token, StatTypes.Default, 2)]
-        public static float baseRadius = 30.0f;
+        public static float baseRadius = 10.0f;
 
         [ConfigurableField(ConfigName = "Radius Increase", ConfigDesc = "Amount of increased stun radius per stack.")]
         [TokenModifier(token, StatTypes.Default, 3)]
         public static float radiusPerStack = 3.0f;
 
-        [ConfigurableField(ConfigName = "Speed Increase", ConfigDesc = "Movement speed increase when Pepper Speed is active")]
+        [ConfigurableField(ConfigName = "Speed Increase", ConfigDesc = "Movement speed increase when Pepper Speed is active.")]
         [TokenModifier(token, StatTypes.Percentage, 4)]
-        public static float speedIncrease = 0.5f;
+        public static float speedIncrease = 0.6f;
 
-        [ConfigurableField(ConfigName = "Max Speed Duration", ConfigDesc = "The time on your buff if your entire healthbar is shield.")]
+        [ConfigurableField(ConfigName = "Base Speed Duration Constant", ConfigDesc = "Initial amount of speed with one stack.")]
+        [TokenModifier(token, StatTypes.Default, 5)]
+        public static float buffTimeConstant = 1.0f;
+
+        [ConfigurableField(ConfigName = "Max Speed Duration", ConfigDesc = "The time on your buff if your entire healthbar is shield + Base Speed Duration Constant.")]
         [TokenModifier(token, StatTypes.Default, 5)]
         public static float maxBuffTime = 14.0f;
 
@@ -73,7 +77,7 @@ namespace Slipstream.Items
                     {
                         shouldTrigger = false;
                         FireStunSpray();
-                        body.AddTimedBuff(PepperSpeed.buff, maxBuffTime * (body.healthComponent.fullShield/(body.healthComponent.fullShield + body.healthComponent.fullHealth)));
+                        body.AddTimedBuff(PepperSpeed.buff, maxBuffTime * (body.healthComponent.fullShield/(body.healthComponent.fullShield + body.healthComponent.fullHealth)) + buffTimeConstant);
                         Util.PlaySound(EntityStates.Bison.PrepCharge.enterSoundString, gameObject);
                     }
                 }
