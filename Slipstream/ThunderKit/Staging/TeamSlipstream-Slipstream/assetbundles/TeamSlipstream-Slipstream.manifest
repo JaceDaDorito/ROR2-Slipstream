@@ -1,0 +1,7 @@
+ManifestFileVersion: 0
+CRC: 3222064947
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: slipassets
+      Dependencies: {}

@@ -21,7 +21,7 @@ namespace Slipstream.Items
 
         [ConfigurableField(ConfigName = "Base Shield", ConfigDesc = "Shield percentage after having at least one stack.")]
         [TokenModifier(token, StatTypes.Percentage, 0)]
-        public static float baseShield = 0.05f;
+        public static float baseShield = 0.06f;
 
         [ConfigurableField(ConfigName = "Shield Threshold", ConfigDesc = "Percentage of total shield in order to trigger the effect.")]
         [TokenModifier(token, StatTypes.Percentage, 1)]
@@ -33,7 +33,7 @@ namespace Slipstream.Items
 
         [ConfigurableField(ConfigName = "Radius Increase", ConfigDesc = "Amount of increased stun radius per stack.")]
         [TokenModifier(token, StatTypes.Default, 3)]
-        public static float radiusPerStack = 3.0f;
+        public static float radiusPerStack = 6.0f;
 
         [ConfigurableField(ConfigName = "Speed Increase", ConfigDesc = "Movement speed increase when Pepper Speed is active.")]
         [TokenModifier(token, StatTypes.Percentage, 4)]
@@ -45,7 +45,9 @@ namespace Slipstream.Items
 
         [ConfigurableField(ConfigName = "Max Speed Duration", ConfigDesc = "The time on your buff if your entire healthbar is shield + Base Speed Duration Constant.")]
         [TokenModifier(token, StatTypes.Default, 5)]
-        public static float maxBuffTime = 14.0f;
+        public static float maxBuffTime = 20.0f;
+
+        public static string explosionSoundString = "Fart";
 
         public override void AddBehavior(ref CharacterBody body, int stack)
         {
@@ -70,7 +72,7 @@ namespace Slipstream.Items
                 {
                     //Checks if the body is at full shield. shouldTrigger is just a switch to make sure that the effect doesn't trigger more than once below the shield threshold.
                     if (body.healthComponent.shield == body.healthComponent.fullShield && !shouldTrigger)
-                        shouldTrigger = true; 
+                        shouldTrigger = true;
 
                     //Checks if the body is lower than the shield threshold percentage.
                     if (body.healthComponent.shield < body.healthComponent.fullShield * threshold && shouldTrigger)
@@ -78,7 +80,8 @@ namespace Slipstream.Items
                         shouldTrigger = false;
                         FireStunSpray();
                         body.AddTimedBuff(PepperSpeed.buff, maxBuffTime * (body.healthComponent.fullShield/(body.healthComponent.fullShield + body.healthComponent.fullHealth)) + buffTimeConstant);
-                        Util.PlaySound(EntityStates.Bison.PrepCharge.enterSoundString, gameObject);
+                        Util.PlaySound(explosionSoundString, gameObject);
+                        //Util.PlaySound(EntityStates.Bison.PrepCharge.enterSoundString, gameObject);
                     }
                 }
             }

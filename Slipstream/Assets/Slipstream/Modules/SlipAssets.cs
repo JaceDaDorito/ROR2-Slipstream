@@ -18,6 +18,7 @@ namespace Slipstream
         public static ReadOnlyCollection<AssetBundle> assetBundles;
         public override AssetBundle MainAssetBundle => assetBundles[0];
         public override string AssemblyDir => Path.GetDirectoryName(SlipMain.pluginInfo.Location);
+        private string SoundBankPath { get => Path.Combine(AssemblyDir, "SlipSoundBnk.bnk"); }
 
         internal void Init()
         {
@@ -27,9 +28,7 @@ namespace Slipstream
 
             assetBundles = new ReadOnlyCollection<AssetBundle>(loadedBundles);
 
-            //LoadSoundBank();
-
-            //We don't have a sound bank yet. Don't worry about this until I do soundbank stuff.
+            LoadSoundBank();
 
         }
 
@@ -49,10 +48,10 @@ namespace Slipstream
             return Path.Combine(AssemblyDir, "assetbundles", "slipassets");
         }
 
-        /*private void LoadSoundBank()
+        private void LoadSoundBank()
         {
             byte[] array = File.ReadAllBytes(SoundBankPath);
             SoundAPI.SoundBanks.Add(array);
-        }*/
+        }
     }
 }
