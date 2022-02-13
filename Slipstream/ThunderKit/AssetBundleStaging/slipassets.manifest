@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 3942996901
+CRC: 3503282594
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: ba7605e25f461cb6029afdda33d9b42e
+    Hash: 89b6b3b871b98fd76e702bb59e787c2c
   TypeTreeHash:
     serializedVersion: 2
-    Hash: bf548dc3777ebbee2488ea6149cb455f
+    Hash: c9688a25cb1ddf0e68b32dae8f7b56d3
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -79,6 +79,8 @@ ClassTypes:
   Script: {instanceID: 0}
 - Class: 135
   Script: {instanceID: 0}
+- Class: 182
+  Script: {instanceID: 0}
 - Class: 198
   Script: {instanceID: 0}
 - Class: 199
@@ -86,6 +88,7 @@ ClassTypes:
 - Class: 213
   Script: {instanceID: 0}
 Assets:
+- Assets/Slipstream/SlipstreamAssets/Prefabs/Effects/Fireflies.prefab
 - Assets/Materials/matPepperSprayExplosion.mat
 - Assets/Materials/texRampPepperRad.png
 - Assets/Materials/matDefaultItem.mat
@@ -95,20 +98,24 @@ Assets:
 - Assets/Materials/texRampGreaterWisp.png
 - Assets/Slipstream/SlipstreamAssets/ItemDisplayRules/Key Asset Display Pair Holder.asset
 - Assets/Icons/iconPepperSpeed.png
+- Assets/Materials/texLightning1Mask.png
 - Assets/Slipstream/SlipstreamAssets/BuffDefs/PepperSpeed.asset
 - Assets/Materials/matPepperSpray.png
 - Assets/Slipstream/SlipstreamAssets/Prefabs/Projectiles/projJaceHat.prefab
-- Assets/Slipstream/SlipstreamAssets/Prefabs/Pickups/PickupGlassEye.prefab
+- Assets/Slipstream/SlipstreamAssets/Prefabs/Pickups/PickupBionicEye.prefab
 - Assets/Materials/matPepperSprayEmit - Copy.mat
 - Assets/Materials/matPepperSpray.mat
 - Assets/Slipstream/SlipstreamAssets/Prefabs/Pickups/PickupTestItem.prefab
 - Assets/StubbedShaders/fx/hgcloudremap.shader
 - Assets/Slipstream/SlipstreamAssets/Prefabs/DisplayPrefabs/DisplayPepperSpray.prefab
+- Assets/Materials/texRampThermite2.png
 - Assets/Materials/glasseye_Diffuse.png
 - Assets/StubbedShaders/deferred/hgstandard.shader
 - Assets/Materials/texSmokeExplosionMask.png
 - Assets/Materials/texCloudOrganic1.png
+- Assets/Materials/matFireFlyTrail.mat
 - Assets/Materials/glasseye_Normal.png
+- Assets/Slipstream/SlipstreamAssets/Prefabs/PointLight/pointFireFly.prefab
 - Assets/Slipstream/SlipstreamAssets/Prefabs/Effects/PepperSprayExplosion.prefab
 - Assets/StubbedShaders/fx/hgintersectioncloudremap.shader
 - Assets/Slipstream/SlipstreamAssets/Prefabs/Projectiles/README.txt

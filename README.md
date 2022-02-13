@@ -4,8 +4,8 @@ A in-the-works Risk of Rain 2 content mod that attempts to vary your runs with b
 Message (JaceDaDorito#7035) on Discord if there are any issues regarding the mod. Most of the devs are new modding this game so be patient.
 
 ## Credits
-* Code - JaceDaDorito, Atlantean/Dot/Org, Zach, MoonlitWyvern
-* Expert Code/Unity Support - NebNeb, swuff, Twiner
+* Main Programmers - JaceDaDorito, Atlantean/Dot/Org, Zach, MoonlitWyvern, NebNeb
+* Code/Unity Support - NebNeb, swuff, Twiner, TheMysticSword
 * 2D Concept Artists - Kamei, Runefield, Vaikyia, JaceDaDorito, Dodu, splet, Hans, Koopahunter197
 * 3D Artists/Moddlers -  Kamei, dotflare, foodrelatedname
 * Lore Writers - splet, LordBidoof, JaceDaDorito

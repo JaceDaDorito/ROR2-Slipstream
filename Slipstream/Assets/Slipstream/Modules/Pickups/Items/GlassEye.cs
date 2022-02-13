@@ -1,5 +1,4 @@
 ﻿using Moonstorm;
-using Slipstream.Buffs;
 using RoR2;
 using UnityEngine;
 using UnityEngine.Networking;
@@ -8,6 +7,7 @@ using System;
 
 namespace Slipstream.Items
 {
+    [DisabledContent]
     public class GlassEye : ItemBase
     {
         private const string token = "SLIP_ITEM_GLASSEYE_DESC";
@@ -25,11 +25,13 @@ namespace Slipstream.Items
 
         [ConfigurableField(ConfigName = "Crit Dmg per Stack", ConfigDesc = "Increased crit damage per item stack.")]
         //[TokenModifier(token, StatTypes.Default, 0)]
-        public static float stackCritDmg = 0.2f;
+        public static float stackCritDmg = 0.05f;
+
+        //Color SuperCrit = new Color(0.495194f, 0.5953774f, 0.9811321f); Color for later, just dont know how to do it yet
 
         public override void AddBehavior(ref CharacterBody body, int stack)
         {
-            //SlipLogger.LogD($"Initializing Jace Hat");
+            //SlipLogger.LogD($"Initializing Glass Eye");
             body.AddItemBehavior<GlassEyeBehavior>(stack);
         }
 
@@ -55,10 +57,16 @@ namespace Slipstream.Items
                         return;
                     }
 
-                    //Checks if shield is active and if the damage dealt is a crit (whether it be procced or a backstab), sorry if this if statement is a mess
-                    if (damageSource != null && damageSource.healthComponent.shield > 0 && (damageInfo.crit || BackstabManager.IsBackstab(-(damageSource.corePosition - damageInfo.position), body)))
+                    //Checks if shield is active and if the damage dealt is a crit (whether it be procced or a backstab)
+                    //Well this crit check does not work at all. I think crit damage becomes a stat when DLC comes out so I think its best to wait
+                    
+                    if (damageSource != null && damageSource.healthComponent.shield > 0)
                     {
-                        damageInfo.damage *= (float)(1 + (stackCritDmg * stack));
+                        if (damageInfo.crit /*|| BackstabManager.IsBackstab(-(damageSource.corePosition - damageInfo.position), body)*/)
+                        {
+                            damageInfo.damage *= (float)(1 + (stackCritDmg * stack));
+                            damageInfo.damageColorIndex = SlipDmgColorCatalog.loadedIndices[0];
+                        }
                     }
                 }
             }

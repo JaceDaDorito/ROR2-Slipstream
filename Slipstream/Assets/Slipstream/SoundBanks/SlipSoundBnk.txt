@@ -1,0 +1,10 @@
+Event	ID	Name			Wwise Object Path	Notes
+	2948602592	Fart			\Default Work Unit\Fart	
+
+Game Parameter	ID	Name			Wwise Object Path	Notes
+	3673881719	Volume_SFX			\Default Work Unit\Volume_SFX	
+	3695994288	Volume_Master			\Default Work Unit\Volume_Master	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	46159691	fartReverb	D:\SlipstreamSound\.cache\Windows\SFX\fartReverb_A1793BE9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\sfx mixer\SlipstreamSndbnk\fartReverb		104606
+

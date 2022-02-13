@@ -59,6 +59,8 @@ namespace Slipstream
 
             new SlipAssets().Init();
             new SlipLanguage().Init();
+            SlipColorAPI.Init();
+            SlipDmgColorCatalog.Init();
             SlipConfig.Init(Config);
             new SlipContent().Init();
 
