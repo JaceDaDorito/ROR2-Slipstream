@@ -1,7 +1,0 @@
-{
-    "name": "Microsoft_CSharp",
-    "version_number": "4.6.57",
-    "website_url": "https://www.nuget.org/packages/Microsoft.CSharp/",
-    "description": "Microsoft.Csharp as thunderstore dependency",
-    "dependencies": []
-}

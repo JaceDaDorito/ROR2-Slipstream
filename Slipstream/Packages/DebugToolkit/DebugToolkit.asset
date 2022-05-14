@@ -16,10 +16,10 @@ MonoBehaviour:
   ErrorMessage: 
   ErrorStacktrace: 
   StagingPaths: []
-  Author: IHarbHD
+  Author: Harb
   Name: DebugToolkit
   Description: Adds console command for debugging mods.
-  Version: 3.5.1
+  Version: 3.4.2
   Dependencies: 
   - {fileID: 11400000, guid: 2d4d09ec817c24698d35dc9bf0704fdc, type: 2}
   - {fileID: 11400000, guid: 7fb5b3d290bed6011ed7e8daf230df89, type: 2}

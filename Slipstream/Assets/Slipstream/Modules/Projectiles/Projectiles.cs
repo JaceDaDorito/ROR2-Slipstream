@@ -1,4 +1,5 @@
 ﻿using Moonstorm;
+using R2API.ScriptableObjects;
 using RoR2.ContentManagement;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,18 +10,20 @@ namespace Slipstream.Modules
     public class Projectiles : ProjectileModuleBase
     {
         public static Projectiles Instance { get; set; }
-        public override SerializableContentPack ContentPack { get; set; } = SlipContent.Instance.SerializableContentPack;
-        public override AssetBundle AssetBundle { get; set; } = SlipAssets.Instance.MainAssetBundle;
-        public override void Init()
+        public override R2APISerializableContentPack SerializableContentPack => SlipContent.Instance.SerializableContentPack;
+        public override void Initialize()
         {
             Instance = this;
-            base.Init();
-            InitializeProjectiles();
+            base.Initialize();
+            SlipLogger.LogI($"Initializing Projectiles...");
+            GetProjectileBases();
         }
         //sends projectiles to be iterated and populated.
-        public override IEnumerable<ProjectileBase> InitializeProjectiles()
+        protected override IEnumerable<ProjectileBase> GetProjectileBases()
         {
-            base.InitializeProjectiles().ToList().ForEach(proj => AddProjectile ( proj, ContentPack));
+            base.GetProjectileBases()
+                .ToList()
+                .ForEach(proj => AddProjectile(proj));
             return null;
         }
     }

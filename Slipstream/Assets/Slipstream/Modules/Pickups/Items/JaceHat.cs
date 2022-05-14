@@ -1,20 +1,18 @@
 ﻿using Moonstorm;
-using Slipstream.Buffs;
 using RoR2;
+using System;
 using UnityEngine;
 using UnityEngine.Networking;
 using R2API;
-using R2API.Utils;
+using RoR2.Items;
 using RoR2.Projectile;
-using System;
 
 namespace Slipstream.Items
 {
-    [DisabledContent]
     public class JaceHat : ItemBase
     {
         private const string token = "SLIP_ITEM_JACEHAT_DESC";
-        public override ItemDef ItemDef { get; set; } = SlipAssets.Instance.MainAssetBundle.LoadAsset<ItemDef>("JaceHat");
+        public override ItemDef ItemDef { get; } = SlipAssets.Instance.MainAssetBundle.LoadAsset<ItemDef>("JaceHat");
 
         public static string section;
 
@@ -28,16 +26,13 @@ namespace Slipstream.Items
         [ConfigurableField(ConfigName = "Max Radius", ConfigDesc = "The farthest the hat will go before returning")]
         public static float maxRadius = 5f;
 
-        public static GameObject ProjectilePrefab { get; set; } = SlipAssets.Instance.MainAssetBundle.LoadAsset<GameObject>("projJaceHat");
+        //public static GameObject ProjectilePrefab { get; set; } = SlipAssets.Instance.MainAssetBundle.LoadAsset<GameObject>("projJaceHat");
 
-        public override void AddBehavior(ref CharacterBody body, int stack)
+        public class JaceHatBehavior : BaseItemBodyBehavior
         {
-            //SlipLogger.LogD($"Initializing Jace Hat");
-            body.AddItemBehavior<JaceHatBehavior>(stack);
-        }
+            [ItemDefAssociation(useOnClient = true, useOnServer = true)]
+            public static ItemDef GetItemDef() => SlipContent.Items.JaceHat;
 
-        public class JaceHatBehavior : CharacterBody.ItemBehavior
-        {
             public static GameObject projectile;
             public void Start()
             {
@@ -56,13 +51,16 @@ namespace Slipstream.Items
                     {
                         if (body.skillLocator.secondary.Equals(skill))
                         {
-                            CreateProjectile();
+                            //CreateProjectile();
                             Chat.AddMessage("<color=#e77118>secondary activation</color>");
                         }
                     }
                 }
             }
-            public void CreateProjectile()
+
+            //finish this later
+
+            /*public void CreateProjectile()
             {
                 InputBankTest inputBank = body.inputBank;
                 if(inputBank && body)
@@ -72,19 +70,7 @@ namespace Slipstream.Items
                     ProjectileManager.instance.FireProjectile(Projectiles.JaceHatProjectile.hatProj, aimRay.origin, rotation, body.gameObject, body.damage * 50, 0f, Util.CheckRoll(body.crit, body?.master), DamageColorIndex.Item, null);
                 }
 
-                /*
-                FireProjectileInfo fireProjectileInfo = new FireProjectileInfo
-                {
-                    projectilePrefab = sawProj,
-                    crit = body.RollCrit(),
-                    damage = body.damage,
-                    damageColorIndex = DamageColorIndex.Item,
-                    force = 10f,
-                    owner = gameObject,
-                    position = body.corePosition,
-                };
-                ProjectileManager.instance.FireProjectile(fireProjectileInfo);*/
-            }
+            }*/
         }
     }
 }

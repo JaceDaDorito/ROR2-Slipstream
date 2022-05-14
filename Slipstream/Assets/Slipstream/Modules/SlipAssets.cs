@@ -1,4 +1,5 @@
-﻿using Moonstorm.Loaders;
+﻿//using Slipstream.Utils;
+using Moonstorm.Loaders;
 using R2API;
 using RoR2.ContentManagement;
 using System;
@@ -17,8 +18,8 @@ namespace Slipstream
 
         public static ReadOnlyCollection<AssetBundle> assetBundles;
         public override AssetBundle MainAssetBundle => assetBundles[0];
-        public override string AssemblyDir => Path.GetDirectoryName(SlipMain.pluginInfo.Location);
-        private string SoundBankPath { get => Path.Combine(AssemblyDir, "SlipSoundBnk.bnk"); }
+        public string AssemblyDir => Path.GetDirectoryName(SlipMain.pluginInfo.Location);
+        //private string SoundBankPath { get => Path.Combine(AssemblyDir, "SlipSoundBnk.bnk"); }
 
         internal void Init()
         {
@@ -28,15 +29,15 @@ namespace Slipstream
 
             assetBundles = new ReadOnlyCollection<AssetBundle>(loadedBundles);
 
-            LoadSoundBank();
+            //LoadSoundBank(); I need to make another sound bank
 
         }
 
-        internal void LoadEffectDefs()
+        /*internal void LoadEffectDefs()
         {
             SlipContent.Instance.SerializableContentPack.effectDefs = LoadEffectDefsFromHolders(MainAssetBundle);
             SlipContent.Instance.SerializableContentPack.effectDefs = LoadEffectDefsFromPrefabs(MainAssetBundle);
-        }
+        }*/
 
         internal void SwapMaterialShaders()
         {
@@ -48,10 +49,10 @@ namespace Slipstream
             return Path.Combine(AssemblyDir, "assetbundles", "slipassets");
         }
 
-        private void LoadSoundBank()
+        /*private void LoadSoundBank()
         {
             byte[] array = File.ReadAllBytes(SoundBankPath);
             SoundAPI.SoundBanks.Add(array);
-        }
+        }*/
     }
 }

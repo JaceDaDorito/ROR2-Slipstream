@@ -3,12 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Colored
-  - BulletCollide
-  - InitialBurst
-  - Chest
-  - CamAttachPoint
+  tags: []
   layers:
   - Default
   - TransparentFX
@@ -18,23 +13,23 @@ TagManager:
   - UI
   - 
   - 
-  - FakeActor
-  - NoCollision
-  - Pickups
-  - World
-  - EntityPrecise
-  - Debris
-  - Projectile
-  - CollideWithCharacterHullOnly
-  - ManualRender
-  - Ragdoll
-  - NoDraw
-  - PrefabBrush
-  - PostProcess
-  - UI, WorldSpace
-  - PlayerBody
-  - EnemyBody
-  - TriggerZone
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - 

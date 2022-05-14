@@ -7,7 +7,10 @@ using UnityEngine.Networking;
 
 namespace Slipstream.Projectiles
 {
-    [DisabledContent]
+    //finish this another time
+
+    //[DisabledContent]
+    /*
     public class JaceHatProjectile : ProjectileBase
     {
         //public override GameObject ProjectilePrefab { get; set; } = SlipAssets.Instance.MainAssetBundle.LoadAsset<GameObject>("projJaceHat");
@@ -23,6 +26,6 @@ namespace Slipstream.Projectiles
                 hatProj = ProjectilePrefab;
             }
         }
-    }
+    }*/
 
 }

@@ -1,4 +1,5 @@
 ﻿using Moonstorm;
+using R2API.ScriptableObjects;
 using RoR2;
 using RoR2.ContentManagement;
 using System.Collections.Generic;
@@ -6,25 +7,27 @@ using System.Linq;
 
 namespace Slipstream.Buffs
 {
-    public class Buffs : BuffModuleBase
+    public sealed class Buffs : BuffModuleBase
     {
         //Loads all Slipstream buffs
         public static Buffs Instance { get; set; }
         public static BuffDef[] LoadedSlipBuffs { get => SlipContent.Instance.SerializableContentPack.buffDefs; }
-        public override SerializableContentPack ContentPack { get; set; } = SlipContent.Instance.SerializableContentPack;
+        public override R2APISerializableContentPack SerializableContentPack => SlipContent.Instance.SerializableContentPack;
 
-        public override void Init()
+        public override void Initialize()
         {
             Instance = this;
-            base.Init();
+            base.Initialize();
             SlipLogger.LogI($"Initializing Slipstream Buffs");
-            InitializeBuffs();
+            GetBuffBases();
         }
 
         //sends contentpack buffs to be iterated and populated.
-        public override IEnumerable<BuffBase> InitializeBuffs()
+        protected override IEnumerable<BuffBase> GetBuffBases()
         {
-            base.InitializeBuffs().ToList().ForEach(buff => AddBuff(buff, ContentPack));
+            base.GetBuffBases()
+                .ToList()
+                .ForEach(buff => AddBuff(buff));
             return null;
         }
     }

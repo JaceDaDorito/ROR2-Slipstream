@@ -1,14 +1,16 @@
 {
   "dependencies": {
-    "com.passivepicasso.thunderkit": "https://github.com/PassivePicasso/ThunderKit.git",
-    "com.unity.ads": "2.0.8",
-    "com.unity.analytics": "3.2.2",
-    "com.unity.assetbundlebrowser": "1.7.0",
-    "com.unity.collab-proxy": "1.2.15",
-    "com.unity.package-manager-ui": "2.0.8",
-    "com.unity.purchasing": "2.0.3",
-    "com.unity.textmeshpro": "1.4.1",
+    "com.passivepicasso.thunderkit": "https://github.com/PassivePicasso/ThunderKit.git#5.0.5",
+    "com.passivepicasso.simplyaddress": "https://github.com/PassivePicasso/SimplyAddress.git",
+    "com.unity.collab-proxy": "1.2.16",
+    "com.unity.ide.rider": "1.2.1",
+    "com.unity.ide.vscode": "1.2.3",
+    "com.unity.postprocessing": "2.3.0",
+    "com.unity.test-framework": "1.1.24",
+    "com.unity.timeline": "1.2.18",
+    "riskofthunder-ror2importer": "https://github.com/PassivePicasso/RoR2ImportExtensions.git",
     "com.unity.modules.ai": "1.0.0",
+    "com.unity.modules.androidjni": "1.0.0",
     "com.unity.modules.animation": "1.0.0",
     "com.unity.modules.assetbundle": "1.0.0",
     "com.unity.modules.audio": "1.0.0",
@@ -38,11 +40,5 @@
     "com.unity.modules.vr": "1.0.0",
     "com.unity.modules.wind": "1.0.0",
     "com.unity.modules.xr": "1.0.0"
-  },
-  "lock": {
-    "com.passivepicasso.thunderkit": {
-      "revision": "HEAD",
-      "hash": "c1128579abd4579a16062e1d0cda8a59c6cf46b3"
-    }
   }
 }

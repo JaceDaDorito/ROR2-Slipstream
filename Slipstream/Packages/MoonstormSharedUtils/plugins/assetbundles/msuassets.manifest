@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 1875071304
+CRC: 3108620350
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: ab4586f9b612af9eb75c64dd913754a4
+    Hash: 40aaf3856d530c3fb816201b896562a0
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 30b1f74269ab394b940c0b6c964171ae
+    Hash: bf9dbc07bfb43a31ad35b4e04d560dcd
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -24,17 +24,9 @@ ClassTypes:
 - Class: 48
   Script: {instanceID: 0}
 - Class: 114
-  Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  Script: {fileID: 11500000, guid: f8258ea15b8f74c4889ce485d21cbbb1, type: 3}
 - Class: 114
-  Script: {fileID: -830614127, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
-- Class: 114
-  Script: {fileID: 1297580292, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
-- Class: 114
-  Script: {fileID: 733712478, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
-- Class: 114
-  Script: {fileID: 1918207524, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
-- Class: 114
-  Script: {fileID: -281164913, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+  Script: {fileID: 870831823, guid: c8c954e10545f6cd0045de066bc4846b, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: ac7b3e366420599418ecc7cf3d32fed0, type: 3}
 - Class: 114
@@ -44,9 +36,18 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 11500000, guid: e98f718981210a343a10825d2d88abfb, type: 3}
 - Class: 114
+  Script: {fileID: -830614127, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: 1297580292, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: 733712478, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: 1918207524, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
   Script: {fileID: 11500000, guid: b3ad08bf3e7b6da4591a89d01c422e04, type: 3}
 - Class: 115
   Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
 Assets:
 - Assets/MoonstormSharedUtils/MSUAssets/curveLinear.asset
 - Assets/MoonstormSharedUtils/MSUAssets/ContentPack.asset

@@ -4,11 +4,12 @@ using System.Reflection;
 using System.Text.RegularExpressions;
 using UnityEditor;
 using UnityEngine;
+using RoR2EditorKit.Core.PropertyDrawers;
 
 namespace RoR2EditorKit.RoR2Related.PropertyDrawers
 {
     [CustomPropertyDrawer(typeof(EnumMaskAttribute))]
-    public class EnumMaskDrawer : PropertyDrawer
+    public sealed class EnumMaskDrawer : PropertyDrawer
     {
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
         {
@@ -30,6 +31,7 @@ namespace RoR2EditorKit.RoR2Related.PropertyDrawers
                 property.serializedObject.ApplyModifiedProperties();
                 property.serializedObject.UpdateIfRequiredOrScript();
             }
+
         }
 
         static T GetBaseProperty<T>(SerializedProperty prop)
