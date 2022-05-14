@@ -77,7 +77,8 @@ namespace Slipstream
                 {
                     new Slipstream.Buffs.Buffs().Initialize();
                 },
-                /*delegate
+                /*
+                delegate
                 {
                     new Modules.Projectiles().Initialize();
                 },*/

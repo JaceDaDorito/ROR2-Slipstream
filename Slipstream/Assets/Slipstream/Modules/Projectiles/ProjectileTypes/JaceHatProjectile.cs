@@ -14,8 +14,10 @@ namespace Slipstream.Projectiles
     public class JaceHatProjectile : ProjectileBase
     {
         //public override GameObject ProjectilePrefab { get; set; } = SlipAssets.Instance.MainAssetBundle.LoadAsset<GameObject>("projJaceHat");
-        public override GameObject ProjectilePrefab { get; set; } = PrefabAPI.InstantiateClone(SlipAssets.Instance.MainAssetBundle.LoadAsset<GameObject>("projJaceHat"), "HatProjectile", false);
-        public static GameObject hatProj;
+        public override GameObject ProjectilePrefab { get; } = PrefabAPI.InstantiateClone(SlipAssets.Instance.MainAssetBundle.LoadAsset<GameObject>("projJaceHat"), "HatProjectile", false);
+        public override GameObject ProjectileGhost { get; } = PrefabAPI.InstantiateClone(SlipAssets.Instance.MainAssetBundle.LoadAsset<GameObject>("projJaceHat"), "HatProjectile", false);
+
+        public static GameObject ThqwibProj;
 
         //var model = SlipAssets.Instance.MainAssetBundle.LoadAsset<GameObject>("projJaceHat");
         //model.
@@ -23,7 +25,7 @@ namespace Slipstream.Projectiles
         {
             if (ProjectilePrefab)
             {
-                hatProj = ProjectilePrefab;
+                //hatProj = ProjectilePrefab;
             }
         }
     }*/
