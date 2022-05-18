@@ -32,11 +32,13 @@ namespace Slipstream.Items
         {
             [ItemDefAssociation(useOnClient = true, useOnServer = true)]
             public static ItemDef GetItemDef() => SlipContent.Items.JaceHat;
+            private InputBankTest inputBank;
 
-            public static GameObject projectile;
+            //public static GameObject projectile;
             public void Start()
             {
                 body.onSkillActivatedServer += OnSkillActivated;
+                inputBank = body.GetComponent<InputBankTest>();
             }
 
             public void OnDestroy()
@@ -47,16 +49,41 @@ namespace Slipstream.Items
             {
                 if (NetworkServer.active)
                 {
-                    if (body.skillLocator.FindSkill(skill.skillName))
+                    if (body.skillLocator.FindSkill(skill.skillName) && body.skillLocator.secondary.Equals(skill))
                     {
-                        if (body.skillLocator.secondary.Equals(skill))
-                        {
-                            //CreateProjectile();
-                            Chat.AddMessage("<color=#e77118>secondary activation</color>");
-                        }
+                        FireHat();
+                        Chat.AddMessage("<color=#e77118>secondary activation</color>");
                     }
                 }
             }
+
+            private void FireHat()
+            {
+                Ray aimRay = this.GetAimRay();
+                FireProjectileInfo fireProjectileInfo = new FireProjectileInfo
+                {
+                    projectilePrefab = Projectiles.JaceHatProjectile.hatProj,
+                    crit = body.RollCrit(),
+                    damage = body.damage,
+                    damageColorIndex = DamageColorIndex.Item,
+                    force = 0f,
+                    owner = base.gameObject,
+                    position = aimRay.origin,
+                    rotation = Util.QuaternionSafeLookRotation(aimRay.direction)
+                };
+                ProjectileManager.instance.FireProjectile(fireProjectileInfo);
+            }
+
+            private Ray GetAimRay()
+            {
+                if (inputBank)
+                {
+                    return new Ray(inputBank.aimOrigin, inputBank.aimDirection);
+                }
+                return new Ray(base.transform.position, base.transform.forward);
+            }
+
+            //private Ray GetAimRay
 
             //finish this later
 

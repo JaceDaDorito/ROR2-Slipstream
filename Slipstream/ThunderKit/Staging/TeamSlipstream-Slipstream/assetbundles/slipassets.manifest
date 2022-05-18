@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 1355505158
+CRC: 2092169544
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 63b99c8aae300edb02fe3ebf05064e9f
+    Hash: 09eb46104315e8f17a2c06dac27c0850
   TypeTreeHash:
     serializedVersion: 2
-    Hash: c3eb43c5ed57a0be56b99304f4d0b5ed
+    Hash: 9a35c8dfebb94c6e3b953b1aa6acd607
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -77,6 +77,8 @@ ClassTypes:
   Script: {fileID: -565067572, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: -1895344032, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: 1395413934, guid: da77c7bbf69f66ab2145560542327715, type: 3}
 - Class: 115
   Script: {instanceID: 0}
 - Class: 135
@@ -91,7 +93,7 @@ SerializeReferenceClassIdentifiers: []
 Assets:
 - Assets/Materials/texRampTritone2.png
 - Assets/Materials/texRampPepperRad.png
-- Assets/Editor/Icons/iconPepperSpray.png
+- Assets/Icons/iconPepperSpray.png
 - Assets/Materials/texRampEngi.png
 - Assets/Materials/texPepperSmoke.png
 - Assets/Materials/matFireFlyTrail.mat
@@ -99,12 +101,12 @@ Assets:
 - Assets/Slipstream/SlipstreamAssets/ContentPack.asset
 - Assets/Materials/texRampGreaterWisp.png
 - Assets/Materials/texCloudDifferenceBW1.png
-- Assets/Editor/Icons/iconPepperSpeed.png
+- Assets/Icons/iconPepperSpeed.png
 - Assets/Materials/texLightning1Mask.png
 - Assets/Shaders/ActualShaders/deferred/hgstandard.asset
 - Assets/Materials/matPepperSprayEmit - Copy.mat
 - Assets/Slipstream/SlipstreamAssets/Prefabs/Pickups/PickupPepperSpray.prefab
-- Assets/Editor/Icons/iconSlipstreamExpansion.png
+- Assets/Icons/iconSlipstreamExpansion.png
 - Assets/Slipstream/SlipstreamAssets/Prefabs/Pickups/PickupTestItem.prefab
 - Assets/Materials/texBasicMask.png
 - Assets/Materials/matPepperSpray.png
@@ -128,7 +130,7 @@ Assets:
 - Assets/Materials/matSmoke.mat
 - Assets/Slipstream/SlipstreamAssets/ItemDefs/PepperSpray.asset
 - Assets/Mesh/mdlGlassEye.fbx
-- Assets/Editor/Icons/iconSlipstreamDisable.png
+- Assets/Icons/iconSlipstreamDisable.png
 - Assets/Shaders/ActualShaders/fx/hgcloudremap.asset
 - Assets/Materials/matPepperSprayEmit.mat
 - Assets/Materials/texRootJungleSpore.png
@@ -148,7 +150,7 @@ Assets:
 - Assets/Materials/texCloudPixel.png
 - Assets/Materials/Test.mat
 - Assets/Materials/texCloudDifferenceBW2.png
-- Assets/Editor/Icons/Capture.PNG
+- Assets/Icons/Capture.PNG
 - Assets/Materials/matGlassEye.mat
 - Assets/Materials/rampPepperSpray.png
 - Assets/Materials/texRampPepperRim.png

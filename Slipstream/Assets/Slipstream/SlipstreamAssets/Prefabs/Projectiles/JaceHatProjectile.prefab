@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8796945422940066494}
   - component: {fileID: 6617050670068680722}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Hitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 3170046602338537056}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 0.2, z: 1}
+  m_LocalScale: {x: 0.6, y: 0.25, z: 0.6}
   m_Children: []
   m_Father: {fileID: 4718510783312117257}
   m_RootOrder: 0
@@ -65,7 +65,7 @@ GameObject:
   - component: {fileID: -4945673881504399879}
   - component: {fileID: 1811089233590875457}
   - component: {fileID: 6035907760212106222}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: JaceHatProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -237,7 +237,8 @@ MonoBehaviour:
   charge: 1
   transitionDuration: 1
   maxFlyStopwatch: 0
-  impactSpark: {fileID: 0}
+  impactSpark: {fileID: 4988260258862888624, guid: 8a4cb82b1a7775045a0a337a0c15b84d,
+    type: 3}
   crosshairPrefab: {fileID: 0}
   canHitCharacters: 0
   canHitWorld: 1
@@ -324,7 +325,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.1, z: 1}
+  m_Size: {x: 0.17, y: 0.1, z: 0.17}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &-4945673881504399879
 MonoBehaviour:

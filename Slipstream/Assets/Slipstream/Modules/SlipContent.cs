@@ -77,11 +77,10 @@ namespace Slipstream
                 {
                     new Slipstream.Buffs.Buffs().Initialize();
                 },
-                /*
                 delegate
                 {
                     new Modules.Projectiles().Initialize();
-                },*/
+                },
                 delegate
                 {
                     new Modules.Equipments().Initialize();
