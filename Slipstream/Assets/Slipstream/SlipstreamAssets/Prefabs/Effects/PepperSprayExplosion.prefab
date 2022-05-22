@@ -6297,7 +6297,7 @@ ParticleSystem:
         ctime7: 0
         atime0: 0
         atime1: 8096
-        atime2: 52814
+        atime2: 63993
         atime3: 65535
         atime4: 65535
         atime5: 65535
@@ -9848,7 +9848,7 @@ Transform:
   m_GameObject: {fileID: 4988260258862888624}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 6, y: 6, z: 6}
   m_Children:
   - {fileID: 2965087681437533608}
   - {fileID: 8308330438573335362}
@@ -9930,7 +9930,7 @@ MonoBehaviour:
     frequency: 12
     cycleOffset: 0
   duration: 0.1
-  radius: 6
+  radius: 40
   scaleShakeRadiusWithLocalScale: 0
   amplitudeTimeDecay: 1
   stopwatch: Infinity
@@ -14919,7 +14919,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8305873520037798403}
   m_LocalRotation: {x: 1, y: 0, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 0.009, z: 0}
+  m_LocalPosition: {x: 0, y: 0.01, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8160636145868234659}

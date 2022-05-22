@@ -22,7 +22,8 @@ namespace Slipstream
 
         public static class Elites
         {
-            //Elites go here, don't put anything here though, I have't implmented stuff regarding elites yet. We aren't doing anything regarding elites yet too.
+            //Elites go here
+            //public static EliteDef Sandswept;
         }
         
         public static class Equipments

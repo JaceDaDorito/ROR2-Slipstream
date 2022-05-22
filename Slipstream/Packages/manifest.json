@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "com.passivepicasso.thunderkit": "https://github.com/PassivePicasso/ThunderKit.git#5.0.5",
+    "com.passivepicasso.thunderkit": "https://github.com/PassivePicasso/ThunderKit.git#5.2.0",
     "com.passivepicasso.simplyaddress": "https://github.com/PassivePicasso/SimplyAddress.git",
     "com.unity.collab-proxy": "1.2.16",
     "com.unity.ide.rider": "1.2.1",

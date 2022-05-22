@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1512808244, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+  m_Name: AffixSandswept
+  m_EditorClassIdentifier: 
+  _equipmentIndex: -1
+  pickupModelPrefab: {fileID: 7929237051835553819, guid: a10de8559b0060946865c49cac0e6a0f,
+    type: 3}
+  cooldown: 0
+  nameToken: SLIP_EQUIP_AFFIXSANDSWEPT_NAME
+  pickupToken: SLIP_EQUIP_AFFIXSANDSWEPT_PICKUP
+  descriptionToken: SLIP_EQUIP_AFFIXSANDSWEPT_DESC
+  loreToken: SLIP_EQUIP_AFFIXSANDSWEPT_LORE
+  pickupIconSprite: {fileID: 21300000, guid: 4e23a7ad02947cc4c87cb51f0d7015f6, type: 3}
+  unlockableDef: {fileID: 0}
+  colorIndex: 5
+  canDrop: 0
+  dropOnDeathChance: 0
+  canBeRandomlyTriggered: 1
+  enigmaCompatible: 0
+  isLunar: 0
+  isBoss: 0
+  passiveBuffDef: {fileID: 11400000, guid: fae53f26d52248141b57d2c5ee386803, type: 2}
+  appearsInSinglePlayer: 1
+  appearsInMultiPlayer: 1
+  requiredExpansion: {fileID: 11400000, guid: fccef1283d796f24ab13ca388fece6c8, type: 2}
+  mageElement: 0

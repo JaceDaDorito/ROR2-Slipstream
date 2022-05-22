@@ -9,6 +9,7 @@ using RoR2.Projectile;
 
 namespace Slipstream.Items
 {
+    [DisabledContent]
     public class JaceHat : ItemBase
     {
         private const string token = "SLIP_ITEM_JACEHAT_DESC";
@@ -60,6 +61,7 @@ namespace Slipstream.Items
             private void FireHat()
             {
                 Ray aimRay = this.GetAimRay();
+                Quaternion temp = Util.QuaternionSafeLookRotation(aimRay.direction);
                 FireProjectileInfo fireProjectileInfo = new FireProjectileInfo
                 {
                     projectilePrefab = Projectiles.JaceHatProjectile.hatProj,

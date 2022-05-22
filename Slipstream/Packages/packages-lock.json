@@ -14,13 +14,13 @@
       "hash": "1e96293dbe33d51e150963b8c727fcd5d95d57cf"
     },
     "com.passivepicasso.thunderkit": {
-      "version": "https://github.com/PassivePicasso/ThunderKit.git#5.0.5",
+      "version": "https://github.com/PassivePicasso/ThunderKit.git#5.2.0",
       "depth": 0,
       "source": "git",
       "dependencies": {
         "com.unity.scriptablebuildpipeline": "1.16.1"
       },
-      "hash": "a2af4f37a3e1d21be2fb89d48350d63ea1f56050"
+      "hash": "ddd064d8a5542d316aec83d6d57cd6297e2e9191"
     },
     "com.unity.collab-proxy": {
       "version": "1.2.16",

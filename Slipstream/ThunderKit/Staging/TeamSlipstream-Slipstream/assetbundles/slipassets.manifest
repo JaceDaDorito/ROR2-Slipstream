@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 2092169544
+CRC: 17458395
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 09eb46104315e8f17a2c06dac27c0850
+    Hash: e24e923a4f9eab2c8a378a6b98cc35ac
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 9a35c8dfebb94c6e3b953b1aa6acd607
+    Hash: 02d4db2e497a9ca7b5000dab44bab6dc
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -40,17 +40,21 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 870831823, guid: c8c954e10545f6cd0045de066bc4846b, type: 3}
 - Class: 114
+  Script: {fileID: 11500000, guid: 37cd3a42cdc5ff140855ce8ac113bc06, type: 3}
+- Class: 114
   Script: {fileID: -1752031980, guid: b2ac317a67c468eb8fd6ed06da7572d4, type: 3}
 - Class: 114
   Script: {fileID: -130519023, guid: b2ac317a67c468eb8fd6ed06da7572d4, type: 3}
-- Class: 114
-  Script: {fileID: -1080326186, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: -1783169300, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: -335047464, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: 511512695, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: -585069481, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: 1512808244, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: 802575700, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
@@ -59,6 +63,8 @@ ClassTypes:
   Script: {fileID: -1294804675, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: -1284244208, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: -1479993534, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: 296141222, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
@@ -83,6 +89,8 @@ ClassTypes:
   Script: {instanceID: 0}
 - Class: 135
   Script: {instanceID: 0}
+- Class: 136
+  Script: {instanceID: 0}
 - Class: 198
   Script: {instanceID: 0}
 - Class: 199
@@ -95,9 +103,9 @@ Assets:
 - Assets/Materials/texRampPepperRad.png
 - Assets/Icons/iconPepperSpray.png
 - Assets/Materials/texRampEngi.png
+- Assets/Slipstream/SlipstreamAssets/EliteDefs/Sandswept.asset
 - Assets/Materials/texPepperSmoke.png
 - Assets/Materials/matFireFlyTrail.mat
-- Assets/Slipstream/SlipstreamAssets/Prefabs/Pickups/PickupGlassEye.prefab
 - Assets/Slipstream/SlipstreamAssets/ContentPack.asset
 - Assets/Materials/texRampGreaterWisp.png
 - Assets/Materials/texCloudDifferenceBW1.png
@@ -107,10 +115,15 @@ Assets:
 - Assets/Materials/matPepperSprayEmit - Copy.mat
 - Assets/Slipstream/SlipstreamAssets/Prefabs/Pickups/PickupPepperSpray.prefab
 - Assets/Icons/iconSlipstreamExpansion.png
+- Assets/Materials/texHippoRezRamp.png
+- Assets/Slipstream/SlipstreamAssets/EquipmentDefs/AffixSandswept.asset
 - Assets/Slipstream/SlipstreamAssets/Prefabs/Pickups/PickupTestItem.prefab
 - Assets/Materials/texBasicMask.png
 - Assets/Materials/matPepperSpray.png
 - Assets/Materials/texThermiteDroplet2Mask.png
+- Assets/Slipstream/SlipstreamAssets/Prefabs/DisplayPrefabs/DisplayPepperSpray.prefab
+- Assets/Slipstream/SlipstreamAssets/Prefabs/DisplayPrefabs/DisplayGlassEye.prefab
+- Assets/Slipstream/SlipstreamAssets/BuffDefs/AffixSandswept.asset
 - Assets/Materials/texRampThermite2.png
 - Assets/Slipstream/SlipstreamAssets/ItemDefs/JaceHat.asset
 - Assets/Materials/matPepperSpray.mat
@@ -118,12 +131,16 @@ Assets:
 - Assets/Materials/GlassEye_Emission.png
 - Assets/Materials/texBanditSkullMask.png
 - Assets/Shaders/ActualShaders/fx/hgintersectioncloudremap.asset
+- Assets/Slipstream/SlipstreamAssets/Prefabs/SizeReference.prefab
+- Assets/Materials/glasseye_Flowmap.png
 - Assets/Slipstream/SlipstreamAssets/BuffDefs/PepperSpeed.asset
+- Assets/Materials/New Material 1.mat
 - Assets/Materials/matPepperRim.mat
 - Assets/Mesh/Sphere.asset
 - Assets/Materials/glasseye_Diffuse.png
 - Assets/Materials/texSmokeExplosionMask.png
 - Assets/Materials/texCloudOrganic1.png
+- Assets/Materials/texTileRustyMetal.png
 - Assets/Slipstream/SlipstreamAssets/ExpansionDef/SlipExpansionDef.asset
 - Assets/Materials/texOmniHitspark1Mask.png
 - Assets/Materials/texRampParentTeleport.png
@@ -135,6 +152,7 @@ Assets:
 - Assets/Materials/matPepperSprayEmit.mat
 - Assets/Materials/texRootJungleSpore.png
 - Assets/Materials/glasseye_Normal.png
+- Assets/Materials/GlassEye_Glowy.png
 - Assets/Materials/texRampHealingMedkit.png
 - Assets/Slipstream/SlipstreamAssets/Prefabs/Effects/PepperSprayExplosion.prefab
 - Assets/Materials/matDefaultItem.mat
@@ -148,16 +166,21 @@ Assets:
 - Assets/Materials/texGlowPaintMask.png
 - Assets/Materials/texParticleDust3Mask.png
 - Assets/Materials/texCloudPixel.png
+- Assets/Materials/texRampHuntressSoft.png
 - Assets/Materials/Test.mat
 - Assets/Materials/texCloudDifferenceBW2.png
 - Assets/Icons/Capture.PNG
-- Assets/Materials/matGlassEye.mat
+- Assets/Slipstream/SlipstreamAssets/Prefabs/Pickups/PickupGlassEye.prefab
+- Assets/Materials/matGlassEyeMetal.mat
 - Assets/Materials/rampPepperSpray.png
 - Assets/Materials/texRampPepperRim.png
 - Assets/Slipstream/SlipstreamAssets/Prefabs/Projectiles/JaceHatProjectile.prefab
 - Assets/Materials/texCloudOrganicNormal.png
 - Assets/Slipstream/SlipstreamAssets/Prefabs/Projectiles/JaceHatGhost.prefab
+- Assets/Materials/textTileScratchSplat.png
+- Assets/Materials/matGlassEyeGlowy.mat
 - Assets/Materials/matPepperSprayOldSmoke.mat
+- Assets/Materials/texBlack.png
 - Assets/Materials/texGenericStarburstMask.png
 - Assets/Materials/texRampPepperEmit.png
 Dependencies: []
