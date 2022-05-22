@@ -24,11 +24,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Cloud1Tex:
-        m_Texture: {fileID: 2800000, guid: e9dbd0de002ddf94fb4e085fcaa53c18, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 2, y: 2}
         m_Offset: {x: 0, y: 0}
     - _Cloud2Tex:
-        m_Texture: {fileID: 2800000, guid: e9dbd0de002ddf94fb4e085fcaa53c18, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -69,8 +69,8 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _AlphaBias: 0.131
-    - _AlphaBoost: 2.06
-    - _Boost: 0.39
+    - _AlphaBoost: 1
+    - _Boost: 0.62
     - _BumpScale: 1
     - _CalcTextureAlphaOn: 0
     - _CloudOffsetOn: 0
@@ -94,15 +94,15 @@ Material:
     - _Glossiness: 0.5
     - _GlossyReflections: 1
     - _InternalSimpleBlendMode: 0
-    - _IntersectionStrength: 1.31
+    - _IntersectionStrength: 2.1
     - _InvFade: 2
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
     - _OffsetAmount: 0
     - _Parallax: 0.02
-    - _RimPower: 1
-    - _RimStrength: 0.66
+    - _RimPower: 2
+    - _RimStrength: 0.55
     - _SkyboxOnly: 0
     - _SmoothnessTextureChannel: 0
     - _SoftPower: 1
@@ -122,4 +122,4 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _CutoffScroll: {r: 0, g: 0, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _TintColor: {r: 1, g: 1, b: 1, a: 1}
+    - _TintColor: {r: 2.1134553, g: 2.333956, b: 3.0070639, a: 1}

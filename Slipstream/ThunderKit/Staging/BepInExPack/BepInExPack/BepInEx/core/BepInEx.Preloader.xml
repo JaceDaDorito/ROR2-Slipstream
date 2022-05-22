@@ -20,16 +20,6 @@
             Full path to the game's "Managed" folder that contains all the game's managed assemblies
             </summary>
         </member>
-        <member name="P:BepInEx.Preloader.EnvVars.DOORSTOP_PROCESS_PATH">
-            <summary>
-            Full path to the game executable currently running.
-            </summary>
-        </member>
-        <member name="P:BepInEx.Preloader.EnvVars.DOORSTOP_DLL_SEARCH_DIRS">
-            <summary>
-            Array of paths where Mono searches DLLs from before assembly resolvers are invoked.
-            </summary>
-        </member>
         <member name="T:BepInEx.Preloader.Patching.AssemblyPatcherDelegate">
             <summary>
                 Delegate used in patching assemblies.
@@ -40,11 +30,6 @@
             <summary>
                 Worker class which is used for loading and patching entire folders of assemblies, or alternatively patching and
                 loading assemblies one at a time.
-            </summary>
-        </member>
-        <member name="P:BepInEx.Preloader.Patching.AssemblyPatcher.PatcherPlugins">
-            <summary>
-            List of all patcher plugins to be applied
             </summary>
         </member>
         <member name="M:BepInEx.Preloader.Patching.AssemblyPatcher.AddPatcher(BepInEx.Preloader.Patching.PatcherPlugin)">
@@ -58,24 +43,24 @@
                 Adds all patchers from all managed assemblies specified in a directory.
             </summary>
             <param name="directory">Directory to search patcher DLLs from.</param>
+            <param name="patcherLocator">A function that locates assembly patchers in a given managed assembly.</param>
         </member>
         <member name="M:BepInEx.Preloader.Patching.AssemblyPatcher.DisposePatchers">
             <summary>
                 Releases all patchers to let them be collected by GC.
             </summary>
         </member>
-        <member name="M:BepInEx.Preloader.Patching.AssemblyPatcher.PatchAndLoad(System.String[])">
+        <member name="M:BepInEx.Preloader.Patching.AssemblyPatcher.PatchAndLoad(System.String)">
             <summary>
                 Applies patchers to all assemblies in the given directory and loads patched assemblies into memory.
             </summary>
-            <param name="directories">Directories to load CLR assemblies from in their search order.</param>
+            <param name="directory">Directory to load CLR assemblies from.</param>
         </member>
         <member name="M:BepInEx.Preloader.Patching.AssemblyPatcher.Load(Mono.Cecil.AssemblyDefinition,System.String)">
             <summary>
                 Loads an individual assembly definition into the CLR.
             </summary>
             <param name="assembly">The assembly to load.</param>
-            <param name="filename">File name of the assembly being loaded.</param>
         </member>
         <member name="T:BepInEx.Preloader.Patching.PatcherPlugin">
             <summary>
@@ -107,25 +92,18 @@
                 Type name of the patcher.
             </summary>
         </member>
-        <member name="M:BepInEx.Preloader.Patching.PatcherPlugin.Save(System.IO.BinaryWriter)">
-            <inheritdoc />
-        </member>
-        <member name="M:BepInEx.Preloader.Patching.PatcherPlugin.Load(System.IO.BinaryReader)">
-            <inheritdoc />
-        </member>
-        <member name="M:BepInEx.Preloader.Entrypoint.Main">
+        <member name="M:BepInEx.Preloader.Entrypoint.Main(System.String[])">
             <summary>
                 The main entrypoint of BepInEx, called from Doorstop.
             </summary>
-        </member>
-        <member name="M:BepInEx.Preloader.PlatformUtils.SetPlatform">
-            <summary>
-            Recreation of MonoMod's PlatformHelper.DeterminePlatform method, but with libc calls instead of creating processes.
-            </summary>
+            <param name="args">
+                The arguments passed in from Doorstop. First argument is the path of the currently executing
+                process.
+            </param>
         </member>
         <member name="T:BepInEx.Preloader.RuntimeFixes.TraceFix">
             <summary>
-            This exists because the Mono implementation of <see cref="T:System.Diagnostics.Trace"/> is/was broken, and would call Write directly instead of calling TraceEvent.
+            This exists because the Mono implementation of <see cref="T:System.Diagnostics.Trace"/> is/was broken, and would call Write directly instead of calling TraceEvent. This class fixes that with a <see cref="N:BepInEx.Harmony"/> hook.
             </summary>
         </member>
         <member name="T:BepInEx.Preloader.Preloader">
@@ -148,22 +126,6 @@
             <summary>
                 Allocates a console window for use by BepInEx safely.
             </summary>
-        </member>
-        <member name="T:BepInEx.Preloader.PreloaderConsoleListener">
-            <summary>
-            Log listener that listens to logs during preloading time and buffers messages for output in Unity logs later.
-            </summary>
-        </member>
-        <member name="P:BepInEx.Preloader.PreloaderConsoleListener.LogEvents">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:BepInEx.Preloader.PreloaderConsoleListener.LogEvent(System.Object,BepInEx.Logging.LogEventArgs)">
-            <inheritdoc />
-        </member>
-        <member name="M:BepInEx.Preloader.PreloaderConsoleListener.Dispose">
-            <inheritdoc />
         </member>
     </members>
 </doc>

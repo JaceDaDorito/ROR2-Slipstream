@@ -1,5 +1,78 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7646476185375340455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b243ff405b33b94dbf5b6775dd9aa33, type: 3}
+  m_Name: Files
+  m_EditorClassIdentifier: 
+  StagingPaths:
+  - <ManifestStagingRoot>
+  files:
+  - {fileID: 2800000, guid: 5fc53213b7358dd49b9953c29358a105, type: 3}
+  - {fileID: 4900000, guid: ddfe8be3934954f4aac2939fb12f5c66, type: 3}
+  - {fileID: 102900000, guid: ae489e71b6a2ca54388f5e677554b7f0, type: 3}
+--- !u!114 &-5775786412066446189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17d1008b78cb6e846889b7778282fbef, type: 3}
+  m_Name: AssetBundleDefinitions
+  m_EditorClassIdentifier: 
+  StagingPaths:
+  - <StageInAssetFolder>
+  assetBundles:
+  - assetBundleName: slipassets
+    assets:
+    - {fileID: 102900000, guid: 50c385205ff85314091c2cf5fa4efead, type: 3}
+    - {fileID: 102900000, guid: 3eb5c6a41a2d4e8499a1014d0fc960b3, type: 3}
+--- !u!114 &-4602117282012248594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f22bb7fd1d3b56a48bc52f8e407901d6, type: 3}
+  m_Name: ManifestIdentity
+  m_EditorClassIdentifier: 
+  StagingPaths:
+  - <ManifestPluginStaging>
+  Author: Team Slipstream
+  Name: TeamSlipstream-Slipstream
+  Description: A content mod aimed to give more variety to RoR2 with stages, items,
+    and enemies.
+  Version: 0.0.1
+  Dependencies:
+  - {fileID: 11400000, guid: 2d4d09ec817c24698d35dc9bf0704fdc, type: 2}
+--- !u!114 &-198943577278717595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0a82fec78ebc734d9ad1346cd40b5f9, type: 3}
+  m_Name: ThunderstoreData
+  m_EditorClassIdentifier: 
+  StagingPaths:
+  - <ManifestStagingRoot>
+  url: https://github.com/AtlanteanDotOrg/ROR2-Slipstream/tree/main
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13,15 +86,16 @@ MonoBehaviour:
   m_Name: SlipstreamManifest
   m_EditorClassIdentifier: 
   Data:
-  - {fileID: 114211852988908172}
-  - {fileID: 114107831304456238}
-  - {fileID: 114431642618062350}
-  - {fileID: 114454666886794288}
-  - {fileID: 114516270240215720}
-  identity: {fileID: 114211852988908172}
---- !u!114 &114107831304456238
+  - {fileID: -4602117282012248594}
+  - {fileID: 2204156757372025435}
+  - {fileID: -5775786412066446189}
+  - {fileID: -198943577278717595}
+  - {fileID: -7646476185375340455}
+  identity: {fileID: -4602117282012248594}
+  QuickAccess: 0
+--- !u!114 &2204156757372025435
 MonoBehaviour:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -31,98 +105,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b7e13dda513544419a89926bd12ad8a, type: 3}
   m_Name: AssemblyDefinitions
   m_EditorClassIdentifier: 
-  Errored: 0
-  ErrorMessage: 
-  ErrorStacktrace: 
   StagingPaths:
   - <ManifestStagingRoot>
   definitions:
-  - {fileID: 5897886265953266890, guid: 2cbb769401b9df946bcaf3d16a76af01, type: 3}
---- !u!114 &114211852988908172
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f22bb7fd1d3b56a48bc52f8e407901d6, type: 3}
-  m_Name: ManifestIdentity
-  m_EditorClassIdentifier: 
-  Errored: 0
-  ErrorMessage: 
-  ErrorStacktrace: 
-  StagingPaths:
-  - <ManifestPluginStaging>
-  Author: Team Slipstream
-  Name: TeamSlipstream-Slipstream
-  Description: A content mod aimed to give more variety to RoR2 with stages, items,
-    and enemies.
-  Version: 0.0.1
-  Dependencies:
-  - {fileID: 11400000, guid: 2d4d09ec817c24698d35dc9bf0704fdc, type: 2}
-  - {fileID: 11400000, guid: 3788d3942ba76e342c728f0149bba8ed, type: 2}
-  - {fileID: 11400000, guid: a8ac6a3e325999651bd53f63760e6ff0, type: 2}
---- !u!114 &114431642618062350
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17d1008b78cb6e846889b7778282fbef, type: 3}
-  m_Name: AssetBundleDefinitions
-  m_EditorClassIdentifier: 
-  Errored: 0
-  ErrorMessage: 
-  ErrorStacktrace: 
-  StagingPaths:
-  - <StageInAssetFolder>
-  assetBundles:
-  - assetBundleName: slipassets
-    assets:
-    - {fileID: 102900000, guid: a5c161e57cad8934aa6c6805f906f01a, type: 3}
-    - {fileID: 102900000, guid: e6e92993b45f0f74c94cf4996103f726, type: 3}
---- !u!114 &114454666886794288
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0a82fec78ebc734d9ad1346cd40b5f9, type: 3}
-  m_Name: ThunderstoreData
-  m_EditorClassIdentifier: 
-  Errored: 0
-  ErrorMessage: 
-  ErrorStacktrace: 
-  StagingPaths:
-  - <ManifestStagingRoot>
-  url: https://github.com/AtlanteanDotOrg/ROR2-Slipstream/tree/main
---- !u!114 &114516270240215720
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b243ff405b33b94dbf5b6775dd9aa33, type: 3}
-  m_Name: Files
-  m_EditorClassIdentifier: 
-  Errored: 0
-  ErrorMessage: 
-  ErrorStacktrace: 
-  StagingPaths:
-  - <ManifestStagingRoot>
-  files:
-  - {fileID: 2800000, guid: 5fc53213b7358dd49b9953c29358a105, type: 3}
-  - {fileID: 4900000, guid: 0b27e82d489512f449d7161bf8b76757, type: 3}
-  - {fileID: 102900000, guid: bc8e7116a2170a9429d5e79c467101ac, type: 3}
-  - {fileID: 102900000, guid: 7a8c3da3a0e98734f976f33642a9c922, type: 3}
+  - {fileID: 5897886265953266890, guid: 48945b114b79a914c9ada363fa1172c2, type: 3}

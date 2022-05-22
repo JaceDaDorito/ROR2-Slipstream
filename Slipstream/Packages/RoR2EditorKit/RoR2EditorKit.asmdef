@@ -2,9 +2,10 @@
     "name": "RoR2EditorKit",
     "references": [
         "ThunderKit.Core",
-        "ThunderKit.Markdown"
+        "ThunderKit.Markdown",
+        "ThunderKit.Common",
+        "com.unity.multiplayer-hlapi.Runtime"
     ],
-    "optionalUnityReferences": [],
     "includePlatforms": [
         "Editor"
     ],
@@ -13,8 +14,14 @@
     "overrideReferences": true,
     "precompiledReferences": [
         "HGUnityUtils.dll",
-        "Assembly-CSharp.dll"
+        "SimpleJSON.dll",
+        "RoR2.dll",
+        "com.unity.multiplayer-hlapi.Runtime.dll",
+        "Unity.Addressables.dll",
+        "Unity.ResourceManager.dll"
     ],
     "autoReferenced": true,
-    "defineConstraints": []
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
 }

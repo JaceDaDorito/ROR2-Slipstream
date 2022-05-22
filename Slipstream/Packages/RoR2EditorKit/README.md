@@ -1,108 +1,89 @@
-# RoR2EditorKit
+# RoR2EditorKit - Editor Utilities, Inspectors and More for Risk of Rain2
 
-The Risk of Rain 2 Editor Kit (Abreviated as ROR2EK) is a Thunderkit Extension designed specifically for helping mod creators create content for Risk of Rain 2.
+## About
 
-The main goal of (ROR2EK) is to bring a friendly, easy to use editor experience for creating content, ranging from items, all the way to prefabs.
+RoR2EditorKit is a *Thunderkit Extension* for developing mods inside the UnityEditor, providing a myriad of Inspectors, Property Drawers, Editor Windows and more.
 
-## Features:
+At it's core, RoR2EditorKit should not have any classes or systems that depend on runtime usage, RoR2EditorKit works exclusively for speeding up the modding enviroment.
 
----
+## Manual Installation
 
-## Inspectors
+To Download RoR2EditorKit to your project, it is recommended that you either add it via the ThunderKit extension store, or adding it via Unity's PackageManager (Downloading a specific tagged version is recommended).
 
-RoR2EditorKit comes bundled with custom Inspectors that overwrite the default view of certain Scriptable Objects in RoR2, specifically annoying to work with ones, either with new easier to use inspectors, or editor windows that break down the default inspector for a more viewable experience.
+Once installed, it is heavily reccommended to open the ThunderkitSettings window to modify certain settings that RoR2EditorKit will use while helping you develop the mod.
 
-Currently, RoR2EK comes bundled with 7 Inspectors.
+* RoR2EditorKitSettings: Settings of the extension itself
+ * Token Prefix: A prefix for your mod, it's used to generate unique tokens.
+ * Main Manifest: The manifest of your mod, used in a myriad of tools to know the assetbundle or the main DLL.
 
-* SerializableContentPack: Splits the array view into buttons that can be viewed one by one, adds buttons for automatically populating the array depending on your manifest's assetbundles.
-* ObjectScaleCurve: Ticking "Use overall curve only" will hide the other 3 animation curves
-* HGButton: Creates an inspector for using the HGButton class, which is used in a variety of UI on RoR2
-* ChildLocator: Modifies the entries of the ChildLocator to use only one line instead of two per element.
-* CharacterBody: Makes the base and level stats foldable, so you can hide or expand them at will
-* BuffDef: Hides the "Icon Path" field
-* Entity State Configuration: Easily select an entity state from the target type, when selected, the inspector will automatically populate the serialized fields array with the necesary fields to serialize.
+## Extending RoR2EditorKit's Functionality.
 
-![](https://i.gyazo.com/bb05950708255bbb39c7efb923adea4f.png)
+* In case you need to extend RoR2EditorKit's functionality for your own purposes (Such as a custom inspector for a mod you're working on), you can look into this wiki page that explains how to extend the editor's functionality using RoR2EditorKit's systems.
 
-All the inspectors of ROR2EK can be toggled ON or OFF via a toggle switch on the Editor header GUI
+[link](https://github.com/risk-of-thunder/RoR2EditorKit/wiki/Extending-the-Editor's-Functionality-with-RoR2EditorKit's-Systems.)
 
----
+## Contributing
 
-### Property Drawers
+Contributing to RoR2EditorKit is as simple as creating a fork, and cloning the project. the main folder (RoR2EditorKit) is a unity project itself. Simply opening it with the unity version ror2 uses will allow you to edit the project to your heart's content.
 
-ROR2EK comes with property drawers for handling certain types inside risk of rain 2, The main example is our SerialziableEntityStateType and SerializableSystemType drawer, which allows you to easily search, find and select an entity state for your skill def, entity state machine, or EntityStateConfiguration
-
-![](https://cdn.discordapp.com/attachments/575431803523956746/903754837940916234/unknown.png)
-
-ROR2EK also comes with the following property drawers:
-* EnumMask: Used by almost all flag enums, the EnumMask property drawer will allow you to actually set the flags properly.
-* PrefabReference: Used by the SkinDef as an example, the Prefab Reference drawer makes it possible to use the SkinDef scriptable object properly
-* SkillFamily: Simply hides the unlockableName field of the skill family.
-
----
-
-### Asset Creator Windows
-
-ROR2EK comes with special editor windows designed specifically for creating Assets for Risk of Rain 2, so far it only comes bundled with editor windows for creating scriptable objects and an Interactable prefab. but we plan on adding more and even complex ones for creating projectiles, or maybe even full body boilerplates. Most of these windows have extra settings that can be used to specify details about the asset youre about to create.
-
-Currently, RoR2EK comes with 8 Asset Creator Windows:
-
-* ArtifactDef: Creates an ArtifactDef using only the artifact's name
-* BuffDef: Creates a buffDef using only the name, color, if it stacks, and if tis a debuff
-* EntityStateconfiguration: Creates an ESC using solely the target type
-* EquipmentDef: Creates an EquipmentDef using the equipment's name, cooldown, wether its enigma compatible and if its a lunar equipment
-* ItemDef: Creates an ItemDef using the item's name, tier, and tags.
-* Sha256HashAsset: Used for creating codes for ArtifactCodeAPI
-* SurvivorDef: creates a survivor def using the name, body prefab, and some other tidbits, currently half-way implemented
-* Interactable: Creates an Interactable prefab.
-
-![](https://cdn.discordapp.com/attachments/567852222419828736/903719556894326785/a10578cadaeaa9ad1fbaedbfb8a158b2.png)
-
----
-
-### MaterialEditor
-
-ROR2EK comes bundled with a special MaterialEditor, the material editor itself is used for handling the difficult to work with Shaders from Risk of Rain 2. It helps via either letting you modify important aspects that arent available by default, or by hiding entire sections if the shader keyword is not enabled.
-
-Currently, ROR2EK comes bundled with 3 Material Editors
-* HGStandard
-* HGSnowTopped
-* HGCloudRemap
-
-All of these material editors work with either the real hopoo shaders, or with stubbed versions.
-
-![](https://i.gyazo.com/172f157cefaefbfb619611b836a8f8fe.png)
-###### (Notice how the PrintBehavior, Screenspace Dithering, Fresnell Emission, Splatmapping, flowmap and limb removal are hidden when their keywords are not enabled)
-
----
-
-### Other:
-
-* ScriptableCreators: A lot of MenuItems to create a myriad of scriptable objects, including the UnlockableDef and a miryad of hidden SkillDefs.
-
-## Credits
-
-* Coding: Nebby, Passive Picasso (Twiner), KingEnderBrine, KevinFromHPCustomerService
-* Models & Sprite: Nebby
-* Mod Icon: SOM
+A more detailed Contribution guideline can be found [here](https://github.com/risk-of-thunder/RoR2EditorKit/blob/main/CONTRIBUTING.md)
 
 ## Changelog
 
-(Old Changelogs can be found [here](https://github.com/risk-of-thunder/RoR2EditorKit/blob/main/RoR2EditorKit/Assets/RoR2EditorKit/OldChangelogs.md))
+(Old changelogs can be found [here](https://github.com/risk-of-thunder/RoR2EditorKit/blob/main/OldChangelogs.md))
 
-### 1.0.0
+### Current
 
-* First Risk of Thunder release
-* Rewrote readme a bit
-* Added missing XML documentation to methods
-* Added a property drawer for PrefabReference (Used on anything that uses RendererInfos)
-* Added the MaterialEditor
-    * The material editor is used for making modifying and working with HG shaders easier.
-    * Works with both stubbed and non stubbed shaders
-    * Entire system can be disabled on settings
-* Properly added an Extended Property Drawer
-* Added Inspector for CharacterBody
-* Added Inspector for Child Locator
-* Added Inspector for Object Scale Curve
-* Added Inspector for BuffDef
-* Fixed the enum mask drawer not working with uint based enum flags
+### '3.0.1'
+
+* Core Changes:
+	* Fixed ScriptalbeObjectInspector drawing multiple InspectorEnabled toggles (3 inspectors = 3 toggles)
+	* Added ReflectionUtils class
+
+* RoR2EditorScripts changes:
+	* Changed the method that the EntityStateDrawer and SerializableSystemTypeDrawer uses for getting the current Types in the AppDomain
+
+### '3.0.0'
+
+* General Changes:
+	* Transformed the main repository from a __Project Repository__ to a __Package Repository__ (This change alone justifies the major version change)
+
+* Core Changes:
+	* Improvements to the Exnteded Inspector:
+		* Reworked the naming convention system into the IObjectNameConvention interface
+		* Made HasVisualTreeAsset virtual
+		* Removed "Find" and "FindAndBind" methods
+		* Added AddSimpleContextMenu, simplified version for creating context menus for VisualElements
+		* Added PropertyValidator class, used for validating PropertyFields. Evaluate the states of the property fields and append helpBoxes for end users
+	* Removed most USS files, added ComponentInspector.uss and ScriptableObjectInspector.uss
+	* Added a ComponentInspectorBase.UXML
+	* Added the following Extensions and Utilities:
+		- KeyValuePair deconstructor from R2API
+		- UpdateAndApply extension for ScriptableObject
+		- QContainer for Foldout Elements
+		- GetRootObject for GameObjects
+		- Added AddressableUtils
+
+* RoR2EditorScripts changes:
+	* Updated the aspect of the following inspectors:
+		- ItemDef
+		- EquipmentDef
+		- EliteDef
+		- BuffDef
+		- SkillLocator
+		- NetworkStateMachine
+		- CharacterBody
+	* Added HurtBoxGroup inspector (Auto population of array)
+	* Added CharacterModel inspector (Auto population of renderers and lights)
+	* Standarized the naming conventions of certain scriptableObjects to be truly in line with Hopoo's naming conventions
+	* Most buttons in various inspectors are now replaced by ContextMenus
+	* Removed Tooltip and Labeling from NetworkStateMachine for now
+	* Token Setting actions now take into consideration objects with Whitespaces by removing them
+	* EliteDef cannow set the health and damage boost coefficient to pre SOTV tiers (T1Honor, T1 & T2)
+	* CharacterBody's baseVision field can now be set to infinity
+	* BaseStats can now be set to common vanilla body stats:
+		* Commando
+		* Lemurian
+		* Golem
+		* BeetleQueen
+		* Mithrix

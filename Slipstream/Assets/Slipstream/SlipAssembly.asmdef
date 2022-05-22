@@ -1,0 +1,32 @@
+{
+    "name": "Slipstream",
+    "references": [
+        "GUID:a44f47cf3ada4435dbc516bad0bc86fe"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "BepInEx.dll",
+        "R2API.dll",
+        "MonoMod.Utils.dll",
+        "Mono.Cecil.dll",
+        "DebugToolkit.dll",
+        "Assembly-CSharp.dll",
+        "RoR2.dll",
+        "HGCSharpUtils.dll",
+        "HGUnityUtils.dll",
+        "MoonstormSharedUtils.dll",
+        "KinematicCharacterController.dll",
+        "MMHOOK_RoR2.dll",
+        "Wwise.dll",
+        "LegacyResourcesAPI.dll",
+        "Unity.Addressables.dll",
+        "Unity.ResourceManager.dll"
+    ],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

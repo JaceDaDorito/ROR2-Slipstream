@@ -1,9 +1,13 @@
 ﻿using RoR2.ContentManagement;
+using R2API.ScriptableObjects;
+using R2API.ContentManagement;
 using Moonstorm.Loaders;
 using System;
 using Slipstream.Modules;
 using System.Linq;
 using RoR2;
+using UnityEngine;
+
 
 namespace Slipstream
 {
@@ -18,7 +22,8 @@ namespace Slipstream
 
         public static class Elites
         {
-            //Elites go here, don't put anything here though, I have't implmented stuff regarding elites yet. We aren't doing anything regarding elites yet too.
+            //Elites go here
+            //public static EliteDef Sandswept;
         }
         
         public static class Equipments
@@ -59,7 +64,7 @@ namespace Slipstream
         }
         public override string identifier => SlipMain.GUID;
 
-        public override SerializableContentPack SerializableContentPack { get; protected set; } = SlipAssets.Instance.MainAssetBundle.LoadAsset<SerializableContentPack>("ContentPack");
+        public override R2APISerializableContentPack SerializableContentPack { get; protected set; } = SlipAssets.Instance.MainAssetBundle.LoadAsset<R2APISerializableContentPack>("ContentPack");
         public override Action[] LoadDispatchers { get; protected set; }
         public override Action[] PopulateFieldsDispatchers { get; protected set; }
 
@@ -71,30 +76,34 @@ namespace Slipstream
                 #region delegates
                 delegate
                 {
-                    new Slipstream.Buffs.Buffs().Init();
+                    new Slipstream.Buffs.Buffs().Initialize();
                 },
                 delegate
                 {
-                    new Modules.Projectiles().Init();
+                    new Modules.Projectiles().Initialize();
                 },
                 delegate
                 {
-                    new Pickups().Init();
+                    new Modules.Equipments().Initialize();
                 },
                 delegate
                 {
-                    new ItemDisplays().Init();
+                    new Modules.Items().Initialize();
                 },
                 delegate
                 {
-                    typeof(SlipContent).Assembly.GetTypes()
+                    new ItemDisplays().Initialize();
+                },
+                delegate
+                {
+                    SerializableContentPack.entityStateTypes = typeof(SlipContent).Assembly.GetTypes()
                         .Where(type => typeof(EntityStates.EntityState).IsAssignableFrom(type))
-                        .ToList()
-                        .ForEach(state => HG.ArrayUtils.ArrayAppend(ref SerializableContentPack.entityStateTypes, new EntityStates.SerializableEntityStateType(state)));
+                        .Select(type => new EntityStates.SerializableEntityStateType(type))
+                        .ToArray();
                 },
                 delegate
                 {
-                    SlipAssets.Instance.LoadEffectDefs();
+                   SerializableContentPack.effectPrefabs = SlipAssets.LoadAllAssetsOfType<GameObject>().Where(go => go.GetComponent<EffectComponent>()).ToArray();
                 },
                 delegate
                 {

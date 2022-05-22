@@ -1,337 +1,185 @@
-﻿using RoR2EditorKit.Settings;
+﻿using RoR2EditorKit.Common;
+using RoR2EditorKit.Settings;
+using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEditor;
+using UnityEditor.UIElements;
 using UnityEngine;
+using UnityEngine.UIElements;
 
-namespace RoR2EditorKit.Core.Windows
+namespace RoR2EditorKit.Core.EditorWindows
 {
+    using static ThunderKit.Core.UIElements.TemplateHelpers;
     /// <summary>
-    /// Derive editor windows from this class.
-    /// <para>Based on the video "Easy Editor Windows in Unity with Serialized Properties" by "Game Dev Guide"</para>
-    /// <para>https://www.youtube.com/watch?v=c_3DXBrH-Is</para>
+    /// Base window for creating an EditorWindow with visual elements.
     /// </summary>
     public abstract class ExtendedEditorWindow : EditorWindow
     {
         /// <summary>
-        /// The serialized object being modified.
+        /// RoR2EK's main settings file
         /// </summary>
-        protected SerializedObject mainSerializedObject;
-
         public static RoR2EditorKitSettings Settings { get => RoR2EditorKitSettings.GetOrCreateSettings<RoR2EditorKitSettings>(); }
+        /// <summary>
+        /// The serialized object of this EditorWindow
+        /// </summary>
+        protected SerializedObject SerializedObject { get; private set; }
 
         /// <summary>
-        /// Opens the given editor window, and sets the main serialized object.
+        /// Called when the Editor Window is enabled, always keep the original implementation unless you know what youre doing
         /// </summary>
-        /// <typeparam name="T">The editor window to open</typeparam>
-        /// <param name="unityObject">The object that's being modified</param>
-        /// <param name="windowName">The window's name</param>
-        public static void OpenEditorWindow<T>(Object unityObject, string windowName) where T : ExtendedEditorWindow
+        protected virtual void OnEnable()
         {
-            T window = GetWindow<T>(windowName);
-            if (unityObject != null)
-                window.mainSerializedObject = new SerializedObject(unityObject);
-
-            window.OnWindowOpened();
+            base.rootVisualElement.Clear();
+            GetTemplateInstance(GetType().Name, rootVisualElement, ValidateUXMLPath);
+            SerializedObject = new SerializedObject(this);
+            rootVisualElement.Bind(SerializedObject);
         }
 
         /// <summary>
-        /// Finish any initialization here. calling base recommended
+        /// Used to validate the path of a potential UXML asset, overwrite this if youre making a window that isnt in the same assembly as RoR2EK.
         /// </summary>
-        protected virtual void OnWindowOpened() { }
-
-        /// <summary>
-        /// Draws a serialized property as if it where drawn by the default inspector
-        /// </summary>
-        /// <param name="property">The property to draw</param>
-        /// <param name="drawChildren">Wether or not to include children properties</param>
-        protected void DrawProperties(SerializedProperty property, bool drawChildren)
+        /// <param name="path">A potential UXML asset path</param>
+        /// <returns>True if the path is for this editor window, false otherwise</returns>
+        protected virtual bool ValidateUXMLPath(string path)
         {
-            string lastPropPath = string.Empty;
-            foreach (SerializedProperty prop in property)
-            {
-                if (prop.isArray && prop.propertyType == SerializedPropertyType.Generic)
-                {
-                    EditorGUILayout.BeginHorizontal();
-                    prop.isExpanded = EditorGUILayout.Foldout(prop.isExpanded, prop.displayName);
-                    EditorGUILayout.EndHorizontal();
-
-                    if (prop.isExpanded)
-                    {
-                        EditorGUI.indentLevel++;
-                        DrawProperties(prop, drawChildren);
-                        EditorGUI.indentLevel--;
-                    }
-                }
-                else
-                {
-                    if (!string.IsNullOrEmpty(lastPropPath) && prop.propertyPath.Contains(lastPropPath))
-                    {
-                        continue;
-                    }
-                    lastPropPath = prop.propertyPath;
-                    EditorGUILayout.PropertyField(prop, drawChildren);
-                }
-            }
+            return path.StartsWith(Constants.AssetFolderPath) || path.StartsWith(Constants.AssetFolderPath);
         }
 
-        #region Button Sidebars
-
-        /// <summary>
-        /// Creates a list of buttons where each button goes to a child property inside a property array.
-        /// </summary>
-        /// <param name="property">The property to draw.</param>
-        /// <param name="selectedPropPath">A string to store the selected property's path.</param>
-        /// <param name="selectedProperty">The SerializedProperty for storing the currently selected property.</param>
-        /// <returns>true if any button has been pressed, false otherwise</returns>
-        protected bool DrawButtonSidebar(SerializedProperty property, ref string selectedPropPath, ref SerializedProperty selectedProperty)
+        private void CreateGUI()
         {
-            bool pressed = false;
-
-            property.arraySize = EditorGUILayout.DelayedIntField($"Array Size", property.arraySize);
-
-            if (property.arraySize != 0)
-            {
-                foreach (SerializedProperty prop in property)
-                {
-                    if (GUILayout.Button(prop.displayName))
-                    {
-                        selectedPropPath = prop.propertyPath;
-                        GUI.FocusControl(null);
-                        pressed = true;
-                    }
-                }
-                if (!string.IsNullOrEmpty(selectedPropPath))
-                {
-                    selectedProperty = mainSerializedObject.FindProperty(selectedPropPath);
-                }
-            }
-            else
-            {
-                EditorGUILayout.LabelField($"Increase {property.name}'s Size.");
-            }
-            return pressed;
+            DrawGUI();
         }
 
         /// <summary>
-        /// Creates a list of buttons where each button goes to a child property inside the property parameter, alongside the ability to scroll thru the list.
+        /// Create or finalize your VisualElement UI here.
         /// </summary>
-        /// <param name="property">The property to draw</param>
-        /// <param name="scrollPosition">A Vector2 for storing the scroll position</param>
-        /// <param name="selectedPropPath">A string to store the selected property's path.</param>
-        /// <param name="selectedProperty">The SerializedProperty for storing the currently selected property.</param>
-        /// <returns>A tuple with the current scroll's position, and wether or not any button has been pressed.</returns>
-        protected (Vector2, bool) DrawScrollableButtonSidebar(SerializedProperty property, Vector2 scrollPosition, ref string selectedPropPath, ref SerializedProperty selectedProperty)
+        protected abstract void DrawGUI();
+
+        #region Util Methods
+        /// <summary>
+        /// Shorthand for finding a visual element. the element you're requesting will be queried on the rootVisualElement.
+        /// </summary>
+        /// <typeparam name="TElement">The type of visual element.</typeparam>
+        /// <param name="name">Optional parameter to find the element</param>
+        /// <param name="ussClass">Optional parameter to find the element</param>
+        /// <returns>The VisualElement specified</returns>
+        protected TElement Find<TElement>(string name = null, string ussClass = null) where TElement : VisualElement
         {
-            bool pressed = false;
-            property.arraySize = EditorGUILayout.DelayedIntField($"Array Size", property.arraySize);
-
-            scrollPosition = EditorGUILayout.BeginScrollView(scrollPosition, false, true, GUILayout.Width(300));
-
-            if (property.arraySize != 0)
-            {
-                foreach (SerializedProperty prop in property)
-                {
-                    if (GUILayout.Button(prop.displayName))
-                    {
-                        selectedPropPath = prop.propertyPath;
-                        GUI.FocusControl(null);
-                        pressed = true;
-                    }
-                }
-                if (!string.IsNullOrEmpty(selectedPropPath))
-                {
-                    selectedProperty = mainSerializedObject.FindProperty(selectedPropPath);
-                }
-
-            }
-            else
-            {
-                EditorGUILayout.LabelField($"Increase {property.name}'s Size.");
-            }
-            EditorGUILayout.EndScrollView();
-            return (scrollPosition, pressed);
+            return rootVisualElement.Q<TElement>(name, ussClass);
         }
 
         /// <summary>
-        /// Creates a list of buttons where each button goes to a child property inside the property parameter, Alongside the ability to specify the button's name.
+        /// Shorthand for finding a visual element. the element you're requesting will be queried on the "elementToSearch"
         /// </summary>
-        /// <param name="property">The property to draw</param>
-        /// <param name="buttonName">A string to determine the button's name</param>
-        /// <param name="selectedPropPath">A string to store the selected property's path.</param>
-        /// <param name="selectedProperty">The SerializedProperty for storing the currently selected property.</param>
-        /// <returns>true if any button has been pressed, false otherwise.</returns>
-        protected bool DrawButtonSidebar(SerializedProperty property, string buttonName, ref string selectedPropPath, ref SerializedProperty selectedProperty)
+        /// <typeparam name="TElement">The Type of VisualElement</typeparam>
+        /// <param name="elementToSearch">The VisualElement where the Quering process will be done.</param>
+        /// <param name="name">Optional parameter to find the element</param>
+        /// <param name="ussClass">Optional parameter to find the element</param>
+        /// <returns>The VisualElement specified</returns>
+        protected TElement Find<TElement>(VisualElement elementToSearch, string name = null, string ussClass = null) where TElement : VisualElement
         {
-            bool pressed = false;
+            return elementToSearch.Q<TElement>(name, ussClass);
+        }
+        /// <summary>
+        /// Queries a visual element of type T from the rootVisualElement, and binds it to a property on the serialized object.
+        /// <para>Property is found by using the Element's name as the binding path</para>
+        /// </summary>
+        /// <typeparam name="TElement">The Type of VisualElement, must inherit IBindable</typeparam>
+        /// <param name="name">Optional parameter to find the Element, used in the Quering</param>
+        /// <param name="ussClass">Optional parameter of the name of a USSClass the element youre finding uses</param>
+        /// <returns>The VisualElement specified, with a binding to the property</returns>
+        protected TElement FindAndBind<TElement>(string name = null, string ussClass = null) where TElement : VisualElement, IBindable
+        {
+            var bindableElement = rootVisualElement.Q<TElement>(name, ussClass);
+            if (bindableElement == null)
+                throw new NullReferenceException($"Could not find element of type {typeof(TElement)} inside the DrawInspectorElement.");
 
-            property.arraySize = EditorGUILayout.DelayedIntField($"Array Size", property.arraySize);
+            bindableElement.bindingPath = bindableElement.name;
+            bindableElement.BindProperty(SerializedObject);
 
-            if (property.arraySize != 0)
-            {
-                foreach (SerializedProperty prop in property)
-                {
-                    var p = prop.FindPropertyRelative(buttonName);
-                    if (p != null && p.objectReferenceValue)
-                    {
-                        if (p.objectReferenceValue && GUILayout.Button(p.objectReferenceValue.name))
-                        {
-                            selectedPropPath = prop.propertyPath;
-                            GUI.FocusControl(null);
-                            pressed = true;
-                        }
-                    }
-                    else if (GUILayout.Button(prop.displayName))
-                    {
-                        selectedPropPath = prop.propertyPath;
-                        GUI.FocusControl(null);
-                        pressed = true;
-                    }
-                }
-                if (!string.IsNullOrEmpty(selectedPropPath))
-                {
-                    selectedProperty = mainSerializedObject.FindProperty(selectedPropPath);
-                }
-            }
-            else
-            {
-                EditorGUILayout.LabelField($"Increase {property.name}'s Size.");
-            }
-            return pressed;
+            return bindableElement;
         }
 
         /// <summary>
-        /// Creates a list of buttons where each button goes to a child property inside the property parameter, Alongside the ability to specify the button's name & scroll thru the list
+        /// Queries a visual element of type T from the rootVisualElement, and binds it to a property on the serialized object.
         /// </summary>
-        /// <param name="property">The property to draw</param>
-        /// <param name="scrollPosition">A Vector2 for storing the scroll position</param>
-        /// <param name="buttonName">A string to determine the button's name</param>
-        /// <param name="selectedPropPath">A string to store the selected property's path.</param>
-        /// <param name="selectedProperty">The SerializedProperty for storing the currently selected property.</param>
-        /// <returns>A tuple with the current scroll's position, and wether or not any button has been pressed.</returns>
-        protected (Vector2, bool) DrawScrollableButtonSidebar(SerializedProperty property, Vector2 scrollPosition, string buttonName, ref string selectedPropPath, ref SerializedProperty selectedProperty)
+        /// <typeparam name="TElement">The Type of VisualElement, must inherit IBindable</typeparam>
+        /// <param name="prop">The property which is used in the Binding process</param>
+        /// <param name="name">Optional parameter to find the Element, used in the Quering</param>
+        /// <param name="ussClass">Optional parameter of the name of a USSClass the element youre finding uses</param>
+        /// <returns>The VisualElement specified, with a binding to the property</returns>
+        protected TElement FindAndBind<TElement>(SerializedProperty prop, string name = null, string ussClass = null) where TElement : VisualElement, IBindable
         {
-            bool pressed = false;
+            var bindableElement = rootVisualElement.Q<TElement>(name, ussClass);
+            if (bindableElement == null)
+                throw new NullReferenceException($"Could not find element of type {typeof(TElement)} inside the DrawInspectorElement.");
 
-            property.arraySize = EditorGUILayout.DelayedIntField($"Array Size", property.arraySize);
+            bindableElement.BindProperty(prop);
 
-            scrollPosition = EditorGUILayout.BeginScrollView(scrollPosition, false, true, GUILayout.Width(300));
+            return bindableElement;
+        }
 
-            if (property.arraySize != 0)
+        /// <summary>
+        /// Queries a visual element of type T from the elementToSearch argument, and binds it to a property on the serialized object.
+        /// <para>Property is found by using the Element's name as the binding path</para>
+        /// </summary>
+        /// <typeparam name="TElement">The Type of VisualElement, must inherit IBindable</typeparam>
+        /// <param name="elementToSearch">The VisualElement where the Quering process will be done.</param>
+        /// <param name="name">Optional parameter to find the Element, used in the Quering</param>
+        /// <param name="ussClass">The name of a USSClass the element youre finding uses</param>
+        /// <returns>The VisualElement specified, with a binding to the property</returns>
+        protected TElement FindAndBind<TElement>(VisualElement elementToSearch, string name = null, string ussClass = null) where TElement : VisualElement, IBindable
+        {
+            var bindableElement = elementToSearch.Q<TElement>(name, ussClass);
+            if (bindableElement == null)
+                throw new NullReferenceException($"Could not find element of type {typeof(TElement)} inside element {elementToSearch.name}.");
+
+            bindableElement.bindingPath = bindableElement.name;
+            bindableElement.BindProperty(SerializedObject);
+
+            return bindableElement;
+        }
+
+        /// <summary>
+        /// Queries a visual element of type T from the elementToSearch argument, and binds it to a property on the serialized object.
+        /// <para>Property is found by using the Element's name as the binding path</para>
+        /// </summary>
+        /// <typeparam name="TElement">The Type of VisualElement, must inherit IBindable</typeparam>
+        /// <param name="elementToSearch">The VisualElement where the Quering process will be done.</param>
+        /// <param name="name">Optional parameter to find the Element, used in the Quering</param>
+        /// <param name="ussClass">The name of a USSClass the element youre finding uses</param>
+        /// <returns>The VisualElement specified, with a binding to the property</returns>
+        protected TElement FindAndBind<TElement>(VisualElement elementToSearch, SerializedProperty prop, string name = null, string ussClass = null) where TElement : VisualElement, IBindable
+        {
+            var bindableElement = elementToSearch.Q<TElement>(name, ussClass);
+            if (bindableElement == null)
+                throw new NullReferenceException($"Could not find element of type {typeof(TElement)} inside element {elementToSearch.name}.");
+
+            bindableElement.BindProperty(prop);
+
+            return bindableElement;
+        }
+
+        /// <summary>
+        /// Creates a HelpBox and attatches it to a visualElement using IMGUIContainer
+        /// </summary>
+        /// <param name="message">The message that'll appear on the help box</param>
+        /// <param name="messageType">The type of message</param>
+        /// <param name="attachToRootIfElementToAttachIsNull">If left true, and the elementToAttach is not null, the IMGUIContainer is added to the RootVisualElement.</param>
+        /// <param name="elementToAttach">Optional, if specified, the Container will be added to this element, otherwise if the "attachToRootIfElementToAttachIsNull" is true, it'll attach it to the RootVisualElement, otherwise if both those conditions fail, it returns the IMGUIContainer unattached.</param>
+        /// <returns>An IMGUIContainer that's either not attached to anything, attached to the RootElement, or attached to the elementToAttach argument.</returns>
+        protected IMGUIContainer CreateHelpBox(string message, MessageType messageType)
+        {
+            IMGUIContainer container = new IMGUIContainer();
+            container.name = $"EditorWindow_HelpBox";
+            container.onGUIHandler = () =>
             {
-                foreach (SerializedProperty prop in property)
-                {
-                    var p = prop.FindPropertyRelative(buttonName);
-                    if (p != null && p.objectReferenceValue)
-                    {
-                        if (p.objectReferenceValue && GUILayout.Button(p.objectReferenceValue.name))
-                        {
-                            selectedPropPath = prop.propertyPath;
-                            GUI.FocusControl(null);
-                            pressed = true;
-                        }
-                    }
-                    else if (GUILayout.Button(prop.displayName))
-                    {
-                        selectedPropPath = prop.propertyPath;
-                        GUI.FocusControl(null);
-                        pressed = true;
-                    }
-                }
-                if (!string.IsNullOrEmpty(selectedPropPath))
-                {
-                    selectedProperty = mainSerializedObject.FindProperty(selectedPropPath);
-                }
+                EditorGUILayout.HelpBox(message, messageType);
+            };
 
-            }
-            else
-            {
-                EditorGUILayout.LabelField($"Increase {property.name}'s Size.");
-            }
-            EditorGUILayout.EndScrollView();
-            return (scrollPosition, pressed);
+            return container;
         }
         #endregion
-
-        #region Value Sidebars
-        /// <summary>
-        /// Draws a sidebar with the values inside a property array.
-        /// </summary>
-        /// <param name="property">The property to draw.</param>
-        protected void DrawValueSidebar(SerializedProperty property)
-        {
-            property.arraySize = EditorGUILayout.DelayedIntField($"Array Size", property.arraySize);
-
-            foreach (SerializedProperty prop in property)
-            {
-                DrawField(prop, true);
-            }
-        }
-        #endregion
-
-        #region Button Creation
-
-        /// <summary>
-        /// Shorthand for creating a button.
-        /// </summary>
-        /// <param name="buttonName">The name of the button</param>
-        /// <param name="options">GUILayout Options</param>
-        /// <returns>True if pressed, false otherwise.</returns>
-        protected bool SimpleButton(string buttonName, params GUILayoutOption[] options)
-        {
-            return GUILayout.Button(buttonName, options);
-        }
-
-        /// <summary>
-        /// Shorthand for creating a button that switches a bool.
-        /// </summary>
-        /// <param name="buttonName">The name of the button</param>
-        /// <param name="switchingBool">The bool to store the switch</param>
-        /// <param name="options">GUILayout Options</param>
-        /// <returns>True if Pressed, false Otherwise.</returns>
-        protected bool SwitchButton(string buttonName, ref bool switchingBool, params GUILayoutOption[] options)
-        {
-            var button = GUILayout.Button(buttonName, options);
-            if (button)
-                switchingBool = !switchingBool;
-
-            return button;
-        }
-        #endregion
-
-        /// <summary>
-        /// Draws a property with the option to add a custom label
-        /// </summary>
-        /// <param name="property">The property to draw</param>
-        /// <param name="includeChildren">Wether or not to include its children</param>
-        /// <param name="label">The label to use, optional.</param>
-        protected void DrawField(SerializedProperty property, bool includeChildren, string label = null)
-        {
-            if (label != null)
-                EditorGUILayout.PropertyField(property, new GUIContent(label), includeChildren);
-            else
-                EditorGUILayout.PropertyField(property, includeChildren);
-        }
-
-        /// <summary>
-        /// Draws a field directly from the main serialized object.
-        /// </summary>
-        /// <param name="propName">The field to draw.</param>
-        protected void DrawField(string propName)
-        {
-            EditorGUILayout.PropertyField(mainSerializedObject.FindProperty(propName));
-        }
-        /// <summary>
-        /// Draws a field directly from the serialized object given.
-        /// </summary>
-        /// <param name="propName">The name of the property to draw</param>
-        /// <param name="serializedObject">The serialized object that contains the property</param>
-        protected void DrawField(string propName, SerializedObject serializedObject)
-        {
-            EditorGUILayout.PropertyField(serializedObject.FindProperty(propName));
-        }
-
-        protected void ApplyChanges()
-        {
-            mainSerializedObject.ApplyModifiedProperties();
-        }
     }
 }

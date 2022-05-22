@@ -1,19 +1,17 @@
 ManifestFileVersion: 0
-CRC: 3503282594
+CRC: 17458395
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 89b6b3b871b98fd76e702bb59e787c2c
+    Hash: e24e923a4f9eab2c8a378a6b98cc35ac
   TypeTreeHash:
     serializedVersion: 2
-    Hash: c9688a25cb1ddf0e68b32dae8f7b56d3
+    Hash: 02d4db2e497a9ca7b5000dab44bab6dc
 HashAppended: 0
 ClassTypes:
 - Class: 1
   Script: {instanceID: 0}
 - Class: 4
-  Script: {instanceID: 0}
-- Class: 20
   Script: {instanceID: 0}
 - Class: 21
   Script: {instanceID: 0}
@@ -27,59 +25,71 @@ ClassTypes:
   Script: {instanceID: 0}
 - Class: 48
   Script: {instanceID: 0}
-- Class: 49
-  Script: {instanceID: 0}
 - Class: 54
   Script: {instanceID: 0}
 - Class: 65
   Script: {instanceID: 0}
+- Class: 74
+  Script: {instanceID: 0}
 - Class: 108
   Script: {instanceID: 0}
 - Class: 114
-  Script: {fileID: -1350347239, guid: af7c96524aaf41be6a9f8939c088ce66, type: 3}
+  Script: {fileID: 816898038, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
-  Script: {fileID: 751239416, guid: af7c96524aaf41be6a9f8939c088ce66, type: 3}
+  Script: {fileID: 11500000, guid: f8258ea15b8f74c4889ce485d21cbbb1, type: 3}
 - Class: 114
-  Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  Script: {fileID: 870831823, guid: c8c954e10545f6cd0045de066bc4846b, type: 3}
 - Class: 114
-  Script: {fileID: -1783169300, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+  Script: {fileID: 11500000, guid: 37cd3a42cdc5ff140855ce8ac113bc06, type: 3}
 - Class: 114
-  Script: {fileID: -335047464, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+  Script: {fileID: -1752031980, guid: b2ac317a67c468eb8fd6ed06da7572d4, type: 3}
 - Class: 114
-  Script: {fileID: 511512695, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+  Script: {fileID: -130519023, guid: b2ac317a67c468eb8fd6ed06da7572d4, type: 3}
 - Class: 114
-  Script: {fileID: 1783796254, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+  Script: {fileID: -1783169300, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
-  Script: {fileID: -1294804675, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+  Script: {fileID: -335047464, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
-  Script: {fileID: -1284244208, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+  Script: {fileID: 511512695, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
-  Script: {fileID: -1479993534, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+  Script: {fileID: -585069481, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
-  Script: {fileID: 296141222, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+  Script: {fileID: 1512808244, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
-  Script: {fileID: -1848696948, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+  Script: {fileID: 802575700, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
-  Script: {fileID: 1790887305, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+  Script: {fileID: 1783796254, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
-  Script: {fileID: -270136354, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+  Script: {fileID: -1294804675, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
-  Script: {fileID: -899414464, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+  Script: {fileID: -1284244208, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
-  Script: {fileID: -1819008361, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+  Script: {fileID: -1479993534, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
-  Script: {fileID: -281164913, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+  Script: {fileID: 296141222, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
-  Script: {fileID: -565067572, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+  Script: {fileID: -1848696948, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
-  Script: {fileID: -1895344032, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+  Script: {fileID: 1790887305, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
-  Script: {fileID: 816898038, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+  Script: {fileID: -848926067, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: 678291247, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: -270136354, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: -899414464, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: -565067572, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: -1895344032, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: 1395413934, guid: da77c7bbf69f66ab2145560542327715, type: 3}
 - Class: 115
   Script: {instanceID: 0}
 - Class: 135
   Script: {instanceID: 0}
-- Class: 182
+- Class: 136
   Script: {instanceID: 0}
 - Class: 198
   Script: {instanceID: 0}
@@ -87,54 +97,90 @@ ClassTypes:
   Script: {instanceID: 0}
 - Class: 213
   Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
 Assets:
-- Assets/Slipstream/SlipstreamAssets/Prefabs/Effects/Fireflies.prefab
-- Assets/Materials/matPepperSprayExplosion.mat
+- Assets/Materials/texRampTritone2.png
 - Assets/Materials/texRampPepperRad.png
-- Assets/Materials/matDefaultItem.mat
-- Assets/Slipstream/SlipstreamAssets/ItemDefs/GlassEye.asset
 - Assets/Icons/iconPepperSpray.png
+- Assets/Materials/texRampEngi.png
+- Assets/Slipstream/SlipstreamAssets/EliteDefs/Sandswept.asset
 - Assets/Materials/texPepperSmoke.png
+- Assets/Materials/matFireFlyTrail.mat
+- Assets/Slipstream/SlipstreamAssets/ContentPack.asset
 - Assets/Materials/texRampGreaterWisp.png
-- Assets/Slipstream/SlipstreamAssets/ItemDisplayRules/Key Asset Display Pair Holder.asset
+- Assets/Materials/texCloudDifferenceBW1.png
 - Assets/Icons/iconPepperSpeed.png
 - Assets/Materials/texLightning1Mask.png
-- Assets/Slipstream/SlipstreamAssets/BuffDefs/PepperSpeed.asset
-- Assets/Materials/matPepperSpray.png
-- Assets/Slipstream/SlipstreamAssets/Prefabs/Projectiles/projJaceHat.prefab
-- Assets/Slipstream/SlipstreamAssets/Prefabs/Pickups/PickupBionicEye.prefab
+- Assets/Shaders/ActualShaders/deferred/hgstandard.asset
 - Assets/Materials/matPepperSprayEmit - Copy.mat
-- Assets/Materials/matPepperSpray.mat
+- Assets/Slipstream/SlipstreamAssets/Prefabs/Pickups/PickupPepperSpray.prefab
+- Assets/Icons/iconSlipstreamExpansion.png
+- Assets/Materials/texHippoRezRamp.png
+- Assets/Slipstream/SlipstreamAssets/EquipmentDefs/AffixSandswept.asset
 - Assets/Slipstream/SlipstreamAssets/Prefabs/Pickups/PickupTestItem.prefab
-- Assets/StubbedShaders/fx/hgcloudremap.shader
+- Assets/Materials/texBasicMask.png
+- Assets/Materials/matPepperSpray.png
+- Assets/Materials/texThermiteDroplet2Mask.png
 - Assets/Slipstream/SlipstreamAssets/Prefabs/DisplayPrefabs/DisplayPepperSpray.prefab
+- Assets/Slipstream/SlipstreamAssets/Prefabs/DisplayPrefabs/DisplayGlassEye.prefab
+- Assets/Slipstream/SlipstreamAssets/BuffDefs/AffixSandswept.asset
 - Assets/Materials/texRampThermite2.png
+- Assets/Slipstream/SlipstreamAssets/ItemDefs/JaceHat.asset
+- Assets/Materials/matPepperSpray.mat
+- Assets/Slipstream/SlipstreamAssets/ItemDefs/GlassEye.asset
+- Assets/Materials/GlassEye_Emission.png
+- Assets/Materials/texBanditSkullMask.png
+- Assets/Shaders/ActualShaders/fx/hgintersectioncloudremap.asset
+- Assets/Slipstream/SlipstreamAssets/Prefabs/SizeReference.prefab
+- Assets/Materials/glasseye_Flowmap.png
+- Assets/Slipstream/SlipstreamAssets/BuffDefs/PepperSpeed.asset
+- Assets/Materials/New Material 1.mat
+- Assets/Materials/matPepperRim.mat
+- Assets/Mesh/Sphere.asset
 - Assets/Materials/glasseye_Diffuse.png
-- Assets/StubbedShaders/deferred/hgstandard.shader
 - Assets/Materials/texSmokeExplosionMask.png
 - Assets/Materials/texCloudOrganic1.png
-- Assets/Materials/matFireFlyTrail.mat
-- Assets/Materials/glasseye_Normal.png
-- Assets/Slipstream/SlipstreamAssets/Prefabs/PointLight/pointFireFly.prefab
-- Assets/Slipstream/SlipstreamAssets/Prefabs/Effects/PepperSprayExplosion.prefab
-- Assets/StubbedShaders/fx/hgintersectioncloudremap.shader
-- Assets/Slipstream/SlipstreamAssets/Prefabs/Projectiles/README.txt
-- Assets/Slipstream/SlipstreamAssets/ItemDefs/JaceHat.asset
-- Assets/Materials/matPepperRim.mat
-- Assets/Slipstream/SlipstreamAssets/Prefabs/DisplayPrefabs/DisplayGlassEye.prefab
-- Assets/Materials/texOmniShockwave1Mask.png
-- Assets/Materials/matGlassEye.mat
-- Assets/Mesh/donut5Mesh.asset
-- Assets/Materials/texGlowPaintMask.png
-- Assets/Materials/texCloudPixel.png
-- Assets/Slipstream/SlipstreamAssets/ItemDisplayRules/SIDRPepperSpray.asset
-- Assets/Icons/Capture.PNG
-- Assets/Slipstream/SlipstreamAssets/Prefabs/Pickups/PickupPepperSpray.prefab
-- Assets/Mesh/meshPepperSpray.fbx
+- Assets/Materials/texTileRustyMetal.png
+- Assets/Slipstream/SlipstreamAssets/ExpansionDef/SlipExpansionDef.asset
+- Assets/Materials/texOmniHitspark1Mask.png
+- Assets/Materials/texRampParentTeleport.png
+- Assets/Materials/matSmoke.mat
 - Assets/Slipstream/SlipstreamAssets/ItemDefs/PepperSpray.asset
-- Assets/Materials/texCloudOrganicNormal.png
-- Assets/Slipstream/SlipstreamAssets/ContentPack.asset
-- Assets/Mesh/Sphere.asset
+- Assets/Mesh/mdlGlassEye.fbx
+- Assets/Icons/iconSlipstreamDisable.png
+- Assets/Shaders/ActualShaders/fx/hgcloudremap.asset
 - Assets/Materials/matPepperSprayEmit.mat
-- Assets/Mesh/glasseye.fbx
+- Assets/Materials/texRootJungleSpore.png
+- Assets/Materials/glasseye_Normal.png
+- Assets/Materials/GlassEye_Glowy.png
+- Assets/Materials/texRampHealingMedkit.png
+- Assets/Slipstream/SlipstreamAssets/Prefabs/Effects/PepperSprayExplosion.prefab
+- Assets/Materials/matDefaultItem.mat
+- Assets/Mesh/donut5Mesh.asset
+- Assets/Materials/matPepperSprayExplosion.mat
+- Assets/Materials/texPepperSprayCloud.png
+- Assets/Materials/texOmniShockwave1Mask.png
+- Assets/Materials/texEgyptThing.png
+- Assets/Materials/New Material.mat
+- Assets/Mesh/meshPepperSpray.fbx
+- Assets/Materials/texGlowPaintMask.png
+- Assets/Materials/texParticleDust3Mask.png
+- Assets/Materials/texCloudPixel.png
+- Assets/Materials/texRampHuntressSoft.png
+- Assets/Materials/Test.mat
+- Assets/Materials/texCloudDifferenceBW2.png
+- Assets/Icons/Capture.PNG
+- Assets/Slipstream/SlipstreamAssets/Prefabs/Pickups/PickupGlassEye.prefab
+- Assets/Materials/matGlassEyeMetal.mat
+- Assets/Materials/rampPepperSpray.png
+- Assets/Materials/texRampPepperRim.png
+- Assets/Slipstream/SlipstreamAssets/Prefabs/Projectiles/JaceHatProjectile.prefab
+- Assets/Materials/texCloudOrganicNormal.png
+- Assets/Slipstream/SlipstreamAssets/Prefabs/Projectiles/JaceHatGhost.prefab
+- Assets/Materials/textTileScratchSplat.png
+- Assets/Materials/matGlassEyeGlowy.mat
+- Assets/Materials/matPepperSprayOldSmoke.mat
+- Assets/Materials/texBlack.png
+- Assets/Materials/texGenericStarburstMask.png
+- Assets/Materials/texRampPepperEmit.png
 Dependencies: []

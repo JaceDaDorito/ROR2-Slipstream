@@ -19,7 +19,7 @@ MonoBehaviour:
   Author: RiskofThunder
   Name: HookGenPatcher
   Description: MMHOOK generation at runtime.
-  Version: 3.0.59
+  Version: 1.2.3
   Dependencies: 
   - {fileID: 11400000, guid: 2d4d09ec817c24698d35dc9bf0704fdc, type: 2}
 --- !u!114 &11400000

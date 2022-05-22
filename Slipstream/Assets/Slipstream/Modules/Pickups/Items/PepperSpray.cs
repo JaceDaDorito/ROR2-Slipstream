@@ -1,10 +1,11 @@
 ﻿using Moonstorm;
 using Slipstream.Buffs;
 using RoR2;
+using System;
 using UnityEngine;
 using UnityEngine.Networking;
 using R2API;
-using System;
+using RoR2.Items;
 
 namespace Slipstream.Items
 {
@@ -13,7 +14,7 @@ namespace Slipstream.Items
         //Ok so this isn't the most ideal item to reference off of as a beginner but don't be intimidated by the sheer girth of the code here.
 
         private const string token = "SLIP_ITEM_PEPPERSPRAY_DESC";
-        public override ItemDef ItemDef { get; set; } = SlipAssets.Instance.MainAssetBundle.LoadAsset<ItemDef>("PepperSpray");
+        public override ItemDef ItemDef { get; } = SlipAssets.Instance.MainAssetBundle.LoadAsset<ItemDef>("PepperSpray");
 
         public static string section;
 
@@ -29,7 +30,7 @@ namespace Slipstream.Items
 
         [ConfigurableField(ConfigName = "Base Radius", ConfigDesc = "Initial radius of the stun effect.")]
         [TokenModifier(token, StatTypes.Default, 2)]
-        public static float baseRadius = 10.0f;
+        public static float baseRadius = 13.0f;
 
         [ConfigurableField(ConfigName = "Radius Increase", ConfigDesc = "Amount of increased stun radius per stack.")]
         [TokenModifier(token, StatTypes.Default, 3)]
@@ -40,23 +41,20 @@ namespace Slipstream.Items
         public static float speedIncrease = 0.6f;
 
         [ConfigurableField(ConfigName = "Base Speed Duration Constant", ConfigDesc = "Initial amount of speed with one stack.")]
-        [TokenModifier(token, StatTypes.Default, 5)]
+        //[TokenModifier(token, StatTypes.Default, 5)]
         public static float buffTimeConstant = 1.0f;
 
         [ConfigurableField(ConfigName = "Max Speed Duration", ConfigDesc = "The time on your buff if your entire healthbar is shield + Base Speed Duration Constant.")]
         [TokenModifier(token, StatTypes.Default, 5)]
         public static float maxBuffTime = 20.0f;
 
-        public static string explosionSoundString = "Fart";
+        //public static string explosionSoundString = "Fart";
 
-        public override void AddBehavior(ref CharacterBody body, int stack)
+        public class PepperSprayBehavior : BaseItemBodyBehavior, IBodyStatArgModifier
         {
-            //SlipLogger.LogD($"Initializing Test Item");
-            body.AddItemBehavior<PepperSprayBehavior>(stack);
+            [ItemDefAssociation(useOnClient = true, useOnServer = true)]
+            public static ItemDef GetItemDef() => SlipContent.Items.PepperSpray;
 
-        }
-        public class PepperSprayBehavior : CharacterBody.ItemBehavior, IBodyStatArgModifier
-        {
             private bool shouldTrigger = false;
 
             //This just adds an initial shield when you have atleast one stack.
@@ -79,9 +77,10 @@ namespace Slipstream.Items
                     {
                         shouldTrigger = false;
                         FireStunSpray();
-                        body.AddTimedBuff(PepperSpeed.buff, maxBuffTime * (body.healthComponent.fullShield/(body.healthComponent.fullShield + body.healthComponent.fullHealth)) + buffTimeConstant);
-                        Util.PlaySound(explosionSoundString, gameObject);
-                        //Util.PlaySound(EntityStates.Bison.PrepCharge.enterSoundString, gameObject);
+                        //not sure what addtimedbuffauthority is
+                        body.AddTimedBuffAuthority(SlipContent.Buffs.PepperSpeed.buffIndex, maxBuffTime * (body.healthComponent.fullShield/(body.healthComponent.fullShield + body.healthComponent.fullHealth)) + buffTimeConstant);
+                        //Util.PlaySound(explosionSoundString, gameObject);
+                        Util.PlaySound(EntityStates.Bison.PrepCharge.enterSoundString, gameObject);
                     }
                 }
             }

@@ -7,11 +7,16 @@ using UnityEngine.Networking;
 
 namespace Slipstream.Projectiles
 {
-    [DisabledContent]
+    //finish this another time
+
+    //[DisabledContent]
+    
     public class JaceHatProjectile : ProjectileBase
     {
         //public override GameObject ProjectilePrefab { get; set; } = SlipAssets.Instance.MainAssetBundle.LoadAsset<GameObject>("projJaceHat");
-        public override GameObject ProjectilePrefab { get; set; } = PrefabAPI.InstantiateClone(SlipAssets.Instance.MainAssetBundle.LoadAsset<GameObject>("projJaceHat"), "HatProjectile", false);
+        public override GameObject ProjectilePrefab { get; } = PrefabAPI.InstantiateClone(SlipAssets.Instance.MainAssetBundle.LoadAsset<GameObject>("JaceHatProjectile"), "HatProjectile", false);
+        public override GameObject ProjectileGhost { get; } = PrefabAPI.InstantiateClone(SlipAssets.Instance.MainAssetBundle.LoadAsset<GameObject>("JaceHatGhost"), "HatProjectile", false);
+
         public static GameObject hatProj;
 
         //var model = SlipAssets.Instance.MainAssetBundle.LoadAsset<GameObject>("projJaceHat");

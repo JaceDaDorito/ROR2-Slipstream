@@ -7,7 +7,7 @@ namespace Slipstream.Modules
     {
         //Detects and loads all of the Language files
         public override string AssemblyDir => SlipAssets.Instance.AssemblyDir;
-        public override string LanguagesFolderName => "Languages";
+        public override string LanguagesFolderName => "SlipLang";
 
         internal void Init()
         {
