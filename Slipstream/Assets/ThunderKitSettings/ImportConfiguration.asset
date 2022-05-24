@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bb24ae4d588a7b4fbc1757e2fb5fd78, type: 3}
   m_Name: Import Addressable Catalog
   m_EditorClassIdentifier: 
-  extensionName: Import Addressable Catalog
   enabled: 1
 --- !u!114 &-7224790754180483096
 MonoBehaviour:
@@ -26,7 +25,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 782d5ab1acc2056478f835108aa9474b, type: 3}
   m_Name: Configure Addressable Graphics Settings
   m_EditorClassIdentifier: 
-  extensionName: 
   enabled: 1
 --- !u!114 &-5835957879069000001
 MonoBehaviour:
@@ -40,7 +38,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08f74610dc9ac9d4dac443c315f5685d, type: 3}
   m_Name: Ensure RoR2 Thunderstore Source
   m_EditorClassIdentifier: 
-  extensionName: 
+  enabled: 1
+--- !u!114 &-5147793426225271972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0eacdf291dc183458517d6b18760c52, type: 3}
+  m_Name: Install FixPluginTypesSerialization
+  m_EditorClassIdentifier: 
   enabled: 1
 --- !u!114 &-4564479965133978915
 MonoBehaviour:
@@ -54,7 +64,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eecc301ed1414ee4ca063a9eeee2a159, type: 3}
   m_Name: TextMeshPro Uninstaller
   m_EditorClassIdentifier: 
-  extensionName: 
   enabled: 1
 --- !u!114 &-4400672908969200599
 MonoBehaviour:
@@ -68,7 +77,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8840720793112784295b7c9b06af7493, type: 3}
   m_Name: Get Bitness
   m_EditorClassIdentifier: 
-  extensionName: Get Bitness
   enabled: 1
 --- !u!114 &-2314253612052528913
 MonoBehaviour:
@@ -82,7 +90,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a87a9f1780c348d4080afaf9971d3a7e, type: 3}
   m_Name: Import Assemblies
   m_EditorClassIdentifier: 
-  extensionName: Import Assemblies
   enabled: 1
   OldGuidGenerationMode: 0
   GuidGenerationMode: 0
@@ -98,10 +105,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc02a62d93c1105498092e320b2f0f46, type: 3}
   m_Name: ImportConfiguration
   m_EditorClassIdentifier: 
-  editor: {fileID: 0}
   ConfigurationExecutors:
   - {fileID: 8604411799992433126}
   - {fileID: -4564479965133978915}
+  - {fileID: 7067978342574169427}
   - {fileID: 3386645913304465496}
   - {fileID: -2314253612052528913}
   - {fileID: 2761061833603100264}
@@ -111,6 +118,7 @@ MonoBehaviour:
   - {fileID: -7224790754180483096}
   - {fileID: -5835957879069000001}
   - {fileID: 8528706085040185631}
+  - {fileID: -5147793426225271972}
   - {fileID: 508552267154440108}
   - {fileID: 190269679040940925}
   - {fileID: 1180431605662579379}
@@ -128,7 +136,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6a6266570ba40d41bad5cf59676ab77, type: 3}
   m_Name: Install RoR2 Compatible Unity Multiplayer HLAPI
   m_EditorClassIdentifier: 
-  extensionName: 
   enabled: 1
 --- !u!114 &508552267154440108
 MonoBehaviour:
@@ -142,7 +149,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7156a49146b0bc44791e7e0141f1a773, type: 3}
   m_Name: Install R2API
   m_EditorClassIdentifier: 
-  extensionName: 
   enabled: 1
 --- !u!114 &1180431605662579379
 MonoBehaviour:
@@ -156,7 +162,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f4761da1836bc043a94000ffe25bf40, type: 3}
   m_Name: Install RoR2 Editor Kit
   m_EditorClassIdentifier: 
-  extensionName: 
   enabled: 1
 --- !u!114 &2761061833603100264
 MonoBehaviour:
@@ -170,7 +175,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5a17181e89416446b9fb82f03553599, type: 3}
   m_Name: RoR2 LegacyResourceAPI Patcher
   m_EditorClassIdentifier: 
-  extensionName: 
   enabled: 1
 --- !u!114 &3386645913304465496
 MonoBehaviour:
@@ -184,7 +188,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2636f9900aca35942b349a07d34faaf4, type: 3}
   m_Name: Assembly Publicizer
   m_EditorClassIdentifier: 
-  extensionName: 
   enabled: 1
   assemblyNames:
   - RoR2.dll
@@ -202,7 +205,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4e66fd1b2f0a6b4e951af502eba5a2b, type: 3}
   m_Name: Create Game Package
   m_EditorClassIdentifier: 
-  extensionName: Create Game Package
+  enabled: 1
+--- !u!114 &7067978342574169427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4090d1da9d2c4d64393fc97cd46e8414, type: 3}
+  m_Name: Unity GUI Uninstaller
+  m_EditorClassIdentifier: 
   enabled: 1
 --- !u!114 &7152191237778287605
 MonoBehaviour:
@@ -216,7 +231,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b40885578be10f4785f1fa347e9fefa, type: 3}
   m_Name: Import Project Settings
   m_EditorClassIdentifier: 
-  extensionName: Import Project Settings
   enabled: 1
   IncludedSettings: 0
 --- !u!114 &8528706085040185631
@@ -231,7 +245,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 892ee265a9c0b884c8c9c36e42a802c6, type: 3}
   m_Name: Install BepInEx
   m_EditorClassIdentifier: 
-  extensionName: 
   enabled: 1
 --- !u!114 &8604411799992433126
 MonoBehaviour:
@@ -245,5 +258,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 512775de21a2e0e41ba77b90aced0c69, type: 3}
   m_Name: PostProcessing Unity Package Installer
   m_EditorClassIdentifier: 
-  extensionName: 
   enabled: 1

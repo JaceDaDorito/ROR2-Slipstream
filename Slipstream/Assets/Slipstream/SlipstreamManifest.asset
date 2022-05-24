@@ -58,6 +58,7 @@ MonoBehaviour:
   Version: 0.0.1
   Dependencies:
   - {fileID: 11400000, guid: 2d4d09ec817c24698d35dc9bf0704fdc, type: 2}
+  - {fileID: 11400000, guid: 7fb5b3d290bed6011ed7e8daf230df89, type: 2}
 --- !u!114 &-198943577278717595
 MonoBehaviour:
   m_ObjectHideFlags: 0

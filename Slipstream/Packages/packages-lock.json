@@ -14,13 +14,13 @@
       "hash": "1e96293dbe33d51e150963b8c727fcd5d95d57cf"
     },
     "com.passivepicasso.thunderkit": {
-      "version": "https://github.com/PassivePicasso/ThunderKit.git#5.2.0",
+      "version": "https://github.com/PassivePicasso/ThunderKit.git#5.2.3",
       "depth": 0,
       "source": "git",
       "dependencies": {
         "com.unity.scriptablebuildpipeline": "1.16.1"
       },
-      "hash": "ddd064d8a5542d316aec83d6d57cd6297e2e9191"
+      "hash": "15524b17aa67bbc869a0def0e915544134e1eca4"
     },
     "com.unity.collab-proxy": {
       "version": "1.2.16",
@@ -119,12 +119,12 @@
       "source": "embedded",
       "dependencies": {}
     },
-    "riskofthunder-ror2importer": {
+    "riskofthunder-ror2importextensions": {
       "version": "https://github.com/PassivePicasso/RoR2ImportExtensions.git",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "ceef1e50b6f5637fd39c7c64b8af6984d50cb5e5"
+      "hash": "93b9923a8a51afa341325f24fdfa8cbf95e9d804"
     },
     "riskofthunder-ror2multiplayerhlapi": {
       "version": "file:RoR2MultiplayerHLAPI",
