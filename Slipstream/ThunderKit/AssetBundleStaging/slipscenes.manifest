@@ -3,7 +3,7 @@ CRC: 2258349859
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: c8437a3bb7609f1453ec3d1faac4a23f
+    Hash: 3e42434763fd86b36f7fd6e94f2ea7bd
   TypeTreeHash:
     serializedVersion: 2
     Hash: bdfab4e099daf4a44bcbb34ebf2a3a72
@@ -54,4 +54,5 @@ ClassTypes:
 SerializeReferenceClassIdentifiers: []
 Assets:
 - Assets/Scenes/TestStage.unity
-Dependencies: []
+Dependencies:
+- D:/Slipstream/ROR2-Slipstream/Slipstream/ThunderKit/AssetBundleStaging/slipassets

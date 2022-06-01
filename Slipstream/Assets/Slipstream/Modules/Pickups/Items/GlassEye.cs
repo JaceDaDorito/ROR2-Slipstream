@@ -24,6 +24,10 @@ namespace Slipstream.Items
         [TokenModifier(token, StatTypes.Default, 1)]
         public static float baseCrit = 5;
 
+        [ConfigurableField(ConfigName = "Initial Crit Dmg", ConfigDesc = "Initial crit dmg on first stack.")]
+        [TokenModifier(token, StatTypes.Default, 2)]
+        public static float initialCritDmg = 0.1f;
+
         [ConfigurableField(ConfigName = "Crit Dmg per Stack", ConfigDesc = "Increased crit damage per item stack.")]
         [TokenModifier(token, StatTypes.Default, 2)]
         public static float stackCritDmg = 0.05f;
@@ -42,7 +46,7 @@ namespace Slipstream.Items
                 if(body.healthComponent.shield > 0)
                 {
                     //color catalog no longer exists, now in R2API
-                    args.critDamageMultAdd += (float)(stackCritDmg * stack);
+                    args.critDamageMultAdd += (float)(stackCritDmg * (stack - 1) + initialCritDmg);
                 }
             }
 

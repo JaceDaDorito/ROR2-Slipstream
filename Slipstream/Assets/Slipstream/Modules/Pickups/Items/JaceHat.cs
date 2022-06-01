@@ -9,7 +9,7 @@ using RoR2.Projectile;
 
 namespace Slipstream.Items
 {
-    //[DisabledContent]
+    [DisabledContent]
     public class JaceHat : ItemBase
     {
         private const string token = "SLIP_ITEM_JACEHAT_DESC";
