@@ -9,7 +9,7 @@ using RoR2.Projectile;
 
 namespace Slipstream.Items
 {
-    [DisabledContent]
+    //[DisabledContent]
     public class JaceHat : ItemBase
     {
         private const string token = "SLIP_ITEM_JACEHAT_DESC";
@@ -17,17 +17,20 @@ namespace Slipstream.Items
 
         public static string section;
 
-        [ConfigurableField(ConfigName = "Hat Percentage Damage", ConfigDesc = "Damage percent based off of base damage")]
-        //[TokenModifier(token, StatTypes.Default, 0)]
-        public static float hatDamage = 5f;
+        //[ConfigurableField(ConfigName = "Hat Percentage Damage", ConfigDesc = "Damage percent based off of base damage")]
+        public static float hatDamageMult = 5f;
 
-        [ConfigurableField(ConfigName = "Hat dmg per stack", ConfigDesc = "Damage percent increase per stack")]
+        //[ConfigurableField(ConfigName = "Hat dmg per stack", ConfigDesc = "Damage percent increase per stack")]
         public static float dmgPerStack = 1f;
 
-        [ConfigurableField(ConfigName = "Max Radius", ConfigDesc = "The farthest the hat will go before returning")]
+        //[ConfigurableField(ConfigName = "Max Radius", ConfigDesc = "The farthest the hat will go before returning")]
+
+        public static float initialRadius = 0.25f; 
         public static float maxRadius = 5f;
 
-        //public static GameObject ProjectilePrefab { get; set; } = SlipAssets.Instance.MainAssetBundle.LoadAsset<GameObject>("projJaceHat");
+        private float projectileTimer;
+
+
 
         public class JaceHatBehavior : BaseItemBodyBehavior
         {
@@ -36,6 +39,7 @@ namespace Slipstream.Items
             private InputBankTest inputBank;
 
             //public static GameObject projectile;
+            //public void InitializeOrbiter(ProjectileOwnerOrbiter orbiter, )
             public void Start()
             {
                 body.onSkillActivatedServer += OnSkillActivated;
@@ -58,20 +62,23 @@ namespace Slipstream.Items
                 }
             }
 
+            //im going insane over this projectile
             private void FireHat()
             {
-                Ray aimRay = this.GetAimRay();
-                Quaternion temp = Util.QuaternionSafeLookRotation(aimRay.direction);
+                Vector3 aimRay = GetAimRay().direction;
+                Vector3 vector = Vector3.Cross(aimRay, Vector3.up);
+                Vector3 vector2 = Vector3.Cross(vector, Vector3.up);
+
                 FireProjectileInfo fireProjectileInfo = new FireProjectileInfo
                 {
                     projectilePrefab = Projectiles.JaceHatProjectile.hatProj,
                     crit = body.RollCrit(),
-                    damage = body.damage,
+                    damage = body.damage * hatDamageMult,
                     damageColorIndex = DamageColorIndex.Item,
                     force = 0f,
                     owner = base.gameObject,
-                    position = aimRay.origin,
-                    rotation = Util.QuaternionSafeLookRotation(aimRay.direction)
+                    position = body.transform.position,
+                    rotation = Quaternion.identity //Util.QuaternionSafeLookRotation(aimRay)
                 };
                 ProjectileManager.instance.FireProjectile(fireProjectileInfo);
             }

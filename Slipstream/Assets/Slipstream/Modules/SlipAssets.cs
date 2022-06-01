@@ -15,6 +15,8 @@ namespace Slipstream
     public class SlipAssets: AssetsLoader<SlipAssets>
     {
         //Loads all assets such as models, effects, and soundbanks (not yet but soon)
+        private const string assetBundleFolderName = "assetbundles";
+        private const string mainAssetBundleName = "slipassets";
 
         public static ReadOnlyCollection<AssetBundle> assetBundles;
         public override AssetBundle MainAssetBundle => assetBundles[0];
@@ -25,12 +27,13 @@ namespace Slipstream
         {
             List<AssetBundle> loadedBundles = new List<AssetBundle>();
             var bundlePaths = GetAssetBundlePaths();
-            loadedBundles.Add(AssetBundle.LoadFromFile(bundlePaths));
-
+            for (int i = 0; i < bundlePaths.Length; i++)
+            {
+                loadedBundles.Add(AssetBundle.LoadFromFile(bundlePaths[i]));
+            }
             assetBundles = new ReadOnlyCollection<AssetBundle>(loadedBundles);
 
-            //LoadSoundBank(); I need to make another sound bank
-
+            //LoadPostProcessing();
         }
 
         /*internal void LoadEffectDefs()
@@ -44,9 +47,12 @@ namespace Slipstream
             SwapShadersFromMaterialsInBundle(MainAssetBundle);
         }
 
-        private string GetAssetBundlePaths()
+        private string[] GetAssetBundlePaths()
         {
-            return Path.Combine(AssemblyDir, "assetbundles", "slipassets");
+            return Directory.GetFiles(Path.Combine(AssemblyDir, assetBundleFolderName))
+               .Where(filePath => !filePath.EndsWith(".manifest"))
+               .OrderByDescending(path => Path.GetFileName(path).Equals(mainAssetBundleName))
+               .ToArray();
         }
 
         /*private void LoadSoundBank()

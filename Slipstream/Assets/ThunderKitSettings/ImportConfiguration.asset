@@ -39,19 +39,6 @@ MonoBehaviour:
   m_Name: Ensure RoR2 Thunderstore Source
   m_EditorClassIdentifier: 
   enabled: 1
---- !u!114 &-5147793426225271972
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0eacdf291dc183458517d6b18760c52, type: 3}
-  m_Name: Install FixPluginTypesSerialization
-  m_EditorClassIdentifier: 
-  enabled: 1
 --- !u!114 &-4564479965133978915
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -93,6 +80,32 @@ MonoBehaviour:
   enabled: 1
   OldGuidGenerationMode: 0
   GuidGenerationMode: 0
+--- !u!114 &-839500334176119649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0eacdf291dc183458517d6b18760c52, type: 3}
+  m_Name: Install FixPluginTypesSerialization
+  m_EditorClassIdentifier: 
+  enabled: 1
+--- !u!114 &-365964889877257727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4090d1da9d2c4d64393fc97cd46e8414, type: 3}
+  m_Name: Unity GUI Uninstaller
+  m_EditorClassIdentifier: 
+  enabled: 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108,22 +121,23 @@ MonoBehaviour:
   ConfigurationExecutors:
   - {fileID: 8604411799992433126}
   - {fileID: -4564479965133978915}
-  - {fileID: 7067978342574169427}
+  - {fileID: -365964889877257727}
   - {fileID: 3386645913304465496}
   - {fileID: -2314253612052528913}
   - {fileID: 2761061833603100264}
   - {fileID: 7152191237778287605}
+  - {fileID: 4279720430454044153}
   - {fileID: 5063052016338817179}
   - {fileID: -8897878554290594545}
   - {fileID: -7224790754180483096}
   - {fileID: -5835957879069000001}
   - {fileID: 8528706085040185631}
-  - {fileID: -5147793426225271972}
+  - {fileID: -839500334176119649}
   - {fileID: 508552267154440108}
   - {fileID: 190269679040940925}
   - {fileID: 1180431605662579379}
   - {fileID: -4400672908969200599}
-  ConfigurationIndex: -1
+  ConfigurationIndex: 18
 --- !u!114 &190269679040940925
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -193,6 +207,19 @@ MonoBehaviour:
   - RoR2.dll
   - KinematicCharacterController.dll
   NStripExecutable: {fileID: 102900000, guid: 39e2644fdd2b31844bb745cba95889bb, type: 3}
+--- !u!114 &4279720430454044153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d0e45bf5627b554081a563dac04ff6a, type: 3}
+  m_Name: Set Deferred Shading
+  m_EditorClassIdentifier: 
+  enabled: 1
 --- !u!114 &5063052016338817179
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -204,19 +231,6 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a4e66fd1b2f0a6b4e951af502eba5a2b, type: 3}
   m_Name: Create Game Package
-  m_EditorClassIdentifier: 
-  enabled: 1
---- !u!114 &7067978342574169427
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4090d1da9d2c4d64393fc97cd46e8414, type: 3}
-  m_Name: Unity GUI Uninstaller
   m_EditorClassIdentifier: 
   enabled: 1
 --- !u!114 &7152191237778287605
@@ -232,7 +246,7 @@ MonoBehaviour:
   m_Name: Import Project Settings
   m_EditorClassIdentifier: 
   enabled: 1
-  IncludedSettings: 0
+  IncludedSettings: -1
 --- !u!114 &8528706085040185631
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -124,7 +124,7 @@
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "93b9923a8a51afa341325f24fdfa8cbf95e9d804"
+      "hash": "879ac85ac2a5aea48a3c08f8d58c8c43dceb1df5"
     },
     "riskofthunder-ror2multiplayerhlapi": {
       "version": "file:RoR2MultiplayerHLAPI",

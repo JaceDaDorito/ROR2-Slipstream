@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 654268607
+CRC: 582104642
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 2a1e09cec1b15e3c885e32b2b333280f
+    Hash: 236deb27ede2ad8f86fadbf0633a915d
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 612e6f05482af72f335220020ce673af
+    Hash: a0074b6aafa2a70ca803361ae11876fb
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -39,8 +39,6 @@ ClassTypes:
   Script: {fileID: 11500000, guid: f8258ea15b8f74c4889ce485d21cbbb1, type: 3}
 - Class: 114
   Script: {fileID: 870831823, guid: c8c954e10545f6cd0045de066bc4846b, type: 3}
-- Class: 114
-  Script: {fileID: 11500000, guid: 37cd3a42cdc5ff140855ce8ac113bc06, type: 3}
 - Class: 114
   Script: {fileID: -1752031980, guid: b2ac317a67c468eb8fd6ed06da7572d4, type: 3}
 - Class: 114
@@ -80,13 +78,19 @@ ClassTypes:
 - Class: 114
   Script: {fileID: -899414464, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
+  Script: {fileID: -941154584, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
   Script: {fileID: -794597441, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: -565067572, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
+  Script: {fileID: 630417361, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
   Script: {fileID: -1895344032, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: 1395413934, guid: da77c7bbf69f66ab2145560542327715, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 20defe7ea949c174094e5dde0dd669d8, type: 3}
 - Class: 115
   Script: {instanceID: 0}
 - Class: 135
@@ -105,7 +109,9 @@ SerializeReferenceClassIdentifiers: []
 Assets:
 - Assets/Materials/texRampTritone2.png
 - Assets/Materials/texRampPepperRad.png
+- Assets/Shaders/ActualShaders/deferred/hgtriplanarterrainblend.asset
 - Assets/Icons/iconGlassEye.png
+- Assets/Slipstream/SlipstreamAssets/SceneDefs/TestStage.asset
 - Assets/Icons/iconPepperSpray.png
 - Assets/Materials/texRampEngi.png
 - Assets/Slipstream/SlipstreamAssets/EliteDefs/Sandswept.asset
@@ -114,6 +120,7 @@ Assets:
 - Assets/Slipstream/SlipstreamAssets/ContentPack.asset
 - Assets/Materials/texRampGreaterWisp.png
 - Assets/Materials/texCloudDifferenceBW1.png
+- Assets/Materials/Capture.PNG
 - Assets/Icons/iconPepperSpeed.png
 - Assets/Materials/texLightning1Mask.png
 - Assets/Shaders/ActualShaders/deferred/hgstandard.asset
@@ -121,9 +128,13 @@ Assets:
 - Assets/Slipstream/SlipstreamAssets/Prefabs/Pickups/PickupPepperSpray.prefab
 - Assets/Icons/iconSlipstreamExpansion.png
 - Assets/Materials/texHippoRezRamp.png
+- Assets/Slipstream/SlipstreamAssets/EquipmentDefs/Incubator.asset
 - Assets/Slipstream/SlipstreamAssets/EquipmentDefs/AffixSandswept.asset
 - Assets/Slipstream/SlipstreamAssets/SceneDefs/PickupRendererScene.asset
+- Assets/Materials/GlassEye_Ramp.png
+- Assets/Materials/GlassEye_HeightMap.png
 - Assets/Slipstream/SlipstreamAssets/Prefabs/Pickups/PickupTestItem.prefab
+- Assets/Materials/texBlackbeachBasicRockSide2.png
 - Assets/Materials/texBasicMask.png
 - Assets/Materials/matPepperSpray.png
 - Assets/Materials/texThermiteDroplet2Mask.png
@@ -158,11 +169,15 @@ Assets:
 - Assets/Icons/iconSlipstreamDisable.png
 - Assets/Shaders/ActualShaders/fx/hgcloudremap.asset
 - Assets/Materials/MobsterMando_Emission.png
+- Assets/Materials/matAETerrain1.mat
 - Assets/Materials/matPepperSprayEmit.mat
+- Assets/Materials/texRJGrassTerrain4.png
 - Assets/Materials/texRootJungleSpore.png
 - Assets/Materials/glasseye_Normal.png
+- Assets/Materials/texGPRockSide2.png
 - Assets/Materials/GlassEye_Glowy.png
 - Assets/Materials/texRampHealingMedkit.png
+- Assets/Materials/matChuckTriplanar.mat
 - Assets/Slipstream/SlipstreamAssets/Prefabs/Effects/PepperSprayExplosion.prefab
 - Assets/Mesh/mobstermando.fbx
 - Assets/Materials/matDefaultItem.mat
@@ -173,7 +188,9 @@ Assets:
 - Assets/Materials/texEgyptThing.png
 - Assets/Materials/New Material.mat
 - Assets/Mesh/meshPepperSpray.fbx
+- Assets/Slipstream/SlipstreamAssets/SurfaceDefs/DefaultDef.asset
 - Assets/Materials/texGlowPaintMask.png
+- Assets/Materials/texRJGrassTerrain3.png
 - Assets/Materials/texParticleDust3Mask.png
 - Assets/Materials/texCloudPixel.png
 - Assets/Materials/texRampHuntressSoft.png
@@ -181,6 +198,7 @@ Assets:
 - Assets/Materials/texCloudDifferenceBW2.png
 - Assets/Slipstream/SlipstreamAssets/ItemDefs/RustyGenerator.asset
 - Assets/Icons/Capture.PNG
+- Assets/Materials/texRJRockNormal.png
 - Assets/Slipstream/SlipstreamAssets/Prefabs/Pickups/PickupGlassEye.prefab
 - Assets/Materials/matGlassEyeMetal.mat
 - Assets/Materials/rampPepperSpray.png
@@ -196,4 +214,5 @@ Assets:
 - Assets/Materials/MobsterMando_Normal.png
 - Assets/Materials/texRampPepperEmit.png
 - Assets/Materials/matTestSkin.mat
+- Assets/Materials/GlassEye_GlowyEmit.png
 Dependencies: []

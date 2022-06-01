@@ -1,7 +1,10 @@
 ManifestFileVersion: 0
-CRC: 3453311525
+CRC: 3474268257
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
       Name: slipassets
+      Dependencies: {}
+    Info_1:
+      Name: slipscenes
       Dependencies: {}

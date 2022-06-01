@@ -89,7 +89,7 @@ namespace Slipstream.Items
             {
                 //Establishes a gameobject for the explosion
                 Vector3 corePosition = Util.GetCorePosition(body.gameObject);
-                float radius = baseRadius + radiusPerStack * (stack - 1f);
+                float radius = body.radius + baseRadius + radiusPerStack * (stack - 1f);
                 GameObject hitBoxStun = UnityEngine.Object.Instantiate(Resources.Load<GameObject>("Prefabs/NetworkedObjects/GenericDelayBlast"), corePosition, Quaternion.identity);
                 hitBoxStun.transform.localScale = new Vector3(radius, radius, radius);
                 DelayBlast sprayAttack = hitBoxStun.GetComponent<DelayBlast>();
