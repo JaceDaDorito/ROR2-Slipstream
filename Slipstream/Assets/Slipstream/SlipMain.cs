@@ -55,10 +55,15 @@ namespace Slipstream
             config = Config;
             SlipLogger.logger = Logger;
 
+
+            //remind me to delete this when a tool comes out to render items
+            new PickupRendererCommand().Init();
+
             new SlipConfig().Init();
             new SlipAssets().Init();
             new SlipContent().Init();
             new SlipLanguage().Init();
+            
 
 
             //Allows organized configurable fields of public static fields.

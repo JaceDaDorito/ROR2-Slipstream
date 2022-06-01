@@ -30,6 +30,7 @@ namespace Slipstream
         {
             //Equipments go here
             #region Orange equips
+            public static EquipmentDef Incubator;
             #endregion
 
             #region Lunar equips
@@ -62,6 +63,11 @@ namespace Slipstream
             #endregion
 
         }
+
+        public static class Scenes
+        {
+            public static SceneDef TestStage;
+        }
         public override string identifier => SlipMain.GUID;
 
         public override R2APISerializableContentPack SerializableContentPack { get; protected set; } = SlipAssets.Instance.MainAssetBundle.LoadAsset<R2APISerializableContentPack>("ContentPack");
@@ -89,6 +95,10 @@ namespace Slipstream
                 delegate
                 {
                     new Modules.Items().Initialize();
+                },
+                delegate
+                {
+                    new Modules.Scenes().Initialize();
                 },
                 delegate
                 {
@@ -126,6 +136,10 @@ namespace Slipstream
                 delegate
                 {
                     PopulateTypeFields(typeof(Items), ContentPack.itemDefs);
+                },
+                delegate
+                {
+                    PopulateTypeFields(typeof(Scenes), ContentPack.sceneDefs);
                 }
                 #endregion
             };

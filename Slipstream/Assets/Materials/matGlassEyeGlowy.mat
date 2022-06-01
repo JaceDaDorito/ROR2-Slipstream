@@ -32,11 +32,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _FlowHeightRamp:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 97e2aac4c40e82145b326ccc20fd1e0b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _FlowHeightmap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: db183735b0ceff84dbc5d747f48a1e76, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _FlowTex:
@@ -90,16 +90,16 @@ Material:
     - _EliteBrightnessMax: 1
     - _EliteBrightnessMin: 0
     - _EliteIndex: 0
-    - _EmPower: 4.3
+    - _EmPower: 4
     - _EnableCutout: 0
     - _FEON: 0
     - _Fade: 1
     - _FadeBias: 0
-    - _FlowEmissionStrength: 1
-    - _FlowHeightBias: 0
-    - _FlowHeightPower: 1
+    - _FlowEmissionStrength: 3
+    - _FlowHeightBias: 0.3
+    - _FlowHeightPower: 2
     - _FlowMaskStrength: 0
-    - _FlowNormalStrength: 1
+    - _FlowNormalStrength: 4
     - _FlowSpeed: 1
     - _FlowTextureScaleFactor: 1
     - _FlowmapOn: 1

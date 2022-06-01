@@ -37,6 +37,9 @@ MonoBehaviour:
     assets:
     - {fileID: 102900000, guid: 50c385205ff85314091c2cf5fa4efead, type: 3}
     - {fileID: 102900000, guid: 3eb5c6a41a2d4e8499a1014d0fc960b3, type: 3}
+  - assetBundleName: slipscenes
+    assets:
+    - {fileID: 102900000, guid: 095c9fdbe2a956842b95d921c9833e13, type: 3}
 --- !u!114 &-4602117282012248594
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58,6 +61,7 @@ MonoBehaviour:
   Version: 0.0.1
   Dependencies:
   - {fileID: 11400000, guid: 2d4d09ec817c24698d35dc9bf0704fdc, type: 2}
+  - {fileID: 11400000, guid: 7fb5b3d290bed6011ed7e8daf230df89, type: 2}
 --- !u!114 &-198943577278717595
 MonoBehaviour:
   m_ObjectHideFlags: 0

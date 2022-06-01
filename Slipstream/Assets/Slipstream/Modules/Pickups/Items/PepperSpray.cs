@@ -40,13 +40,13 @@ namespace Slipstream.Items
         [TokenModifier(token, StatTypes.Percentage, 4)]
         public static float speedIncrease = 0.6f;
 
-        [ConfigurableField(ConfigName = "Base Speed Duration Constant", ConfigDesc = "Initial amount of speed with one stack.")]
-        //[TokenModifier(token, StatTypes.Default, 5)]
-        public static float buffTimeConstant = 1.0f;
-
         [ConfigurableField(ConfigName = "Max Speed Duration", ConfigDesc = "The time on your buff if your entire healthbar is shield + Base Speed Duration Constant.")]
         [TokenModifier(token, StatTypes.Default, 5)]
         public static float maxBuffTime = 20.0f;
+
+        //[ConfigurableField(ConfigName = "Base Speed Duration Constant", ConfigDesc = "Initial amount of speed with one stack.")]
+        //[TokenModifier(token, StatTypes.Default, 5)]
+        public static float buffTimeConstant = 1.0f;
 
         //public static string explosionSoundString = "Fart";
 
@@ -89,7 +89,7 @@ namespace Slipstream.Items
             {
                 //Establishes a gameobject for the explosion
                 Vector3 corePosition = Util.GetCorePosition(body.gameObject);
-                float radius = baseRadius + radiusPerStack * (stack - 1f);
+                float radius = body.radius + baseRadius + radiusPerStack * (stack - 1f);
                 GameObject hitBoxStun = UnityEngine.Object.Instantiate(Resources.Load<GameObject>("Prefabs/NetworkedObjects/GenericDelayBlast"), corePosition, Quaternion.identity);
                 hitBoxStun.transform.localScale = new Vector3(radius, radius, radius);
                 DelayBlast sprayAttack = hitBoxStun.GetComponent<DelayBlast>();
