@@ -192,7 +192,7 @@ namespace Slipstream.Items
 
                     //starts at shield bar threshold
                     //can't use healthBarValues.shieldFraction because that only takes account to your current shield, not full shield.
-                    float fullShieldFraction = ((body.healthComponent.fullShield * 0.5f) / (body.healthComponent.fullShield + body.healthComponent.fullHealth)) * (1f - healthBarValues.curseFraction);
+                    float fullShieldFraction = ((body.healthComponent.fullShield * threshold) / (body.healthComponent.fullShield + body.healthComponent.fullHealth)) * (1f - healthBarValues.curseFraction);
                     float pos = healthBarValues.healthFraction + (fullShieldFraction);
 
                     SetRectPosition((RectTransform)image.transform, pos - 0.02f, pos + 0.02f, 1f);

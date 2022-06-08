@@ -2,7 +2,8 @@
     "name": "Slipstream",
     "references": [
         "GUID:a44f47cf3ada4435dbc516bad0bc86fe",
-        "GUID:027c693fefcac6548859a0eec81eed3d"
+        "GUID:027c693fefcac6548859a0eec81eed3d",
+        "GUID:2523db9521788b543a66225eb65a18f8"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
