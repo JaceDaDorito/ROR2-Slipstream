@@ -14,22 +14,22 @@ namespace Slipstream.Items
         private const string token = "SLIP_ITEM_GLASSEYE_DESC";
         public override ItemDef ItemDef { get; } = SlipAssets.Instance.MainAssetBundle.LoadAsset<ItemDef>("GlassEye");
 
-        public static string section;
+        //public static string section = "GlassEye";
 
-        [ConfigurableField(ConfigName = "Base Shield", ConfigDesc = "Shield percentage after having at least one stack.")]
+        [ConfigurableField(ConfigName = "Base Shield", ConfigDesc = "Shield percentage after having at least one stack.", ConfigSection = "GlassEye")]
         [TokenModifier(token, StatTypes.Percentage, 0)]
-        public static float baseShield = 0.05f;
+        public static float baseShield = 0.06f;
 
-        [ConfigurableField(ConfigName = "Base Crit", ConfigDesc = "Crit chance given when having at least one stack.")]
+        [ConfigurableField(ConfigName = "Base Crit", ConfigDesc = "Crit chance given when having at least one stack.", ConfigSection = "GlassEye")]
         [TokenModifier(token, StatTypes.Default, 1)]
         public static float baseCrit = 5;
 
-        [ConfigurableField(ConfigName = "Initial Crit Dmg", ConfigDesc = "Initial crit dmg on first stack.")]
+        [ConfigurableField(ConfigName = "Initial Crit Dmg", ConfigDesc = "Initial crit dmg on first stack.", ConfigSection = "GlassEye")]
         [TokenModifier(token, StatTypes.Default, 2)]
         public static float initialCritDmg = 0.1f;
 
-        [ConfigurableField(ConfigName = "Crit Dmg per Stack", ConfigDesc = "Increased crit damage per item stack.")]
-        [TokenModifier(token, StatTypes.Default, 2)]
+        [ConfigurableField(ConfigName = "Crit Dmg per Stack", ConfigDesc = "Increased crit damage per item stack.", ConfigSection = "GlassEye")]
+        [TokenModifier(token, StatTypes.Default, 3)]
         public static float stackCritDmg = 0.05f;
 
         //Color SuperCrit = new Color(0.495194f, 0.5953774f, 0.9811321f); Color for later, just dont know how to do it yet
@@ -45,7 +45,6 @@ namespace Slipstream.Items
                 //lmao, thanks SoTV
                 if(body.healthComponent.shield > 0)
                 {
-                    //color catalog no longer exists, now in R2API
                     args.critDamageMultAdd += (float)(stackCritDmg * (stack - 1) + initialCritDmg);
                 }
             }

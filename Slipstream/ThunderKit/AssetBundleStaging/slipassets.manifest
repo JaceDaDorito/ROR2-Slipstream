@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 2881565953
+CRC: 636463481
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 205bfeeee5c6a3c52ec6960ec9de6900
+    Hash: 80283125c5fa94232997a285a78c9137
   TypeTreeHash:
     serializedVersion: 2
-    Hash: a0074b6aafa2a70ca803361ae11876fb
+    Hash: 7df7aa98196c3848e8e0590292db72ec
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -34,9 +34,9 @@ ClassTypes:
 - Class: 108
   Script: {instanceID: 0}
 - Class: 114
-  Script: {fileID: 816898038, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
-- Class: 114
   Script: {fileID: 11500000, guid: f8258ea15b8f74c4889ce485d21cbbb1, type: 3}
+- Class: 114
+  Script: {fileID: 816898038, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: 870831823, guid: c8c954e10545f6cd0045de066bc4846b, type: 3}
 - Class: 114
@@ -119,6 +119,7 @@ Assets:
 - Assets/Materials/matFireFlyTrail.mat
 - Assets/Slipstream/SlipstreamAssets/ContentPack.asset
 - Assets/Materials/texRampGreaterWisp.png
+- Assets/Materials/texUIHighlightExecute.png
 - Assets/Materials/texCloudDifferenceBW1.png
 - Assets/Materials/Capture.PNG
 - Assets/Icons/iconPepperSpeed.png
@@ -178,6 +179,7 @@ Assets:
 - Assets/Materials/GlassEye_Glowy.png
 - Assets/Materials/texRampHealingMedkit.png
 - Assets/Materials/matChuckTriplanar.mat
+- Assets/Materials/texCriticalShieldIndi.png
 - Assets/Slipstream/SlipstreamAssets/Prefabs/Effects/PepperSprayExplosion.prefab
 - Assets/Mesh/mobstermando.fbx
 - Assets/Materials/matDefaultItem.mat

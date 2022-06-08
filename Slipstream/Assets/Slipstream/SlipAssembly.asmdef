@@ -1,7 +1,8 @@
 {
     "name": "Slipstream",
     "references": [
-        "GUID:a44f47cf3ada4435dbc516bad0bc86fe"
+        "GUID:a44f47cf3ada4435dbc516bad0bc86fe",
+        "GUID:027c693fefcac6548859a0eec81eed3d"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
@@ -13,17 +14,17 @@
         "MonoMod.Utils.dll",
         "Mono.Cecil.dll",
         "DebugToolkit.dll",
-        "Assembly-CSharp.dll",
-        "RoR2.dll",
         "HGCSharpUtils.dll",
         "HGUnityUtils.dll",
-        "MoonstormSharedUtils.dll",
         "KinematicCharacterController.dll",
         "MMHOOK_RoR2.dll",
         "Wwise.dll",
         "LegacyResourcesAPI.dll",
         "Unity.Addressables.dll",
-        "Unity.ResourceManager.dll"
+        "Unity.ResourceManager.dll",
+        "UnityEngine.UI.dll",
+        "Unity.TextMeshPro.dll",
+        "RoR2.dll"
     ],
     "autoReferenced": true,
     "defineConstraints": [],

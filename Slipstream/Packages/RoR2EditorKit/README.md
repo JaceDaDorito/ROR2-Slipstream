@@ -32,7 +32,59 @@ A more detailed Contribution guideline can be found [here](https://github.com/ri
 
 (Old changelogs can be found [here](https://github.com/risk-of-thunder/RoR2EditorKit/blob/main/OldChangelogs.md))
 
-### Current
+### '3.2.1'
+
+* Core Changes:
+	* Cleaned up the code
+	* Added XML documentation file
+	* ListViewHelper now has a refresh method
+
+* RoR2EditorScripts changes:
+	* Cleaned up the code
+
+### '3.2.0'
+
+* Core Changes:
+	* Added "GetParentProperty" extension for SerializedProperty
+	* Added "SetDisplay" extension for VisualElements
+	* ListViewHelper's SerializedProperty can now be changed, allowing for dynamic use of a ListView
+	* ListViewHelper's created elements now have the name "elementN", a substring can be used to get the index of the serialized property
+	* Improved the ExtendedEditorWindow:
+		* Now works like pre 2.0.0 ExtendedEditorWindow
+		* Still uses VisualElements
+		* ExtendedEditorWindows can load their UI via TemplateHelpers
+		* Contains a SerializedObject that points to the instance of the ExtendedEditorWindow
+	* Added ObjectEditingEditorWindow
+		* ObjectEditingEditorWindow's main usage is for constructing more complex editing tools for objects
+		* ObjectEditingEditorWindow's SerializedObject points to the inspected/editing object
+
+* RoR2EditorScripts changes:
+	* Added an AssetCollectionInspector
+
+### '3.1.0'
+
+* Core Changes:
+	* Added Missing XML Documentation
+	* Added "HasDoneFirstDrawing" property to ExtendedInspector
+	* Added "ListViewHelper" class
+	* PropertyValidator now works on PropertyFields, as well as any VisualElement that implements "INotifyValueChanged"
+	* Made the returning value of the PropertyValidator's Functions nullable (Returning null skips the container drawing process)
+	* Removed UtilityMethods from ExtendedEditorWindow
+	* Improved the look of the MaterialEditorSettings and EditorInspectorSettings inspectors & settings window
+
+* RoR2EditorScripts changes:
+	* Redid the following inspectors to use VisualElements:
+		* ChildLocator
+		* EntityStateConfiguration
+		* ObjectScaleCurve
+	* Readded Tooltip and Labeling from NetworkStateMachine feature
+	* Added SerializableContentPack inspector
+
+
+### '3.0.2'
+
+* RoR2EditorScripts changes:
+	*Made assembly Editor Only
 
 ### '3.0.1'
 

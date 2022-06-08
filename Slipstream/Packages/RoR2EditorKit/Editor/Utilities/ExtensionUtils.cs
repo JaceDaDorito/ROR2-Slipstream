@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
 using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
-using Object = UnityEngine.Object;
 
 namespace RoR2EditorKit.Utilities
 {
@@ -46,18 +45,18 @@ namespace RoR2EditorKit.Utilities
 
         #region SerializedProperties/Objects  Extensions
         /// <summary>
-        /// Returns the serialized property that's bound to this ObjectField.
+        /// Returns the serialized property that's bound to this bindable element.
         /// </summary>
-        /// <param name="objField">The objectField that has a bounded property</param>
+        /// <param name="objField">The BindableElement that has a bounded property</param>
         /// <param name="objectBound">The SerializedObject that has the objectField's property binding path.</param>
         /// <returns>The serialized property</returns>
         /// <exception cref="NullReferenceException">when the objField does not have a bindingPath set.</exception>
-        public static SerializedProperty GetBindedProperty(this ObjectField objField, SerializedObject objectBound)
+        public static SerializedProperty GetBindedProperty(this IBindable bindableElement, SerializedObject objectBound)
         {
-            if (objField.bindingPath.IsNullOrEmptyOrWhitespace())
-                throw new NullReferenceException($"{objField} does not have a bindingPath set");
+            if (bindableElement.bindingPath.IsNullOrEmptyOrWhitespace())
+                throw new NullReferenceException($"{bindableElement} does not have a bindingPath set");
 
-            return objectBound.FindProperty(objField.bindingPath);
+            return objectBound.FindProperty(bindableElement.bindingPath);
         }
 
         /// <summary>
@@ -82,10 +81,52 @@ namespace RoR2EditorKit.Utilities
             return list;
         }
 
+        /// <summary>
+        /// Runs SerializedObject.Update(), then applies modified properties.
+        /// </summary>
+        /// <param name="serializedObject"></param>
         public static void UpdateAndApply(this SerializedObject serializedObject)
         {
             serializedObject.Update();
             serializedObject.ApplyModifiedProperties();
+        }
+
+        /// <summary>
+        /// Finds the parent property of the selected serialized property
+        /// </summary>
+        public static SerializedProperty GetParentProperty(this SerializedProperty serializedProperty)
+        {
+            var propertyPaths = serializedProperty.propertyPath.Split('.');
+            if (propertyPaths.Length <= 1)
+            {
+                return default;
+            }
+
+            var parentSerializedProperty = serializedProperty.serializedObject.FindProperty(propertyPaths.First());
+            for (var index = 1; index < propertyPaths.Length - 1; index++)
+            {
+                if (propertyPaths[index] == "Array")
+                {
+                    if (index + 1 == propertyPaths.Length - 1)
+                    {
+                        // reached the end
+                        break;
+                    }
+                    if (propertyPaths.Length > index + 1 && Regex.IsMatch(propertyPaths[index + 1], "^data\\[\\d+\\]$"))
+                    {
+                        var match = Regex.Match(propertyPaths[index + 1], "^data\\[(\\d+)\\]$");
+                        var arrayIndex = int.Parse(match.Groups[1].Value);
+                        parentSerializedProperty = parentSerializedProperty.GetArrayElementAtIndex(arrayIndex);
+                        index++;
+                    }
+                }
+                else
+                {
+                    parentSerializedProperty = parentSerializedProperty.FindPropertyRelative(propertyPaths[index]);
+                }
+            }
+
+            return parentSerializedProperty;
         }
         #endregion
 
@@ -122,9 +163,23 @@ namespace RoR2EditorKit.Utilities
         {
             return foldout.Q<VisualElement>("unity-content").Q<T>(name, className);
         }
+
+        /// <summary>
+        /// Quickly sets the display of a visual element
+        /// </summary>
+        /// <param name="visualElement">The element to change the display style</param>
+        /// <param name="displayStyle">new display style value</param>
+        public static void SetDisplay(this VisualElement visualElement, DisplayStyle displayStyle) => visualElement.style.display = displayStyle;
+
+        public static void SetDisplay(this VisualElement visualElement, bool display) => visualElement.style.display = display ? DisplayStyle.Flex : DisplayStyle.None;
         #endregion
 
         #region GameObject Extensions
+        /// <summary>
+        /// Retrieves the root GameObject, aka the first object in the hierarchy of a prefab
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns>The root GameObject</returns>
         public static GameObject GetRootObject(this GameObject obj)
         {
             return obj.transform.root.gameObject;

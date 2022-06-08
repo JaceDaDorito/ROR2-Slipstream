@@ -5,8 +5,8 @@
 	"SLIP_EXPANSION_SLIPSTREAM_DESC": "Adds content from the 'Slipstream' mod to the game.",
 
         "SLIP_ITEM_GLASSEYE_NAME": "Bionic Eye",
-	"SLIP_ITEM_GLASSEYE_PICKUP": "When shield is active, gain a crit damage boost.",
-	"SLIP_ITEM_GLASSEYE_DESC": "When shield is active, gain a <style=cIsDamage>{2}% </style><style=cStack>(+{2}% per stack) </style><style=cIsDamage>crit damage boost</style>. Grants <style=cIsDamage>{1}% crit chance </style>and <style=cIsHealing>shield</style> equal to <style=cIsHealing>{0}%</style> of your maximum health.",
+	"SLIP_ITEM_GLASSEYE_PICKUP": "When shield is active, gain a critical strike damage boost.",
+	"SLIP_ITEM_GLASSEYE_DESC": "When shield is active, gain a <style=cIsDamage>{2}% </style><style=cStack>(+{3}% per stack) </style><style=cIsDamage>critical strike damage boost</style>. Grants <style=cIsDamage>{1}% crit chance </style>and <style=cIsHealing>shield</style> equal to <style=cIsHealing>{0}%</style> of your maximum health.",
 	"SLIP_ITEM_GLASSEYE_LORE": "Like most technological marvels before it, bionics – touted as the greatest advancement in medical science since discovery of Penicillin – quickly became a topic of public obsession, to the point of hysteria across both Earth & Mars.\n\nMany people desiring bionic “upgrades” – for one reason or another – went to extreme lengths in order to reach their goals. Some repeatedly broke bones in order to qualify for titanium implants throughout their bodies, others arranged accidents in order to gain a mechanical arm or leg.\n\nIn one case, the famous ‘William R Smith’ – known as an early advocate for personal shielding technologies – reportedly gouged out their right eye with a pair of gardening sheers with the intent of replacing the eye with a self-made, bionic glass eye.\n\nUniquely, this bionic eye used an integrated shield generator in place of the standard mechanical lens used at the time, using the glass structure of the eye as a medium to control the shield-based lens instead.\n\n-    A history of early bionics, Chapter 2 – Public Perception, Overall Obsession",
 
 	"SLIP_ITEM_PEPPERSPRAY_NAME": "Pepper Spray",

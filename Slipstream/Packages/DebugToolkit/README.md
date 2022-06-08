@@ -19,8 +19,16 @@ Mods recommended for combined use:
 
 * [KeyBindForConsole](https://thunderstore.io/package/kristiansja/KeyBindForConsole/) for easier enabling of the console. Especially useful for non-US keyboard layouts.
 * [R2DSE](https://thunderstore.io/package/Harb/R2DSEssentials/) for running DT on dedicated servers.
+* [MidRunArtifacts](https://thunderstore.io/package/KingEnderBrine/MidRunArtifacts/) for enabling and disabling artifacts during a run.
 
 You may contact us at any time through [issues on GitHub](https://github.com/harbingerofme/DebugToolkit/issues/new/choose), the [dedicated discord server]((https://discord.gg/yTfsMWP) or through the [Risk of Rain 2 modding Discord](https://discord.gg/5MbXZvd) found at the top of the Thunderstore website. 
+
+---
+
+## Additional Contributors ##
+
+* [DestroyedClone](https://thunderstore.io/package/DestroyedClone/) ([Github](https://github.com/DestroyedClone))
+* [Rays](https://github.com/SuperRayss)
 
 ---
 
@@ -32,7 +40,7 @@ Verbiage: if an argument is encapsulated with brackets, it means it's either `(c
 * **force_family_event** - Forces a Family Event to happen in the next stage, take no arguments. `family_event`
 * **next_boss** - Sets the teleporter boss to the specified boss. `({localised_object_name}|{DirectorCard}) [count def 1] [EliteIndex def -1/None]`
 * **fixed_time** - Sets the time that has progressed in the run. Affects difficulty. `fixed_time [time]`. If no time is supplied, prints the current time to console.
-* **add_portal** - Teleporter will attempt to spawn a blue, gold, or celestial portal: `add_portal (blue|gold|celestial|all)`
+* **add_portal** - Teleporter will attempt to spawn a blue, gold, null, or celestial portal: `add_portal (blue|gold|celestial|null|void|deepvoid|all)`
 * **seed** - Set the seed for all next runs this session. `seed [new seed]`. Use `0` to specify the game should generate its own seed. If used without argument, it's equivalent to the vanilla `run_get_seed`.
 * **kill_all** - Kills all members of a specified team. `kill_all [teamindex def 2]` Team indexes: 0=neutral,1=player,2=monster. 
 * **true_kill** - Truly kill a player, ignoring revival effects `true_kill [player def *you]`
@@ -56,7 +64,7 @@ Verbiage: if an argument is encapsulated with brackets, it means it's either `(c
 * **remove_equip** - Sets the equipment of a player to 'None'. `remove_equip {localised_object_name} [player def *you]`
 * **create_pickup** - Creates a pickup in front of the issuing player. Pickups are items, equipment and lunar coins. Additionally 'item' or 'equip' may be specified to only search that list. `create_pickup (localized_object_name| "coin") [('item'|'equip') def *both]`
 
-* **spawn_interactible** - Spawns an interactible in front of the player. `spawn_interactable {InteractableSpawnCard}`
+* **spawn_interactable/spawn_interactible** - Spawns an interactible in front of the player. `(spawn_interactable|spawn_interactible) {InteractableSpawnCard}`
 * **spawn_ai** - Spawn an AI: `Requires 1 argument: spawn_ai {localised_objectname} [Count:1] [EliteIndex:-1/None] [Braindead:0/false(0|1)] [TeamIndex:2/Monster]`. Elite indexes: -1=None, 0=Fire,1=Overloading,2=Ice,3=Malachite,4=Celestine. Team indexes: 0=neutral,1=player,2=monster. 
 * **spawn_as** - Spawn as a new character. Type body_list for a full list of characters: `spawn_as {localised_objectname} {playername}`
 * **spawn_body** - Spawns a CharacterBody: `spawn_body {localised_objectname}`
@@ -64,6 +72,7 @@ Verbiage: if an argument is encapsulated with brackets, it means it's either `(c
 
 * **no_enemies** - Toggles enemy spawns.
 * **god** - Toggles HealthComponent.TakeDamage for all players. AKA: you can't take damage.
+* **lock_exp** - Prevents EXP gain for the player team.
 * **noclip** - Toggles noclip. Allow you to fly and going through objects. Sprinting will double the speed.
 
 * **dt_bind** - Bind a key to execute specific commands. `dt_bind {key} {consolecommands seperated by ;}`
@@ -98,6 +107,38 @@ Verbiage: if an argument is encapsulated with brackets, it means it's either `(c
 ---
 
 ## Changelog ##
+
+### 3.7 ###
+
+* "Survivors of the Void"
+* **General**
+    * Updated to work with the new game update.
+* **3.7.1**
+    * Fixed: `scene_list` was not prodiving all scenes. Thank you [DestroyedClone](https://thunderstore.io/package/DestroyedClone/)!
+    * Fixed: `spawn_as` made people softlock.
+    * Added: Support for void portals. Thank you [DestroyedClone](https://thunderstore.io/package/DestroyedClone/)!
+    * Fixed: `set_scene` was broken.
+    * Added: `set_scene` now also allows numbers from `scene_list` to be passed.
+    * 'Fixed': `set_scene` and `next_stage` allowed players to visit DLC scenes when the DLC was not enabled.
+
+### 3.6 ###
+
+* "DebugToolkit"
+* **General**
+    * Microsoft.CSharp.dll dependency is gone.
+* **Additions**
+    * `spawn_interactable` Now support custom interactables.
+    * `spawn_interactible` Does the same as `spawn_interactable`.
+    * `lock_exp` toggles EXP gain, note that this applies to all players. Thank you [DestroyedClone](https://thunderstore.io/package/DestroyedClone/)!
+*  **Fixes**
+    * Description of `add_portal` now mention the null portal, also you can now spawn it in teleporter-less stages.
+
+### 3.5 ###
+
+* "Anniversary Update"
+*  **Fixes**
+    * Updated for anniversary update.
+    * **3.5.1** Updated for the update to the anniversary update.
 
 ### 3.4 ###
 
@@ -242,6 +283,7 @@ This mod hooks the following methods when prompted:
 
 * `On.RoR2.PreGameController.Awake` - We use this to change the seed if needed.
 * `On.RoR2.CombatDirector.SetNextSpawnAsBoss` - We use this for `set_boss`.
+* `On.RoR2.ExperienceManager.AwardExperience` - We use this for `lock_exp`.
 * `On.RoR2.Stage.Start` - We hook this to remove the IL hook on ClassicStageInfo.
 * `IL.RoR2.ClassicStageInfo.Awake` - We hook this to set a family event.
 * NoClip requires 3 hooks:
