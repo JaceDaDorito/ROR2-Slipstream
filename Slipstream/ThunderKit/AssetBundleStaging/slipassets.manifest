@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 636463481
+CRC: 618361963
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 80283125c5fa94232997a285a78c9137
+    Hash: acb36d15a56c7a6704031b97eb372afa
   TypeTreeHash:
     serializedVersion: 2
     Hash: 7df7aa98196c3848e8e0590292db72ec
@@ -188,6 +188,7 @@ Assets:
 - Assets/Materials/texPepperSprayCloud.png
 - Assets/Materials/texOmniShockwave1Mask.png
 - Assets/Materials/texEgyptThing.png
+- Assets/Materials/texCriticalVoidShiIndi.png
 - Assets/Materials/New Material.mat
 - Assets/Mesh/meshPepperSpray.fbx
 - Assets/Slipstream/SlipstreamAssets/SurfaceDefs/DefaultDef.asset
@@ -212,6 +213,7 @@ Assets:
 - Assets/Materials/matGlassEyeGlowy.mat
 - Assets/Materials/matPepperSprayOldSmoke.mat
 - Assets/Materials/texBlack.png
+- Assets/Materials/texBarrierBarPlaceholder.png
 - Assets/Materials/texGenericStarburstMask.png
 - Assets/Materials/MobsterMando_Normal.png
 - Assets/Materials/texRampPepperEmit.png

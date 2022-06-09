@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 1531314859
+CRC: 766458650
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 1830eb1ddbcad177c7ba1a79feeff754
+    Hash: 5f886c62043d1cd69c8d242eff50aeab
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 0a4e606a97bbc547c8ece525ac881c27
+    Hash: 081493be2a0a1d767349211b9347e66a
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -27,8 +27,6 @@ ClassTypes:
   Script: {fileID: 649313124, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: f8258ea15b8f74c4889ce485d21cbbb1, type: 3}
-- Class: 114
-  Script: {fileID: 11500000, guid: 25691571cb7e6154fba2b46ef9402c18, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 0ae41182b6efbc14ab17f86d84b8b528, type: 3}
 - Class: 114
@@ -61,34 +59,10 @@ ClassTypes:
   Script: {instanceID: 0}
 SerializeReferenceClassIdentifiers: []
 Assets:
-- Packages/teammoonstorm-moonstormsharedutils/Runtime/MSUAssets/VanillaEventCategories/Simulacrum/ecdcCommencementSimulacrum.asset
-- Packages/teammoonstorm-moonstormsharedutils/Runtime/MSUAssets/VanillaEventCategories/ecdcVoidLocus.asset
 - Packages/teammoonstorm-moonstormsharedutils/Runtime/MSUAssets/curveLinear.asset
-- Packages/teammoonstorm-moonstormsharedutils/Runtime/MSUAssets/VanillaEventCategories/Simulacrum/ecdcRallypointDeltaSimulacrum.asset
-- Packages/teammoonstorm-moonstormsharedutils/Runtime/MSUAssets/VanillaEventCategories/ecdcAbandonedAqueduct.asset
-- Packages/teammoonstorm-moonstormsharedutils/Runtime/MSUAssets/VanillaEventCategories/Simulacrum/ecdcAphelianSanctuarySimulacrum.asset
-- Packages/teammoonstorm-moonstormsharedutils/Runtime/MSUAssets/VanillaEventCategories/ecdcWetlandAspect.asset
-- Packages/teammoonstorm-moonstormsharedutils/Runtime/MSUAssets/VanillaEventCategories/Simulacrum/ecdcAbyssalDepthsSimulacrum.asset
-- Packages/teammoonstorm-moonstormsharedutils/Runtime/MSUAssets/VanillaEventCategories/ecdcSiphonedForest.asset
-- Packages/teammoonstorm-moonstormsharedutils/Runtime/MSUAssets/VanillaEventCategories/ecdcThePlanetarium.asset
 - Packages/teammoonstorm-moonstormsharedutils/Runtime/MSUAssets/Prefabs/MaterialTester.prefab
-- Packages/teammoonstorm-moonstormsharedutils/Runtime/MSUAssets/VanillaEventCategories/ecdcVoidCell.asset
-- Packages/teammoonstorm-moonstormsharedutils/Runtime/MSUAssets/VanillaEventCategories/Simulacrum/ecdcAbandonedAqueductSimulacrum.asset
-- Packages/teammoonstorm-moonstormsharedutils/Runtime/MSUAssets/VanillaEventCategories/ecdcDistantRoost.asset
-- Packages/teammoonstorm-moonstormsharedutils/Runtime/MSUAssets/VanillaEventCategories/ecdcScorchedAcres.asset
-- Packages/teammoonstorm-moonstormsharedutils/Runtime/MSUAssets/VanillaEventCategories/ecdcSulphurPools.asset
-- Packages/teammoonstorm-moonstormsharedutils/Runtime/MSUAssets/VanillaEventCategories/ecdcAbyssalDepths.asset
-- Packages/teammoonstorm-moonstormsharedutils/Runtime/MSUAssets/VanillaEventCategories/ecdcSkyMeadow.asset
-- Packages/teammoonstorm-moonstormsharedutils/Runtime/MSUAssets/VanillaEventCategories/ecdcSirensCall.asset
-- Packages/teammoonstorm-moonstormsharedutils/Runtime/MSUAssets/VanillaEventCategories/edcsTitanicPlains.asset
-- Packages/teammoonstorm-moonstormsharedutils/Runtime/MSUAssets/VanillaEventCategories/ecdcAphelianSanctuary.asset
-- Packages/teammoonstorm-moonstormsharedutils/Runtime/MSUAssets/VanillaEventCategories/Simulacrum/ecdcSkyMeadowsSimulacrum.asset
-- Packages/teammoonstorm-moonstormsharedutils/Runtime/MSUAssets/VanillaEventCategories/ecdcSunderedGrove.asset
 - Packages/teammoonstorm-moonstormsharedutils/Runtime/MSUAssets/MeshesForMaterialTester/meshPlane.mesh
 - Packages/teammoonstorm-moonstormsharedutils/Runtime/MSUAssets/MeshesForMaterialTester/meshQuad.asset
-- Packages/teammoonstorm-moonstormsharedutils/Runtime/MSUAssets/VanillaEventCategories/Simulacrum/ecdcTitanicPlainsSimulacrum.asset
-- Packages/teammoonstorm-moonstormsharedutils/Runtime/MSUAssets/VanillaEventCategories/ecdcRallypointDelta.asset
 - Packages/teammoonstorm-moonstormsharedutils/Runtime/MSUAssets/Prefabs/EventAnnouncer.prefab
 - Packages/teammoonstorm-moonstormsharedutils/Runtime/MSUAssets/Prefabs/MSUEventDirector.prefab
-- Packages/teammoonstorm-moonstormsharedutils/Runtime/MSUAssets/VanillaEventCategories/ecdcCommencement.asset
 Dependencies: []

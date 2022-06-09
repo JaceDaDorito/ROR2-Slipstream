@@ -1708,7 +1708,7 @@
         </member>
         <member name="T:R2API.DotAPI.CustomDotBehaviour">
             <summary>
-            Allows for custom behaviours when applying the dot. EG, percentburn. <see cref="M:RoR2.DotController.AddDot(UnityEngine.GameObject,System.Single,RoR2.DotController.DotIndex,System.Single,System.Nullable{System.UInt32},System.Nullable{System.Single})"/>
+            Allows for custom behaviours when applying the dot. EG, percentburn. <see cref="M:RoR2.DotController.AddDot(UnityEngine.GameObject,System.Single,RoR2.DotController.DotIndex,System.Single,System.Nullable{System.UInt32},System.Nullable{System.Single},System.Nullable{RoR2.DotController.DotIndex})"/>
             </summary>
             <param name="self"></param>
             <param name="dotStack"></param>
@@ -3505,6 +3505,14 @@
             </summary>
             <param name="type"></param>
             <returns></returns>
+        </member>
+        <member name="M:R2API.Utils.Reflection.GetTypesSafe(System.Reflection.Assembly,System.Type[]@)">
+             <summary>
+            
+             </summary>
+             <param name="assembly"></param>
+             <param name="assemblyTypes"></param>
+             <returns>false if a ReflectionTypeLoadException was caught</returns>
         </member>
     </members>
 </doc>

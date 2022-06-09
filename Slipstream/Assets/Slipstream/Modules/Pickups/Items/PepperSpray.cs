@@ -48,7 +48,7 @@ namespace Slipstream.Items
         [TokenModifier(token, StatTypes.Default, 5)]
         public static float maxBuffTime = 20.0f;
 
-        [ConfigurableField(ConfigName = "Base Speed Duration Constant", ConfigDesc = "Initial amount of speed with one stack.")]
+        [ConfigurableField(ConfigName = "Base Speed Duration Constant", ConfigDesc = "Initial amount of speed with one stack.", ConfigSection = "PepperSpray")]
         //[TokenModifier(token, StatTypes.Default, 5)]
         public static float buffTimeConstant = 1.0f;
 
@@ -143,6 +143,19 @@ namespace Slipstream.Items
                 NetworkServer.Spawn(hitBoxStun);
             }
 
+            private void OnDestroy()
+            {
+                //PepperSpray.PepperSprayBehavior component = body.GetComponent<PepperSpray.PepperSprayBehavior>();
+                if (image)
+                {
+                    if (Application.isPlaying)
+                        Destroy(image.gameObject);
+                    else
+                        DestroyImmediate(image.gameObject);
+                    image = null;
+                }
+            }
+
             //thanks groove
             public void UpdateBar(RoR2.UI.HealthBar healthBar)
             {
@@ -157,13 +170,9 @@ namespace Slipstream.Items
                     if (image)
                     {
                         if (Application.isPlaying)
-                        {
                             Destroy(image.gameObject);
-                        }
                         else
-                        {
                             DestroyImmediate(image.gameObject);
-                        }
                         image = null;
                     }
                     return;
@@ -186,16 +195,19 @@ namespace Slipstream.Items
                 if(image && healthBar.source)
                 {
                     //image.type = healthBar.style.
-                    image.sprite = SlipAssets.Instance.MainAssetBundle.LoadAsset<Sprite>("texCriticalShieldIndi");
-                    image.color = new Color(1f, 1f, 1f, 1f);
                     RoR2.HealthComponent.HealthBarValues healthBarValues = healthBar.source.GetHealthBarValues();
+                    image.sprite = healthBarValues.hasVoidShields ? SlipAssets.Instance.MainAssetBundle.LoadAsset<Sprite>("texCriticalVoidShiIndi") : SlipAssets.Instance.MainAssetBundle.LoadAsset<Sprite>("texCriticalShieldIndi");
+                    image.color = new Color(1f, 1f, 1f, 1f);
+
+                    //starts at health end
+                    float minPos = healthBarValues.healthFraction;
 
                     //starts at shield bar threshold
-                    //can't use healthBarValues.shieldFraction because that only takes account to your current shield, not full shield.
+                    //can't use healthBarValues.shieldFraction because that only takes account to your current shield, not full shield
                     float fullShieldFraction = ((body.healthComponent.fullShield * threshold) / (body.healthComponent.fullShield + body.healthComponent.fullHealth)) * (1f - healthBarValues.curseFraction);
-                    float pos = healthBarValues.healthFraction + (fullShieldFraction);
+                    float maxPos = healthBarValues.healthFraction + (fullShieldFraction);
 
-                    SetRectPosition((RectTransform)image.transform, pos - 0.02f, pos + 0.02f, 1f);
+                    SetRectPosition((RectTransform)image.transform, minPos, maxPos, 1f);
                 }
             }
 
