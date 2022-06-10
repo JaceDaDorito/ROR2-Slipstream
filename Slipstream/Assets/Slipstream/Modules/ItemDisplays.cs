@@ -7,21 +7,23 @@ namespace Slipstream.Modules
     public class ItemDisplays : ItemDisplayModuleBase
     {
         //I have no fucking clue how this works yet hold on. Just skip past this.
-        /*
+        
         public static ItemDisplays Instance { get; set; }
-        public override AssetBundle AssetBundle { get; set; } = SlipAssets.Instance.MainAssetBundle;
-        public override SerializableContentPack ContentPack { get; set; } = SlipContent.Instance.SerializableContentPack;
+        public override AssetBundle MainBundle => SlipAssets.Instance.MainAssetBundle;
+        //public override SerializableContentPack ContentPack { get; set; } = SlipContent.Instance.SerializableContentPack;
 
-        public override void Init()
+        public override void Initialize()
         {
             Instance = this;
-            base.Init();
-            PopulateKeyAssetsAndDisplaysFromAssetbundle();
-            PopulateMSIDRSFromAssetBundle();
-            PopulateSingleItemDisplayRuleFromAssetBundle();
-        }*/
+            base.Initialize();
+            AddNamedIDRSFromMainBundle();
+            AddItemDisplayDictionariesFromMainBundle();
+            //PopulateKeyAssetsAndDisplaysFromAssetbundle();
+            //PopulateMSIDRSFromAssetBundle();
+            //PopulateSingleItemDisplayRuleFromAssetBundle();
+        }
 
-        public override AssetBundle MainBundle => null;
+        //public override AssetBundle MainBundle => null;
     }
 
 }

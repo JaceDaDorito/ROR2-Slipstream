@@ -52,15 +52,15 @@ namespace Slipstream.Items
         //[TokenModifier(token, StatTypes.Default, 5)]
         public static float buffTimeConstant = 1.0f;
 
-        
+        private static Sprite lowShieldNormal;
+        private static Sprite lowShieldVoid;
 
         //public static string explosionSoundString = "Fart";
-
-
-
         public override void Initialize()
         {
             base.Initialize();
+            lowShieldNormal = SlipAssets.Instance.MainAssetBundle.LoadAsset<Sprite>("texCriticalShieldIndi");
+            lowShieldVoid = SlipAssets.Instance.MainAssetBundle.LoadAsset<Sprite>("texCriticalVoidShiIndi");
             On.RoR2.UI.HealthBar.UpdateHealthbar += new On.RoR2.UI.HealthBar.hook_UpdateHealthbar(this.HealthBar_UpdateHealthbar);
         }
 
@@ -100,19 +100,19 @@ namespace Slipstream.Items
             //The trigger should only happen once until you recharge, not after everytime you get hit below the threshold
             private void FixedUpdate()
             {
-                if (NetworkServer.active)
-                {
-                    //Checks if the body is at full shield. shouldTrigger is just a switch to make sure that the effect doesn't trigger more than once below the shield threshold.
-                    if (body.healthComponent.shield == body.healthComponent.fullShield && !shouldTrigger)
+                //Checks if the body is at full shield. shouldTrigger is just a switch to make sure that the effect doesn't trigger more than once below the shield threshold.
+                if (body.healthComponent.shield == body.healthComponent.fullShield && !shouldTrigger)
                         shouldTrigger = true;
 
                     //Checks if the body is lower than the shield threshold percentage.
-                    if (body.healthComponent.shield < body.healthComponent.fullShield * threshold && shouldTrigger)
+                if (body.healthComponent.shield < body.healthComponent.fullShield * threshold && shouldTrigger)
+                {
+                    if (NetworkServer.active)
                     {
                         shouldTrigger = false;
                         FireStunSpray();
                         //not sure what addtimedbuffauthority is
-                        body.AddTimedBuffAuthority(SlipContent.Buffs.PepperSpeed.buffIndex, maxBuffTime * (body.healthComponent.fullShield/(body.healthComponent.fullShield + body.healthComponent.fullHealth)) + buffTimeConstant);
+                        body.AddTimedBuff(SlipContent.Buffs.PepperSpeed.buffIndex, maxBuffTime * (body.healthComponent.fullShield / (body.healthComponent.fullShield + body.healthComponent.fullHealth)) + buffTimeConstant);
                         //Util.PlaySound(explosionSoundString, gameObject);
                         RoR2.Util.PlaySound(EntityStates.Bison.PrepCharge.enterSoundString, gameObject);
                     }
@@ -196,7 +196,7 @@ namespace Slipstream.Items
                 {
                     //image.type = healthBar.style.
                     RoR2.HealthComponent.HealthBarValues healthBarValues = healthBar.source.GetHealthBarValues();
-                    image.sprite = healthBarValues.hasVoidShields ? SlipAssets.Instance.MainAssetBundle.LoadAsset<Sprite>("texCriticalVoidShiIndi") : SlipAssets.Instance.MainAssetBundle.LoadAsset<Sprite>("texCriticalShieldIndi");
+                    image.sprite = healthBarValues.hasVoidShields ? lowShieldVoid : lowShieldNormal;
                     image.color = new Color(1f, 1f, 1f, 1f);
 
                     //starts at health end

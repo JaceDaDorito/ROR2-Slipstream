@@ -140,7 +140,7 @@ namespace Slipstream
                 delegate
                 {
                     PopulateTypeFields(typeof(Scenes), ContentPack.sceneDefs);
-                }
+                },
                 #endregion
             };
         }
