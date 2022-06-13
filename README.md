@@ -5,11 +5,12 @@ Message (JaceDaDorito#7035) on Discord if there are any issues regarding the mod
 
 ## Credits
 * Code - JaceDaDorito, Atlantean/Dot/Org, Zach, MoonlitWyvern, Knowledge
-* Expert Code/Unity Support - NebNeb, swuff, Twiner
+* Moonstorm Shared Utils - NebNeb
+* Thunderkit - Twiner
 * 2D Concept Artists - Kamei, Runefield, Vaikyia, JaceDaDorito, Dodu, splet, Hans, Koopahunter197
 * 3D Artists/Moddlers -  Kamei, dotflare, foodrelatedname
 * Lore Writers - splet, LordBidoof, JaceDaDorito
-* Special Thanks - TheTimesweeper, PlasmaCore, Alexis, Knowledge, Afzofa, Alph, Spacecats, SilverSinz, Ochus, Hyperin, Schmizz, AmazonPrime25, Lompl, the rest of the Ocean Kingdom server, and the RoR2 Modding server.
+* Special Thanks - TheTimesweeper, PlasmaCore, swuff, Heyimnoop, Alexis, Knowledge, Afzofa, Alph, Spacecats, SilverSinz, Ochus, Hyperin, Schmizz, AmazonPrime25, Lompl, the rest of the Ocean Kingdom server, and the RoR2 Modding server.
 
 ## Final Notes
 * We are working hard to establish a skeleton of the mod, and then add some items, a character, and some enemies

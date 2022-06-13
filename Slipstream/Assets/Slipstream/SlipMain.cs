@@ -63,8 +63,6 @@ namespace Slipstream
             new SlipAssets().Init();
             new SlipContent().Init();
             new SlipLanguage().Init();
-            
-
 
             //Allows organized configurable fields of public static fields.
             ConfigurableFieldManager.AddMod(this);

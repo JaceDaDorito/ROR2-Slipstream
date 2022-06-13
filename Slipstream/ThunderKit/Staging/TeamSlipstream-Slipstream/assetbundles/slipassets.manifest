@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 3949181547
+CRC: 2242113139
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 96ff59191c305f9831fdef20eb0d5109
+    Hash: 998e079e1f460dd814b115aac0c7285b
   TypeTreeHash:
     serializedVersion: 2
-    Hash: da4c47d6552ba2b60299bd79d8d8cae3
+    Hash: 87413b26d9d144d7e96bfa98a412d13e
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -40,7 +40,7 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 870831823, guid: c8c954e10545f6cd0045de066bc4846b, type: 3}
 - Class: 114
-  Script: {fileID: 11500000, guid: 1b2a16891c8108e48883bce0009b7835, type: 3}
+  Script: {fileID: 11500000, guid: 3c9c430476270cb42ae82672a367a0e1, type: 3}
 - Class: 114
   Script: {fileID: -1752031980, guid: b2ac317a67c468eb8fd6ed06da7572d4, type: 3}
 - Class: 114
@@ -65,8 +65,6 @@ ClassTypes:
   Script: {fileID: -1284244208, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: -1479993534, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
-- Class: 114
-  Script: {fileID: -1888550019, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: 296141222, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
@@ -136,12 +134,10 @@ Assets:
 - Assets/Slipstream/SlipstreamAssets/EquipmentDefs/Incubator.asset
 - Assets/Slipstream/SlipstreamAssets/EquipmentDefs/AffixSandswept.asset
 - Assets/Slipstream/SlipstreamAssets/SceneDefs/PickupRendererScene.asset
-- Assets/Slipstream/SlipstreamAssets/ItemDisplayRules/idrsGlassEye.asset
 - Assets/Materials/GlassEye_Ramp.png
 - Assets/Materials/GlassEye_HeightMap.png
 - Assets/Slipstream/SlipstreamAssets/Prefabs/Pickups/PickupTestItem.prefab
 - Assets/Materials/texBlackbeachBasicRockSide2.png
-- Assets/Slipstream/SlipstreamAssets/ItemDisplayRules/NIRDSGreen.asset
 - Assets/Materials/texBasicMask.png
 - Assets/Materials/matPepperSpray.png
 - Assets/Materials/texThermiteDroplet2Mask.png
@@ -183,6 +179,7 @@ Assets:
 - Assets/Materials/glasseye_Normal.png
 - Assets/Materials/texGPRockSide2.png
 - Assets/Materials/GlassEye_Glowy.png
+- Assets/Slipstream/SlipstreamAssets/ItemDisplayRules/iddGlassEye.asset
 - Assets/Materials/texRampHealingMedkit.png
 - Assets/Materials/matChuckTriplanar.mat
 - Assets/Materials/texCriticalShieldIndi.png

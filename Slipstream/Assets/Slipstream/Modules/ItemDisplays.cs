@@ -18,9 +18,6 @@ namespace Slipstream.Modules
             base.Initialize();
             AddNamedIDRSFromMainBundle();
             AddItemDisplayDictionariesFromMainBundle();
-            //PopulateKeyAssetsAndDisplaysFromAssetbundle();
-            //PopulateMSIDRSFromAssetBundle();
-            //PopulateSingleItemDisplayRuleFromAssetBundle();
         }
 
         //public override AssetBundle MainBundle => null;

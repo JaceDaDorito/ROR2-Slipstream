@@ -1,5 +1,6 @@
 ﻿using Moonstorm;
 using Slipstream.Buffs;
+using Slipstream.Components;
 using RoR2;
 using System;
 using UnityEngine;
@@ -142,7 +143,6 @@ namespace Slipstream.Items
                 //Fires the explosion
                 NetworkServer.Spawn(hitBoxStun);
             }
-
             private void OnDestroy()
             {
                 //PepperSpray.PepperSprayBehavior component = body.GetComponent<PepperSpray.PepperSprayBehavior>();
