@@ -4,6 +4,7 @@ using BepInEx.Configuration;
 using HG.Reflection;
 using Slipstream.Modules;
 using Moonstorm;
+using Slipstream.Items;
 using R2API;
 using R2API.Utils;
 using System.Linq;
@@ -63,6 +64,8 @@ namespace Slipstream
             new SlipAssets().Init();
             new SlipContent().Init();
             new SlipLanguage().Init();
+
+            new CriticalShield().Init();
 
             //Allows organized configurable fields of public static fields.
             ConfigurableFieldManager.AddMod(this);
