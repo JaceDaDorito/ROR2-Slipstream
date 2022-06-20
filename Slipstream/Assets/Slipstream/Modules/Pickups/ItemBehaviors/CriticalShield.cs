@@ -103,8 +103,6 @@ namespace Slipstream.Items
                     if (healthBar.barAllocator.markElementsUnsavable)
                         gameObject.hideFlags |= (HideFlags.DontSaveInEditor | HideFlags.DontSaveInBuild);
                     gameObject.SetActive(true);
-                    int length = healthBar.barAllocator.elements.Count;
-                    healthBar.barAllocator.AllocateElements(length - 1);
                 }
             }
 
