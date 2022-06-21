@@ -26,11 +26,11 @@ namespace Slipstream.Items
 
         [ConfigurableField(ConfigName = "Base Shield", ConfigDesc = "Shield percentage after having at least one stack.", ConfigSection = "PepperSpray")]
         [TokenModifier(token, StatTypes.Percentage, 0)]
-        public static float baseShield = 0.06f;
+        public static float baseShield = 0.08f;
 
-        [ConfigurableField(ConfigName = "Shield Threshold", ConfigDesc = "Percentage of total shield in order to trigger the effect.", ConfigSection = "PepperSpray")]
+        //[ConfigurableField(ConfigName = "Shield Threshold", ConfigDesc = "Percentage of total shield in order to trigger the effect.", ConfigSection = "PepperSpray")]
         [TokenModifier(token, StatTypes.Percentage, 1)]
-        public static float threshold = 0.5f;
+        public static float threshold = CriticalShield.threshold;
 
         [ConfigurableField(ConfigName = "Base Radius", ConfigDesc = "Initial radius of the stun effect.", ConfigSection = "PepperSpray")]
         [TokenModifier(token, StatTypes.Default, 2)]

@@ -3,6 +3,7 @@ using R2API.ScriptableObjects;
 using R2API.ContentManagement;
 using Moonstorm.Loaders;
 using System;
+using System.Collections.Generic;
 using Slipstream.Modules;
 using System.Linq;
 using RoR2;
@@ -18,6 +19,7 @@ namespace Slipstream
         {
             //Buffs go here
             public static BuffDef PepperSpeed;
+            public static BuffDef BrineBuff;
         }
 
         public static class Elites
@@ -55,6 +57,10 @@ namespace Slipstream
             #region Yellow items
             #endregion
 
+            #region Void Items
+            public static ItemDef BrineSwarm;
+            #endregion
+
             #region Lunar items
             #endregion
 
@@ -62,6 +68,12 @@ namespace Slipstream
             //very rarely used
             #endregion
 
+        }
+
+        public static class ItemRelationshipProviders
+        {
+            //any other item relationship should be in the unity content pack I think?
+            public static List<ItemRelationshipProvider> contagiousRelationships = new List<ItemRelationshipProvider>();
         }
 
         public static class Scenes
@@ -95,6 +107,10 @@ namespace Slipstream
                 delegate
                 {
                     new Modules.Items().Initialize();
+                },
+                delegate
+                {
+                    SerializableContentPack.itemRelationshipProviders = ItemRelationshipProviders.contagiousRelationships.ToArray();
                 },
                 delegate
                 {

@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 2242113139
+CRC: 1805273510
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 998e079e1f460dd814b115aac0c7285b
+    Hash: d238aff6b3445a0a3802b4b67b9f7aee
   TypeTreeHash:
     serializedVersion: 2
     Hash: 87413b26d9d144d7e96bfa98a412d13e
@@ -135,6 +135,7 @@ Assets:
 - Assets/Slipstream/SlipstreamAssets/EquipmentDefs/AffixSandswept.asset
 - Assets/Slipstream/SlipstreamAssets/SceneDefs/PickupRendererScene.asset
 - Assets/Materials/GlassEye_Ramp.png
+- Assets/Icons/Capture2.png
 - Assets/Materials/GlassEye_HeightMap.png
 - Assets/Slipstream/SlipstreamAssets/Prefabs/Pickups/PickupTestItem.prefab
 - Assets/Materials/texBlackbeachBasicRockSide2.png
@@ -222,4 +223,6 @@ Assets:
 - Assets/Materials/texRampPepperEmit.png
 - Assets/Materials/matTestSkin.mat
 - Assets/Materials/GlassEye_GlowyEmit.png
+- Assets/Slipstream/SlipstreamAssets/ItemDefs/BrineSwarm.asset
+- Assets/Slipstream/SlipstreamAssets/BuffDefs/BrineBuff.asset
 Dependencies: []
