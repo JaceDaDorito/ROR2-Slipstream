@@ -1,6 +1,4 @@
-using System;
 using System.Collections.Generic;
-using UnityEngine;
 
 namespace UnityEngine.Networking
 {
@@ -10,7 +8,7 @@ namespace UnityEngine.Networking
     /// </summary>
     [AddComponentMenu("Network/NetworkProximityChecker")]
     [RequireComponent(typeof(NetworkIdentity))]
-    
+
     public class NetworkProximityChecker : NetworkBehaviour
     {
         /// <summary>
@@ -108,36 +106,36 @@ namespace UnityEngine.Networking
             switch (checkMethod)
             {
                 case CheckMethod.Physics3D:
-                {
-                    var hits = Physics.OverlapSphere(transform.position, visRange);
-                    for (int i = 0; i < hits.Length; i++)
                     {
-                        var hit = hits[i];
-                        // (if an object has a connectionToClient, it is a player)
-                        var uv = hit.GetComponent<NetworkIdentity>();
-                        if (uv != null && uv.connectionToClient != null)
+                        var hits = Physics.OverlapSphere(transform.position, visRange);
+                        for (int i = 0; i < hits.Length; i++)
                         {
-                            observers.Add(uv.connectionToClient);
+                            var hit = hits[i];
+                            // (if an object has a connectionToClient, it is a player)
+                            var uv = hit.GetComponent<NetworkIdentity>();
+                            if (uv != null && uv.connectionToClient != null)
+                            {
+                                observers.Add(uv.connectionToClient);
+                            }
                         }
+                        return true;
                     }
-                    return true;
-                }
 
                 case CheckMethod.Physics2D:
-                {
-                    var hits = Physics2D.OverlapCircleAll(transform.position, visRange);
-                    for (int i = 0; i < hits.Length; i++)
                     {
-                        var hit = hits[i];
-                        // (if an object has a connectionToClient, it is a player)
-                        var uv = hit.GetComponent<NetworkIdentity>();
-                        if (uv != null && uv.connectionToClient != null)
+                        var hits = Physics2D.OverlapCircleAll(transform.position, visRange);
+                        for (int i = 0; i < hits.Length; i++)
                         {
-                            observers.Add(uv.connectionToClient);
+                            var hit = hits[i];
+                            // (if an object has a connectionToClient, it is a player)
+                            var uv = hit.GetComponent<NetworkIdentity>();
+                            if (uv != null && uv.connectionToClient != null)
+                            {
+                                observers.Add(uv.connectionToClient);
+                            }
                         }
+                        return true;
                     }
-                    return true;
-                }
             }
             return false;
         }

@@ -38,40 +38,40 @@ namespace UnityEngine.Networking
     [ExecuteAlways]
     [DisallowMultipleComponent]
     [AddComponentMenu("Network/NetworkIdentity")]
-    
+
     public sealed class NetworkIdentity : MonoBehaviour
     {
         // configuration
         [SerializeField] NetworkSceneId m_SceneId;
         [SerializeField] NetworkHash128 m_AssetId;
-        [SerializeField] bool           m_ServerOnly;
-        [SerializeField] bool           m_LocalPlayerAuthority;
+        [SerializeField] bool m_ServerOnly;
+        [SerializeField] bool m_LocalPlayerAuthority;
 
         // runtime data
-        bool                        m_IsClient;
-        bool                        m_IsServer;
-        bool                        m_HasAuthority;
+        bool m_IsClient;
+        bool m_IsServer;
+        bool m_HasAuthority;
 
-        NetworkInstanceId           m_NetId;
-        bool                        m_IsLocalPlayer;
-        NetworkConnection           m_ConnectionToServer;
-        NetworkConnection           m_ConnectionToClient;
-        short                       m_PlayerId = -1;
-        NetworkBehaviour[]          m_NetworkBehaviours;
+        NetworkInstanceId m_NetId;
+        bool m_IsLocalPlayer;
+        NetworkConnection m_ConnectionToServer;
+        NetworkConnection m_ConnectionToClient;
+        short m_PlayerId = -1;
+        NetworkBehaviour[] m_NetworkBehaviours;
 
         // there is a list AND a hashSet of connections, for fast verification of dupes, but the main operation is iteration over the list.
-        HashSet<int>                m_ObserverConnections;
-        List<NetworkConnection>     m_Observers;
-        NetworkConnection           m_ClientAuthorityOwner;
+        HashSet<int> m_ObserverConnections;
+        List<NetworkConnection> m_Observers;
+        NetworkConnection m_ClientAuthorityOwner;
 
         // member used to mark a identity for future reset
         // check MarkForReset for more information.
-        bool                        m_Reset;
+        bool m_Reset;
         // properties
         /// <summary>
         /// Returns true if running as a client and this object was spawned by a server.
         /// </summary>
-        public bool isClient        { get { return m_IsClient; } }
+        public bool isClient { get { return m_IsClient; } }
 
         /// <summary>
         /// Returns true if running as a server, which spawned the object.
@@ -80,7 +80,7 @@ namespace UnityEngine.Networking
         {
             get
             {
-                if(m_IsServer)
+                if (m_IsServer)
                 {
                     return NetworkServer.active;
                 }
@@ -93,7 +93,7 @@ namespace UnityEngine.Networking
         /// <para>This value is determined at runtime, as opposed to localPlayerAuthority which is set on the prefab. For most objects, authority is held by the server / host. For objects with localPlayerAuthority set, authority is held by the client of that player.</para>
         /// <para>For objects that had their authority set by AssignClientAuthority on the server, this will be true on the client that owns the object. NOT on other clients.</para>
         /// </summary>
-        public bool hasAuthority    { get { return m_HasAuthority; } }
+        public bool hasAuthority { get { return m_HasAuthority; } }
 
         /// <summary>
         /// Unique identifier for this particular object instance, used for tracking objects between networked clients and the server.
@@ -144,7 +144,7 @@ namespace UnityEngine.Networking
         /// The client that has authority for this object. This will be null if no client has authority.
         /// <para>This is set for player objects with localPlayerAuthority, and for objects set with AssignClientAuthority, and spawned with SpawnWithClientAuthority.</para>
         /// </summary>
-        public NetworkConnection clientAuthorityOwner { get { return m_ClientAuthorityOwner; }}
+        public NetworkConnection clientAuthorityOwner { get { return m_ClientAuthorityOwner; } }
 
         /// <summary>
         /// Unique identifier used to find the source assets when server spawns the on clients.

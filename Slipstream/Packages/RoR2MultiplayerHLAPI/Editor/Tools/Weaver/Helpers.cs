@@ -1,13 +1,13 @@
-using System;
-using System.Linq;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.IO;
-using System.Reflection;
 using Mono.Cecil;
 using Mono.Cecil.Cil;
 using Mono.Cecil.Mdb;
 using Mono.Cecil.Pdb;
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
+using System.Linq;
+using System.Reflection;
 
 namespace Unity.UNetWeaver
 {
@@ -159,7 +159,7 @@ namespace Unity.UNetWeaver
 
         public static ReaderParameters ReaderParameters(string assemblyPath, IEnumerable<string> extraPaths, IAssemblyResolver assemblyResolver, string unityEngineDLLPath, string unityUNetDLLPath)
         {
-            var parameters = new ReaderParameters() {ReadWrite = true};
+            var parameters = new ReaderParameters() { ReadWrite = true };
             if (assemblyResolver == null)
                 assemblyResolver = new DefaultAssemblyResolver();
             var helper = new AddSearchDirectoryHelper(assemblyResolver);

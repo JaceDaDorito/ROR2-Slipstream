@@ -272,7 +272,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sharedProfile: {fileID: 0}
+  sharedProfile: {fileID: 11400000, guid: 8804bef9a1ec5fe45bf7dc1f9bfb7231, type: 2}
   isGlobal: 0
   blendDistance: 0
   weight: 1
@@ -289,10 +289,8 @@ MonoBehaviour:
   m_Script: {fileID: -235412878, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  modifiableMonsterCategories: {fileID: 0}
   monsterDccsPool: {fileID: 0}
   interactableDccsPool: {fileID: 0}
-  seedServer: 0
   sceneDirectorInteractibleCredits: 200
   sceneDirectorMonsterCredits: 20
   bonusInteractibleCreditObjects: []
@@ -319,10 +317,6 @@ MonoBehaviour:
   approximateMapBoundMesh: {fileID: 0}
   groundNodesAsset: {fileID: 0}
   airNodesAsset: {fileID: 0}
-  <groundNodes>k__BackingField: {fileID: 0}
-  <airNodes>k__BackingField: {fileID: 0}
-  <railNodes>k__BackingField: {fileID: 0}
-  <sceneDef>k__BackingField: {fileID: 0}
 --- !u!1 &401653449
 GameObject:
   m_ObjectHideFlags: 0

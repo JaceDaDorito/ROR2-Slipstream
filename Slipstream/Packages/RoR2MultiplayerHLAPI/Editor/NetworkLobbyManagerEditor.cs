@@ -1,5 +1,4 @@
 #if ENABLE_UNET
-using System;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityObject = UnityEngine.Object;
@@ -95,7 +94,7 @@ namespace UnityEditor
 
             serializedObject.Update();
             EditorGUILayout.PropertyField(m_DontDestroyOnLoadProperty, m_DontDestroyOnLoadLabel);
-            EditorGUILayout.PropertyField(m_RunInBackgroundProperty , m_RunInBackgroundLabel);
+            EditorGUILayout.PropertyField(m_RunInBackgroundProperty, m_RunInBackgroundLabel);
 
             if (EditorGUILayout.PropertyField(m_LogLevelProperty))
             {

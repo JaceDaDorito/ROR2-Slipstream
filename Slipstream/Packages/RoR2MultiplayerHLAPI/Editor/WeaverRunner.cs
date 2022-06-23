@@ -43,7 +43,7 @@ namespace UnityEditor.Networking
             {
                 return;
             }
-            
+
             var scriptAssembliesPath = Application.dataPath + "/../" + Path.GetDirectoryName(targetAssembly);
 
             string unityEngine = "";
@@ -129,7 +129,7 @@ namespace UnityEditor.Networking
                 Debug.LogError("Failed to find hlapi runtime assembly");
                 return;
             }
-            
+
             Unity.UNetWeaver.Program.Process(unityEngine, unetAssemblyPath, outputDirectory, new[] { assemblyPath }, depenencyPaths.ToArray(), (value) => { Debug.LogWarning(value); }, (value) => { Debug.LogError(value); });
         }
     }

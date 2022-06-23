@@ -16,7 +16,7 @@ namespace UnityEngine.Networking
     /// Container class for networking system built-in message types.
     /// </summary>
     // built-in system network messages
-    
+
     public class MsgType
     {
         // internal system messages - cannot be replaced by user code
@@ -247,7 +247,7 @@ namespace UnityEngine.Networking
             {
                 return String.Empty;
             }
-            string result =  msgLabels[value];
+            string result = msgLabels[value];
             if (string.IsNullOrEmpty(result))
             {
                 result = "[" + value + "]";
@@ -259,7 +259,7 @@ namespace UnityEngine.Networking
     /// <summary>
     /// The details of a network message received by a client or server on a network connection.
     /// </summary>
-    
+
     public class NetworkMessage
     {
         /// <summary>
@@ -351,7 +351,7 @@ namespace UnityEngine.Networking
     /// <summary>
     /// Class containing constants for default network channels.
     /// </summary>
-    
+
     public class Channels
     {
         /// <summary>
@@ -377,7 +377,7 @@ namespace UnityEngine.Networking
         MaxPendingBuffers = 1,
         AllowFragmentation = 2,
         MaxPacketSize = 3
-            // maybe add an InitialCapacity for Pending Buffers list if needed in the future
+        // maybe add an InitialCapacity for Pending Buffers list if needed in the future
     }
 }
 #pragma warning disable 618

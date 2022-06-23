@@ -9,7 +9,8 @@ using RoR2.Projectile;
 
 namespace Slipstream.Items
 {
-    [DisabledContent]
+    /*[DisabledContent]
+    
     public class JaceHat : ItemBase
     {
         private const string token = "SLIP_ITEM_JACEHAT_DESC";
@@ -106,7 +107,7 @@ namespace Slipstream.Items
                     ProjectileManager.instance.FireProjectile(Projectiles.JaceHatProjectile.hatProj, aimRay.origin, rotation, body.gameObject, body.damage * 50, 0f, Util.CheckRoll(body.crit, body?.master), DamageColorIndex.Item, null);
                 }
 
-            }*/
+            }
         }
-    }
+    }*/
 }

@@ -1,5 +1,4 @@
 #if ENABLE_UNET
-using System;
 using System.Collections.Generic;
 
 #pragma warning disable 618
@@ -13,8 +12,8 @@ namespace UnityEngine.Networking
         List<NetworkConnection> m_LocalConnections;
         List<NetworkConnection> m_Connections;
 
-        internal List<NetworkConnection> localConnections { get { return m_LocalConnections; }}
-        internal List<NetworkConnection> connections { get { return m_Connections; }}
+        internal List<NetworkConnection> localConnections { get { return m_LocalConnections; } }
+        internal List<NetworkConnection> connections { get { return m_Connections; } }
 
         public int Count { get { return m_Connections.Count; } }
 
@@ -30,7 +29,7 @@ namespace UnityEngine.Networking
         {
             if (connId < 0)
             {
-                if (LogFilter.logWarn) {Debug.LogWarning("ConnectionArray Add bad id " + connId); }
+                if (LogFilter.logWarn) { Debug.LogWarning("ConnectionArray Add bad id " + connId); }
                 return -1;
             }
 

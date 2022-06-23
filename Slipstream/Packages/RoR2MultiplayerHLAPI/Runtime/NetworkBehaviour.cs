@@ -12,7 +12,7 @@ namespace UnityEngine.Networking
     /// </summary>
     [RequireComponent(typeof(NetworkIdentity))]
     [AddComponentMenu("")]
-    
+
     public class NetworkBehaviour : MonoBehaviour
     {
         uint m_SyncVarDirtyBits;
@@ -149,7 +149,7 @@ namespace UnityEngine.Networking
         /// </summary>
         public short playerControllerId { get { return myView.playerControllerId; } }
         protected uint syncVarDirtyBits { get { return m_SyncVarDirtyBits; } }
-        protected bool syncVarHookGuard { get { return m_SyncVarGuard; } set { m_SyncVarGuard = value; }}
+        protected bool syncVarHookGuard { get { return m_SyncVarGuard; } set { m_SyncVarGuard = value; } }
 
         internal NetworkIdentity netIdentity { get { return myView; } }
 
@@ -590,7 +590,7 @@ namespace UnityEngine.Networking
                 return cmdHash.ToString();
             }
             string text = s_CmdHandlerDelegates[cmdHash].invokeFunction.GetMethodName();
-            if(text.IndexOf(prefix) > -1)
+            if (text.IndexOf(prefix) > -1)
             {
                 text = text.Substring(prefix.Length);
             }

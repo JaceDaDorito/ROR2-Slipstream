@@ -8,13 +8,13 @@ namespace UnityEditor
 {
     [CustomEditor(typeof(NetworkAnimator), true)]
     [CanEditMultipleObjects]
-    
+
     public class NetworkAnimatorEditor : Editor
     {
         NetworkAnimator m_AnimSync;
         [NonSerialized] bool m_Initialized;
 
-        SerializedProperty  m_AnimatorProperty;
+        SerializedProperty m_AnimatorProperty;
         GUIContent m_AnimatorLabel;
 
         void Init()

@@ -1,5 +1,3 @@
-
-using System;
 using System.Collections.Generic;
 using UnityEngine.Networking.Match;
 using UnityEngine.Networking.NetworkSystem;
@@ -20,7 +18,7 @@ namespace UnityEngine.Networking
     /// <para>The old host of the game, the one that crashed or lost its network connection, can also reconnect to the new game as a client. This client uses the special ReconnectId of ClientScene.ReconnectIdHost (which is zero).</para>
     /// </summary>
     [AddComponentMenu("Network/NetworkMigrationManager")]
-    
+
     public class NetworkMigrationManager : MonoBehaviour
     {
         /// <summary>
@@ -879,7 +877,7 @@ namespace UnityEngine.Networking
         // called on both host and client when the set of peers is updated
         protected virtual void OnPeersUpdated(PeerListMessage peers)
         {
-            if (LogFilter.logDev) { Debug.Log("NetworkMigrationManager NumPeers "  + peers.peers.Length); }
+            if (LogFilter.logDev) { Debug.Log("NetworkMigrationManager NumPeers " + peers.peers.Length); }
         }
 
         /// <summary>

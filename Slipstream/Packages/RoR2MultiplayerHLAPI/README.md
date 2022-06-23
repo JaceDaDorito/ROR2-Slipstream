@@ -19,7 +19,7 @@ or
 
 ### Why not use the original HLAPI package.
 
-* Not only does the original package force a dependency on mono.cecil, which makes it impossible to work with bepinex, havint he original HLAPI package will cause issues with certain structs such as SkillFamilies or DCCS.
+* Not only does the original package force a dependency on mono.cecil, which makes it impossible to work with bepinex, having the original HLAPI package will cause issues with certain structs such as SkillFamilies or DCCS.
 
 ### Anything i should be aware of?
 

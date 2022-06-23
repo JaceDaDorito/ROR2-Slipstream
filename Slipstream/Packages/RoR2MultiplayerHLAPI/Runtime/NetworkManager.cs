@@ -55,7 +55,7 @@ namespace UnityEngine.Networking
     /// </code>
     /// </summary>
     [AddComponentMenu("Network/NetworkManager")]
-    
+
     public class NetworkManager : MonoBehaviour
     {
         protected interface IChangeSceneAsyncOperation
@@ -145,59 +145,59 @@ namespace UnityEngine.Networking
         /// The network port currently in use.
         /// <para>For clients, this is the port of the server connected to. For servers, this is the listen port.</para>
         /// </summary>
-        public int networkPort               { get { return m_NetworkPort; } set { m_NetworkPort = value; } }
+        public int networkPort { get { return m_NetworkPort; } set { m_NetworkPort = value; } }
         /// <summary>
         /// Flag to tell the server whether to bind to a specific IP address.
         /// <para>If this is false, then no specific IP address is bound to (IP_ANY).</para>
         /// </summary>
-        public bool serverBindToIP           { get { return m_ServerBindToIP; } set { m_ServerBindToIP = value; }}
+        public bool serverBindToIP { get { return m_ServerBindToIP; } set { m_ServerBindToIP = value; } }
         /// <summary>
         /// The IP address to bind the server to.
         /// <para>This is only used if serverBindToIP is set to true.</para>
         /// </summary>
-        public string serverBindAddress  { get { return m_ServerBindAddress; } set { m_ServerBindAddress = value; }}
+        public string serverBindAddress { get { return m_ServerBindAddress; } set { m_ServerBindAddress = value; } }
         /// <summary>
         /// The network address currently in use.
         /// <para>For clients, this is the address of the server that is connected to. For servers, this is the local address.</para>
         /// </summary>
-        public string networkAddress         { get { return m_NetworkAddress; }  set { m_NetworkAddress = value; } }
+        public string networkAddress { get { return m_NetworkAddress; } set { m_NetworkAddress = value; } }
         /// <summary>
         /// A flag to control whether the NetworkManager object is destroyed when the scene changes.
         /// <para>This should be set if your game has a single NetworkManager that exists for the lifetime of the process. If there is a NetworkManager in each scene, then this should not be set.</para>
         /// </summary>
-        public bool dontDestroyOnLoad        { get { return m_DontDestroyOnLoad; }  set { m_DontDestroyOnLoad = value; } }
+        public bool dontDestroyOnLoad { get { return m_DontDestroyOnLoad; } set { m_DontDestroyOnLoad = value; } }
         /// <summary>
         /// Controls whether the program runs when it is in the background.
         /// <para>This is required when multiple instances of a program using networking are running on the same machine, such as when testing using localhost. But this is not recommended when deploying to mobile platforms.</para>
         /// </summary>
-        public bool runInBackground          { get { return m_RunInBackground; }  set { m_RunInBackground = value; } }
+        public bool runInBackground { get { return m_RunInBackground; } set { m_RunInBackground = value; } }
         /// <summary>
         /// Flag for using the script CRC check between server and clients.
         /// <para>Enables a CRC check between server and client that ensures the NetworkBehaviour scripts match. This may not be appropriate in some cases, such a when the client and server are different Unity projects.</para>
         /// </summary>
-        public bool scriptCRCCheck           { get { return m_ScriptCRCCheck; } set { m_ScriptCRCCheck = value;  }}
+        public bool scriptCRCCheck { get { return m_ScriptCRCCheck; } set { m_ScriptCRCCheck = value; } }
 
         [Obsolete("moved to NetworkMigrationManager")]
-        public bool sendPeerInfo             { get { return false; } set {} }
+        public bool sendPeerInfo { get { return false; } set { } }
 
         /// <summary>
         /// The maximum delay before sending packets on connections.
         /// <para>In seconds. The default of 0.01 seconds means packets will be delayed at most by 10 milliseconds. Setting this to zero will disable HLAPI connection buffering.</para>
         /// </summary>
-        public float maxDelay                { get { return m_MaxDelay; }  set { m_MaxDelay = value; } }
+        public float maxDelay { get { return m_MaxDelay; } set { m_MaxDelay = value; } }
         /// <summary>
         /// The log level specifically to user for network log messages.
         /// </summary>
-        public LogFilter.FilterLevel logLevel { get { return m_LogLevel; }  set { m_LogLevel = value; LogFilter.currentLogLevel = (int)value; } }
+        public LogFilter.FilterLevel logLevel { get { return m_LogLevel; } set { m_LogLevel = value; LogFilter.currentLogLevel = (int)value; } }
         /// <summary>
         /// The default prefab to be used to create player objects on the server.
         /// <para>Player objects are created in the default handler for AddPlayer() on the server. Implementing OnServerAddPlayer overrides this behaviour.</para>
         /// </summary>
-        public GameObject playerPrefab       { get { return m_PlayerPrefab; }  set { m_PlayerPrefab = value; } }
+        public GameObject playerPrefab { get { return m_PlayerPrefab; } set { m_PlayerPrefab = value; } }
         /// <summary>
         /// A flag to control whether or not player objects are automatically created on connect, and on scene change.
         /// </summary>
-        public bool autoCreatePlayer         { get { return m_AutoCreatePlayer; } set { m_AutoCreatePlayer = value; } }
+        public bool autoCreatePlayer { get { return m_AutoCreatePlayer; } set { m_AutoCreatePlayer = value; } }
         /// <summary>
         /// The current method of spawning players used by the NetworkManager.
         /// <code>
@@ -235,27 +235,27 @@ namespace UnityEngine.Networking
         /// The scene to switch to when offline.
         /// <para>Setting this makes the NetworkManager do scene management. This scene will be switched to when a network session is completed - such as a client disconnect, or a server shutdown.</para>
         /// </summary>
-        public string offlineScene           { get { return m_OfflineScene; }  set { m_OfflineScene = value; } }
+        public string offlineScene { get { return m_OfflineScene; } set { m_OfflineScene = value; } }
         /// <summary>
         /// The scene to switch to when online.
         /// <para>Setting this makes the NetworkManager do scene management. This scene will be switched to when a network session is started - such as a client connect, or a server listen.</para>
         /// </summary>
-        public string onlineScene            { get { return m_OnlineScene; }  set { m_OnlineScene = value; } }
+        public string onlineScene { get { return m_OnlineScene; } set { m_OnlineScene = value; } }
         /// <summary>
         /// List of prefabs that will be registered with the spawning system.
         /// <para>For each of these prefabs, ClientManager.RegisterPrefab() will be automatically invoke.</para>
         /// </summary>
-        public List<GameObject> spawnPrefabs { get { return m_SpawnPrefabs; }}
+        public List<GameObject> spawnPrefabs { get { return m_SpawnPrefabs; } }
 
         /// <summary>
         /// The list of currently registered player start positions for the current scene.
         /// </summary>
-        public List<Transform> startPositions { get { return s_StartPositions; }}
+        public List<Transform> startPositions { get { return s_StartPositions; } }
 
         /// <summary>
         /// Flag to enable custom network configuration.
         /// </summary>
-        public bool customConfig             { get { return m_CustomConfig; } set { m_CustomConfig = value; } }
+        public bool customConfig { get { return m_CustomConfig; } set { m_CustomConfig = value; } }
         /// <summary>
         /// The custom network configuration to use.
         /// <para>This will be used to configure the network transport layer.</para>
@@ -265,16 +265,16 @@ namespace UnityEngine.Networking
         /// The transport layer global configuration to be used.
         /// <para>This defines global settings for the operation of the transport layer.</para>
         /// </summary>
-        public GlobalConfig globalConfig     { get { if (m_GlobalConfig == null) { m_GlobalConfig = new GlobalConfig(); } return m_GlobalConfig; } }
+        public GlobalConfig globalConfig { get { if (m_GlobalConfig == null) { m_GlobalConfig = new GlobalConfig(); } return m_GlobalConfig; } }
         /// <summary>
         /// The maximum number of concurrent network connections to support.
         /// <para>The effects the memory usage of the network layer.</para>
         /// </summary>
-        public int maxConnections            { get { return m_MaxConnections; } set { m_MaxConnections = value; } }
+        public int maxConnections { get { return m_MaxConnections; } set { m_MaxConnections = value; } }
         /// <summary>
         /// The Quality-of-Service channels to use for the network transport layer.
         /// </summary>
-        public List<QosType> channels        { get { return m_Channels; } }
+        public List<QosType> channels { get { return m_Channels; } }
 
         /// <summary>
         /// Allows you to specify an EndPoint object instead of setting networkAddress and networkPort (required for some platforms such as Xbox One).
@@ -286,21 +286,21 @@ namespace UnityEngine.Networking
         /// This makes the NetworkServer listen for WebSockets connections instead of normal transport layer connections.
         /// <para>This allows WebGL clients to connect to the server.</para>
         /// </summary>
-        public bool useWebSockets            { get { return m_UseWebSockets; } set { m_UseWebSockets = value; } }
+        public bool useWebSockets { get { return m_UseWebSockets; } set { m_UseWebSockets = value; } }
         /// <summary>
         /// Flag that control whether clients started by this NetworkManager will use simulated latency and packet loss.
         /// </summary>
-        public bool useSimulator             { get { return m_UseSimulator; } set { m_UseSimulator = value; }}
+        public bool useSimulator { get { return m_UseSimulator; } set { m_UseSimulator = value; } }
         /// <summary>
         /// The delay in milliseconds to be added to incoming and outgoing packets for clients.
         /// <para>This is only used when useSimulator is set.</para>
         /// </summary>
-        public int simulatedLatency          { get { return m_SimulatedLatency; } set { m_SimulatedLatency = value; } }
+        public int simulatedLatency { get { return m_SimulatedLatency; } set { m_SimulatedLatency = value; } }
         /// <summary>
         /// The percentage of incoming and outgoing packets to be dropped for clients.
         /// <para>This is only used when useSimulator is set.</para>
         /// </summary>
-        public float packetLossPercentage    { get { return m_PacketLossPercentage; } set { m_PacketLossPercentage = value; } }
+        public float packetLossPercentage { get { return m_PacketLossPercentage; } set { m_PacketLossPercentage = value; } }
 
         /// <summary>
         /// The hostname of the matchmaking server.
@@ -308,21 +308,21 @@ namespace UnityEngine.Networking
         /// <para>To connect to a specific data center use one of the following addresses:</para>
         /// <para>United States: us1-mm.unet.unity3d.com Europe: eu1-mm.unet.unity3d.com Singapore: ap1-mm.unet.unity3d.com.</para>
         /// </summary>
-        public string matchHost              { get { return m_MatchHost; } set { m_MatchHost = value; } }
+        public string matchHost { get { return m_MatchHost; } set { m_MatchHost = value; } }
         /// <summary>
         /// The port of the matchmaking service.
         /// </summary>
-        public int matchPort                 { get { return m_MatchPort; } set { m_MatchPort = value; } }
+        public int matchPort { get { return m_MatchPort; } set { m_MatchPort = value; } }
         /// <summary>
         /// This is true if the client loaded a new scene when connecting to the server.
         /// <para>This is set before OnClientConnect is called, so it can be checked there to perform different logic if a scene load occurred.</para>
         /// </summary>
-        public bool clientLoadedScene        { get { return m_ClientLoadedScene; } set { m_ClientLoadedScene = value; } }
+        public bool clientLoadedScene { get { return m_ClientLoadedScene; } set { m_ClientLoadedScene = value; } }
 
         /// <summary>
         /// The migration manager being used with the NetworkManager.
         /// </summary>
-        public NetworkMigrationManager migrationManager { get { return m_MigrationManager; }}
+        public NetworkMigrationManager migrationManager { get { return m_MigrationManager; } }
 
         /// <summary>
         /// NumPlayers is the number of active player objects across all connections on the server.
@@ -1022,7 +1022,7 @@ namespace UnityEngine.Networking
         protected virtual IChangeSceneAsyncOperation ChangeSceneImplementation(string newSceneName)
         {
             AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(newSceneName);
-            if(asyncOperation == null)
+            if (asyncOperation == null)
             {
                 return null;
             }
@@ -1561,7 +1561,7 @@ namespace UnityEngine.Networking
                 return;
             }
 
-            if (playerControllerId < conn.playerControllers.Count  && conn.playerControllers[playerControllerId].IsValid && conn.playerControllers[playerControllerId].gameObject != null)
+            if (playerControllerId < conn.playerControllers.Count && conn.playerControllers[playerControllerId].IsValid && conn.playerControllers[playerControllerId].gameObject != null)
             {
                 if (LogFilter.logError) { Debug.LogError("There is already a player at that playerControllerId for this connections."); }
                 return;

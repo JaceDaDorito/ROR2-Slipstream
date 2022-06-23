@@ -1,8 +1,8 @@
-using System;
-using System.Linq;
-using System.Collections.Generic;
 using Mono.Cecil;
 using Mono.Cecil.Cil;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Unity.UNetWeaver
 {
@@ -809,7 +809,7 @@ namespace Unity.UNetWeaver
 
         void GeneratePreStartClient()
         {
-            m_NetIdFieldCounter  = 0;
+            m_NetIdFieldCounter = 0;
             MethodDefinition preStartMethod = null;
             ILProcessor serWorker = null;
 
@@ -878,7 +878,7 @@ namespace Unity.UNetWeaver
         void GenerateDeSerialization()
         {
             m_Weaver.DLog(m_td, "  GenerateDeSerialization");
-            m_NetIdFieldCounter  = 0;
+            m_NetIdFieldCounter = 0;
 
             foreach (var m in m_td.Methods)
             {
@@ -1161,7 +1161,7 @@ namespace Unity.UNetWeaver
         */
         MethodDefinition ProcessCommandCall(MethodDefinition md, CustomAttribute ca)
         {
-            MethodDefinition cmd = new MethodDefinition("Call" +  md.Name, MethodAttributes.Public |
+            MethodDefinition cmd = new MethodDefinition("Call" + md.Name, MethodAttributes.Public |
                 MethodAttributes.HideBySig,
                 m_Weaver.voidType);
 
@@ -1322,7 +1322,7 @@ namespace Unity.UNetWeaver
 
         MethodDefinition ProcessTargetRpcCall(MethodDefinition md, CustomAttribute ca)
         {
-            MethodDefinition rpc = new MethodDefinition("Call" +  md.Name, MethodAttributes.Public |
+            MethodDefinition rpc = new MethodDefinition("Call" + md.Name, MethodAttributes.Public |
                 MethodAttributes.HideBySig,
                 m_Weaver.voidType);
 
@@ -1412,7 +1412,7 @@ namespace Unity.UNetWeaver
 
         MethodDefinition ProcessRpcCall(MethodDefinition md, CustomAttribute ca)
         {
-            MethodDefinition rpc = new MethodDefinition("Call" +  md.Name, MethodAttributes.Public |
+            MethodDefinition rpc = new MethodDefinition("Call" + md.Name, MethodAttributes.Public |
                 MethodAttributes.HideBySig,
                 m_Weaver.voidType);
 
@@ -1856,7 +1856,7 @@ namespace Unity.UNetWeaver
         MethodDefinition ProcessEventCall(EventDefinition ed, CustomAttribute ca)
         {
             MethodReference invoke = m_Weaver.ResolveMethod(ed.EventType, "Invoke");
-            MethodDefinition evt = new MethodDefinition("Call" +  ed.Name, MethodAttributes.Public |
+            MethodDefinition evt = new MethodDefinition("Call" + ed.Name, MethodAttributes.Public |
                 MethodAttributes.HideBySig,
                 m_Weaver.voidType);
             // add paramters
@@ -2098,7 +2098,8 @@ namespace Unity.UNetWeaver
             //create the property
             PropertyDefinition propertyDefinition = new PropertyDefinition("Network" + originalName, PropertyAttributes.None, fd.FieldType)
             {
-                GetMethod = get, SetMethod = set
+                GetMethod = get,
+                SetMethod = set
             };
 
             //add the methods and property to the type.
@@ -2319,7 +2320,7 @@ namespace Unity.UNetWeaver
             unsafe
             {
                 int length = s.Length;
-                fixed(char* c = s)
+                fixed (char* c = s)
                 {
                     char* cc = c;
                     char* end = cc + length - 1;

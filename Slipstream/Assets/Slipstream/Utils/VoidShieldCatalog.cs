@@ -15,21 +15,17 @@ using System.Collections.Generic;
 
 namespace Slipstream.Items
 {
-    //ill finish this later
+    //this doesn't work for some reason and im too stupid to understand why
     public class VoidShieldCatalog
     {
-        private static Material cachedVoidMaterial;
-        private static Material cachedEnergyMaterial;
         private static List<RoR2.ItemDef> voidShieldItems = new List<RoR2.ItemDef>();
         public void Init()
         {
-            cachedVoidMaterial = Addressables.LoadAssetAsync<Material>("RoR2/DLC/MissileVoid/materEnergyShieldVoid.mat").WaitForCompletion();
-            cachedEnergyMaterial = LegacyResourcesAPI.Load<Material>("Materials/matEnergyShield");
             On.RoR2.HealthComponent.GetHealthBarValues += new On.RoR2.HealthComponent.hook_GetHealthBarValues(HealthComponent_GetHealthBarValues);
             On.RoR2.CharacterModel.UpdateOverlays += new On.RoR2.CharacterModel.hook_UpdateOverlays(CharacterModel_UpdateOverlays);
         }
 
-        public void AddVoidShieldCatalog(RoR2.ItemDef itemDef)
+        public static void AddVoidShieldCatalog(RoR2.ItemDef itemDef)
         {
             voidShieldItems.Add(itemDef);
         }
@@ -38,19 +34,22 @@ namespace Slipstream.Items
         {
             bool hasVoidShield = false;
             if (voidShieldItems.Count <= 0)
+            {
+                SlipLogger.LogI($"Slip Shield item:" + hasVoidShield);
                 return hasVoidShield;
+            }
             for(int i = 0; i < voidShieldItems.Count; i++)
             {
                 if (component.inventory.GetItemCount(voidShieldItems[i]) <= 0)
                     hasVoidShield = true;
             }
+            SlipLogger.LogI($"Slip Shield item:" + hasVoidShield);
             return hasVoidShield;
         }
 
         private RoR2.HealthComponent.HealthBarValues HealthComponent_GetHealthBarValues(On.RoR2.HealthComponent.orig_GetHealthBarValues orig, RoR2.HealthComponent self)
         {
             //Material cachedMaterial = null;
-            BrineSwarm.BrineSwarmBehavior component = null;
             RoR2.HealthComponent.HealthBarValues values = orig(self);
             if (self)
             {
@@ -71,7 +70,16 @@ namespace Slipstream.Items
                 {
 
                 }*/
-
+                Material cachedMaterial = null;
+                if (HasVoidShield(self.body)){
+                    cachedMaterial = RoR2.CharacterModel.energyShieldMaterial;
+                    RoR2.CharacterModel.energyShieldMaterial = RoR2.CharacterModel.voidShieldMaterial;
+                }
+                orig(self);
+                if (cachedMaterial)
+                {
+                    RoR2.CharacterModel.energyShieldMaterial = cachedMaterial;
+                }
             }
         }
     }

@@ -113,52 +113,52 @@ namespace UnityEngine.Networking
             switch (option)
             {
                 case ChannelOption.MaxPendingBuffers:
-                {
-                    if (!m_IsReliable)
                     {
-                        // not an error
-                        //if (LogFilter.logError) { Debug.LogError("Cannot set MaxPendingBuffers on unreliable channel " + m_ChannelId); }
-                        return false;
+                        if (!m_IsReliable)
+                        {
+                            // not an error
+                            //if (LogFilter.logError) { Debug.LogError("Cannot set MaxPendingBuffers on unreliable channel " + m_ChannelId); }
+                            return false;
+                        }
+                        if (value < 0 || value >= MaxBufferedPackets)
+                        {
+                            if (LogFilter.logError) { Debug.LogError("Invalid MaxPendingBuffers for channel " + m_ChannelId + ". Must be greater than zero and less than " + k_MaxFreePacketCount); }
+                            return false;
+                        }
+                        m_MaxPendingPacketCount = value;
+                        return true;
                     }
-                    if (value < 0 || value >= MaxBufferedPackets)
-                    {
-                        if (LogFilter.logError) { Debug.LogError("Invalid MaxPendingBuffers for channel " + m_ChannelId + ". Must be greater than zero and less than " + k_MaxFreePacketCount); }
-                        return false;
-                    }
-                    m_MaxPendingPacketCount = value;
-                    return true;
-                }
 
                 case ChannelOption.AllowFragmentation:
-                {
-                    m_AllowFragmentation = (value != 0);
-                    return true;
-                }
+                    {
+                        m_AllowFragmentation = (value != 0);
+                        return true;
+                    }
 
                 case ChannelOption.MaxPacketSize:
-                {
-                    if (!m_CurrentPacket.IsEmpty() || m_PendingPackets.Count > 0)
                     {
-                        if (LogFilter.logError) { Debug.LogError("Cannot set MaxPacketSize after sending data."); }
-                        return false;
-                    }
+                        if (!m_CurrentPacket.IsEmpty() || m_PendingPackets.Count > 0)
+                        {
+                            if (LogFilter.logError) { Debug.LogError("Cannot set MaxPacketSize after sending data."); }
+                            return false;
+                        }
 
-                    if (value <= 0)
-                    {
-                        if (LogFilter.logError) { Debug.LogError("Cannot set MaxPacketSize less than one."); }
-                        return false;
-                    }
+                        if (value <= 0)
+                        {
+                            if (LogFilter.logError) { Debug.LogError("Cannot set MaxPacketSize less than one."); }
+                            return false;
+                        }
 
-                    if (value > m_MaxPacketSize)
-                    {
-                        if (LogFilter.logError) { Debug.LogError("Cannot set MaxPacketSize to greater than the existing maximum (" + m_MaxPacketSize + ")."); }
-                        return false;
+                        if (value > m_MaxPacketSize)
+                        {
+                            if (LogFilter.logError) { Debug.LogError("Cannot set MaxPacketSize to greater than the existing maximum (" + m_MaxPacketSize + ")."); }
+                            return false;
+                        }
+                        // rebuild the packet with the new size. the packets doesn't store a size variable, just has the size of the internal buffer
+                        m_CurrentPacket = new ChannelPacket(value, m_IsReliable);
+                        m_MaxPacketSize = value;
+                        return true;
                     }
-                    // rebuild the packet with the new size. the packets doesn't store a size variable, just has the size of the internal buffer
-                    m_CurrentPacket = new ChannelPacket(value, m_IsReliable);
-                    m_MaxPacketSize = value;
-                    return true;
-                }
             }
             return false;
         }

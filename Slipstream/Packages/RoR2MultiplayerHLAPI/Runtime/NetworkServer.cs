@@ -4,7 +4,6 @@ using System.Collections.ObjectModel;
 using UnityEngine.Networking.Match;
 using UnityEngine.Networking.NetworkSystem;
 using UnityEngine.Networking.Types;
-using UnityEngineInternal;
 
 namespace UnityEngine.Networking
 {
@@ -16,7 +15,7 @@ namespace UnityEngine.Networking
     /// <para>The set of networked objects that have been spawned is managed by NetworkServer. Objects are spawned with NetworkServer.Spawn() which adds them to this set, and makes them be created on clients. Spawned objects are removed automatically when they are destroyed, or than they can be removed from the spawned set by calling NetworkServer.UnSpawn() - this does not destroy the object.</para>
     /// <para>There are a number of internal messages used by NetworkServer, these are setup when NetworkServer.Listen() is called.</para>
     /// </summary>
-    
+
     public sealed class NetworkServer
     {
         static bool s_Active;
@@ -61,7 +60,7 @@ namespace UnityEngine.Networking
         /// <para>A list of all the current connections from clients.</para>
         /// <para>The connections in the list are at the index of their connectionId. There may be nulls in this list for disconnected clients.</para>
         /// </summary>
-        static public ReadOnlyCollection<NetworkConnection> connections  { get { return instance.m_SimpleServerSimple.connections; } }
+        static public ReadOnlyCollection<NetworkConnection> connections { get { return instance.m_SimpleServerSimple.connections; } }
         /// <summary>
         /// <para>Dictionary of the message handlers registered with the server.</para>
         /// <para>The key to the dictionary is the message Id.</para>
@@ -71,7 +70,7 @@ namespace UnityEngine.Networking
         /// <para>The host topology that the server is using.</para>
         /// <para>This is read-only once the server is started.</para>
         /// </summary>
-        static public HostTopology hostTopology { get { return instance.m_SimpleServerSimple.hostTopology; }}
+        static public HostTopology hostTopology { get { return instance.m_SimpleServerSimple.hostTopology; } }
         /// <summary>
         /// <para>This is a dictionary of networked objects that have been spawned on the server.</para>
         /// <para>The key to the dictionary is NetworkIdentity netId.</para>
@@ -79,7 +78,7 @@ namespace UnityEngine.Networking
         public static Dictionary<NetworkInstanceId, NetworkIdentity> objects { get { return instance.m_NetworkScene.localObjects; } }
 
         [Obsolete("Moved to NetworkMigrationManager")]
-        public static bool sendPeerInfo { get { return false; } set {} }
+        public static bool sendPeerInfo { get { return false; } set { } }
         /// <summary>
         /// <para>If you enable this, the server will not listen for incoming connections on the regular network port.</para>
         /// <para>This can be used if the game is running in host mode and does not want external players to be able to connect - making it like a single-player game. Also this can be useful when using AddExternalConnection().</para>
@@ -249,7 +248,7 @@ namespace UnityEngine.Networking
             m_DontListen = false;
             s_Active = false;
         }
-        
+
         static public bool Listen(MatchInfo matchInfo, int listenPort)
         {
             if (!matchInfo.usingRelay)
@@ -1170,7 +1169,7 @@ namespace UnityEngine.Networking
                     }
                     msgDelegate(networkMsg);
                 }
-                else 
+                else
                 {
                     conn.InvokeHandler(MsgType.Error, reader, 0);
                 }
@@ -1832,7 +1831,7 @@ namespace UnityEngine.Networking
         }
 
         // Handle command from specific player, this could be one of multiple players on a single client
-        static  void OnCommandMessage(NetworkMessage netMsg)
+        static void OnCommandMessage(NetworkMessage netMsg)
         {
             int cmdHash = (int)netMsg.reader.ReadPackedUInt32();
             var netId = netMsg.reader.ReadNetworkId();

@@ -1,6 +1,3 @@
-using System;
-using UnityEngine;
-
 namespace UnityEngine.Networking
 {
     /// <summary>
@@ -9,7 +6,7 @@ namespace UnityEngine.Networking
     /// </summary>
     [DisallowMultipleComponent]
     [AddComponentMenu("Network/NetworkStartPosition")]
-    
+
     public class NetworkStartPosition : MonoBehaviour
     {
         public void Awake()

@@ -10,7 +10,7 @@ using UnityEngine.Networking;
 
 namespace Slipstream.Projectiles
 {
-    [DisallowMultipleComponent]
+    /*[DisallowMultipleComponent]
     [RequireComponent(typeof(ProjectileController))]
     public class JaceHatProjectileBehavior : NetworkBehaviour, IProjectileImpactBehavior
     {
@@ -64,5 +64,5 @@ namespace Slipstream.Projectiles
             Chat.AddMessage("<color=#20fa5a>collision</color>");
             orbiter.degreesPerSecond *= -1f;
         }
-    }
+    }*/
 }

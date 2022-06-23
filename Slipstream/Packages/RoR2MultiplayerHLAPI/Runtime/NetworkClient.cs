@@ -13,7 +13,7 @@ namespace UnityEngine.Networking
     /// <para><see cref="NetworkClient">NetworkClient</see> has an internal update function where it handles events from the transport layer. This includes asynchronous connect events, disconnect events and incoming data from a server.</para>
     /// <para>The <see cref="NetworkManager">NetworkManager</see> has a NetworkClient instance that it uses for games that it starts, but the NetworkClient may be used by itself.</para>
     /// </summary>
-    
+
     public class NetworkClient
     {
         Type m_NetworkConnectionClass = typeof(NetworkConnection);
@@ -108,7 +108,7 @@ namespace UnityEngine.Networking
         /// The host topology that this client is using.
         /// <para>This is read-only once the client is started.</para>
         /// </summary>
-        public HostTopology hostTopology { get { return m_HostTopology; }}
+        public HostTopology hostTopology { get { return m_HostTopology; } }
         /// <summary>
         /// The local port that the network client uses to connect to the server.
         /// <para>It defaults to 0, which means the network client will use a free port of system choice.</para>
@@ -131,7 +131,7 @@ namespace UnityEngine.Networking
         /// <summary>
         /// This gives the current connection status of the client.
         /// </summary>
-        public bool isConnected { get { return m_AsyncConnect == ConnectState.Connected; }}
+        public bool isConnected { get { return m_AsyncConnect == ConnectState.Connected; } }
 
         /// <summary>
         /// The class to use when creating new NetworkConnections.
@@ -919,9 +919,9 @@ namespace UnityEngine.Networking
 
                 case ConnectState.Connecting:
                 case ConnectState.Connected:
-                {
-                    break;
-                }
+                    {
+                        break;
+                    }
             }
 
             if (m_Connection != null)
@@ -1020,7 +1020,7 @@ namespace UnityEngine.Networking
             }
             while (networkEvent != NetworkEventType.Nothing);
 
-            if (m_Connection != null &&  m_AsyncConnect == ConnectState.Connected)
+            if (m_Connection != null && m_AsyncConnect == ConnectState.Connected)
                 m_Connection.FlushChannels();
         }
 

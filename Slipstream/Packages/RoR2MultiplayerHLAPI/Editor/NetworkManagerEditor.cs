@@ -5,13 +5,12 @@ using System.Reflection;
 using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.Networking;
-using UnityObject = UnityEngine.Object;
 
 namespace UnityEditor
 {
     [CustomEditor(typeof(NetworkManager), true)]
     [CanEditMultipleObjects]
-    
+
     public class NetworkManagerEditor : Editor
     {
         protected SerializedProperty m_DontDestroyOnLoadProperty;
@@ -113,7 +112,7 @@ namespace UnityEditor
             m_RunInBackgroundLabel = TextUtility.TextContent("Run in Background", "Enable to ensure that the application runs when it does not have focus.\n\nThis is required when testing multiple instances on a single machine, but not recommended for shipping on mobile platforms.");
             m_ScriptCRCCheckLabel = TextUtility.TextContent("Script CRC Check", "Enable to cause a CRC check between server and client that ensures the NetworkBehaviour scripts match.\n\nThis may not be appropriate in some cases, such as when the client and server are different Unity projects.");
 
-            m_MaxConnectionsLabel  = TextUtility.TextContent("Max Connections", "Maximum number of network connections");
+            m_MaxConnectionsLabel = TextUtility.TextContent("Max Connections", "Maximum number of network connections");
             m_MinUpdateTimeoutLabel = TextUtility.TextContent("Min Update Timeout", "Minimum time network thread waits for events");
             m_ConnectTimeoutLabel = TextUtility.TextContent("Connect Timeout", "Time to wait for timeout on connecting");
             m_DisconnectTimeoutLabel = TextUtility.TextContent("Disconnect Timeout", "Time to wait for detecting disconnect");
@@ -158,10 +157,10 @@ namespace UnityEditor
             m_MaxDelayProperty = serializedObject.FindProperty("m_MaxDelay");
             m_MaxBufferedPacketsProperty = serializedObject.FindProperty("m_MaxBufferedPackets");
             m_AllowFragmentationProperty = serializedObject.FindProperty("m_AllowFragmentation");
-            m_MatchHostProperty =  serializedObject.FindProperty("m_MatchHost");
-            m_MatchPortProperty =  serializedObject.FindProperty("m_MatchPort");
-            m_MatchNameProperty =  serializedObject.FindProperty("matchName");
-            m_MatchSizeProperty =  serializedObject.FindProperty("matchSize");
+            m_MatchHostProperty = serializedObject.FindProperty("m_MatchHost");
+            m_MatchPortProperty = serializedObject.FindProperty("m_MatchPort");
+            m_MatchNameProperty = serializedObject.FindProperty("matchName");
+            m_MatchSizeProperty = serializedObject.FindProperty("matchSize");
 
             // spawn foldout properties
             m_PlayerPrefabProperty = serializedObject.FindProperty("m_PlayerPrefab");
@@ -506,7 +505,7 @@ namespace UnityEditor
 
             serializedObject.Update();
             EditorGUILayout.PropertyField(m_DontDestroyOnLoadProperty, m_DontDestroyOnLoadLabel);
-            EditorGUILayout.PropertyField(m_RunInBackgroundProperty , m_RunInBackgroundLabel);
+            EditorGUILayout.PropertyField(m_RunInBackgroundProperty, m_RunInBackgroundLabel);
 
             if (EditorGUILayout.PropertyField(m_LogLevelProperty))
             {

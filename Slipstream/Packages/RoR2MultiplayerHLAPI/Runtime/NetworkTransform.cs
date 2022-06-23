@@ -1,5 +1,4 @@
 using System;
-using UnityEngine;
 
 namespace UnityEngine.Networking
 {
@@ -11,7 +10,7 @@ namespace UnityEngine.Networking
     /// </summary>
     [DisallowMultipleComponent]
     [AddComponentMenu("Network/NetworkTransform")]
-    
+
     public class NetworkTransform : NetworkBehaviour
     {
         /// <summary>
@@ -102,97 +101,97 @@ namespace UnityEngine.Networking
         public delegate bool ClientMoveCallback3D(ref Vector3 position, ref Vector3 velocity, ref Quaternion rotation);
         public delegate bool ClientMoveCallback2D(ref Vector2 position, ref Vector2 velocity, ref float rotation);
 
-        [SerializeField] TransformSyncMode  m_TransformSyncMode = TransformSyncMode.SyncNone;
-        [SerializeField] float              m_SendInterval = 0.1f;
-        [SerializeField] AxisSyncMode       m_SyncRotationAxis = AxisSyncMode.AxisXYZ;
+        [SerializeField] TransformSyncMode m_TransformSyncMode = TransformSyncMode.SyncNone;
+        [SerializeField] float m_SendInterval = 0.1f;
+        [SerializeField] AxisSyncMode m_SyncRotationAxis = AxisSyncMode.AxisXYZ;
         [SerializeField] CompressionSyncMode m_RotationSyncCompression = CompressionSyncMode.None;
-        [SerializeField] bool               m_SyncSpin;
-        [SerializeField] float              m_MovementTheshold = 0.001f;
-        [SerializeField] float              m_VelocityThreshold = 0.0001f;
+        [SerializeField] bool m_SyncSpin;
+        [SerializeField] float m_MovementTheshold = 0.001f;
+        [SerializeField] float m_VelocityThreshold = 0.0001f;
 
-        [SerializeField] float              m_SnapThreshold = 5.0f;
-        [SerializeField] float              m_InterpolateRotation = 1.0f;
-        [SerializeField] float              m_InterpolateMovement = 1.0f;
+        [SerializeField] float m_SnapThreshold = 5.0f;
+        [SerializeField] float m_InterpolateRotation = 1.0f;
+        [SerializeField] float m_InterpolateMovement = 1.0f;
         [SerializeField] ClientMoveCallback3D m_ClientMoveCallback3D;
         [SerializeField] ClientMoveCallback2D m_ClientMoveCallback2D;
 
-        Rigidbody       m_RigidBody3D;
-        Rigidbody2D     m_RigidBody2D;
+        Rigidbody m_RigidBody3D;
+        Rigidbody2D m_RigidBody2D;
         CharacterController m_CharacterController;
         bool m_Grounded = true;
 
         // movement smoothing
 
-        Vector3         m_TargetSyncPosition;
-        Vector3         m_TargetSyncVelocity;
+        Vector3 m_TargetSyncPosition;
+        Vector3 m_TargetSyncVelocity;
 
-        Vector3         m_FixedPosDiff;
+        Vector3 m_FixedPosDiff;
 
-        Quaternion      m_TargetSyncRotation3D;
-        Vector3         m_TargetSyncAngularVelocity3D;
+        Quaternion m_TargetSyncRotation3D;
+        Vector3 m_TargetSyncAngularVelocity3D;
 
-        float           m_TargetSyncRotation2D;
-        float           m_TargetSyncAngularVelocity2D;
+        float m_TargetSyncRotation2D;
+        float m_TargetSyncAngularVelocity2D;
 
-        float           m_LastClientSyncTime; // last time client received a sync from server
-        float           m_LastClientSendTime; // last time client send a sync to server
+        float m_LastClientSyncTime; // last time client received a sync from server
+        float m_LastClientSendTime; // last time client send a sync to server
 
-        Vector3         m_PrevPosition;
-        Quaternion      m_PrevRotation;
-        float           m_PrevRotation2D;
-        float           m_PrevVelocity;
+        Vector3 m_PrevPosition;
+        Quaternion m_PrevRotation;
+        float m_PrevRotation2D;
+        float m_PrevVelocity;
 
-        const float     k_LocalMovementThreshold = 0.00001f;
-        const float     k_LocalRotationThreshold = 0.00001f;
-        const float     k_LocalVelocityThreshold = 0.00001f;
-        const float     k_MoveAheadRatio = 0.1f;
+        const float k_LocalMovementThreshold = 0.00001f;
+        const float k_LocalRotationThreshold = 0.00001f;
+        const float k_LocalVelocityThreshold = 0.00001f;
+        const float k_MoveAheadRatio = 0.1f;
 
-        NetworkWriter   m_LocalTransformWriter;
+        NetworkWriter m_LocalTransformWriter;
 
         // settings
 
         /// <summary>
         /// What method to use to sync the object's position.
         /// </summary>
-        public TransformSyncMode    transformSyncMode { get { return m_TransformSyncMode; } set { m_TransformSyncMode = value; } }
+        public TransformSyncMode transformSyncMode { get { return m_TransformSyncMode; } set { m_TransformSyncMode = value; } }
         /// <summary>
         /// The sendInterval controls how often state updates are sent for this object.
         /// <para>Unlike most NetworkBehaviour scripts, for NetworkTransform this is implemented at a per-object level rather than at the per-script level. This allows more flexibility as this component is used in various situation.</para>
         /// <para>If sendInterval is non-zero, then transform state updates are send at most once every sendInterval seconds. However, if an object is stationary, no updates are sent.</para>
         /// <para>If sendInterval is zero, then no automatic updates are sent. In this case, calling SetDirtyBits() on the NetworkTransform will cause an updates to be sent. This could be used for objects like bullets that have a predictable trajectory.</para>
         /// </summary>
-        public float                sendInterval { get { return m_SendInterval; } set { m_SendInterval = value; } }
+        public float sendInterval { get { return m_SendInterval; } set { m_SendInterval = value; } }
         /// <summary>
         /// Which axis should rotation by synchronized for.
         /// </summary>
-        public AxisSyncMode         syncRotationAxis { get { return m_SyncRotationAxis; } set { m_SyncRotationAxis = value; } }
+        public AxisSyncMode syncRotationAxis { get { return m_SyncRotationAxis; } set { m_SyncRotationAxis = value; } }
         /// <summary>
         /// How much to compress rotation sync updates.
         /// </summary>
-        public CompressionSyncMode  rotationSyncCompression { get { return m_RotationSyncCompression; } set { m_RotationSyncCompression = value; } }
-        public bool                 syncSpin { get { return m_SyncSpin; }  set { m_SyncSpin = value; } }
+        public CompressionSyncMode rotationSyncCompression { get { return m_RotationSyncCompression; } set { m_RotationSyncCompression = value; } }
+        public bool syncSpin { get { return m_SyncSpin; } set { m_SyncSpin = value; } }
         /// <summary>
         /// The distance that an object can move without sending a movement synchronization update.
         /// </summary>
-        public float                movementTheshold { get { return m_MovementTheshold; } set { m_MovementTheshold = value; } }
+        public float movementTheshold { get { return m_MovementTheshold; } set { m_MovementTheshold = value; } }
         /// <summary>
         /// The minimum velocity difference that will be synchronized over the network.
         /// </summary>
-        public float                velocityThreshold { get { return m_VelocityThreshold; } set { m_VelocityThreshold = value; } }
+        public float velocityThreshold { get { return m_VelocityThreshold; } set { m_VelocityThreshold = value; } }
         /// <summary>
         /// If a movement update puts an object further from its current position that this value, it will snap to the position instead of moving smoothly.
         /// </summary>
-        public float                snapThreshold { get { return m_SnapThreshold; } set { m_SnapThreshold = value; } }
+        public float snapThreshold { get { return m_SnapThreshold; } set { m_SnapThreshold = value; } }
         /// <summary>
         /// Enables interpolation of the synchronized rotation.
         /// <para>If this is not set, object will snap to the new rotation. The larger this number is, the faster the object will interpolate to the target facing direction.</para>
         /// </summary>
-        public float                interpolateRotation { get { return m_InterpolateRotation; } set { m_InterpolateRotation = value; } }
+        public float interpolateRotation { get { return m_InterpolateRotation; } set { m_InterpolateRotation = value; } }
         /// <summary>
         /// Enables interpolation of the synchronized movement.
         /// <para>The larger this number is, the faster the object will interpolate to the target position.</para>
         /// </summary>
-        public float                interpolateMovement { get { return m_InterpolateMovement; } set { m_InterpolateMovement = value; } }
+        public float interpolateMovement { get { return m_InterpolateMovement; } set { m_InterpolateMovement = value; } }
         /// <summary>
         /// A callback that can be used to validate on the server, the movement of client authoritative objects.
         /// <para>This version of the callback works with objects that use 3D physics. The callback function may return false to reject the movement request completely. It may also modify the movement parameters - which are passed by reference.</para>
@@ -281,42 +280,42 @@ namespace UnityEngine.Networking
         /// <summary>
         /// Cached CharacterController.
         /// </summary>
-        public CharacterController  characterContoller { get { return m_CharacterController; } }
+        public CharacterController characterContoller { get { return m_CharacterController; } }
         /// <summary>
         /// Cached Rigidbody.
         /// </summary>
-        public Rigidbody            rigidbody3D { get { return m_RigidBody3D; } }
+        public Rigidbody rigidbody3D { get { return m_RigidBody3D; } }
         /// <summary>
         /// Cached Rigidbody2D.
         /// </summary>
 #pragma warning disable 109
-        new public Rigidbody2D          rigidbody2D { get { return m_RigidBody2D; } }
+        new public Rigidbody2D rigidbody2D { get { return m_RigidBody2D; } }
 #pragma warning restore 109
         /// <summary>
         /// The most recent time when a movement synchronization packet arrived for this object.
         /// </summary>
-        public float                lastSyncTime { get { return m_LastClientSyncTime; } }
+        public float lastSyncTime { get { return m_LastClientSyncTime; } }
         /// <summary>
         /// The target position interpolating towards.
         /// </summary>
-        public Vector3              targetSyncPosition { get { return m_TargetSyncPosition; } }
+        public Vector3 targetSyncPosition { get { return m_TargetSyncPosition; } }
         /// <summary>
         /// The velocity send for synchronization.
         /// </summary>
-        public Vector3              targetSyncVelocity { get { return m_TargetSyncVelocity; } }
+        public Vector3 targetSyncVelocity { get { return m_TargetSyncVelocity; } }
         /// <summary>
         /// The target position interpolating towards.
         /// </summary>
-        public Quaternion           targetSyncRotation3D { get { return m_TargetSyncRotation3D; } }
+        public Quaternion targetSyncRotation3D { get { return m_TargetSyncRotation3D; } }
         /// <summary>
         /// The target rotation interpolating towards.
         /// </summary>
-        public float                targetSyncRotation2D { get { return m_TargetSyncRotation2D; } }
+        public float targetSyncRotation2D { get { return m_TargetSyncRotation2D; } }
         /// <summary>
         /// Tells the NetworkTransform that it is on a surface (this is the default).
         /// <para>Object that are NOT grounded will not interpolate their vertical velocity. This avoid the problem of interpolation fighting with gravity on non-authoritative objects. This only works for RigidBody2D physics objects.</para>
         /// </summary>
-        public bool                 grounded { get { return m_Grounded; } set { m_Grounded = value; } }
+        public bool grounded { get { return m_Grounded; } set { m_Grounded = value; } }
 
         void OnValidate()
         {
@@ -357,7 +356,7 @@ namespace UnityEngine.Networking
 
             if (m_InterpolateMovement < 0)
             {
-                m_InterpolateMovement  = 0.01f;
+                m_InterpolateMovement = 0.01f;
             }
         }
 
@@ -402,29 +401,29 @@ namespace UnityEngine.Networking
             switch (transformSyncMode)
             {
                 case TransformSyncMode.SyncNone:
-                {
-                    return false;
-                }
+                    {
+                        return false;
+                    }
                 case TransformSyncMode.SyncTransform:
-                {
-                    SerializeModeTransform(writer);
-                    break;
-                }
+                    {
+                        SerializeModeTransform(writer);
+                        break;
+                    }
                 case TransformSyncMode.SyncRigidbody3D:
-                {
-                    SerializeMode3D(writer);
-                    break;
-                }
+                    {
+                        SerializeMode3D(writer);
+                        break;
+                    }
                 case TransformSyncMode.SyncRigidbody2D:
-                {
-                    SerializeMode2D(writer);
-                    break;
-                }
+                    {
+                        SerializeMode2D(writer);
+                        break;
+                    }
                 case TransformSyncMode.SyncCharacterController:
-                {
-                    SerializeModeCharacterController(writer);
-                    break;
-                }
+                    {
+                        SerializeModeCharacterController(writer);
+                        break;
+                    }
             }
             return true;
         }
@@ -631,29 +630,29 @@ namespace UnityEngine.Networking
             switch (transformSyncMode)
             {
                 case TransformSyncMode.SyncNone:
-                {
-                    return;
-                }
+                    {
+                        return;
+                    }
                 case TransformSyncMode.SyncTransform:
-                {
-                    UnserializeModeTransform(reader, initialState);
-                    break;
-                }
+                    {
+                        UnserializeModeTransform(reader, initialState);
+                        break;
+                    }
                 case TransformSyncMode.SyncRigidbody3D:
-                {
-                    UnserializeMode3D(reader, initialState);
-                    break;
-                }
+                    {
+                        UnserializeMode3D(reader, initialState);
+                        break;
+                    }
                 case TransformSyncMode.SyncRigidbody2D:
-                {
-                    UnserializeMode2D(reader, initialState);
-                    break;
-                }
+                    {
+                        UnserializeMode2D(reader, initialState);
+                        break;
+                    }
                 case TransformSyncMode.SyncCharacterController:
-                {
-                    UnserializeModeCharacterController(reader, initialState);
-                    break;
-                }
+                    {
+                        UnserializeModeCharacterController(reader, initialState);
+                        break;
+                    }
             }
             m_LastClientSyncTime = Time.time;
         }
@@ -1190,29 +1189,29 @@ namespace UnityEngine.Networking
             switch (transformSyncMode)
             {
                 case TransformSyncMode.SyncNone:
-                {
-                    return;
-                }
+                    {
+                        return;
+                    }
                 case TransformSyncMode.SyncTransform:
-                {
-                    return;
-                }
+                    {
+                        return;
+                    }
                 case TransformSyncMode.SyncRigidbody3D:
-                {
-                    InterpolateTransformMode3D();
-                    break;
-                }
+                    {
+                        InterpolateTransformMode3D();
+                        break;
+                    }
                 case TransformSyncMode.SyncRigidbody2D:
-                {
-                    InterpolateTransformMode2D();
-                    break;
-                }
+                    {
+                        InterpolateTransformMode2D();
+                        break;
+                    }
 
                 case TransformSyncMode.SyncCharacterController:
-                {
-                    InterpolateTransformModeCharacterController();
-                    break;
-                }
+                    {
+                        InterpolateTransformModeCharacterController();
+                        break;
+                    }
             }
         }
 
@@ -1397,29 +1396,29 @@ namespace UnityEngine.Networking
             switch (transformSyncMode)
             {
                 case TransformSyncMode.SyncNone:
-                {
-                    return;
-                }
+                    {
+                        return;
+                    }
                 case TransformSyncMode.SyncTransform:
-                {
-                    SerializeModeTransform(m_LocalTransformWriter);
-                    break;
-                }
+                    {
+                        SerializeModeTransform(m_LocalTransformWriter);
+                        break;
+                    }
                 case TransformSyncMode.SyncRigidbody3D:
-                {
-                    SerializeMode3D(m_LocalTransformWriter);
-                    break;
-                }
+                    {
+                        SerializeMode3D(m_LocalTransformWriter);
+                        break;
+                    }
                 case TransformSyncMode.SyncRigidbody2D:
-                {
-                    SerializeMode2D(m_LocalTransformWriter);
-                    break;
-                }
+                    {
+                        SerializeMode2D(m_LocalTransformWriter);
+                        break;
+                    }
                 case TransformSyncMode.SyncCharacterController:
-                {
-                    SerializeModeCharacterController(m_LocalTransformWriter);
-                    break;
-                }
+                    {
+                        SerializeModeCharacterController(m_LocalTransformWriter);
+                        break;
+                    }
             }
 
             if (m_RigidBody3D != null)
@@ -1477,29 +1476,29 @@ namespace UnityEngine.Networking
                 switch (foundSync.transformSyncMode)
                 {
                     case TransformSyncMode.SyncNone:
-                    {
-                        return;
-                    }
+                        {
+                            return;
+                        }
                     case TransformSyncMode.SyncTransform:
-                    {
-                        foundSync.UnserializeModeTransform(netMsg.reader, false);
-                        break;
-                    }
+                        {
+                            foundSync.UnserializeModeTransform(netMsg.reader, false);
+                            break;
+                        }
                     case TransformSyncMode.SyncRigidbody3D:
-                    {
-                        foundSync.UnserializeMode3D(netMsg.reader, false);
-                        break;
-                    }
+                        {
+                            foundSync.UnserializeMode3D(netMsg.reader, false);
+                            break;
+                        }
                     case TransformSyncMode.SyncRigidbody2D:
-                    {
-                        foundSync.UnserializeMode2D(netMsg.reader, false);
-                        break;
-                    }
+                        {
+                            foundSync.UnserializeMode2D(netMsg.reader, false);
+                            break;
+                        }
                     case TransformSyncMode.SyncCharacterController:
-                    {
-                        foundSync.UnserializeModeCharacterController(netMsg.reader, false);
-                        break;
-                    }
+                        {
+                            foundSync.UnserializeModeCharacterController(netMsg.reader, false);
+                            break;
+                        }
                 }
                 foundSync.m_LastClientSyncTime = Time.time;
                 return;
@@ -1515,21 +1514,21 @@ namespace UnityEngine.Networking
             switch (compression)
             {
                 case CompressionSyncMode.None:
-                {
-                    writer.Write(angle);
-                    break;
-                }
+                    {
+                        writer.Write(angle);
+                        break;
+                    }
                 case CompressionSyncMode.Low:
-                {
-                    writer.Write((short)angle);
-                    break;
-                }
+                    {
+                        writer.Write((short)angle);
+                        break;
+                    }
                 case CompressionSyncMode.High:
-                {
-                    //TODO
-                    writer.Write((short)angle);
-                    break;
-                }
+                    {
+                        //TODO
+                        writer.Write((short)angle);
+                        break;
+                    }
             }
         }
 
@@ -1538,18 +1537,18 @@ namespace UnityEngine.Networking
             switch (compression)
             {
                 case CompressionSyncMode.None:
-                {
-                    return reader.ReadSingle();
-                }
+                    {
+                        return reader.ReadSingle();
+                    }
                 case CompressionSyncMode.Low:
-                {
-                    return reader.ReadInt16();
-                }
+                    {
+                        return reader.ReadInt16();
+                    }
                 case CompressionSyncMode.High:
-                {
-                    //TODO
-                    return reader.ReadInt16();
-                }
+                    {
+                        //TODO
+                        return reader.ReadInt16();
+                    }
             }
             return 0;
         }

@@ -1,6 +1,3 @@
-
-using System;
-using UnityEngine;
 using UnityEngine.Networking.NetworkSystem;
 using UnityEngine.SceneManagement;
 
@@ -12,7 +9,7 @@ namespace UnityEngine.Networking
     /// </summary>
     [DisallowMultipleComponent]
     [AddComponentMenu("Network/NetworkLobbyPlayer")]
-    
+
     public class NetworkLobbyPlayer : NetworkBehaviour
     {
         /// <summary>
@@ -29,7 +26,7 @@ namespace UnityEngine.Networking
         /// The slot within the lobby that this player inhabits.
         /// <para>Lobby slots are global for the game - each player has a unique slotId.</para>
         /// </summary>
-        public byte slot { get { return m_Slot; } set { m_Slot = value; }}
+        public byte slot { get { return m_Slot; } set { m_Slot = value; } }
         /// <summary>
         /// This is a flag that control whether this player is ready for the game to begin.
         /// <para>When all players are ready to begin, the game will start. This should not be set directly, the SendReadyToBeginMessage function should be called on the client to set it on the server.</para>

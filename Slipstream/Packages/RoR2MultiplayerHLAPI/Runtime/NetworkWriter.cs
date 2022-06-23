@@ -1,6 +1,5 @@
 using System;
 using System.Text;
-using UnityEngine;
 
 namespace UnityEngine.Networking
 {
@@ -68,7 +67,7 @@ namespace UnityEngine.Networking
     /// }
     /// </code>
     /// </summary>
-    
+
     public class NetworkWriter
     {
         const int k_MaxStringLength = 1024 * 32;

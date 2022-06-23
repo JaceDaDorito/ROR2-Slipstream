@@ -1,5 +1,4 @@
 #if ENABLE_UNET
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
@@ -9,7 +8,7 @@ namespace UnityEditor
 {
     [CustomEditor(typeof(NetworkManagerHUD), true)]
     [CanEditMultipleObjects]
-    
+
     public class NetworkManagerHUDEditor : Editor
     {
         SerializedProperty m_ShowGUIProperty;
@@ -257,7 +256,7 @@ namespace UnityEditor
                 }
                 else
                 {
-                    EditorGUILayout.TextField("client " + count + ":" ,  cl.GetType().Name + " Conn: " + cl.connection);
+                    EditorGUILayout.TextField("client " + count + ":", cl.GetType().Name + " Conn: " + cl.connection);
                     EditorGUI.indentLevel += 1;
                     foreach (var p in cl.connection.playerControllers)
                     {

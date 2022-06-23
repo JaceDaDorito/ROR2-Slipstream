@@ -1,5 +1,4 @@
 #if ENABLE_UNET
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEditor.Callbacks;
@@ -8,7 +7,7 @@ using UnityEngine.Networking;
 
 namespace UnityEditor
 {
-    
+
     public class NetworkScenePostProcess : MonoBehaviour
     {
         [PostProcessScene]

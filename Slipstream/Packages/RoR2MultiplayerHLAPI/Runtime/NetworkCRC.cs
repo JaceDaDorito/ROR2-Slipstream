@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Reflection;
 using UnityEngine.Networking.NetworkSystem;
@@ -9,7 +8,7 @@ namespace UnityEngine.Networking
     /// This class holds information about which networked scripts use which QoS channels for updates.
     /// <para>This channel information is used to ensure that clients and servers are using compatible HLAPI script configurations.</para>
     /// </summary>
-    
+
     public class NetworkCRC
     {
         internal static NetworkCRC s_Singleton;
@@ -66,10 +65,10 @@ namespace UnityEngine.Networking
                 var t = types[i];
                 if (t.GetBaseType() == typeof(NetworkBehaviour))
                 {
-                    var cctor  = t.GetMethod(".cctor", BindingFlags.Static);
+                    var cctor = t.GetMethod(".cctor", BindingFlags.Static);
                     if (cctor != null)
                     {
-                        cctor.Invoke(null, new object[] {});
+                        cctor.Invoke(null, new object[] { });
                     }
                 }
             }

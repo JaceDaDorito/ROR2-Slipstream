@@ -14,7 +14,7 @@ namespace UnityEngine.Networking
     /// <para>The OnLobby*() functions have empty implementations on the NetworkLobbyManager base class, so the base class functions do not have to be called.</para>
     /// </summary>
     [AddComponentMenu("Network/NetworkLobbyManager")]
-    
+
     public class NetworkLobbyManager : NetworkManager
     {
         struct PendingPlayer
@@ -51,22 +51,22 @@ namespace UnityEngine.Networking
         /// This flag enables display of the default lobby UI.
         /// <para>This is rendered using the old GUI system, so is only recommended for testing purposes.</para>
         /// </summary>
-        public bool showLobbyGUI             { get { return m_ShowLobbyGUI; } set { m_ShowLobbyGUI = value; } }
+        public bool showLobbyGUI { get { return m_ShowLobbyGUI; } set { m_ShowLobbyGUI = value; } }
         /// <summary>
         /// The maximum number of players allowed in the game.
         /// <para>Note that this is the number "players" not clients or connections. There can be multiple players per client.</para>
         /// </summary>
-        public int maxPlayers                { get { return m_MaxPlayers; } set { m_MaxPlayers = value; } }
+        public int maxPlayers { get { return m_MaxPlayers; } set { m_MaxPlayers = value; } }
         /// <summary>
         /// The maximum number of players per connection.
         /// <para>Calling ClientScene.AddPlayer will fail if this limit is reached.</para>
         /// </summary>
-        public int maxPlayersPerConnection   { get { return m_MaxPlayersPerConnection; } set { m_MaxPlayersPerConnection = value; } }
+        public int maxPlayersPerConnection { get { return m_MaxPlayersPerConnection; } set { m_MaxPlayersPerConnection = value; } }
         /// <summary>
         /// The minimum number of players required to be ready for the game to start.
         /// <para>If this is zero then the game can start with any number of players.</para>
         /// </summary>
-        public int minPlayers                { get { return m_MinPlayers; } set { m_MinPlayers = value; } }
+        public int minPlayers { get { return m_MinPlayers; } set { m_MinPlayers = value; } }
         /// <summary>
         /// This is the prefab of the player to be created in the LobbyScene.
         /// <para>This prefab must have a NetworkLobbyPlayer component on it.</para>
@@ -78,15 +78,15 @@ namespace UnityEngine.Networking
         /// This is the prefab of the player to be created in the PlayScene.
         /// <para>When CheckReadyToBegin starts the game from the lobby, a new player object is created from this prefab, and that object is made the active player object using NetworkServer.ReplacePlayerForConnection.</para>
         /// </summary>
-        public GameObject gamePlayerPrefab   { get { return m_GamePlayerPrefab; } set { m_GamePlayerPrefab = value; } }
+        public GameObject gamePlayerPrefab { get { return m_GamePlayerPrefab; } set { m_GamePlayerPrefab = value; } }
         /// <summary>
         /// The scene to use for the lobby. This is similar to the offlineScene of the NetworkManager.
         /// </summary>
-        public string lobbyScene             { get { return m_LobbyScene; } set { m_LobbyScene = value; offlineScene = value; } }
+        public string lobbyScene { get { return m_LobbyScene; } set { m_LobbyScene = value; offlineScene = value; } }
         /// <summary>
         /// The scene to use for the playing the game from the lobby. This is similar to the onlineScene of the NetworkManager.
         /// </summary>
-        public string playScene              { get { return m_PlayScene; } set { m_PlayScene = value; } }
+        public string playScene { get { return m_PlayScene; } set { m_PlayScene = value; } }
 
         void OnValidate()
         {
@@ -1112,7 +1112,7 @@ namespace UnityEngine.Networking
             if (loadedSceneName != m_LobbyScene)
                 return;
 
-            Rect backgroundRec = new Rect(90 , 180, 500, 150);
+            Rect backgroundRec = new Rect(90, 180, 500, 150);
             GUI.Box(backgroundRec, "Players:");
 
             if (NetworkClient.active)

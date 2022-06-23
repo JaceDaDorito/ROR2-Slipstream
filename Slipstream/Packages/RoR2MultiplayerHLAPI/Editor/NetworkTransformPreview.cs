@@ -1,5 +1,4 @@
 #if ENABLE_UNET
-using System;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityObject = UnityEngine.Object;
@@ -48,7 +47,7 @@ namespace UnityEditor.Networking
             int posY = 4;
 
             float posDiff = (m_Transform.transform.position - m_Transform.targetSyncPosition).magnitude;
-            GUI.Label(new Rect(r.xMin + padding, r.y + posY, 600, 20), "Position: " + m_Transform.transform.position + " Target: " +  m_Transform.targetSyncPosition + " Diff: " + posDiff);
+            GUI.Label(new Rect(r.xMin + padding, r.y + posY, 600, 20), "Position: " + m_Transform.transform.position + " Target: " + m_Transform.targetSyncPosition + " Diff: " + posDiff);
             posY += 20;
 
             if (m_Rigidbody3D != null)

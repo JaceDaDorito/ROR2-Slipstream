@@ -1,5 +1,4 @@
 #if ENABLE_UNET
-using System;
 using UnityEngine;
 using UnityEngine.Networking;
 
@@ -7,7 +6,7 @@ namespace UnityEditor
 {
     [CustomEditor(typeof(NetworkIdentity), true)]
     [CanEditMultipleObjects]
-    
+
     public class NetworkIdentityEditor : Editor
     {
         SerializedProperty m_ServerOnlyProperty;

@@ -1,6 +1,4 @@
-using System;
 using System.ComponentModel;
-using UnityEngine;
 
 namespace UnityEngine.Networking
 {
@@ -11,19 +9,19 @@ namespace UnityEngine.Networking
     [AddComponentMenu("Network/NetworkTransformVisualizer")]
     [RequireComponent(typeof(NetworkTransform))]
     [EditorBrowsable(EditorBrowsableState.Never)]
-    
+
     public class NetworkTransformVisualizer : NetworkBehaviour
     {
         [Tooltip("The prefab to use for the visualization object.")]
         [SerializeField] GameObject m_VisualizerPrefab;
 
         NetworkTransform m_NetworkTransform;
-        GameObject  m_Visualizer;
+        GameObject m_Visualizer;
 
         /// <summary>
         /// The prefab to use for the visualization object.
         /// </summary>
-        public GameObject visualizerPrefab { get { return m_VisualizerPrefab; } set { m_VisualizerPrefab = value; }}
+        public GameObject visualizerPrefab { get { return m_VisualizerPrefab; } set { m_VisualizerPrefab = value; } }
 
         public override void OnStartClient()
         {

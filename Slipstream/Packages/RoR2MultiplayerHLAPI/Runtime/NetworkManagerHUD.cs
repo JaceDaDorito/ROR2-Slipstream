@@ -1,4 +1,3 @@
-using System;
 using System.ComponentModel;
 
 namespace UnityEngine.Networking
@@ -10,7 +9,7 @@ namespace UnityEngine.Networking
     [AddComponentMenu("Network/NetworkManagerHUD")]
     [RequireComponent(typeof(NetworkManager))]
     [EditorBrowsable(EditorBrowsableState.Never)]
-    
+
     public class NetworkManagerHUD : MonoBehaviour
     {
         /// <summary>

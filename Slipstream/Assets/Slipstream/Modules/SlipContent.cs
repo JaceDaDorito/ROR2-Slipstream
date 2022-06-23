@@ -48,7 +48,7 @@ namespace Slipstream
             #region Green items
             public static ItemDef PepperSpray;
             public static ItemDef GlassEye;
-            public static ItemDef JaceHat;
+            //public static ItemDef JaceHat;
             #endregion
 
             #region Red items

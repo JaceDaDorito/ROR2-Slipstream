@@ -1,6 +1,3 @@
-using UnityEngine;
-using UnityEngine.Networking;
-
 #pragma warning disable 618
 namespace UnityEngine.Networking
 {

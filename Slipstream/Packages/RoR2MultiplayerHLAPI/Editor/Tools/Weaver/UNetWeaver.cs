@@ -1,12 +1,11 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.IO;
 using Mono.Cecil;
 using Mono.Cecil.Cil;
-using System.Linq;
-using Mono.Cecil.Pdb;
 using Mono.Cecil.Mdb;
+using Mono.Cecil.Pdb;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 
 namespace Unity.UNetWeaver
 {
@@ -276,7 +275,7 @@ namespace Unity.UNetWeaver
         {
             if (lists.numSyncVars.ContainsKey(className))
             {
-                int num =  lists.numSyncVars[className];
+                int num = lists.numSyncVars[className];
                 return num;
             }
             // start at zero
@@ -1151,7 +1150,7 @@ namespace Unity.UNetWeaver
                 methodSelectionCondition != null
                     ? new Func<MethodDefinition, bool>(m => m.Name == name && methodSelectionCondition(m))
                     : m => m.Name == name;
-            
+
             //Console.WriteLine("ResolveMethod " + t.ToString () + " " + name);
             if (t == null)
             {
@@ -1346,7 +1345,7 @@ namespace Unity.UNetWeaver
             NetworkReaderCtor = ResolveMethod(NetworkReaderDef, ".ctor");
 
             NetworkWriterType = m_UNetAssemblyDefinition.MainModule.GetType("UnityEngine.Networking.NetworkWriter");
-            NetworkWriterDef  = NetworkWriterType.Resolve();
+            NetworkWriterDef = NetworkWriterType.Resolve();
 
             NetworkWriterCtor = ResolveMethod(NetworkWriterDef, ".ctor");
 
@@ -1441,7 +1440,7 @@ namespace Unity.UNetWeaver
 
             gameObjectInequality = ResolveMethod(unityObjectType, "op_Inequality");
 
-            UBehaviourIsServer  = ResolveMethod(NetworkBehaviourType, "get_isServer");
+            UBehaviourIsServer = ResolveMethod(NetworkBehaviourType, "get_isServer");
             getPlayerIdReference = ResolveMethod(NetworkBehaviourType, "get_playerControllerId");
             setSyncVarReference = ResolveMethod(NetworkBehaviourType, "SetSyncVar");
             setSyncVarHookGuard = ResolveMethod(NetworkBehaviourType, "set_syncVarHookGuard");
@@ -1870,10 +1869,10 @@ namespace Unity.UNetWeaver
                         // old pdb file is out of date so delete it. symbols will be stored in mdb
                         pdbToDelete = Path.ChangeExtension(assName, ".pdb");
                     }
-                    
+
                     m_ScriptDef.Write(writeParams);
                 }
-                
+
                 if (m_ScriptDef.MainModule.SymbolReader != null)
                     m_ScriptDef.MainModule.SymbolReader.Dispose();
             }

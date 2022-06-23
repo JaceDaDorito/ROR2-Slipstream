@@ -6,7 +6,7 @@ namespace UnityEngine.Networking
     /// This is used to identify networked objects in a scene. These values are allocated in the editor and are persistent for the lifetime of the object in the scene.
     /// </summary>
     [Serializable]
-    
+
     public struct NetworkSceneId : IEquatable<NetworkSceneId>
     {
         public NetworkSceneId(uint value)
@@ -41,12 +41,12 @@ namespace UnityEngine.Networking
             return this == other;
         }
 
-        public static bool operator==(NetworkSceneId c1, NetworkSceneId c2)
+        public static bool operator ==(NetworkSceneId c1, NetworkSceneId c2)
         {
             return c1.m_Value == c2.m_Value;
         }
 
-        public static bool operator!=(NetworkSceneId c1, NetworkSceneId c2)
+        public static bool operator !=(NetworkSceneId c1, NetworkSceneId c2)
         {
             return c1.m_Value != c2.m_Value;
         }

@@ -8,7 +8,7 @@ namespace UnityEngine.Networking
     /// <summary>
     /// This is a list of strings that will be synchronized from the server to clients.
     /// </summary>
-    
+
     public sealed class SyncListString : SyncList<string>
     {
         protected override void SerializeItem(NetworkWriter writer, string item)
@@ -20,7 +20,7 @@ namespace UnityEngine.Networking
         {
             return reader.ReadString();
         }
-        
+
         [System.Obsolete("ReadReference is now used instead")]
         static public SyncListString ReadInstance(NetworkReader reader)
         {
@@ -61,7 +61,7 @@ namespace UnityEngine.Networking
     /// <summary>
     /// A list of floats that will be synchronized from server to clients.
     /// </summary>
-    
+
     public sealed class SyncListFloat : SyncList<float>
     {
         protected override void SerializeItem(NetworkWriter writer, float item)
@@ -114,7 +114,7 @@ namespace UnityEngine.Networking
     /// <summary>
     /// A list of integers that will be synchronized from server to clients.
     /// </summary>
-    
+
     public class SyncListInt : SyncList<int>
     {
         protected override void SerializeItem(NetworkWriter writer, int item)
@@ -168,7 +168,7 @@ namespace UnityEngine.Networking
     /// <summary>
     /// A list of unsigned integers that will be synchronized from server to clients.
     /// </summary>
-    
+
     public class SyncListUInt : SyncList<uint>
     {
         protected override void SerializeItem(NetworkWriter writer, uint item)
@@ -221,7 +221,7 @@ namespace UnityEngine.Networking
     /// <summary>
     /// A list of booleans that will be synchronized from server to clients.
     /// </summary>
-    
+
     public class SyncListBool : SyncList<bool>
     {
         protected override void SerializeItem(NetworkWriter writer, bool item)
@@ -276,7 +276,7 @@ namespace UnityEngine.Networking
     /// <para>To use SyncListStruct, derive a new class with your struct as the generic parameter.</para>
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    
+
     public class SyncListStruct<T> : SyncList<T> where T : struct, IEquatable<T>
     {
         new public void AddInternal(T item)
@@ -328,7 +328,7 @@ namespace UnityEngine.Networking
     /// </summary>
     /// <typeparam name="T"></typeparam>
     [EditorBrowsable(EditorBrowsableState.Never)]
-    
+
     abstract public class SyncList<T> : IList<T> where T : IEquatable<T>
     {
         /// <summary>

@@ -17,7 +17,7 @@ namespace UnityEngine.Networking
     * wire protocol is a list of :   size   |  msgType     | payload
     *                               (short)  (variable)   (buffer)
     */
-    
+
     public class NetworkConnection : IDisposable
     {
         ChannelBuffer[] m_Channels;
@@ -119,7 +119,7 @@ namespace UnityEngine.Networking
         /// True if the connection is connected to a remote end-point.
         /// <para>This applies to NetworkServer and NetworkClient connections. When not connected, the hostID will be -1. When connected, the hostID will be a positive integer.</para>
         /// </summary>
-        public bool isConnected { get { return hostId != -1; }}
+        public bool isConnected { get { return hostId != -1; } }
 
 
         /// <summary>
@@ -186,7 +186,7 @@ namespace UnityEngine.Networking
         public NetworkError lastError { get { return error; } internal set { error = value; } }
 
         Dictionary<short, PacketStat> m_PacketStats = new Dictionary<short, PacketStat>();
-        internal Dictionary<short, PacketStat> packetStats { get { return m_PacketStats; }}
+        internal Dictionary<short, PacketStat> packetStats { get { return m_PacketStats; } }
 
 #if UNITY_EDITOR
         static int s_MaxPacketStats = 255;//the same as maximum message types
@@ -277,7 +277,7 @@ namespace UnityEngine.Networking
 
         static bool IsSequencedQoS(QosType qos)
         {
-            if(qos != QosType.ReliableSequenced)
+            if (qos != QosType.ReliableSequenced)
             {
                 return qos == QosType.UnreliableSequenced;
             }
@@ -286,11 +286,11 @@ namespace UnityEngine.Networking
 
         static bool IsReliableQoS(QosType qos)
         {
-            			if (qos != QosType.Reliable && qos != QosType.ReliableFragmented && qos != QosType.ReliableSequenced)
-			{
-				return qos == QosType.ReliableStateUpdate;
-			}
-			return true;
+            if (qos != QosType.Reliable && qos != QosType.ReliableFragmented && qos != QosType.ReliableSequenced)
+            {
+                return qos == QosType.ReliableStateUpdate;
+            }
+            return true;
         }
 
         /// <summary>
@@ -571,7 +571,7 @@ namespace UnityEngine.Networking
             {
                 LogSend(bytes);
             }
-            if(CheckChannel(channelId))
+            if (CheckChannel(channelId))
             {
                 return m_Channels[channelId].SendBytes(bytes, numBytes);
             }
@@ -607,7 +607,7 @@ namespace UnityEngine.Networking
             {
                 LogSend(writer.ToArray());
             }
-            if(CheckChannel(channelId))
+            if (CheckChannel(channelId))
             {
                 return m_Channels[channelId].SendWriter(writer);
             }
@@ -709,7 +709,7 @@ namespace UnityEngine.Networking
 
                 // Bail out here if we're about to read beyond the recieved size of the buffer
                 // This could be a sign of an attack which could cause us to behave unexpectedly by reading old data
-                if (reader.Position + sz > receivedSize )
+                if (reader.Position + sz > receivedSize)
                 {
                     if (LogFilter.logError)
                     {

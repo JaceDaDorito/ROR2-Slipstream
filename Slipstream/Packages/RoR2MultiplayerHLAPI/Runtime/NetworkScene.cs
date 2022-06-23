@@ -1,5 +1,4 @@
 #if ENABLE_UNET
-using System;
 using System.Collections.Generic;
 
 #pragma warning disable 618
@@ -18,11 +17,11 @@ namespace UnityEngine.Networking
         static Dictionary<NetworkHash128, SpawnDelegate> s_SpawnHandlers = new Dictionary<NetworkHash128, SpawnDelegate>();
         static Dictionary<NetworkHash128, UnSpawnDelegate> s_UnspawnHandlers = new Dictionary<NetworkHash128, UnSpawnDelegate>();
 
-        internal Dictionary<NetworkInstanceId, NetworkIdentity> localObjects { get { return m_LocalObjects; }}
+        internal Dictionary<NetworkInstanceId, NetworkIdentity> localObjects { get { return m_LocalObjects; } }
 
-        static internal Dictionary<NetworkHash128, GameObject> guidToPrefab { get { return s_GuidToPrefab; }}
-        static internal Dictionary<NetworkHash128, SpawnDelegate> spawnHandlers { get { return s_SpawnHandlers; }}
-        static internal Dictionary<NetworkHash128, UnSpawnDelegate> unspawnHandlers { get { return s_UnspawnHandlers; }}
+        static internal Dictionary<NetworkHash128, GameObject> guidToPrefab { get { return s_GuidToPrefab; } }
+        static internal Dictionary<NetworkHash128, SpawnDelegate> spawnHandlers { get { return s_SpawnHandlers; } }
+        static internal Dictionary<NetworkHash128, UnSpawnDelegate> unspawnHandlers { get { return s_UnspawnHandlers; } }
 
         internal void Shutdown()
         {

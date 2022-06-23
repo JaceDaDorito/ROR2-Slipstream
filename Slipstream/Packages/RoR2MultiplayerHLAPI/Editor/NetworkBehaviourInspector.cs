@@ -10,7 +10,7 @@ namespace UnityEditor
 {
     [CustomEditor(typeof(NetworkBehaviour), true)]
     [CanEditMultipleObjects]
-    
+
     public class NetworkBehaviourInspector : Editor
     {
         bool m_Initialized;

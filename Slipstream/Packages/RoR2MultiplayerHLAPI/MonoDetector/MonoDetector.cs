@@ -1,8 +1,6 @@
-﻿using UnityEditor;
-using System;
-using System.Reflection;
-using UnityEngine;
+﻿using System;
 using System.Linq;
+using UnityEditor;
 
 namespace MonoDetector
 {
@@ -12,7 +10,7 @@ namespace MonoDetector
         private static void Detect()
         {
             string[] assemblyNames = AppDomain.CurrentDomain.GetAssemblies().Select(asm => asm.GetName().Name).ToArray();
-            if(!assemblyNames.Contains("Mono.Cecil"))
+            if (!assemblyNames.Contains("Mono.Cecil"))
             {
                 EditorUtility.DisplayDialog("No Mono.Cecil dll found",
                     "WARNING: No \"Mono.Cecil.dll\" found.\n\n" +

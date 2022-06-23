@@ -1,5 +1,3 @@
-using System;
-
 #if ENABLE_UNET
 
 #pragma warning disable 618
@@ -12,7 +10,7 @@ namespace UnityEngine.Networking
     {
         LocalClient m_LocalClient;
 
-        public LocalClient localClient { get {  return m_LocalClient; } }
+        public LocalClient localClient { get { return m_LocalClient; } }
 
         public ULocalConnectionToClient(LocalClient localClient)
         {

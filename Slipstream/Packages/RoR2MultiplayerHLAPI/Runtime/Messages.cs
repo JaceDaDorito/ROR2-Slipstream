@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 
 #pragma warning disable 618
@@ -42,7 +41,7 @@ namespace UnityEngine.Networking
     /// </summary>
     // This can't be an interface because users don't need to implement the
     // serialization functions, we'll code generate it for them when they omit it.
-    
+
     public abstract class MessageBase
     {
         /// <summary>
@@ -51,7 +50,7 @@ namespace UnityEngine.Networking
         /// </summary>
         /// <param name="reader">Stream to read from.</param>
         // De-serialize the contents of the reader into this message
-        public virtual void Deserialize(NetworkReader reader) {}
+        public virtual void Deserialize(NetworkReader reader) { }
 
         /// <summary>
         /// The method is used to populate a NetworkWriter stream from a message object.
@@ -59,7 +58,7 @@ namespace UnityEngine.Networking
         /// </summary>
         /// <param name="writer">Stream to write to.</param>
         // Serialize the contents of this message into the writer
-        public virtual void Serialize(NetworkWriter writer) {}
+        public virtual void Serialize(NetworkWriter writer) { }
     }
 }
 
@@ -84,7 +83,7 @@ namespace UnityEngine.Networking.NetworkSystem
     /// }
     /// </code>
     /// </summary>
-    
+
     public class StringMessage : MessageBase
     {
         /// <summary>
@@ -129,7 +128,7 @@ namespace UnityEngine.Networking.NetworkSystem
     /// }
     /// </code>
     /// </summary>
-    
+
     public class IntegerMessage : MessageBase
     {
         /// <summary>
@@ -174,7 +173,7 @@ namespace UnityEngine.Networking.NetworkSystem
     /// }
     /// </code>
     /// </summary>
-    
+
     public class EmptyMessage : MessageBase
     {
         public override void Deserialize(NetworkReader reader)
@@ -190,7 +189,7 @@ namespace UnityEngine.Networking.NetworkSystem
     /// <summary>
     /// This is passed to handler functions registered for the SYSTEM_ERROR built-in message.
     /// </summary>
-    
+
     public class ErrorMessage : MessageBase
     {
         /// <summary>
@@ -213,7 +212,7 @@ namespace UnityEngine.Networking.NetworkSystem
     /// <summary>
     /// This is passed to handler funtions registered for the SYSTEM_READY built-in message.
     /// </summary>
-    
+
     public class ReadyMessage : EmptyMessage
     {
     }
@@ -221,7 +220,7 @@ namespace UnityEngine.Networking.NetworkSystem
     /// <summary>
     /// This is passed to handler funtions registered for the SYSTEM_NOT_READY built-in message.
     /// </summary>
-    
+
     public class NotReadyMessage : EmptyMessage
     {
     }
@@ -229,7 +228,7 @@ namespace UnityEngine.Networking.NetworkSystem
     /// <summary>
     /// This is passed to handler funtions registered for the AddPlayer built-in message.
     /// </summary>
-    
+
     public class AddPlayerMessage : MessageBase
     {
         /// <summary>
@@ -271,7 +270,7 @@ namespace UnityEngine.Networking.NetworkSystem
     /// <summary>
     /// This is passed to handler funtions registered for the SYSTEM_REMOVE_PLAYER built-in message.
     /// </summary>
-    
+
     public class RemovePlayerMessage : MessageBase
     {
         /// <summary>
@@ -296,7 +295,7 @@ namespace UnityEngine.Networking.NetworkSystem
     /// Information about a change in authority of a non-player in the same network game.
     /// <para>This information is cached by clients and used during host-migration.</para>
     /// </summary>
-    
+
     public class PeerAuthorityMessage : MessageBase
     {
         /// <summary>
@@ -330,7 +329,7 @@ namespace UnityEngine.Networking.NetworkSystem
     /// <summary>
     /// A structure used to identify player object on other peers for host migration.
     /// </summary>
-    
+
     public struct PeerInfoPlayer
     {
         /// <summary>
@@ -348,7 +347,7 @@ namespace UnityEngine.Networking.NetworkSystem
     /// Information about another participant in the same network game.
     /// <para>This information is cached by clients and used during host-migration.</para>
     /// </summary>
-    
+
     public class PeerInfoMessage : MessageBase
     {
         /// <summary>
@@ -430,7 +429,7 @@ namespace UnityEngine.Networking.NetworkSystem
     /// <summary>
     /// Internal UNET message for sending information about network peers to clients.
     /// </summary>
-    
+
     public class PeerListMessage : MessageBase
     {
         /// <summary>
@@ -469,7 +468,7 @@ namespace UnityEngine.Networking.NetworkSystem
     /// <summary>
     /// This network message is used when a client reconnect to the new host of a game.
     /// </summary>
-    
+
     public class ReconnectMessage : MessageBase
     {
         /// <summary>
@@ -696,9 +695,9 @@ namespace UnityEngine.Networking.NetworkSystem
     class AnimationMessage : MessageBase
     {
         public NetworkInstanceId netId;
-        public int      stateHash;      // if non-zero, then Play() this animation, skipping transitions
-        public float    normalizedTime;
-        public byte[]   parameters;
+        public int stateHash;      // if non-zero, then Play() this animation, skipping transitions
+        public float normalizedTime;
+        public byte[] parameters;
 
         public override void Deserialize(NetworkReader reader)
         {
@@ -724,7 +723,7 @@ namespace UnityEngine.Networking.NetworkSystem
     class AnimationParametersMessage : MessageBase
     {
         public NetworkInstanceId netId;
-        public byte[]   parameters;
+        public byte[] parameters;
 
         public override void Deserialize(NetworkReader reader)
         {
@@ -746,7 +745,7 @@ namespace UnityEngine.Networking.NetworkSystem
     class AnimationTriggerMessage : MessageBase
     {
         public NetworkInstanceId netId;
-        public int      hash;
+        public int hash;
 
         public override void Deserialize(NetworkReader reader)
         {

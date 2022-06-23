@@ -6,7 +6,7 @@ namespace UnityEngine.Networking
     /// This is used to identify networked objects across all participants of a network. It is assigned at runtime by the server when an object is spawned.
     /// </summary>
     [Serializable]
-    
+
     public struct NetworkInstanceId : IEquatable<NetworkInstanceId>
     {
         public NetworkInstanceId(uint value)
@@ -34,7 +34,7 @@ namespace UnityEngine.Networking
 
         public override bool Equals(object obj)
         {
-            if(obj is NetworkInstanceId)
+            if (obj is NetworkInstanceId)
             {
                 return Equals((NetworkInstanceId)obj);
             }
@@ -46,12 +46,12 @@ namespace UnityEngine.Networking
             return this == other;
         }
 
-        public static bool operator==(NetworkInstanceId c1, NetworkInstanceId c2)
+        public static bool operator ==(NetworkInstanceId c1, NetworkInstanceId c2)
         {
             return c1.m_Value == c2.m_Value;
         }
 
-        public static bool operator!=(NetworkInstanceId c1, NetworkInstanceId c2)
+        public static bool operator !=(NetworkInstanceId c1, NetworkInstanceId c2)
         {
             return c1.m_Value != c2.m_Value;
         }

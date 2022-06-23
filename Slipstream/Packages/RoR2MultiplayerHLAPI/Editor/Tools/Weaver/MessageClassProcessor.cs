@@ -1,4 +1,3 @@
-using System;
 using Mono.Cecil;
 using Mono.Cecil.Cil;
 

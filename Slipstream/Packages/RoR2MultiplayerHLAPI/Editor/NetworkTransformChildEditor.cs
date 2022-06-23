@@ -1,8 +1,5 @@
 #if ENABLE_UNET
-using System;
-using UnityEditor;
 using UnityEngine;
-using System.Collections;
 using UnityEngine.Networking;
 
 
@@ -10,10 +7,10 @@ namespace UnityEditor
 {
     [CustomEditor(typeof(NetworkTransformChild), true)]
     [CanEditMultipleObjects]
-    
+
     public class NetworkTransformChildEditor : Editor
     {
-        private static GUIContent[] axisOptions = {TextUtility.TextContent("None"), new GUIContent("X"), TextUtility.TextContent("Y (Top-Down 2D)"), TextUtility.TextContent("Z (Side-on 2D)"), TextUtility.TextContent("XY (FPS)"), new GUIContent("XZ"), new GUIContent("YZ"), TextUtility.TextContent("XYZ (full 3D)")};
+        private static GUIContent[] axisOptions = { TextUtility.TextContent("None"), new GUIContent("X"), TextUtility.TextContent("Y (Top-Down 2D)"), TextUtility.TextContent("Z (Side-on 2D)"), TextUtility.TextContent("XY (FPS)"), new GUIContent("XZ"), new GUIContent("YZ"), TextUtility.TextContent("XYZ (full 3D)") };
 
         bool m_Initialized = false;
         NetworkTransformChild sync;

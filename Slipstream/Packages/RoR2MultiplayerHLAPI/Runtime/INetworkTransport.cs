@@ -1,11 +1,10 @@
-using System;
 using System.Net;
 
 using UnityEngine.Networking.Types;
 
 namespace UnityEngine.Networking
 {
-    
+
     public interface INetworkTransport
     {
         void Init();

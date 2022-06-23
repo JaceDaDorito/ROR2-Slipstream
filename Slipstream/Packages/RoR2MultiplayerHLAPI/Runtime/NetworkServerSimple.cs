@@ -1,8 +1,7 @@
 using System;
-using UnityEngine;
 using System.Collections.Generic;
-using UnityEngine.Networking.Types;
 using System.Collections.ObjectModel;
+using UnityEngine.Networking.Types;
 
 
 namespace UnityEngine.Networking
@@ -13,7 +12,7 @@ namespace UnityEngine.Networking
     /// <para>Like the NetworkServer and NetworkClient classes, it allows the type of NetworkConnection class created for new connections to be specified with SetNetworkConnectionClass(), so custom types of network connections can be used with it.</para>
     /// <para>This class can be used by overriding the virtual functions OnConnected, OnDisconnected and OnData; or by registering message handlers.</para>
     /// </summary>
-    
+
     public class NetworkServerSimple
     {
         bool m_Initialized = false;
@@ -35,16 +34,16 @@ namespace UnityEngine.Networking
         /// <summary>
         /// The network port that the server is listening on.
         /// </summary>
-        public int listenPort { get { return m_ListenPort; } set { m_ListenPort = value; }}
+        public int listenPort { get { return m_ListenPort; } set { m_ListenPort = value; } }
         /// <summary>
         /// The transport layer hostId of the server.
         /// </summary>
-        public int serverHostId { get { return m_ServerHostId; } set { m_ServerHostId = value; }}
+        public int serverHostId { get { return m_ServerHostId; } set { m_ServerHostId = value; } }
         /// <summary>
         /// The transport layer host-topology that the server is configured with.
         /// <para>A host topology object can be passed to the Listen() function, or a default host topology that is compatible with the default topology of NetworkClient will be used.</para>
         /// </summary>
-        public HostTopology hostTopology { get { return m_HostTopology; }}
+        public HostTopology hostTopology { get { return m_HostTopology; } }
         /// <summary>
         /// This causes the server to listen for WebSocket connections instead of regular transport layer connections.
         /// <para>This allows WebGL clients to talk to the server.</para>
@@ -53,7 +52,7 @@ namespace UnityEngine.Networking
         /// <summary>
         /// A read-only list of the current connections being managed.
         /// </summary>
-        public ReadOnlyCollection<NetworkConnection> connections { get { return m_ConnectionsReadOnly; }}
+        public ReadOnlyCollection<NetworkConnection> connections { get { return m_ConnectionsReadOnly; } }
         /// <summary>
         /// The message handler functions that are registered.
         /// </summary>
@@ -62,11 +61,11 @@ namespace UnityEngine.Networking
         /// <summary>
         /// The internal buffer that the server reads data from the network into. This will contain the most recent data read from the network when OnData() is called.
         /// </summary>
-        public byte[] messageBuffer { get { return m_MsgBuffer; }}
+        public byte[] messageBuffer { get { return m_MsgBuffer; } }
         /// <summary>
         /// A NetworkReader object that is bound to the server's messageBuffer.
         /// </summary>
-        public NetworkReader messageReader { get { return m_MsgReader; }}
+        public NetworkReader messageReader { get { return m_MsgReader; } }
 
         /// <summary>
         /// The type of class to be created for new network connections from clients.
@@ -340,31 +339,31 @@ namespace UnityEngine.Networking
                 switch (networkEvent)
                 {
                     case NetworkEventType.ConnectEvent:
-                    {
-                        HandleConnect(connectionId, error);
-                        break;
-                    }
+                        {
+                            HandleConnect(connectionId, error);
+                            break;
+                        }
 
                     case NetworkEventType.DataEvent:
-                    {
-                        HandleData(connectionId, channelId, receivedSize, error);
-                        break;
-                    }
+                        {
+                            HandleData(connectionId, channelId, receivedSize, error);
+                            break;
+                        }
 
                     case NetworkEventType.DisconnectEvent:
-                    {
-                        HandleDisconnect(connectionId, error);
-                        break;
-                    }
+                        {
+                            HandleDisconnect(connectionId, error);
+                            break;
+                        }
 
                     case NetworkEventType.Nothing:
-                    {
-                        if (error != 0)
                         {
-                            OnError(connectionId, error);
+                            if (error != 0)
+                            {
+                                OnError(connectionId, error);
+                            }
+                            break;
                         }
-                        break;
-                    }
 
                     default:
                         if (LogFilter.logError) { Debug.LogError("Unknown network message type received: " + networkEvent); }

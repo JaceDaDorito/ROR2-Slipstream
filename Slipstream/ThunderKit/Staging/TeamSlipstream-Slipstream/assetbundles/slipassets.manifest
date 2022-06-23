@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 2800339506
+CRC: 758728413
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 5262016faeb95ecd168016e445d86540
+    Hash: 6427e836195c75d3ea703d8926e51382
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 38fc72fd69eac5e5d85a2613bd1a3f99
+    Hash: 063ac824733ff27409414a187be8e400
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -40,6 +40,8 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 870831823, guid: c8c954e10545f6cd0045de066bc4846b, type: 3}
 - Class: 114
+  Script: {fileID: 11500000, guid: 8e6292b2c06870d4495f009f912b9600, type: 3}
+- Class: 114
   Script: {fileID: 11500000, guid: 3c9c430476270cb42ae82672a367a0e1, type: 3}
 - Class: 114
   Script: {fileID: -1752031980, guid: b2ac317a67c468eb8fd6ed06da7572d4, type: 3}
@@ -66,8 +68,6 @@ ClassTypes:
 - Class: 114
   Script: {fileID: -1479993534, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
-  Script: {fileID: 378867107, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
-- Class: 114
   Script: {fileID: 296141222, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: -1848696948, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
@@ -83,6 +83,8 @@ ClassTypes:
   Script: {fileID: -899414464, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: -941154584, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: 2011136271, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: -794597441, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
@@ -122,6 +124,7 @@ Assets:
 - Assets/Materials/texPepperSmoke.png
 - Assets/Materials/matFireFlyTrail.mat
 - Assets/Slipstream/SlipstreamAssets/ContentPack.asset
+- Packages/com.unity.postprocessing/PostProcessing/Gizmos/PostProcessLayer.png
 - Assets/Materials/texRampGreaterWisp.png
 - Assets/Materials/texUIHighlightExecute.png
 - Assets/Materials/texCloudDifferenceBW1.png
@@ -175,12 +178,12 @@ Assets:
 - Assets/Icons/iconSlipstreamDisable.png
 - Assets/Shaders/ActualShaders/fx/hgcloudremap.asset
 - Assets/Materials/MobsterMando_Emission.png
-- Assets/Slipstream/SlipstreamAssets/New Item Relationship Provider.asset
 - Assets/Materials/matAETerrain1.mat
 - Assets/Materials/matPepperSprayEmit.mat
 - Assets/Materials/texRJGrassTerrain4.png
 - Assets/Materials/texRootJungleSpore.png
 - Assets/Materials/glasseye_Normal.png
+- Assets/Slipstream/SlipstreamAssets/PPProfiles/rampFogTest.asset
 - Assets/Materials/texGPRockSide2.png
 - Assets/Materials/GlassEye_Glowy.png
 - Assets/Slipstream/SlipstreamAssets/ItemDisplayRules/iddGlassEye.asset

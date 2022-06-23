@@ -1,12 +1,11 @@
 #if ENABLE_UNET
-using System;
 using UnityEngine;
 using UnityEngine.Networking;
 
 namespace UnityEditor
 {
     [CustomEditor(typeof(NetworkMigrationManager), true)]
-    
+
     public class NetworkMigrationManagerEditor : Editor
     {
         bool m_Initialized;

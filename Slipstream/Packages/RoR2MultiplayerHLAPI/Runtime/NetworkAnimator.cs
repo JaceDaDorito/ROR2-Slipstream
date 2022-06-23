@@ -1,5 +1,3 @@
-using System;
-using UnityEngine;
 using UnityEngine.Networking.NetworkSystem;
 
 namespace UnityEngine.Networking
@@ -15,12 +13,12 @@ namespace UnityEngine.Networking
     [AddComponentMenu("Network/NetworkAnimator")]
     [RequireComponent(typeof(NetworkIdentity))]
     [RequireComponent(typeof(Animator))]
-    
+
     public class NetworkAnimator : NetworkBehaviour
     {
         // configuration
-        [SerializeField] Animator   m_Animator;
-        [SerializeField] uint       m_ParameterSendBits;
+        [SerializeField] Animator m_Animator;
+        [SerializeField] uint m_ParameterSendBits;
 
         // static message objects to avoid runtime-allocations
         static AnimationMessage s_AnimationMessage = new AnimationMessage();
@@ -50,7 +48,7 @@ namespace UnityEngine.Networking
         {
             if (value)
             {
-                m_ParameterSendBits |=  (uint)(1 << index);
+                m_ParameterSendBits |= (uint)(1 << index);
             }
             else
             {
@@ -68,18 +66,18 @@ namespace UnityEngine.Networking
             return (m_ParameterSendBits & (uint)(1 << index)) != 0;
         }
 
-        int                     m_AnimationHash;
-        int                     m_TransitionHash;
-        NetworkWriter           m_ParameterWriter;
-        float                   m_SendTimer;
+        int m_AnimationHash;
+        int m_TransitionHash;
+        NetworkWriter m_ParameterWriter;
+        float m_SendTimer;
 
         // tracking - these should probably move to a Preview component.
-        public string   param0;
-        public string   param1;
-        public string   param2;
-        public string   param3;
-        public string   param4;
-        public string   param5;
+        public string param0;
+        public string param1;
+        public string param2;
+        public string param3;
+        public string param4;
+        public string param5;
 
         bool sendMessagesAllowed
         {
@@ -380,7 +378,7 @@ namespace UnityEngine.Networking
 
             if (hasAuthority && localPlayerAuthority)
             {
-                if (NetworkClient.allClients.Count  > 0)
+                if (NetworkClient.allClients.Count > 0)
                 {
                     var client = ClientScene.readyConnection;
                     if (client != null)

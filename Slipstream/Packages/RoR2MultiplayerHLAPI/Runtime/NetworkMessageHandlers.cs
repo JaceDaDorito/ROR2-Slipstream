@@ -1,5 +1,4 @@
 #if ENABLE_UNET
-using System;
 using System.Collections.Generic;
 
 #pragma warning disable 618

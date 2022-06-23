@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine.Networking.NetworkSystem;
 
@@ -12,7 +11,7 @@ namespace UnityEngine.Networking
     /// <para>As the ClientScene manages player objects on the client, it is where clients request to add players. The NetworkManager does this via the ClientScene automatically when auto-add-players is set, but it can be done through code using the function ClientScene.AddPlayer(). This sends an AddPlayer message to the server and will cause a player object to be created for this client.</para>
     /// <para>Like NetworkServer, the ClientScene understands the concept of the local client. The function ClientScene.ConnectLocalServer() is used to become a host by starting a local client (when a server is already running).</para>
     /// </summary>
-    
+
     public class ClientScene
     {
         static List<PlayerController> s_LocalPlayers = new List<PlayerController>();
@@ -84,13 +83,13 @@ namespace UnityEngine.Networking
         /// The NetworkConnection object that is currently "ready". This is the connection to the server where objects are spawned from.
         /// <para>This connection can be used to send messages to the server. There can only be one ready connection at a time. There can be multiple NetworkClient instances in existence, each with their own NetworkConnections, but there is only one ClientScene instance and corresponding ready connection.</para>
         /// </summary>
-        public static NetworkConnection readyConnection { get { return s_ReadyConnection; }}
+        public static NetworkConnection readyConnection { get { return s_ReadyConnection; } }
 
         /// <summary>
         /// The reconnectId to use when a client reconnects to the new host of a game after the old host was lost.
         /// <para>This will be ClientScene.ReconnectIdInvalid by default (-1), and will be ClientScene.ReconnectIdHost when the old host is reconnecting to the host of the new game.</para>
         /// </summary>
-        public static int reconnectId { get { return s_ReconnectId; }}
+        public static int reconnectId { get { return s_ReconnectId; } }
 
         /// <summary>
         /// This is a dictionary of networked objects that have been spawned on the client.
@@ -157,7 +156,7 @@ namespace UnityEngine.Networking
 
             // NOTE: It can be "normal" when changing scenes for the player to be destroyed and recreated.
             // But, the player structures are not cleaned up, we'll just replace the old player
-            var newPlayer = new PlayerController {gameObject = view.gameObject, playerControllerId = playerControllerId, unetView = view};
+            var newPlayer = new PlayerController { gameObject = view.gameObject, playerControllerId = playerControllerId, unetView = view };
             s_LocalPlayers[playerControllerId] = newPlayer;
             if (s_ReadyConnection == null)
             {
@@ -300,7 +299,7 @@ namespace UnityEngine.Networking
             if (!hasMigrationPending())
                 return false;
 
-            if (LogFilter.logDebug) { Debug.Log("ClientScene::AddPlayer reconnect " + s_ReconnectId);           }
+            if (LogFilter.logDebug) { Debug.Log("ClientScene::AddPlayer reconnect " + s_ReconnectId); }
 
             if (s_Peers == null)
             {

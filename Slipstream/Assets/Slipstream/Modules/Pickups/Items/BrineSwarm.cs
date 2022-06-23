@@ -31,7 +31,7 @@ namespace Slipstream.Items
 
         [ConfigurableField(ConfigName = "Damage Increase", ConfigDesc = "Damage increase when Brine Buff is active.", ConfigSection = "BrineSwarm")]
         [TokenModifier(token, StatTypes.Percentage, 2)]
-        public static float damageIncrease = 0.1f;
+        public static float damageIncrease = 0.2f;
 
         [ConfigurableField(ConfigName = "Armor Increase", ConfigDesc = "Damage increase when Brine Buff is active.", ConfigSection = "BrineSwarm")]
         [TokenModifier(token, StatTypes.Default, 3)]
@@ -45,13 +45,10 @@ namespace Slipstream.Items
         //[TokenModifier(token, StatTypes.Default, 5)]
         public static float buffTimeConstant = 1.0f;
 
-        public static Material cachedVoidMaterial;
-        public static Material cachedEnergyMaterial;
-
         public override void Initialize()
         {
             base.Initialize();
-            //VoidShieldCatalog.Add(ItemDef);
+            VoidShieldCatalog.AddVoidShieldCatalog(ItemDef);
         }
         public class BrineSwarmBehavior : CriticalShield.CriticalShieldBehavior, IBodyStatArgModifier
         {

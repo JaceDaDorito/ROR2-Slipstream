@@ -1,6 +1,5 @@
 using System;
 using System.Text;
-using UnityEngine;
 
 namespace UnityEngine.Networking
 {
@@ -66,7 +65,7 @@ namespace UnityEngine.Networking
     /// }
     /// </code>
     /// </summary>
-    
+
     public class NetworkReader
     {
         NetBuffer m_buf;
@@ -228,7 +227,7 @@ namespace UnityEngine.Networking
             byte a8 = ReadByte();
             if (a0 == 255)
             {
-                return a1 + (((UInt64)a2) << 8) + (((UInt64)a3) << 16) + (((UInt64)a4) << 24) + (((UInt64)a5) << 32) + (((UInt64)a6) << 40) + (((UInt64)a7) << 48)  + (((UInt64)a8) << 56);
+                return a1 + (((UInt64)a2) << 8) + (((UInt64)a3) << 16) + (((UInt64)a4) << 24) + (((UInt64)a5) << 32) + (((UInt64)a6) << 40) + (((UInt64)a7) << 48) + (((UInt64)a8) << 56);
             }
             throw new IndexOutOfRangeException("ReadPackedUInt64() failure: " + a0);
         }
