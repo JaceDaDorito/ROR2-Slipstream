@@ -35,15 +35,13 @@ namespace Slipstream.Items
             bool hasVoidShield = false;
             if (voidShieldItems.Count <= 0)
             {
-                SlipLogger.LogI($"Slip Shield item:" + hasVoidShield);
                 return hasVoidShield;
             }
             for(int i = 0; i < voidShieldItems.Count; i++)
             {
-                if (component.inventory.GetItemCount(voidShieldItems[i]) <= 0)
+                if (component.inventory.GetItemCount(voidShieldItems[i]) > 0)
                     hasVoidShield = true;
             }
-            SlipLogger.LogI($"Slip Shield item:" + hasVoidShield);
             return hasVoidShield;
         }
 
@@ -51,7 +49,7 @@ namespace Slipstream.Items
         {
             //Material cachedMaterial = null;
             RoR2.HealthComponent.HealthBarValues values = orig(self);
-            if (self)
+            if (self.body)
             {
                 if (HasVoidShield(self.body))
                 {
@@ -63,24 +61,21 @@ namespace Slipstream.Items
 
         private void CharacterModel_UpdateOverlays(On.RoR2.CharacterModel.orig_UpdateOverlays orig, RoR2.CharacterModel self)
         {
-            orig(self);
+            Material cachedMaterial = null;
             if (self.body)
             {
-                /*if(self.body.inventory != null && !(self.body.inventory.GetItemCount(RoR2.DLC1Content.Items.MissileVoid) > 1))
+                if (HasVoidShield(self.body))
                 {
-
-                }*/
-                Material cachedMaterial = null;
-                if (HasVoidShield(self.body)){
                     cachedMaterial = RoR2.CharacterModel.energyShieldMaterial;
                     RoR2.CharacterModel.energyShieldMaterial = RoR2.CharacterModel.voidShieldMaterial;
                 }
-                orig(self);
-                if (cachedMaterial)
-                {
-                    RoR2.CharacterModel.energyShieldMaterial = cachedMaterial;
-                }
             }
+            orig(self);
+            if (cachedMaterial)
+            {
+                RoR2.CharacterModel.energyShieldMaterial = cachedMaterial;
+            }
+            return;
         }
     }
 }
