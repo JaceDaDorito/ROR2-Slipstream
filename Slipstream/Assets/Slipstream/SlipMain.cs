@@ -66,6 +66,7 @@ namespace Slipstream
             new SlipLanguage().Init();
 
             new CriticalShield().Init();
+            //new VoidShieldCatalog().Init();
 
             //Allows organized configurable fields of public static fields.
             ConfigurableFieldManager.AddMod(this);

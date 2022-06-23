@@ -11,24 +11,24 @@ namespace Slipstream.Items
     {
         //credit to groove as this is how he loads item relationships
         //this is temporary but this will do for now
-        public virtual ItemDef[] CorruptCatalog { get; } = Array.Empty<ItemDef>();
+        public virtual ItemDef[] ItemsToCorrupt { get; } = Array.Empty<ItemDef>();
         private ItemRelationshipType cachedType = LegacyResourcesAPI.Load<ItemRelationshipType>("ItemRelationships/ContagiousItem");
         public override void Initialize()
         {
             base.Initialize();
             SlipLogger.LogI($"Initializing Slipstream void relationships...");
-            SlipLogger.LogI(CorruptCatalog[0]);
-            if (CorruptCatalog.Length != 0)
+            SlipLogger.LogI(ItemsToCorrupt[0]);
+            if (ItemsToCorrupt.Length != 0)
             {
                 ItemRelationshipProvider itemRelationshipProvider = ScriptableObject.CreateInstance<ItemRelationshipProvider>();
                 itemRelationshipProvider.relationshipType = cachedType;
-                itemRelationshipProvider.relationships = new ItemDef.Pair[CorruptCatalog.Length];
-                for(int i = 0; i < CorruptCatalog.Length; i++)
+                itemRelationshipProvider.relationships = new ItemDef.Pair[ItemsToCorrupt.Length];
+                for (int i = 0; i < ItemsToCorrupt.Length; i++)
                 {
                     itemRelationshipProvider.relationships[i] = new ItemDef.Pair
                     {
-                        itemDef1 = this.CorruptCatalog[i],
-                        itemDef2 = this.ItemDef
+                        itemDef1 = ItemsToCorrupt[i],
+                        itemDef2 = ItemDef
                     };
                 }
                 bool notNull = itemRelationshipProvider;

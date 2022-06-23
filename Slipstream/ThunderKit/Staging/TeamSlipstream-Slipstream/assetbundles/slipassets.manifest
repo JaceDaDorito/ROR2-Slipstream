@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 1805273510
+CRC: 2800339506
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: d238aff6b3445a0a3802b4b67b9f7aee
+    Hash: 5262016faeb95ecd168016e445d86540
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 87413b26d9d144d7e96bfa98a412d13e
+    Hash: 38fc72fd69eac5e5d85a2613bd1a3f99
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -65,6 +65,8 @@ ClassTypes:
   Script: {fileID: -1284244208, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: -1479993534, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: 378867107, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: 296141222, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
@@ -173,6 +175,7 @@ Assets:
 - Assets/Icons/iconSlipstreamDisable.png
 - Assets/Shaders/ActualShaders/fx/hgcloudremap.asset
 - Assets/Materials/MobsterMando_Emission.png
+- Assets/Slipstream/SlipstreamAssets/New Item Relationship Provider.asset
 - Assets/Materials/matAETerrain1.mat
 - Assets/Materials/matPepperSprayEmit.mat
 - Assets/Materials/texRJGrassTerrain4.png

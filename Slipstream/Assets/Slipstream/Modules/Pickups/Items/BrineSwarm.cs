@@ -1,4 +1,5 @@
 ﻿using Moonstorm;
+using UnityEngine.AddressableAssets;
 using Slipstream.Buffs;
 using RoR2;
 using System;
@@ -17,7 +18,7 @@ namespace Slipstream.Items
     {
         private const string token = "SLIP_ITEM_BRINESWARM_DESC";
         public override RoR2.ItemDef ItemDef { get; } = SlipAssets.Instance.MainAssetBundle.LoadAsset<RoR2.ItemDef>("BrineSwarm");
-        public override RoR2.ItemDef[] CorruptCatalog { get; } = {
+        public override RoR2.ItemDef[] ItemsToCorrupt { get; } = {
             SlipAssets.Instance.MainAssetBundle.LoadAsset<RoR2.ItemDef>("PepperSpray")
         };
 
@@ -43,6 +44,15 @@ namespace Slipstream.Items
         [ConfigurableField(ConfigName = "Base Buff Duration Constant", ConfigDesc = "Initial amount of speed with one stack.", ConfigSection = "BrineSwarm")]
         //[TokenModifier(token, StatTypes.Default, 5)]
         public static float buffTimeConstant = 1.0f;
+
+        public static Material cachedVoidMaterial;
+        public static Material cachedEnergyMaterial;
+
+        public override void Initialize()
+        {
+            base.Initialize();
+            //VoidShieldCatalog.Add(ItemDef);
+        }
         public class BrineSwarmBehavior : CriticalShield.CriticalShieldBehavior, IBodyStatArgModifier
         {
             [ItemDefAssociation(useOnClient = true, useOnServer = true)]

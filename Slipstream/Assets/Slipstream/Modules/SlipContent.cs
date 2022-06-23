@@ -110,6 +110,9 @@ namespace Slipstream
                 },
                 delegate
                 {
+                    bool notNull = ItemRelationshipProviders.contagiousRelationships[0];
+                    SlipLogger.LogI(notNull);
+                    SlipLogger.LogI($"Contagious item 1:" + ItemRelationshipProviders.contagiousRelationships[0].relationships[0].itemDef1 + $"Contagious item 2:" + ItemRelationshipProviders.contagiousRelationships[0].relationships[0].itemDef2);
                     SerializableContentPack.itemRelationshipProviders = ItemRelationshipProviders.contagiousRelationships.ToArray();
                 },
                 delegate
@@ -157,6 +160,10 @@ namespace Slipstream
                 {
                     PopulateTypeFields(typeof(Scenes), ContentPack.sceneDefs);
                 },
+                delegate
+                {
+                    PopulateTypeFields(typeof(ItemRelationshipProvider), ContentPack.itemRelationshipProviders);
+                }
                 #endregion
             };
         }
