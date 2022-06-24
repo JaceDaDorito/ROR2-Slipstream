@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 758728413
+CRC: 4270973441
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 6427e836195c75d3ea703d8926e51382
+    Hash: cce87303e83c6a6b51bb56bc054d3373
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 063ac824733ff27409414a187be8e400
+    Hash: 1637f6f9eb195844ac518f0e51706b7e
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -30,6 +30,8 @@ ClassTypes:
 - Class: 65
   Script: {instanceID: 0}
 - Class: 74
+  Script: {instanceID: 0}
+- Class: 89
   Script: {instanceID: 0}
 - Class: 108
   Script: {instanceID: 0}
@@ -114,6 +116,8 @@ ClassTypes:
 SerializeReferenceClassIdentifiers: []
 Assets:
 - Assets/Materials/texRampTritone2.png
+- Assets/Materials/skyboxArid.mat
+- Assets/Materials/matWindowsXPTerrain.mat
 - Assets/Materials/texRampPepperRad.png
 - Assets/Shaders/ActualShaders/deferred/hgtriplanarterrainblend.asset
 - Assets/Icons/iconGlassEye.png
@@ -131,6 +135,7 @@ Assets:
 - Assets/Materials/Capture.PNG
 - Assets/Icons/iconPepperSpeed.png
 - Assets/Materials/texLightning1Mask.png
+- Assets/Materials/skyboxFoggyFullNoPlanet.png
 - Assets/Shaders/ActualShaders/deferred/hgstandard.asset
 - Assets/Materials/matPepperSprayEmit - Copy.mat
 - Assets/Slipstream/SlipstreamAssets/Prefabs/Pickups/PickupPepperSpray.prefab
@@ -141,6 +146,7 @@ Assets:
 - Assets/Slipstream/SlipstreamAssets/SceneDefs/PickupRendererScene.asset
 - Assets/Materials/GlassEye_Ramp.png
 - Assets/Icons/Capture2.png
+- Assets/Materials/texGPRockSide3.png
 - Assets/Materials/GlassEye_HeightMap.png
 - Assets/Slipstream/SlipstreamAssets/Prefabs/Pickups/PickupTestItem.prefab
 - Assets/Materials/texBlackbeachBasicRockSide2.png
@@ -161,7 +167,9 @@ Assets:
 - Assets/Slipstream/SlipstreamAssets/Prefabs/SizeReference.prefab
 - Assets/Materials/MobsterMando_Diffuse.png
 - Assets/Materials/glasseye_Flowmap.png
+- Assets/Slipstream/SlipstreamAssets/BuffDefs/BedeviledMark.asset
 - Assets/Slipstream/SlipstreamAssets/BuffDefs/PepperSpeed.asset
+- Assets/Materials/texGP2GrassTerrain.png
 - Assets/Materials/New Material 1.mat
 - Assets/Materials/matPepperRim.mat
 - Assets/Mesh/Sphere.asset
@@ -175,11 +183,13 @@ Assets:
 - Assets/Materials/matSmoke.mat
 - Assets/Slipstream/SlipstreamAssets/ItemDefs/PepperSpray.asset
 - Assets/Mesh/mdlGlassEye.fbx
+- Assets/Materials/skyboxJungleFull.png
 - Assets/Icons/iconSlipstreamDisable.png
 - Assets/Shaders/ActualShaders/fx/hgcloudremap.asset
 - Assets/Materials/MobsterMando_Emission.png
 - Assets/Materials/matAETerrain1.mat
 - Assets/Materials/matPepperSprayEmit.mat
+- Assets/Materials/skyboxFoggyFull.png
 - Assets/Materials/texRJGrassTerrain4.png
 - Assets/Materials/texRootJungleSpore.png
 - Assets/Materials/glasseye_Normal.png
@@ -215,6 +225,7 @@ Assets:
 - Assets/Slipstream/SlipstreamAssets/Prefabs/Pickups/PickupGlassEye.prefab
 - Assets/Materials/matGlassEyeMetal.mat
 - Assets/Materials/rampPepperSpray.png
+- Assets/Materials/texRJDirtDiffuse2.png
 - Assets/Materials/texRampPepperRim.png
 - Assets/Slipstream/SlipstreamAssets/Prefabs/Projectiles/JaceHatProjectile.prefab
 - Assets/Materials/texCloudOrganicNormal.png
@@ -222,6 +233,7 @@ Assets:
 - Assets/Materials/textTileScratchSplat.png
 - Assets/Materials/matGlassEyeGlowy.mat
 - Assets/Materials/matPepperSprayOldSmoke.mat
+- Assets/Materials/texBBMudNormal.png
 - Assets/Materials/texBlack.png
 - Assets/Materials/texBarrierBarPlaceholder.png
 - Assets/Materials/texGenericStarburstMask.png

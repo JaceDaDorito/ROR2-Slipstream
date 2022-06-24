@@ -18,8 +18,9 @@ namespace Slipstream
         public static class Buffs
         {
             //Buffs go here
-            public static BuffDef PepperSpeed;
+            //public static BuffDef BedeviledMark;
             public static BuffDef BrineBuff;
+            public static BuffDef PepperSpeed;
         }
 
         public static class Elites

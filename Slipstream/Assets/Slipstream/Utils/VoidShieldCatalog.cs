@@ -49,7 +49,7 @@ namespace Slipstream.Items
         {
             //Material cachedMaterial = null;
             RoR2.HealthComponent.HealthBarValues values = orig(self);
-            if (self.body)
+            if (self.body.inventory)
             {
                 if (HasVoidShield(self.body))
                 {
@@ -62,13 +62,15 @@ namespace Slipstream.Items
         private void CharacterModel_UpdateOverlays(On.RoR2.CharacterModel.orig_UpdateOverlays orig, RoR2.CharacterModel self)
         {
             Material cachedMaterial = null;
-            if (self.body)
+            if (!self.body || !self.body.inventory)
             {
-                if (HasVoidShield(self.body))
-                {
-                    cachedMaterial = RoR2.CharacterModel.energyShieldMaterial;
-                    RoR2.CharacterModel.energyShieldMaterial = RoR2.CharacterModel.voidShieldMaterial;
-                }
+                orig(self);
+                return;
+            }
+            if (HasVoidShield(self.body))
+            {
+                cachedMaterial = RoR2.CharacterModel.energyShieldMaterial;
+                RoR2.CharacterModel.energyShieldMaterial = RoR2.CharacterModel.voidShieldMaterial;
             }
             orig(self);
             if (cachedMaterial)

@@ -6,7 +6,7 @@ Message (JaceDaDorito#7035) on Discord if there are any issues regarding the mod
 ## Credits
 * Code - JaceDaDorito, Atlantean/Dot/Org, Zach, MoonlitWyvern, Knowledge
 * Moonstorm Shared Utils - NebNeb
-* Thunderkit - Twiner
+* Thunderkit and SimplyAddress - Twiner, Neon Sky
 * 2D Concept Artists - Kamei, Runefield, Vaikyia, JaceDaDorito, Dodu, splet, Hans, Koopahunter197
 * 3D Artists/Moddlers -  Kamei, dotflare, foodrelatedname
 * Lore Writers - splet, LordBidoof, JaceDaDorito
