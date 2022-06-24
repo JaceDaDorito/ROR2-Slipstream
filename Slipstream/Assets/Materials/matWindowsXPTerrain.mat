@@ -44,7 +44,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _GreenChannelTex:
-        m_Texture: {fileID: 2800000, guid: bb4022879295d32449b106411885cdba, type: 3}
+        m_Texture: {fileID: 2800000, guid: 0a9f04927f20b4544aca0324638d65c2, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:

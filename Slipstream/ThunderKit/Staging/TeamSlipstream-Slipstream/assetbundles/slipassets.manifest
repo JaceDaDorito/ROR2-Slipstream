@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 4270973441
+CRC: 2054860706
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: cce87303e83c6a6b51bb56bc054d3373
+    Hash: 36c02b8f73a9e1ba1235678c09edd960
   TypeTreeHash:
     serializedVersion: 2
     Hash: 1637f6f9eb195844ac518f0e51706b7e
@@ -127,6 +127,7 @@ Assets:
 - Assets/Slipstream/SlipstreamAssets/EliteDefs/Sandswept.asset
 - Assets/Materials/texPepperSmoke.png
 - Assets/Materials/matFireFlyTrail.mat
+- Assets/Materials/texWindowsGrass.png
 - Assets/Slipstream/SlipstreamAssets/ContentPack.asset
 - Packages/com.unity.postprocessing/PostProcessing/Gizmos/PostProcessLayer.png
 - Assets/Materials/texRampGreaterWisp.png
@@ -154,6 +155,7 @@ Assets:
 - Assets/Materials/matPepperSpray.png
 - Assets/Materials/texThermiteDroplet2Mask.png
 - Assets/Slipstream/SlipstreamAssets/Prefabs/DisplayPrefabs/DisplayPepperSpray.prefab
+- Assets/Materials/texDCGrass2.png
 - Assets/Slipstream/SlipstreamAssets/Prefabs/DisplayPrefabs/DisplayGlassEye.prefab
 - Assets/Slipstream/SlipstreamAssets/BuffDefs/AffixSandswept.asset
 - Assets/Materials/texRampThermite2.png
@@ -192,10 +194,12 @@ Assets:
 - Assets/Materials/skyboxFoggyFull.png
 - Assets/Materials/texRJGrassTerrain4.png
 - Assets/Materials/texRootJungleSpore.png
+- Assets/Materials/texAEGrass.png
 - Assets/Materials/glasseye_Normal.png
 - Assets/Slipstream/SlipstreamAssets/PPProfiles/rampFogTest.asset
 - Assets/Materials/texGPRockSide2.png
 - Assets/Materials/GlassEye_Glowy.png
+- Assets/Materials/texGPRockSide4.png
 - Assets/Slipstream/SlipstreamAssets/ItemDisplayRules/iddGlassEye.asset
 - Assets/Materials/texRampHealingMedkit.png
 - Assets/Materials/matChuckTriplanar.mat

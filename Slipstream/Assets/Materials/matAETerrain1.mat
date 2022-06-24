@@ -20,7 +20,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BlueChannelTex:
-        m_Texture: {fileID: 2800000, guid: 76f12cae2bc2792489b7dd3cd762a20b, type: 3}
+        m_Texture: {fileID: 2800000, guid: 2513e1163501cde47b0320ff10bdef40, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
@@ -44,7 +44,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _GreenChannelTex:
-        m_Texture: {fileID: 2800000, guid: bb4022879295d32449b106411885cdba, type: 3}
+        m_Texture: {fileID: 2800000, guid: 74dd3bc9c983be448a3ba3091cba7db8, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
@@ -80,7 +80,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _BlueChannelBias: 0.4
+    - _BlueChannelBias: 1.78
     - _BlueChannelSmoothness: 0
     - _BlueChannelSpecularExponent: 0
     - _BlueChannelSpecularStrength: 0
@@ -96,7 +96,7 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _GreenChannelBias: 0.9
+    - _GreenChannelBias: 1.13
     - _GreenChannelSmoothness: 0
     - _GreenChannelSpecularExponent: 0
     - _GreenChannelSpecularStrength: 0
@@ -108,7 +108,7 @@ Material:
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _RampInfo: 1
-    - _RedChannelBias: 1.29
+    - _RedChannelBias: 1.39
     - _RedChannelSmoothness: 0
     - _RedChannelSpecularExponent: 0
     - _RedChannelSpecularStrength: 0
@@ -121,5 +121,5 @@ Material:
     - _VerticalBiasOn: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.745283, g: 0.745283, b: 0.745283, a: 1}
+    - _Color: {r: 1, g: 0.6156863, b: 0.25882354, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
