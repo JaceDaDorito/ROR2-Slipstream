@@ -56,7 +56,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Tex:
-        m_Texture: {fileID: 8900000, guid: f61cde98335f0bd48bbc48639badf91d, type: 3}
+        m_Texture: {fileID: 8900000, guid: 47bfe6f33269c0343a1c2d45322c8380, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
@@ -81,4 +81,4 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _Tint: {r: 0.41553932, g: 0.50768065, b: 0.5471698, a: 0.5}
+    - _Tint: {r: 0.4433962, g: 0.4433962, b: 0.4433962, a: 0}

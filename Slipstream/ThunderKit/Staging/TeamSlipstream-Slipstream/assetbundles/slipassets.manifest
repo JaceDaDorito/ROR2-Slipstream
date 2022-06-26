@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 2054860706
+CRC: 4248434636
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 36c02b8f73a9e1ba1235678c09edd960
+    Hash: 8d4660376a912633dc256dc1ae0181f9
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 1637f6f9eb195844ac518f0e51706b7e
+    Hash: 4189462c53ee9bac151bcb15f8055006
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -92,6 +92,8 @@ ClassTypes:
 - Class: 114
   Script: {fileID: -565067572, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
+  Script: {fileID: 1391837873, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
   Script: {fileID: 630417361, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: -1895344032, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
@@ -144,6 +146,7 @@ Assets:
 - Assets/Materials/texHippoRezRamp.png
 - Assets/Slipstream/SlipstreamAssets/EquipmentDefs/Incubator.asset
 - Assets/Slipstream/SlipstreamAssets/EquipmentDefs/AffixSandswept.asset
+- Assets/Materials/skyboxAridCubemap.png
 - Assets/Slipstream/SlipstreamAssets/SceneDefs/PickupRendererScene.asset
 - Assets/Materials/GlassEye_Ramp.png
 - Assets/Icons/Capture2.png
@@ -177,6 +180,7 @@ Assets:
 - Assets/Mesh/Sphere.asset
 - Assets/Materials/glasseye_Diffuse.png
 - Assets/Materials/texSmokeExplosionMask.png
+- Assets/Slipstream/SlipstreamAssets/SkillDefs/Marauder.asset
 - Assets/Materials/texCloudOrganic1.png
 - Assets/Materials/texTileRustyMetal.png
 - Assets/Slipstream/SlipstreamAssets/ExpansionDef/SlipExpansionDef.asset
@@ -211,6 +215,7 @@ Assets:
 - Assets/Materials/matPepperSprayExplosion.mat
 - Assets/Materials/texPepperSprayCloud.png
 - Assets/Materials/texOmniShockwave1Mask.png
+- Assets/Materials/skyboxArid.png
 - Assets/Materials/texEgyptThing.png
 - Assets/Materials/texCriticalVoidShiIndi.png
 - Assets/Materials/New Material.mat
