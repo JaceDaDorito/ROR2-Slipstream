@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 4248434636
+CRC: 3381405760
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 8d4660376a912633dc256dc1ae0181f9
+    Hash: ddef84758fba16b3cf966b98e0d8d3de
   TypeTreeHash:
     serializedVersion: 2
     Hash: 4189462c53ee9bac151bcb15f8055006
@@ -125,6 +125,7 @@ Assets:
 - Assets/Icons/iconGlassEye.png
 - Assets/Slipstream/SlipstreamAssets/SceneDefs/TestStage.asset
 - Assets/Icons/iconPepperSpray.png
+- Assets/Materials/skyboxtexturefinished.png
 - Assets/Materials/texRampEngi.png
 - Assets/Slipstream/SlipstreamAssets/EliteDefs/Sandswept.asset
 - Assets/Materials/texPepperSmoke.png
@@ -192,6 +193,7 @@ Assets:
 - Assets/Materials/skyboxJungleFull.png
 - Assets/Icons/iconSlipstreamDisable.png
 - Assets/Shaders/ActualShaders/fx/hgcloudremap.asset
+- Assets/Materials/matAridExpanseSkybox.mat
 - Assets/Materials/MobsterMando_Emission.png
 - Assets/Materials/matAETerrain1.mat
 - Assets/Materials/matPepperSprayEmit.mat

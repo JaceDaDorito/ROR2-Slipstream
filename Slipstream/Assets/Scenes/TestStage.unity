@@ -296,7 +296,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &190236085
 Transform:
   m_ObjectHideFlags: 0
@@ -324,7 +324,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Address: RoR2/Base/golemplains/GPRuinedRing1Shattered2.prefab
-  replaceSelf: 0
+  replaceSelf: 1
   OnInstantiated:
     m_PersistentCalls:
       m_Calls: []
@@ -469,9 +469,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b15f1c4b29a7c91419c3094f4046b359, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Address: RoR2/Base/title/ppSceneBlackbeach.asset
-  TargetComponents:
-  - {fileID: 252151769}
 --- !u!114 &252151767
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -788,11 +785,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9179511125c6f73468334de11b7eac07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Address: RoR2/Base/blackbeach/BBSkybox.prefab
-  replaceSelf: 1
-  OnInstantiated:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &1073712554
 GameObject:
   m_ObjectHideFlags: 0
