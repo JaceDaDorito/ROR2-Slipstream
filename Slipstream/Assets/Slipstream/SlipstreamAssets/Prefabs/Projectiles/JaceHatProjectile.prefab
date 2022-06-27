@@ -65,7 +65,6 @@ GameObject:
   - component: {fileID: 1811089233590875457}
   - component: {fileID: 6035907760212106222}
   - component: {fileID: 8716190890700550281}
-  - component: {fileID: 1370013059622746004}
   m_Layer: 9
   m_Name: JaceHatProjectile
   m_TagString: Untagged
@@ -140,18 +139,10 @@ MonoBehaviour:
   startSound: 
   cannotBeDeleted: 0
   flightSoundLoop: {fileID: 0}
-  rigidbody: {fileID: 0}
-  <teamFilter>k__BackingField: {fileID: 0}
-  <ghost>k__BackingField: {fileID: 0}
-  <isPrediction>k__BackingField: 0
   canImpactOnTrigger: 0
-  <shouldPlaySounds>k__BackingField: 0
   allowPrediction: 1
   owner: {fileID: 0}
-  <procChainMask>k__BackingField:
-    mask: 0
   procCoefficient: 1
-  myColliders: []
 --- !u!54 &7563179061808203760
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -180,15 +171,9 @@ MonoBehaviour:
   m_Script: {fileID: -270136354, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileController: {fileID: 0}
-  transform: {fileID: 0}
-  rb: {fileID: 0}
-  interpolatedTransform: {fileID: 0}
   positionTransmitInterval: 0.033333335
   interpolationFactor: 1
   allowClientsideCollision: 0
-  serverPosition: {x: 0, y: 0, z: 0}
-  serverRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!114 &7621303807279639073
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -220,7 +205,6 @@ MonoBehaviour:
   m_Script: {fileID: -1895344032, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  teamIndexInternal: 0
   defaultTeam: -1
 --- !u!114 &6106284481179803165
 MonoBehaviour:
@@ -249,8 +233,6 @@ MonoBehaviour:
   m_Script: {fileID: -848926067, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileController: {fileID: 0}
-  projectileDamage: {fileID: 0}
   damageCoefficient: 0.2
   attackerFiltering: 2
   impactEffect: {fileID: 0}
@@ -265,9 +247,6 @@ MonoBehaviour:
   onEnd:
     m_PersistentCalls:
       m_Calls: []
-  fireStopwatch: 0
-  resetStopwatch: 0
-  totalStopwatch: 0
   soundLoopString: 
   soundLoopStopString: 
 --- !u!65 &3509424927490443357
@@ -317,8 +296,6 @@ MonoBehaviour:
   m_Script: {fileID: -899414464, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileController: {fileID: 0}
-  projectileDamage: {fileID: 0}
   damageCoefficient: 4
   impactEffect: {fileID: 0}
   forceVector: {x: 0, y: 0, z: 0}
@@ -329,8 +306,6 @@ MonoBehaviour:
       m_Calls: []
   fireFrequency: 60
   resetInterval: -1
-  resetTimer: 0
-  fireTimer: 0
 --- !u!114 &6035907760212106222
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -377,21 +352,3 @@ MonoBehaviour:
   degreesPerSecond: 540
   radius: 5
   planeNormal: {x: 0, y: 1, z: 0}
-  ownerTransform: {fileID: 0}
-  rigidBody: {fileID: 0}
-  resetOnAcquireOwner: 1
-  initialRadialDirection: {x: 0, y: 0, z: 0}
-  initialRunTime: 0
---- !u!114 &1370013059622746004
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9205177128277356338}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20defe7ea949c174094e5dde0dd669d8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  canHitWorld: 0
