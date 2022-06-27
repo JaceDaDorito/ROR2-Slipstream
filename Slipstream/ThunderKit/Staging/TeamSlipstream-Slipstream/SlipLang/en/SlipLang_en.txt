@@ -4,6 +4,11 @@
 	"SLIP_EXPANSION_SLIPSTREAM_NAME": "Slipstream",
 	"SLIP_EXPANSION_SLIPSTREAM_DESC": "Adds content from the 'Slipstream' mod to the game.",
 
+	"SLIP_ITEM_FRIENDSHIPBRACELET_NAME": "Friendship Bracelet",
+	"SLIP_ITEM_FRIENDSHIPBRACELET_PICKUP": "Allies inherit copies of some of your items.",
+	"SLIP_ITEM_FRIENDSHIPBRACELET_DESC": "Allies inherit <style=cIsUtility>2 copies of your items </style><style=cStack>(+2 copies per stack) </style>.",
+	"SLIP_ITEM_FRIENDSHIPBRACELET_LORE": "Your my frien :)",
+
         "SLIP_ITEM_GLASSEYE_NAME": "Bionic Eye",
 	"SLIP_ITEM_GLASSEYE_PICKUP": "When shield is active, gain a critical strike damage boost.",
 	"SLIP_ITEM_GLASSEYE_DESC": "When shield is active, gain a <style=cIsDamage>10% </style><style=cStack>(+5% per stack) </style><style=cIsDamage>critical strike damage boost</style>. Grants <style=cIsDamage>5% crit chance </style>and <style=cIsHealing>shield</style> equal to <style=cIsHealing>6%</style> of your maximum health.",
