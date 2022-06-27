@@ -14,13 +14,11 @@ namespace Slipstream.Scenes
     public class TestStage : SceneBase
     {
         public override SceneDef SceneDef { get; } = SlipAssets.Instance.MainAssetBundle.LoadAsset<SceneDef>("TestStage");
-        public static SceneDef scene;
-        private static MusicTrackDef music = Resources.Load<MusicTrackDef>("musictrackdefs/muGameplayBase_09");
+        private static MusicTrackDef music = Addressables.LoadAssetAsync<MusicTrackDef>("RoR2/Base/Common/muGameplayBase_09.asset").WaitForCompletion();
 
         public override void Initialize()
         {
-            scene = SceneDef;
-            scene.mainTrack = music;
+            SceneDef.mainTrack = music;
         }
     }
 

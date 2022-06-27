@@ -1,12 +1,17 @@
 ManifestFileVersion: 0
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 CRC: 3983552564
+=======
+CRC: 696468734
+>>>>>>> Stashed changes
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 28d4c0fedf0c4a578de59b412714fa7e
+    Hash: d663f72b1c52f7f63330686bfc599138
   TypeTreeHash:
     serializedVersion: 2
+<<<<<<< Updated upstream
     Hash: 92ad596debedc9f5696b7e30573b9a19
 =======
 CRC: 3762240264
@@ -17,6 +22,9 @@ Hashes:
   TypeTreeHash:
     serializedVersion: 2
     Hash: 8f6f6e4813c37a01b2dc1df3fc139603
+>>>>>>> Stashed changes
+=======
+    Hash: 461b35fed97a6ec64450a9f6bf0d5fa8
 >>>>>>> Stashed changes
 HashAppended: 0
 ClassTypes:
@@ -71,9 +79,8 @@ ClassTypes:
   Script: {fileID: 11500000, guid: b15f1c4b29a7c91419c3094f4046b359, type: 3}
 >>>>>>> Stashed changes
 - Class: 114
-  Script: {fileID: 11500000, guid: bb31a8dc4b250d94f89ec7feb4f5eb5e, type: 3}
-- Class: 114
   Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
+<<<<<<< Updated upstream
 - Class: 114
 <<<<<<< Updated upstream
   Script: {fileID: 11500000, guid: b15f1c4b29a7c91419c3094f4046b359, type: 3}
@@ -81,6 +88,8 @@ ClassTypes:
   Script: {fileID: 11500000, guid: 9179511125c6f73468334de11b7eac07, type: 3}
 =======
   Script: {fileID: -1895344032, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 - Class: 115
   Script: {instanceID: 0}

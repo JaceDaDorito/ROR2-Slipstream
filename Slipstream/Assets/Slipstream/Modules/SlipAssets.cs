@@ -8,6 +8,7 @@ using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Rendering.PostProcessing;
 using Path = System.IO.Path;
 
 namespace Slipstream
@@ -53,6 +54,15 @@ namespace Slipstream
                .Where(filePath => !filePath.EndsWith(".manifest"))
                .OrderByDescending(path => Path.GetFileName(path).Equals(mainAssetBundleName))
                .ToArray();
+        }
+
+        private void LoadPostProcessing()
+        {
+            var ppProfiles = MainAssetBundle.LoadAllAssets<PostProcessProfile>();
+            foreach (var ppProfile in ppProfiles)
+            {
+
+            }
         }
 
         /*private void LoadSoundBank()
