@@ -1,4 +1,5 @@
 ManifestFileVersion: 0
+<<<<<<< Updated upstream
 CRC: 3983552564
 Hashes:
   AssetFileHash:
@@ -7,6 +8,16 @@ Hashes:
   TypeTreeHash:
     serializedVersion: 2
     Hash: 92ad596debedc9f5696b7e30573b9a19
+=======
+CRC: 3762240264
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 763192f884a0a9502e24f0ca7c949137
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 8f6f6e4813c37a01b2dc1df3fc139603
+>>>>>>> Stashed changes
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -54,15 +65,23 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 1052602003, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
+<<<<<<< Updated upstream
   Script: {fileID: -1895344032, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+=======
+  Script: {fileID: 11500000, guid: b15f1c4b29a7c91419c3094f4046b359, type: 3}
+>>>>>>> Stashed changes
 - Class: 114
   Script: {fileID: 11500000, guid: bb31a8dc4b250d94f89ec7feb4f5eb5e, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
 - Class: 114
+<<<<<<< Updated upstream
   Script: {fileID: 11500000, guid: b15f1c4b29a7c91419c3094f4046b359, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 9179511125c6f73468334de11b7eac07, type: 3}
+=======
+  Script: {fileID: -1895344032, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+>>>>>>> Stashed changes
 - Class: 115
   Script: {instanceID: 0}
 - Class: 157
@@ -73,4 +92,4 @@ SerializeReferenceClassIdentifiers: []
 Assets:
 - Assets/Scenes/TestStage.unity
 Dependencies:
-- D:/Slipstream/ROR2-Slipstream/Slipstream/ThunderKit/AssetBundleStaging/slipassets
+- C:/Users/sunde/Documents/GitHub/ROR2-Slipstream/Slipstream/ThunderKit/AssetBundleStaging/slipassets

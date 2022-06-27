@@ -92,10 +92,6 @@ MonoBehaviour:
   - original: {fileID: 4800000, guid: 008b58c05bfa4867b6888886e31831d7, type: 2}
     stubbed: {fileID: 4800000, guid: 277775aeee5f44643b7496ecf84f50d7, type: 3}
   allShaders:
-  - {fileID: 4800000, guid: b36fdf2439e847868b9b5c8b36f3c8e4, type: 2}
-  - {fileID: 4800000, guid: 97556c76ad05410c9d0a7a2192b6191c, type: 2}
-  - {fileID: 4800000, guid: 5e2f69a6d00d42d39eaf01a9f87bb0ba, type: 2}
-  - {fileID: 4800000, guid: 53c155c118f442338857ff21d29d1f97, type: 2}
   - {fileID: 4800000, guid: 94a627308551413bae88e02f226ea23d, type: 2}
   - {fileID: 4800000, guid: e3ccdd97481942728258ad5529996503, type: 2}
   - {fileID: 4800000, guid: 5f7e9443f17848aa86e3ea3cb14d7c02, type: 2}
@@ -162,14 +158,6 @@ MonoBehaviour:
   - {fileID: 4800000, guid: 92a75682b627820498f3f86961e9a6d5, type: 3}
   - {fileID: 4800000, guid: 277775aeee5f44643b7496ecf84f50d7, type: 3}
   validPairs:
-  - original: {fileID: 4800000, guid: b36fdf2439e847868b9b5c8b36f3c8e4, type: 2}
-    stubbed: {fileID: 4800000, guid: 461ba393527cb6f439f14d74b17894d2, type: 3}
-  - original: {fileID: 4800000, guid: 97556c76ad05410c9d0a7a2192b6191c, type: 2}
-    stubbed: {fileID: 4800000, guid: d4aebf40e77355d43ac4d7ebd7b290a6, type: 3}
-  - original: {fileID: 4800000, guid: 5e2f69a6d00d42d39eaf01a9f87bb0ba, type: 2}
-    stubbed: {fileID: 4800000, guid: e956c2ff4af6b2243a7b9036cfaf0b20, type: 3}
-  - original: {fileID: 4800000, guid: 53c155c118f442338857ff21d29d1f97, type: 2}
-    stubbed: {fileID: 4800000, guid: 56407be09fc8291429c4bc96120e5fa6, type: 3}
   - original: {fileID: 4800000, guid: 94a627308551413bae88e02f226ea23d, type: 2}
     stubbed: {fileID: 4800000, guid: 64cf589f3e44bae45ae4719c2f5f2a9d, type: 3}
   - original: {fileID: 4800000, guid: e3ccdd97481942728258ad5529996503, type: 2}
