@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e6292b2c06870d4495f009f912b9600, type: 3}
+  m_Name: ppRampFogTest
+  m_EditorClassIdentifier: 
+  settings:
+  - {fileID: 4160586808749845559}
+--- !u!114 &4160586808749845559
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f88ef64bd2dc7c6489d1b2bdb5fe45d7, type: 3}
+  m_Name: SlipRampFog
+  m_EditorClassIdentifier: 
+  active: 1
+  enabled:
+    overrideState: 1
+    value: 1
+  fogIntensity:
+    overrideState: 1
+    value: 0.2
+  fogPower:
+    overrideState: 1
+    value: 0.5
+  fogZero:
+    overrideState: 1
+    value: -0.015
+  fogOne:
+    overrideState: 1
+    value: 0.12
+  fogHeightStart:
+    overrideState: 0
+    value: -37
+  fogHeightEnd:
+    overrideState: 0
+    value: 198
+  fogHeightIntensity:
+    overrideState: 0
+    value: 0
+  fogColorStart:
+    overrideState: 1
+    value: {r: 0.17254902, g: 0.5137255, b: 0.75686276, a: 0}
+  fogColorMid:
+    overrideState: 1
+    value: {r: 0.45882353, g: 0.47058824, b: 0.50980395, a: 0.44313726}
+  fogColorEnd:
+    overrideState: 1
+    value: {r: 0.5568628, g: 0.40392157, b: 0.33333334, a: 1}
+  skyboxStrength:
+    overrideState: 1
+    value: 0.1

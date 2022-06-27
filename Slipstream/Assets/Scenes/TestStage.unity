@@ -1220,7 +1220,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 0.67, g: 0.67, b: 0.67, a: 1}
+  m_Color: {r: 0.6509434, g: 0.473241, b: 0.34082413, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
@@ -1291,7 +1291,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1576427189}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 1654260760, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
   m_Name: 
@@ -1307,7 +1307,8 @@ MonoBehaviour:
   NGSS_PCSS_SOFTNESS_NEAR: 0.932
   NGSS_PCSS_SOFTNESS_FAR: 2
   NGSS_NOISE_TO_DITHERING_SCALE: 1
-  NGSS_NOISE_TEXTURE: {fileID: 0}
+  NGSS_NOISE_TEXTURE: {fileID: -7261684554061668849, guid: 00000000000000000000000000000000,
+    type: 0}
   NGSS_DENOISER_ENABLED: 0
   NGSS_DENOISER_ITERATIONS: 2
   NGSS_DENOISER_BLUR: 0.25
@@ -1526,6 +1527,7 @@ GameObject:
   - component: {fileID: 1906547446}
   - component: {fileID: 1906547445}
   - component: {fileID: 1906547444}
+  - component: {fileID: 1906547447}
   m_Layer: 20
   m_Name: SceneInfo
   m_TagString: Untagged
@@ -1587,6 +1589,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1906547447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1906547443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sharedProfile: {fileID: 11400000, guid: 8804bef9a1ec5fe45bf7dc1f9bfb7231, type: 2}
+  isGlobal: 1
+  blendDistance: 0
+  weight: 1
+  priority: 0
 --- !u!1 &2014877645
 GameObject:
   m_ObjectHideFlags: 0

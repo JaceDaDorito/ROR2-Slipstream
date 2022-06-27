@@ -1,28 +1,12 @@
 ManifestFileVersion: 0
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-CRC: 3381405760
+CRC: 229079899
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: ddef84758fba16b3cf966b98e0d8d3de
-=======
-CRC: 1129183383
-Hashes:
-  AssetFileHash:
-    serializedVersion: 2
-    Hash: 59314d46eae8d6b1f3a7738a37d108bf
->>>>>>> Stashed changes
-=======
-CRC: 3763848913
-Hashes:
-  AssetFileHash:
-    serializedVersion: 2
-    Hash: c751d7ff168c5355c9e18a40ef7d07a0
->>>>>>> Stashed changes
+    Hash: ca94d3a15de2d06a48b8cb63bd2fcc84
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 6b1b10e623e350c367ace56c20c90572
+    Hash: a9bf0ee3d68bbe2432bbcaa010204b8d
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -88,13 +72,19 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 296141222, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
+  Script: {fileID: -1848696948, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
   Script: {fileID: 1790887305, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: -848926067, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: 678291247, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
+  Script: {fileID: -270136354, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
   Script: {fileID: -899414464, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: -941154584, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: -794597441, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
@@ -104,17 +94,13 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 630417361, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
+  Script: {fileID: -1895344032, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: f88ef64bd2dc7c6489d1b2bdb5fe45d7, type: 3}
+- Class: 114
   Script: {fileID: 1395413934, guid: da77c7bbf69f66ab2145560542327715, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 20defe7ea949c174094e5dde0dd669d8, type: 3}
-- Class: 114
-  Script: {fileID: -1895344032, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
-- Class: 114
-  Script: {fileID: -1848696948, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
-- Class: 114
-  Script: {fileID: -270136354, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
-- Class: 114
-  Script: {fileID: -941154584, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 115
   Script: {instanceID: 0}
 - Class: 135
@@ -214,7 +200,7 @@ Assets:
 - Assets/Materials/texRootJungleSpore.png
 - Assets/Materials/texAEGrass.png
 - Assets/Materials/glasseye_Normal.png
-- Assets/Slipstream/SlipstreamAssets/PPProfiles/rampFogTest.asset
+- Assets/Slipstream/SlipstreamAssets/PPProfiles/ppRampFogTest.asset
 - Assets/Materials/texGPRockSide2.png
 - Assets/Materials/GlassEye_Glowy.png
 - Assets/Materials/texGPRockSide4.png
