@@ -1,4 +1,5 @@
 ManifestFileVersion: 0
+<<<<<<< Updated upstream
 CRC: 742818244
 Hashes:
   AssetFileHash:
@@ -7,6 +8,16 @@ Hashes:
   TypeTreeHash:
     serializedVersion: 2
     Hash: d2d85fce15fb8b8934b4dbdcaeb3ae6f
+=======
+CRC: 3876631742
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 3e60e3e4d19f109d83d49b513fa70724
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: d696ca110dad307a8f2254227662b81e
+>>>>>>> Stashed changes
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -152,6 +163,7 @@ Assets:
 - Assets/Icons/iconPepperSpeed.png
 - Assets/Materials/texLightning1Mask.png
 - Assets/Materials/skyboxFoggyFullNoPlanet.png
+- Assets/Slipstream/SlipstreamAssets/ItemDefs/BlackHealth.asset
 - Assets/Shaders/ActualShaders/deferred/hgstandard.asset
 - Assets/Materials/matPepperSprayEmit - Copy.mat
 - Assets/Slipstream/SlipstreamAssets/Prefabs/Pickups/PickupPepperSpray.prefab
@@ -212,6 +224,7 @@ Assets:
 - Assets/Materials/matPepperSprayEmit.mat
 - Assets/Materials/skyboxFoggyFull.png
 - Assets/Materials/texRJGrassTerrain4.png
+- Assets/Slipstream/SlipstreamAssets/ItemDefs/Coalition.asset
 - Assets/Materials/texRootJungleSpore.png
 - Assets/Materials/texAEGrass.png
 - Assets/Materials/glasseye_Normal.png

@@ -66,10 +66,12 @@ namespace Slipstream
             #endregion
 
             #region Lunar items
+            public static ItemDef Coalition;
             #endregion
 
             #region Untiered items
             //very rarely used
+            public static ItemDef BlackHealth;
             #endregion
 
         }

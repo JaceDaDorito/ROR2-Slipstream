@@ -205,8 +205,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7156a49146b0bc44791e7e0141f1a773, type: 3}
   m_Name: Install R2API
   m_EditorClassIdentifier: 
+<<<<<<< Updated upstream
   enabled: 1
 --- !u!114 &3235973106579801979
+=======
+  ConfigurationExecutors:
+  - {fileID: 7280140112096979969}
+  - {fileID: -4045652151746137165}
+  - {fileID: 62385178894329039}
+  - {fileID: 4226821562577627032}
+  - {fileID: -5457958890793609961}
+  - {fileID: -5531907843765725911}
+  - {fileID: 1054617921450242231}
+  - {fileID: 9103550981979222011}
+  - {fileID: -4017594334864414834}
+  - {fileID: -1206074724618357520}
+  - {fileID: -1397687076049109939}
+  - {fileID: -2689230415037006968}
+  - {fileID: -1377229922806983165}
+  - {fileID: -6208995202928174134}
+  - {fileID: 7180353523893336313}
+  - {fileID: -5080397688345855257}
+  - {fileID: -4788643604373501357}
+  - {fileID: -5424933096109385618}
+  - {fileID: 6539715798258308765}
+  - {fileID: -9102621717047312793}
+  ConfigurationIndex: 20
+--- !u!114 &62385178894329039
+>>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -301,3 +327,7 @@ MonoBehaviour:
   m_Name: Wwise Blacklister
   m_EditorClassIdentifier: 
   enabled: 1
+<<<<<<< Updated upstream
+=======
+  IncludedSettings: -1
+>>>>>>> Stashed changes

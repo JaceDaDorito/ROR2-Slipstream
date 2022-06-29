@@ -24,7 +24,7 @@ namespace Slipstream.Modules
         protected override IEnumerable<ItemBase> GetItemBases()
         {
             base.GetItemBases()
-                .Where(item => SlipMain.config.Bind<bool>(item.ItemDef.name, "Enable Item", true, "Wether or not to enable this item.").Value)
+                .Where(item => SlipMain.config.Bind<bool>(item.ItemDef.name, "Enable Item", true, "Whether or not to enable this item.").Value)
                 .ToList()
                 .ForEach(item => AddItem(item, null));
             return null;
