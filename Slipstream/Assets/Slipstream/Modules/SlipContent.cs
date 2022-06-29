@@ -21,6 +21,7 @@ namespace Slipstream
             //public static BuffDef BedeviledMark;
             public static BuffDef BrineBuff;
             public static BuffDef PepperSpeed;
+            public static BuffDef SoulRoot;
         }
 
         public static class Elites
@@ -34,6 +35,7 @@ namespace Slipstream
             //Equipments go here
             #region Orange equips
             public static EquipmentDef Incubator;
+            public static EquipmentDef SoulSucker;
             #endregion
 
             #region Lunar equips

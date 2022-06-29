@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 2858322072
+CRC: 742818244
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 29a08520a7a378b133fd213730bb4c36
+    Hash: cb927ba876bd7cad15f6cf96f9c4dff6
   TypeTreeHash:
     serializedVersion: 2
-    Hash: a9bf0ee3d68bbe2432bbcaa010204b8d
+    Hash: d2d85fce15fb8b8934b4dbdcaeb3ae6f
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -52,15 +52,21 @@ ClassTypes:
 - Class: 114
   Script: {fileID: -1783169300, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
+  Script: {fileID: 662316482, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
   Script: {fileID: -335047464, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: 511512695, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: -585069481, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
+  Script: {fileID: 1297580292, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
   Script: {fileID: 1512808244, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: 802575700, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: -1193882409, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: 1783796254, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
@@ -71,6 +77,10 @@ ClassTypes:
   Script: {fileID: -1479993534, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: 296141222, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: -1699741063, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: 1918207524, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: -1848696948, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
@@ -86,6 +96,8 @@ ClassTypes:
 - Class: 114
   Script: {fileID: -941154584, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
+  Script: {fileID: -1819008361, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
   Script: {fileID: -794597441, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: -565067572, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
@@ -96,11 +108,11 @@ ClassTypes:
 - Class: 114
   Script: {fileID: -1895344032, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
+  Script: {fileID: 11500000, guid: 2651678a724e0a046809590077436ef6, type: 3}
+- Class: 114
   Script: {fileID: 11500000, guid: f88ef64bd2dc7c6489d1b2bdb5fe45d7, type: 3}
 - Class: 114
   Script: {fileID: 1395413934, guid: da77c7bbf69f66ab2145560542327715, type: 3}
-- Class: 114
-  Script: {fileID: 11500000, guid: 20defe7ea949c174094e5dde0dd669d8, type: 3}
 - Class: 115
   Script: {instanceID: 0}
 - Class: 135
@@ -133,6 +145,7 @@ Assets:
 - Assets/Slipstream/SlipstreamAssets/ContentPack.asset
 - Packages/com.unity.postprocessing/PostProcessing/Gizmos/PostProcessLayer.png
 - Assets/Materials/texRampGreaterWisp.png
+- Assets/Slipstream/SlipstreamAssets/Prefabs/NetworkedObjects/SoulSuckerTrap.prefab
 - Assets/Materials/texUIHighlightExecute.png
 - Assets/Materials/texCloudDifferenceBW1.png
 - Assets/Materials/Capture.PNG
@@ -144,8 +157,10 @@ Assets:
 - Assets/Slipstream/SlipstreamAssets/Prefabs/Pickups/PickupPepperSpray.prefab
 - Assets/Icons/iconSlipstreamExpansion.png
 - Assets/Materials/texHippoRezRamp.png
+- Assets/Slipstream/SlipstreamAssets/BuffDefs/SoulRoot.asset
 - Assets/Slipstream/SlipstreamAssets/EquipmentDefs/Incubator.asset
 - Assets/Slipstream/SlipstreamAssets/EquipmentDefs/AffixSandswept.asset
+- Assets/Slipstream/SlipstreamAssets/EquipmentDefs/SoulSucker.asset
 - Assets/Materials/skyboxAridCubemap.png
 - Assets/Slipstream/SlipstreamAssets/SceneDefs/PickupRendererScene.asset
 - Assets/Materials/GlassEye_Ramp.png
@@ -206,6 +221,7 @@ Assets:
 - Assets/Materials/texGPRockSide4.png
 - Assets/Slipstream/SlipstreamAssets/ItemDisplayRules/iddGlassEye.asset
 - Assets/Materials/texRampHealingMedkit.png
+- Assets/Slipstream/SlipstreamAssets/Prefabs/Projectiles/SoulSuckerProjectile.prefab
 - Assets/Materials/matChuckTriplanar.mat
 - Assets/Materials/texCriticalShieldIndi.png
 - Assets/Slipstream/SlipstreamAssets/Prefabs/Effects/PepperSprayExplosion.prefab

@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1512808244, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+  m_Name: SoulSucker
+  m_EditorClassIdentifier: 
+  pickupModelPrefab: {fileID: 1386817072003766323, guid: e5985c07275a1b34a83c50477f893f8e,
+    type: 3}
+  cooldown: 1
+  nameToken: SLIP_EQUIP_SOULSUCKER_NAME
+  pickupToken: SLIP_EQUIP_SOULSUCKER_PICKUP
+  descriptionToken: SLIP_EQUIP_SOULSUCKER_DESC
+  loreToken: SLIP_EQUIP_SOULSUCKER_LORE
+  pickupIconSprite: {fileID: 21300000, guid: 4e23a7ad02947cc4c87cb51f0d7015f6, type: 3}
+  unlockableDef: {fileID: 0}
+  colorIndex: 5
+  canDrop: 1
+  dropOnDeathChance: 0
+  canBeRandomlyTriggered: 1
+  enigmaCompatible: 1
+  isLunar: 0
+  isBoss: 0
+  passiveBuffDef: {fileID: 0}
+  appearsInSinglePlayer: 1
+  appearsInMultiPlayer: 1
+  requiredExpansion: {fileID: 11400000, guid: fccef1283d796f24ab13ca388fece6c8, type: 2}
+  mageElement: 0

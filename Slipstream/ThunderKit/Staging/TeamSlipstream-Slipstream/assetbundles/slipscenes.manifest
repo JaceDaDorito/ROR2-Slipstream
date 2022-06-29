@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 3971536562
+CRC: 3076128499
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 1f90e5f834df16f48591454ca588919c
+    Hash: b8e6346a34511f65a6fe678da8742664
   TypeTreeHash:
     serializedVersion: 2
     Hash: cb48e8f0c6c01388a10dd5f73d07029c
@@ -71,4 +71,4 @@ SerializeReferenceClassIdentifiers: []
 Assets:
 - Assets/Scenes/TestStage.unity
 Dependencies:
-- D:/Slipstream/ROR2-Slipstream/Slipstream/ThunderKit/AssetBundleStaging/slipassets
+- C:/Users/sunde/Documents/GitHub/ROR2-Slipstream/Slipstream/ThunderKit/AssetBundleStaging/slipassets
