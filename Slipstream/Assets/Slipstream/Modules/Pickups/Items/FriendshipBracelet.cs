@@ -22,6 +22,8 @@ namespace Slipstream.Items
         [ConfigurableField(ConfigName = "Items Granted per Stack", ConfigDesc = "Number of items allies will gain from each stack.", ConfigSection = "FriendshipBracelet")]
         [TokenModifier(token, StatTypes.Default, 0)]
         public static int itemGrantPerStack = 2;
+        [ConfigurableField(ConfigName = "Affects Engineer Turrets", ConfigDesc = "Should Friendship Bracelet grant extra items to Engineer Turrets?", ConfigSection = "FriendshipBracelet")]
+        public static bool affectsEngineerTurrets = false;
         public override void Initialize()
         {
             base.Initialize();
@@ -51,13 +53,65 @@ namespace Slipstream.Items
         //attached to all allies of players w/ the item, tracks the items already given to them individually
         public class FriendshipBraceletAllyServer : MonoBehaviour
         {
+            public static float effectDelay = 0.75f;
+
             public List<ItemIndex> braceletItemAcquisitionOrder = new List<ItemIndex>();
             public CharacterMaster master;
+            private Queue<ItemIndex> effectQueue = new Queue<ItemIndex>();
+            private float effectTimer;
+            public void GrantItem(ItemIndex itemIndex)
+            {
+                if (!NetworkServer.active)
+                {
+                    return;
+                }
+                if (master && master.inventory)
+                {
+                    braceletItemAcquisitionOrder.Add(itemIndex);
+                    master.inventory.GiveItem(itemIndex);
+                    effectQueue.Enqueue(itemIndex);
+                }
+            }
+            private void Update()
+            {
+                if (!NetworkServer.active)
+                {
+                    return;
+                }
+                if (effectTimer <= 0)
+                {
+                    if (effectQueue.Count > 0)
+                    {
+                        CharacterBody characterBody = master.GetBody();
+                        if (characterBody)
+                        {
+                            effectTimer += effectDelay;
+                            EffectData effectData = new EffectData
+                            {
+                                origin = characterBody.corePosition,
+                                genericFloat = 1.5f,
+                                genericUInt = Util.IntToUintPlusOne((int)effectQueue.Dequeue())
+                            };
+                            if (characterBody.mainHurtBox)
+                            {
+                                effectData.SetHurtBoxReference(characterBody.mainHurtBox);
+                            }
+                            else
+                            {
+                                effectData.SetNetworkedObjectReference(characterBody.gameObject);
+                            }
+                            EffectManager.SpawnEffect(LegacyResourcesAPI.Load<GameObject>("Prefabs/Effects/OrbEffects/ItemTransferOrbEffect"), effectData, true);
+                        }
+                    }
+                    return;
+
+                }
+                effectTimer -= Time.fixedDeltaTime;
+            }
         }
-        public class FriendshipBraceletBehaviourServer : BaseItemBodyBehavior
+        public class FriendshipBraceletBehaviourServer : BaseItemMasterBehavior
         {
             [ItemDefAssociation(useOnClient = false, useOnServer = true)]
-
             public static ItemDef GetItemDef() => SlipContent.Items.FriendshipBracelet;
 
             public static ItemTag[] blacklistedItemTags = new ItemTag[]
@@ -86,29 +140,41 @@ namespace Slipstream.Items
             public ItemIndex[] availableItemIndices;
             //ally handlers specific to this body
             public List<FriendshipBraceletAllyServer> allyItemHandlers = new List<FriendshipBraceletAllyServer>();
+            //allies to be set up next frame
+            private Queue<CharacterMaster> pendingAllies = new Queue<CharacterMaster>();
             private void Start()
             {
                 ulong seed = Run.instance.seed ^ (ulong)(Run.instance.stageClearCount);
                 this.itemGrantRng = new Xoroshiro128Plus(seed);
-                //give pre-existing allies item handlers
-                CharacterMaster master = body.master;
-                if (master)
+                
+                //build available item indices the first time
+                OnInventoryChanged();
+
+                //queue pre-existing allies
+                foreach (CharacterMaster characterMaster in CharacterMaster.instancesList)
                 {
-                    foreach (CharacterMaster characterMaster in CharacterMaster.instancesList)
+                    if (characterMaster.minionOwnership && characterMaster.minionOwnership.ownerMaster == master)
                     {
-                        if (characterMaster.minionOwnership && characterMaster.minionOwnership.ownerMaster == master)
-                        {
-                            AddNewAlly(characterMaster);
-                        }
+                        pendingAllies.Enqueue(characterMaster);
                     }
                 }
-                //force one inventory change
-                OnInventoryChanged();
+            }
+            private void FixedUpdate()
+            {
+                //set up pending allies
+                if(pendingAllies.Count > 0)
+                {
+                    CharacterMaster characterMaster = pendingAllies.Dequeue();
+                    if(characterMaster && AllyCanBeGrantedItemsFilter(characterMaster))
+                    {
+                        FriendshipBraceletAllyServer allyItemHandler = AddNewAlly(characterMaster);
+                        TryUpdateAllyItemsServer(allyItemHandler);
+                    }
+                }
             }
             private void OnDestroy()
             {
                 //clean up ally handlers
-                stack = 0;
                 foreach(FriendshipBraceletAllyServer allyItemHandler in allyItemHandlers)
                 {
                     TryUpdateAllyItemsServer(allyItemHandler);
@@ -118,25 +184,25 @@ namespace Slipstream.Items
             }
             private void OnEnable()
             {
-                body.onInventoryChanged += Body_onInventoryChanged;
+                master.inventory.onInventoryChanged += Inventory_onInventoryChanged;  
                 MasterSummon.onServerMasterSummonGlobal += MasterSummon_onServerMasterSummonGlobal;
             }
+
+ 
+
             private void OnDisable()
             {
-                body.onInventoryChanged -= Body_onInventoryChanged;
+                master.inventory.onInventoryChanged -= Inventory_onInventoryChanged;
                 MasterSummon.onServerMasterSummonGlobal -= MasterSummon_onServerMasterSummonGlobal;
             }
-            private void Body_onInventoryChanged()
+
+            private void Inventory_onInventoryChanged()
             {
-                //have to force update stack because of bad ordering
-                stack = body.inventory.GetItemCount(SlipContent.Items.FriendshipBracelet);
                 OnInventoryChanged();
             }
             public void OnInventoryChanged()
             {
-                availableItemIndices = body.inventory.itemAcquisitionOrder.Where(ItemIndexFilter).ToArray(); /*(from itemIndex in body.inventory.itemAcquisitionOrder
-                                        where ItemIndexFilter(itemIndex)
-                                        select itemIndex).ToArray();*/
+                availableItemIndices = master.inventory.itemAcquisitionOrder.Where(ItemIndexFilter).ToArray(); 
                 if(allyItemHandlers.Count > 0)
                 {
                     for(int i = allyItemHandlers.Count - 1; i >= 0; i--)
@@ -157,13 +223,12 @@ namespace Slipstream.Items
             //set up newly added allies
             private void MasterSummon_onServerMasterSummonGlobal(MasterSummon.MasterSummonReport report)
             {
-                if (body.master && body.master == report.leaderMasterInstance)
+                if (master == report.leaderMasterInstance)
                 {
                     CharacterMaster summonMasterInstance = report.summonMasterInstance;
                     if (summonMasterInstance)
                     {
-                        FriendshipBraceletAllyServer allyItemHandler = AddNewAlly(summonMasterInstance);
-                        TryUpdateAllyItemsServer(allyItemHandler);
+                        pendingAllies.Enqueue(summonMasterInstance);
                     }
                 }
             }
@@ -178,14 +243,12 @@ namespace Slipstream.Items
                 //to run if ally doesnt have enough items
                 if(count < currentItemGrantCount)
                 {
-                    ItemIndex[] shuffledAvailableItems = availableItemIndices.Where((ItemIndex index) => !ally.braceletItemAcquisitionOrder.Contains(index)).ToArray();/* (from itemIndex in availableItemIndices
-                                                          where !ally.braceletItemAcquisitionOrder.Contains(itemIndex)
-                                                          select itemIndex
-                                                          ).ToArray();*/
+                    ItemIndex[] shuffledAvailableItems = availableItemIndices.Where((ItemIndex index) => !ally.braceletItemAcquisitionOrder.Contains(index)).ToArray();
+
                     Util.ShuffleArray(shuffledAvailableItems, itemGrantRng);
                     for(int i = 0; i < Mathf.Min(currentItemGrantCount - count, shuffledAvailableItems.Length); i++)
                     {
-                        GrantFriendshipBraceletItemServer(ally, shuffledAvailableItems[i]);
+                        ally.GrantItem(shuffledAvailableItems[i]);
                     }
                     return;
                 }
@@ -203,34 +266,6 @@ namespace Slipstream.Items
                     ally.braceletItemAcquisitionOrder.RemoveAt(i);
                 }
             }
-            //pretty unnecessary and will probably get refactored in some form when proper effects are added
-            private void GrantFriendshipBraceletItemServer(FriendshipBraceletAllyServer ally, ItemIndex itemIndex)
-            {
-                if (NetworkServer.active && ally.master && ally.master.inventory)
-                {
-                    ally.braceletItemAcquisitionOrder.Add(itemIndex);
-                    ally.master.inventory.GiveItem(itemIndex);
-                    CharacterBody characterBody = ally.master.GetBody();
-                    if (characterBody)
-                    {
-                        EffectData effectData = new EffectData
-                        {
-                            origin = body.corePosition,
-                            genericFloat = 1f,
-                            genericUInt = Util.IntToUintPlusOne((int)itemIndex)
-                        };
-                        if (characterBody.mainHurtBox)
-                        {
-                            effectData.SetHurtBoxReference(characterBody.mainHurtBox);
-                        }
-                        else
-                        {
-                            effectData.SetNetworkedObjectReference(characterBody.gameObject);
-                        }
-                        EffectManager.SpawnEffect(LegacyResourcesAPI.Load<GameObject>("Prefabs/Effects/OrbEffects/ItemTransferOrbEffect"), effectData, true);
-                    }
-                }
-            }
             //happens in 2 different places so wanted to keep it consistent:
             public FriendshipBraceletAllyServer AddNewAlly(CharacterMaster characterMaster)
             {
@@ -242,7 +277,23 @@ namespace Slipstream.Items
             private bool ItemIndexFilter(ItemIndex itemIndex)
             {
                 RoR2.ItemDef itemDef = ItemCatalog.GetItemDef(itemIndex);
-                return itemDef && itemDef != SlipContent.Items.FriendshipBracelet && itemDef.tier != ItemTier.NoTier && !itemDef.hidden && !blacklistedItemTags.Any((ItemTag tag) => itemDef.ContainsTag(tag));
+                return itemDef && itemDef != SlipContent.Items.FriendshipBracelet && itemDef != DLC1Content.Items.VoidMegaCrabItem && itemDef.tier != ItemTier.NoTier && !itemDef.hidden && !blacklistedItemTags.Any((ItemTag tag) => itemDef.ContainsTag(tag));
+            }
+            private bool AllyCanBeGrantedItemsFilter(CharacterMaster characterMaster)
+            {
+                Deployable deployable = characterMaster.GetComponent<Deployable>();
+                if(!affectsEngineerTurrets && deployable)
+                {
+                    for(int i = 0; i < master.deployablesList.Count; i++)
+                    {
+                        DeployableInfo deployableInfo = master.deployablesList[i];
+                        if(deployableInfo.slot == DeployableSlot.EngiTurret && deployableInfo.deployable == deployable)
+                        {
+                            return false;
+                        }
+                    }
+                }
+                return true;
             }
         }
     }

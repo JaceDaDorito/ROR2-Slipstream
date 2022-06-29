@@ -15,7 +15,7 @@ MonoBehaviour:
   Data:
   - {fileID: 4591517571884405975}
   - {fileID: 7594905030440225203}
-  QuickAccess: 0
+  QuickAccess: 1
   manifest: {fileID: 0}
 --- !u!114 &4591517571884405975
 MonoBehaviour:
