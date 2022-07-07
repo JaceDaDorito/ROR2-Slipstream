@@ -34,6 +34,11 @@
             Loads the RoR2EditorKit icon
             </summary>
         </member>
+        <member name="P:RoR2EditorKit.Common.Constants.XMLDoc">
+            <summary>
+            Loads the XMLDoc of RoR2EditorKit
+            </summary>
+        </member>
         <member name="F:RoR2EditorKit.Common.TreeListControl.HoverItem">
             <summary>
                 The selected item

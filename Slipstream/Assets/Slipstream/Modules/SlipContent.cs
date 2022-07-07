@@ -125,10 +125,10 @@ namespace Slipstream
                 {
                     new Modules.Scenes().Initialize();
                 },
-                delegate
+                /*delegate
                 {
                     new ItemDisplays().Initialize();
-                },
+                },*/
                 delegate
                 {
                     SerializableContentPack.entityStateTypes = typeof(SlipContent).Assembly.GetTypes()

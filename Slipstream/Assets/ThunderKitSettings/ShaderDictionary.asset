@@ -13,5 +13,4 @@ MonoBehaviour:
   m_Name: ShaderDictionary
   m_EditorClassIdentifier: 
   shaderPairs: []
-  allShaders: []
-  validPairs: []
+  testString: 

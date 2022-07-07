@@ -22,7 +22,7 @@ MonoBehaviour:
     displayRules:
     - ruleType: 0
       childName: Chest
-      localPos: {x: 0.09959, y: 0.1803, z: 0.20208}
+      localPos: {x: -0.09959, y: 0.1803, z: 0.20208}
       localAngles: {x: 17.81564, y: 266.7696, z: 315.3183}
       localScales: {x: 0.09, y: 0.09, z: 0.09}
       limbMask: 0
@@ -36,7 +36,7 @@ MonoBehaviour:
         limbMask: 0
     - ruleType: 0
       childName: Chest
-      localPos: {x: -0.09959, y: 0.1803, z: 0.20208}
+      localPos: {x: 0.09959, y: 0.1803, z: 0.20208}
       localAngles: {x: 17.81564, y: 266.7696, z: 315.3183}
       localScales: {x: 0.09, y: 0.09, z: 0.09}
       limbMask: 0
@@ -122,9 +122,9 @@ MonoBehaviour:
     displayRules:
     - ruleType: 0
       childName: Head
-      localPos: {x: -0.0075, y: 0.20265, z: 0.09782}
-      localAngles: {x: 30.62883, y: 271.5639, z: 323.6266}
-      localScales: {x: 0.1, y: 0.1, z: 0.1}
+      localPos: {x: -0.0045, y: 0.20548, z: 0.09458}
+      localAngles: {x: 3.94016, y: 271.7144, z: 329.0855}
+      localScales: {x: 271.7144, y: 329.0855, z: 0.1}
       limbMask: 0
       finishedRule:
         ruleType: 0

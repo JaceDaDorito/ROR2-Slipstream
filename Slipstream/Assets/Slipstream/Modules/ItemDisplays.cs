@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Slipstream.Modules
 {
-    public class ItemDisplays : ItemDisplayModuleBase
+    /*public class ItemDisplays : ItemDisplayModuleBase
     {
         //I have no fucking clue how this works yet hold on. Just skip past this.
         
@@ -21,6 +21,6 @@ namespace Slipstream.Modules
         }
 
         //public override AssetBundle MainBundle => null;
-    }
+    }*/
 
 }
