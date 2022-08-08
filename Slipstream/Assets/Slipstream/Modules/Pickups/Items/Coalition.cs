@@ -40,7 +40,7 @@ namespace Slipstream.Items
 
             private void Start()
             {
-                destroyEffectPrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Common/VFX/BrittleDeath.prefab").WaitForCompletion();
+                destroyEffectPrefab = SlipAssets.Instance.MainAssetBundle.LoadAsset<GameObject>("CoalitionPreDetonation");
                 CharacterMaster master = body.master;
                 if (master)
                 {

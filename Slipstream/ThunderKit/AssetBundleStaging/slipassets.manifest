@@ -1,20 +1,12 @@
 ManifestFileVersion: 0
-<<<<<<< Updated upstream
-CRC: 3888172454
+CRC: 182589051
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: ffc5610bc4ac9e9dafae997740f0857d
-=======
-CRC: 4027678711
-Hashes:
-  AssetFileHash:
-    serializedVersion: 2
-    Hash: 2edee706966e08c9296b502f2a2be7e4
->>>>>>> Stashed changes
+    Hash: 40d1aa5bf6d9af043c5a36b4935e4b8f
   TypeTreeHash:
     serializedVersion: 2
-    Hash: d2d85fce15fb8b8934b4dbdcaeb3ae6f
+    Hash: 4de99b99db6075716844750458a73955
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -44,9 +36,9 @@ ClassTypes:
 - Class: 108
   Script: {instanceID: 0}
 - Class: 114
-  Script: {fileID: 11500000, guid: f8258ea15b8f74c4889ce485d21cbbb1, type: 3}
-- Class: 114
   Script: {fileID: 816898038, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: f8258ea15b8f74c4889ce485d21cbbb1, type: 3}
 - Class: 114
   Script: {fileID: 870831823, guid: c8c954e10545f6cd0045de066bc4846b, type: 3}
 - Class: 114
@@ -149,6 +141,7 @@ Assets:
 - Assets/Slipstream/SlipstreamAssets/EliteDefs/Sandswept.asset
 - Assets/Materials/texPepperSmoke.png
 - Assets/Materials/matFireFlyTrail.mat
+- Assets/Materials/texUIMainRect.png
 - Assets/Materials/texWindowsGrass.png
 - Assets/Slipstream/SlipstreamAssets/ContentPack.asset
 - Packages/com.unity.postprocessing/PostProcessing/Gizmos/PostProcessLayer.png
@@ -168,6 +161,7 @@ Assets:
 - Assets/Materials/texHippoRezRamp.png
 - Assets/Slipstream/SlipstreamAssets/BuffDefs/SoulRoot.asset
 - Assets/Slipstream/SlipstreamAssets/EquipmentDefs/Incubator.asset
+- Assets/Materials/texAllyCoalitionBar.png
 - Assets/Slipstream/SlipstreamAssets/EquipmentDefs/AffixSandswept.asset
 - Assets/Slipstream/SlipstreamAssets/EquipmentDefs/SoulSucker.asset
 - Assets/Materials/skyboxAridCubemap.png
@@ -180,6 +174,7 @@ Assets:
 - Assets/Materials/texBlackbeachBasicRockSide2.png
 - Assets/Materials/texBasicMask.png
 - Assets/Materials/matPepperSpray.png
+- Assets/Materials/texRampDefault.png
 - Assets/Materials/texThermiteDroplet2Mask.png
 - Assets/Slipstream/SlipstreamAssets/Prefabs/DisplayPrefabs/DisplayPepperSpray.prefab
 - Assets/Materials/texDCGrass2.png
@@ -258,10 +253,12 @@ Assets:
 - Assets/Slipstream/SlipstreamAssets/ItemDefs/RustyGenerator.asset
 - Assets/Icons/Capture.PNG
 - Assets/Materials/texRJRockNormal.png
+- Assets/Materials/matCoalitionShafts.mat
 - Assets/Slipstream/SlipstreamAssets/Prefabs/Pickups/PickupGlassEye.prefab
 - Assets/Materials/matGlassEyeMetal.mat
 - Assets/Materials/rampPepperSpray.png
 - Assets/Materials/texRJDirtDiffuse2.png
+- Assets/Slipstream/SlipstreamAssets/Prefabs/Effects/CoalitionPreDetonation.prefab
 - Assets/Materials/texRampPepperRim.png
 - Assets/Slipstream/SlipstreamAssets/Prefabs/Projectiles/JaceHatProjectile.prefab
 - Assets/Materials/texCloudOrganicNormal.png
@@ -274,6 +271,7 @@ Assets:
 - Assets/Materials/texBarrierBarPlaceholder.png
 - Assets/Materials/texGenericStarburstMask.png
 - Assets/Materials/MobsterMando_Normal.png
+- Assets/Mesh/VFXLightShaft.asset
 - Assets/Materials/texRampPepperEmit.png
 - Assets/Materials/matTestSkin.mat
 - Assets/Materials/GlassEye_GlowyEmit.png

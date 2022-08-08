@@ -39,7 +39,7 @@ namespace Slipstream.Items
             if (characterBody)
             {
                 Inventory inventory = characterBody.inventory;
-                if(inventory && inventory.GetItemCount(ItemDef) > 0)
+                if (inventory && inventory.GetItemCount(ItemDef) > 0)
                 {
                     //going to change the visuals of this soon
                     self.barInfoCollection.trailingOverHealthbarInfo.color = blackOverHealthColor;
@@ -48,7 +48,7 @@ namespace Slipstream.Items
             }
         }
 
-        
+
         public class BlackHealthBehavior : BaseItemBodyBehavior, IBodyStatArgModifier
         {
             [ItemDefAssociation(useOnClient = true, useOnServer = true)]
@@ -64,17 +64,17 @@ namespace Slipstream.Items
 
                 changedFlag = false;
                 allyOwnerMaster = body.master?.minionOwnership.ownerMaster;
-                if((body.bodyFlags & CharacterBody.BodyFlags.ImmuneToVoidDeath) == CharacterBody.BodyFlags.None && preventsVoidDeath)
+                if ((body.bodyFlags & CharacterBody.BodyFlags.ImmuneToVoidDeath) == CharacterBody.BodyFlags.None && preventsVoidDeath)
                 {
                     changedFlag = true;
                     body.bodyFlags |= CharacterBody.BodyFlags.ImmuneToVoidDeath;
                 }
-                    
+
             }
 
             public void OnDisable()
             {
-                if(changedFlag)
+                if (changedFlag)
                     body.bodyFlags &= ~CharacterBody.BodyFlags.ImmuneToVoidDeath;
             }
 
@@ -86,7 +86,7 @@ namespace Slipstream.Items
 
             public void ModifyStatArguments(RecalculateStatsAPI.StatHookEventArgs args)
             {
-                if(allyOwnerMaster)
+                if (allyOwnerMaster)
                     args.armorAdd += allyOwnerMaster.inventory.GetItemCount(SlipContent.Items.Coalition) * armorIncrease;
             }
         }

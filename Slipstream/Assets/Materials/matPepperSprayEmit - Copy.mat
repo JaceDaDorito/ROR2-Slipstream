@@ -9,7 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: matPepperSprayEmit - Copy
   m_Shader: {fileID: 4800000, guid: a18339a8c6424e4e81ec960469b7cd4d, type: 2}
-  m_ShaderKeywords: EMISSIONFROMALBEDO FADECLOSE USE_CLOUDS
+  m_ShaderKeywords: EMISSIONFROMALBEDO ETC1_EXTERNAL_ALPHA FADECLOSE USE_CLOUDS
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
