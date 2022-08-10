@@ -1,0 +1,21 @@
+{
+    "name": "EditorAssembly",
+    "references": [
+        "GUID:48945b114b79a914c9ada363fa1172c2"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "RoR2.dll",
+        "Unity.Addressables.dll",
+        "Unity.ResourceManager.dll"
+    ],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

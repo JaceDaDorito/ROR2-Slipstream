@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: -794597441, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: TestStage
   m_EditorClassIdentifier: 
-  <sceneDefIndex>k__BackingField: 0
   sceneAddress:
     m_AssetGUID: 
     m_SubObjectName: 
@@ -26,8 +25,8 @@ MonoBehaviour:
   subtitleToken: SLIP_SCENE_TESTSCENE_SUB
   previewTexture: {fileID: 0}
   portalMaterial: {fileID: 0}
-  portalSelectionMessageString: 
-  shouldIncludeInLogbook: 1
+  portalSelectionMessageString: BAZAAR_SEER_TESTSCENE
+  shouldIncludeInLogbook: 0
   loreToken: SLIP_SCENE_TESTSCENE_LORE
   dioramaPrefab: {fileID: 1386817072003766323, guid: e5985c07275a1b34a83c50477f893f8e,
     type: 3}
@@ -40,4 +39,3 @@ MonoBehaviour:
   destinationsGroup: {fileID: 0}
   destinations: []
   preferredPortalPrefab: {fileID: 0}
-  _cachedName: TestStage

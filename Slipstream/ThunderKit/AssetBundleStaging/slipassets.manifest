@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 182589051
+CRC: 643383557
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 40d1aa5bf6d9af043c5a36b4935e4b8f
+    Hash: 6a75e112dcc40c3e4f44b3a39da0dfd9
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 4de99b99db6075716844750458a73955
+    Hash: d50c03dde5aecba139a8e3376f7868a6
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -108,6 +108,8 @@ ClassTypes:
 - Class: 114
   Script: {fileID: -1895344032, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
+  Script: {fileID: -1746479147, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
   Script: {fileID: 11500000, guid: 2651678a724e0a046809590077436ef6, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: f88ef64bd2dc7c6489d1b2bdb5fe45d7, type: 3}
@@ -197,6 +199,7 @@ Assets:
 - Assets/Materials/New Material 1.mat
 - Assets/Materials/matPepperRim.mat
 - Assets/Mesh/Sphere.asset
+- Assets/Slipstream/SlipstreamAssets/UnlockableDefs/logAridExpanse.asset
 - Assets/Materials/glasseye_Diffuse.png
 - Assets/Materials/texSmokeExplosionMask.png
 - Assets/Slipstream/SlipstreamAssets/SkillDefs/Marauder.asset
