@@ -5,6 +5,7 @@ using HG.Reflection;
 using Slipstream.Modules;
 using Moonstorm;
 using Slipstream.Items;
+using Slipstream.Scenes;
 using R2API;
 using R2API.Utils;
 using System.Linq;
@@ -67,6 +68,7 @@ namespace Slipstream
 
             new CriticalShield().Init();
             new VoidShieldCatalog().Init();
+            new SlipDccsHandler().Init();
 
             //Allows organized configurable fields of public static fields.
             ConfigurableFieldManager.AddMod(this);
