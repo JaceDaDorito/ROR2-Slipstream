@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 1859454942
+CRC: 3605533009
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: a6a1af52fa9a1888ea0ab4cd4715c221
+    Hash: 92591faf53a5cd1bbeb677fdc21f2e48
   TypeTreeHash:
     serializedVersion: 2
-    Hash: d9d1ccc638661fa2a7ae8be380224d22
+    Hash: 242360f56846f124701da359c4c08700
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -36,6 +36,8 @@ ClassTypes:
 - Class: 89
   Script: {instanceID: 0}
 - Class: 108
+  Script: {instanceID: 0}
+- Class: 114
   Script: {instanceID: 0}
 - Class: 114
   Script: {fileID: 816898038, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
@@ -151,6 +153,7 @@ Assets:
 - Assets/Materials/texPepperSmoke.png
 - Assets/Materials/matFireFlyTrail.mat
 - Assets/Materials/texUIMainRect.png
+- Assets/Slipstream/SlipstreamAssets/dccsCards/dpAridExpanseMonsters.asset
 - Assets/Materials/texWindowsGrass.png
 - Assets/Slipstream/SlipstreamAssets/ContentPack.asset
 - Packages/com.unity.postprocessing/PostProcessing/Gizmos/PostProcessLayer.png
@@ -174,6 +177,7 @@ Assets:
 - Assets/Slipstream/SlipstreamAssets/EquipmentDefs/AffixSandswept.asset
 - Assets/Slipstream/SlipstreamAssets/EquipmentDefs/SoulSucker.asset
 - Assets/Materials/skyboxAridCubemap.png
+- Assets/Slipstream/SlipstreamAssets/dccsCards/dccsAridExpanseMonster.asset
 - Assets/Slipstream/SlipstreamAssets/dccsCards/dccsAridExpanseMonstersDLC1.asset
 - Assets/Materials/GlassEye_Ramp.png
 - Assets/Icons/Capture2.png
@@ -234,7 +238,6 @@ Assets:
 - Assets/Materials/glasseye_Normal.png
 - Assets/Slipstream/SlipstreamAssets/PPProfiles/ppAridExpanse.asset
 - Assets/Materials/texGPRockSide2.png
-- Assets/Slipstream/SlipstreamAssets/dccsCards/dccsAridExpanseMonsters.asset
 - Assets/Materials/GlassEye_Glowy.png
 - Assets/Materials/texGPRockSide4.png
 - Assets/Slipstream/SlipstreamAssets/ItemDisplayRules/iddGlassEye.asset

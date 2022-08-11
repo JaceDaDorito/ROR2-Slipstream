@@ -1714,15 +1714,17 @@ MonoBehaviour:
   m_Script: {fileID: -235412878, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monsterDccsPool: {fileID: 0}
-  interactableDccsPool: {fileID: 0}
+  monsterDccsPool: {fileID: 11400000, guid: 070afb82f1ada3148bee997dfda38a5d, type: 2}
+  interactableDccsPool: {fileID: 11400000, guid: 834d5c61615817341872083c4a3478c2,
+    type: 2}
   sceneDirectorInteractibleCredits: 200
   sceneDirectorMonsterCredits: 20
   bonusInteractibleCreditObjects: []
   monsterCards: []
   interactableCards: []
-  interactableCategories: {fileID: 0}
-  monsterCategories: {fileID: 0}
+  interactableCategories: {fileID: 11400000, guid: abd3bd19179408b4094758f5c4948900,
+    type: 2}
+  monsterCategories: {fileID: 11400000, guid: e52c5824652974c4e802b8bfea604e22, type: 2}
   possibleMonsterFamilies: []
 --- !u!114 &837837903
 MonoBehaviour:
@@ -3685,7 +3687,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1693914012}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1bfd4b453809938449258f32ab2f990c, type: 3}
   m_Name: 
@@ -3705,7 +3707,8 @@ MonoBehaviour:
   m_Script: {fileID: 818754807, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  teleporterSpawnCard: {fileID: 0}
+  teleporterSpawnCard: {fileID: -1775688641126402382, guid: 00000000000000000000000000000000,
+    type: 0}
   expRewardCoefficient: 0.06666667
   eliteBias: 2
   spawnDistanceMultiplier: 6
