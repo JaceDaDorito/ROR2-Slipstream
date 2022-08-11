@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 643383557
+CRC: 1859454942
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 6a75e112dcc40c3e4f44b3a39da0dfd9
+    Hash: a6a1af52fa9a1888ea0ab4cd4715c221
   TypeTreeHash:
     serializedVersion: 2
-    Hash: d50c03dde5aecba139a8e3376f7868a6
+    Hash: d9d1ccc638661fa2a7ae8be380224d22
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -24,6 +24,8 @@ ClassTypes:
 - Class: 43
   Script: {instanceID: 0}
 - Class: 48
+  Script: {instanceID: 0}
+- Class: 49
   Script: {instanceID: 0}
 - Class: 54
   Script: {instanceID: 0}
@@ -52,9 +54,13 @@ ClassTypes:
 - Class: 114
   Script: {fileID: -1783169300, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
+  Script: {fileID: 2014855634, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
   Script: {fileID: 662316482, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: -335047464, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: -104859921, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: 511512695, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
@@ -136,6 +142,7 @@ Assets:
 - Assets/Materials/matWindowsXPTerrain.mat
 - Assets/Materials/texRampPepperRad.png
 - Assets/Shaders/ActualShaders/deferred/hgtriplanarterrainblend.asset
+- Assets/Slipstream/SlipstreamAssets/dccsCards/dpAridExpanseInteractables.asset
 - Assets/Icons/iconGlassEye.png
 - Assets/Slipstream/SlipstreamAssets/SceneDefs/TestStage.asset
 - Assets/Icons/iconPepperSpray.png
@@ -167,7 +174,7 @@ Assets:
 - Assets/Slipstream/SlipstreamAssets/EquipmentDefs/AffixSandswept.asset
 - Assets/Slipstream/SlipstreamAssets/EquipmentDefs/SoulSucker.asset
 - Assets/Materials/skyboxAridCubemap.png
-- Assets/Slipstream/SlipstreamAssets/SceneDefs/PickupRendererScene.asset
+- Assets/Slipstream/SlipstreamAssets/dccsCards/dccsAridExpanseMonstersDLC1.asset
 - Assets/Materials/GlassEye_Ramp.png
 - Assets/Icons/Capture2.png
 - Assets/Materials/texGPRockSide3.png
@@ -199,7 +206,7 @@ Assets:
 - Assets/Materials/New Material 1.mat
 - Assets/Materials/matPepperRim.mat
 - Assets/Mesh/Sphere.asset
-- Assets/Slipstream/SlipstreamAssets/UnlockableDefs/logAridExpanse.asset
+- Assets/Slipstream/SlipstreamAssets/UnlockableDefs/Logs.Stages.aridexpanse.asset
 - Assets/Materials/glasseye_Diffuse.png
 - Assets/Materials/texSmokeExplosionMask.png
 - Assets/Slipstream/SlipstreamAssets/SkillDefs/Marauder.asset
@@ -215,6 +222,8 @@ Assets:
 - Assets/Icons/iconSlipstreamDisable.png
 - Assets/Shaders/ActualShaders/fx/hgcloudremap.asset
 - Assets/Materials/MobsterMando_Emission.png
+- Assets/Slipstream/SlipstreamAssets/dccsCards/dccsAridExpanseInteractables.asset
+- Assets/Slipstream/SlipstreamAssets/dccsCards/README.txt
 - Assets/Materials/matAETerrain1.mat
 - Assets/Materials/matPepperSprayEmit.mat
 - Assets/Materials/skyboxFoggyFull.png
@@ -223,12 +232,14 @@ Assets:
 - Assets/Materials/texRootJungleSpore.png
 - Assets/Materials/texAEGrass.png
 - Assets/Materials/glasseye_Normal.png
-- Assets/Slipstream/SlipstreamAssets/PPProfiles/ppRampFogTest.asset
+- Assets/Slipstream/SlipstreamAssets/PPProfiles/ppAridExpanse.asset
 - Assets/Materials/texGPRockSide2.png
+- Assets/Slipstream/SlipstreamAssets/dccsCards/dccsAridExpanseMonsters.asset
 - Assets/Materials/GlassEye_Glowy.png
 - Assets/Materials/texGPRockSide4.png
 - Assets/Slipstream/SlipstreamAssets/ItemDisplayRules/iddGlassEye.asset
 - Assets/Materials/texRampHealingMedkit.png
+- Assets/Slipstream/SlipstreamAssets/dccsCards/dccsAridExpanseInteractablesDLC1.asset
 - Assets/Slipstream/SlipstreamAssets/Prefabs/Projectiles/SoulSuckerProjectile.prefab
 - Assets/Materials/matChuckTriplanar.mat
 - Assets/Materials/texCriticalShieldIndi.png
@@ -266,6 +277,7 @@ Assets:
 - Assets/Slipstream/SlipstreamAssets/Prefabs/Projectiles/JaceHatProjectile.prefab
 - Assets/Materials/texCloudOrganicNormal.png
 - Assets/Slipstream/SlipstreamAssets/Prefabs/Projectiles/JaceHatGhost.prefab
+- Assets/Slipstream/SlipstreamAssets/SceneDefs/aridexpanse.asset
 - Assets/Materials/textTileScratchSplat.png
 - Assets/Materials/matGlassEyeGlowy.mat
 - Assets/Materials/matPepperSprayOldSmoke.mat

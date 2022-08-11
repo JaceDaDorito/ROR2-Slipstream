@@ -1,0 +1,1 @@
+For now I'm populating the enemy and interactable pools through code.

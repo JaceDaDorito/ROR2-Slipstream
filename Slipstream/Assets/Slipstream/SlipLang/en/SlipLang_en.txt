@@ -21,6 +21,10 @@
 
 	"SLIP_SCENE_TESTSCENE_NAME": "Test Stage",
 	"SLIP_SCENE_TESTSCENE_SUB": "How are you here",
-	"SLIP_SCENE_TESTSCENE_LORE" : "So true"
+	"SLIP_SCENE_TESTSCENE_LORE" : "So true",
+
+	"SLIP_SCENE_ARIDEXPANSE_NAME": "Arid Expanse",
+	"SLIP_SCENE_ARIDEXPANSE_SUB": "Ground Zero",
+	"SLIP_SCENE_ARIDEXPANSE_LORE": "Please pee on me I'm dying."
     }
 }

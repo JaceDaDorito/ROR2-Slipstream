@@ -1,0 +1,291 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -104859921, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+  m_Name: dccsAridExpanseInteractablesDLC1
+  m_EditorClassIdentifier: 
+  categories:
+  - name: Chests
+    cards:
+    - spawnCard: {fileID: 0}
+      selectionWeight: 0
+      spawnDistance: 0
+      preventOverhead: 0
+      minimumStageCompletions: 0
+      requiredUnlockable: 
+      forbiddenUnlockable: 
+      requiredUnlockableDef: {fileID: 0}
+      forbiddenUnlockableDef: {fileID: 0}
+    - spawnCard: {fileID: 0}
+      selectionWeight: 0
+      spawnDistance: 0
+      preventOverhead: 0
+      minimumStageCompletions: 0
+      requiredUnlockable: 
+      forbiddenUnlockable: 
+      requiredUnlockableDef: {fileID: 0}
+      forbiddenUnlockableDef: {fileID: 0}
+    - spawnCard: {fileID: 0}
+      selectionWeight: 0
+      spawnDistance: 0
+      preventOverhead: 0
+      minimumStageCompletions: 0
+      requiredUnlockable: 
+      forbiddenUnlockable: 
+      requiredUnlockableDef: {fileID: 0}
+      forbiddenUnlockableDef: {fileID: 0}
+    - spawnCard: {fileID: 0}
+      selectionWeight: 0
+      spawnDistance: 0
+      preventOverhead: 0
+      minimumStageCompletions: 0
+      requiredUnlockable: 
+      forbiddenUnlockable: 
+      requiredUnlockableDef: {fileID: 0}
+      forbiddenUnlockableDef: {fileID: 0}
+    - spawnCard: {fileID: 0}
+      selectionWeight: 0
+      spawnDistance: 0
+      preventOverhead: 0
+      minimumStageCompletions: 0
+      requiredUnlockable: 
+      forbiddenUnlockable: 
+      requiredUnlockableDef: {fileID: 0}
+      forbiddenUnlockableDef: {fileID: 0}
+    - spawnCard: {fileID: 0}
+      selectionWeight: 0
+      spawnDistance: 0
+      preventOverhead: 0
+      minimumStageCompletions: 0
+      requiredUnlockable: 
+      forbiddenUnlockable: 
+      requiredUnlockableDef: {fileID: 0}
+      forbiddenUnlockableDef: {fileID: 0}
+    - spawnCard: {fileID: 0}
+      selectionWeight: 0
+      spawnDistance: 0
+      preventOverhead: 0
+      minimumStageCompletions: 0
+      requiredUnlockable: 
+      forbiddenUnlockable: 
+      requiredUnlockableDef: {fileID: 0}
+      forbiddenUnlockableDef: {fileID: 0}
+    - spawnCard: {fileID: 0}
+      selectionWeight: 0
+      spawnDistance: 0
+      preventOverhead: 0
+      minimumStageCompletions: 0
+      requiredUnlockable: 
+      forbiddenUnlockable: 
+      requiredUnlockableDef: {fileID: 0}
+      forbiddenUnlockableDef: {fileID: 0}
+    - spawnCard: {fileID: 0}
+      selectionWeight: 0
+      spawnDistance: 0
+      preventOverhead: 0
+      minimumStageCompletions: 0
+      requiredUnlockable: 
+      forbiddenUnlockable: 
+      requiredUnlockableDef: {fileID: 0}
+      forbiddenUnlockableDef: {fileID: 0}
+    selectionWeight: 45
+  - name: Barrels
+    cards:
+    - spawnCard: {fileID: 0}
+      selectionWeight: 0
+      spawnDistance: 0
+      preventOverhead: 0
+      minimumStageCompletions: 0
+      requiredUnlockable: 
+      forbiddenUnlockable: 
+      requiredUnlockableDef: {fileID: 0}
+      forbiddenUnlockableDef: {fileID: 0}
+    selectionWeight: 10
+  - name: Shrines
+    cards:
+    - spawnCard: {fileID: 0}
+      selectionWeight: 0
+      spawnDistance: 0
+      preventOverhead: 0
+      minimumStageCompletions: 0
+      requiredUnlockable: 
+      forbiddenUnlockable: 
+      requiredUnlockableDef: {fileID: 0}
+      forbiddenUnlockableDef: {fileID: 0}
+    - spawnCard: {fileID: 0}
+      selectionWeight: 0
+      spawnDistance: 0
+      preventOverhead: 0
+      minimumStageCompletions: 0
+      requiredUnlockable: 
+      forbiddenUnlockable: 
+      requiredUnlockableDef: {fileID: 0}
+      forbiddenUnlockableDef: {fileID: 0}
+    - spawnCard: {fileID: 0}
+      selectionWeight: 0
+      spawnDistance: 0
+      preventOverhead: 0
+      minimumStageCompletions: 0
+      requiredUnlockable: 
+      forbiddenUnlockable: 
+      requiredUnlockableDef: {fileID: 0}
+      forbiddenUnlockableDef: {fileID: 0}
+    selectionWeight: 10
+  - name: Drones
+    cards:
+    - spawnCard: {fileID: 0}
+      selectionWeight: 1
+      spawnDistance: 0
+      preventOverhead: 0
+      minimumStageCompletions: 5
+      requiredUnlockable: 
+      forbiddenUnlockable: 
+      requiredUnlockableDef: {fileID: 0}
+      forbiddenUnlockableDef: {fileID: 0}
+    - spawnCard: {fileID: 0}
+      selectionWeight: 1
+      spawnDistance: 0
+      preventOverhead: 0
+      minimumStageCompletions: 5
+      requiredUnlockable: 
+      forbiddenUnlockable: 
+      requiredUnlockableDef: {fileID: 0}
+      forbiddenUnlockableDef: {fileID: 0}
+    - spawnCard: {fileID: 0}
+      selectionWeight: 1
+      spawnDistance: 0
+      preventOverhead: 0
+      minimumStageCompletions: 5
+      requiredUnlockable: 
+      forbiddenUnlockable: 
+      requiredUnlockableDef: {fileID: 0}
+      forbiddenUnlockableDef: {fileID: 0}
+    selectionWeight: 14
+  - name: Misc
+    cards:
+    - spawnCard: {fileID: 0}
+      selectionWeight: 1
+      spawnDistance: 0
+      preventOverhead: 0
+      minimumStageCompletions: 5
+      requiredUnlockable: 
+      forbiddenUnlockable: 
+      requiredUnlockableDef: {fileID: 0}
+      forbiddenUnlockableDef: {fileID: 0}
+    selectionWeight: 7
+  - name: Rare
+    cards:
+    - spawnCard: {fileID: 0}
+      selectionWeight: 1
+      spawnDistance: 0
+      preventOverhead: 0
+      minimumStageCompletions: 5
+      requiredUnlockable: 
+      forbiddenUnlockable: 
+      requiredUnlockableDef: {fileID: 0}
+      forbiddenUnlockableDef: {fileID: 0}
+    - spawnCard: {fileID: 0}
+      selectionWeight: 1
+      spawnDistance: 0
+      preventOverhead: 0
+      minimumStageCompletions: 5
+      requiredUnlockable: 
+      forbiddenUnlockable: 
+      requiredUnlockableDef: {fileID: 0}
+      forbiddenUnlockableDef: {fileID: 0}
+    - spawnCard: {fileID: 0}
+      selectionWeight: 1
+      spawnDistance: 0
+      preventOverhead: 0
+      minimumStageCompletions: 5
+      requiredUnlockable: 
+      forbiddenUnlockable: 
+      requiredUnlockableDef: {fileID: 0}
+      forbiddenUnlockableDef: {fileID: 0}
+    - spawnCard: {fileID: 0}
+      selectionWeight: 1
+      spawnDistance: 0
+      preventOverhead: 0
+      minimumStageCompletions: 5
+      requiredUnlockable: 
+      forbiddenUnlockable: 
+      requiredUnlockableDef: {fileID: 0}
+      forbiddenUnlockableDef: {fileID: 0}
+    selectionWeight: 0.4
+  - name: Duplicator
+    cards:
+    - spawnCard: {fileID: 0}
+      selectionWeight: 1
+      spawnDistance: 0
+      preventOverhead: 0
+      minimumStageCompletions: 5
+      requiredUnlockable: 
+      forbiddenUnlockable: 
+      requiredUnlockableDef: {fileID: 0}
+      forbiddenUnlockableDef: {fileID: 0}
+    - spawnCard: {fileID: 0}
+      selectionWeight: 1
+      spawnDistance: 0
+      preventOverhead: 0
+      minimumStageCompletions: 5
+      requiredUnlockable: 
+      forbiddenUnlockable: 
+      requiredUnlockableDef: {fileID: 0}
+      forbiddenUnlockableDef: {fileID: 0}
+    - spawnCard: {fileID: 0}
+      selectionWeight: 1
+      spawnDistance: 0
+      preventOverhead: 0
+      minimumStageCompletions: 5
+      requiredUnlockable: 
+      forbiddenUnlockable: 
+      requiredUnlockableDef: {fileID: 0}
+      forbiddenUnlockableDef: {fileID: 0}
+    - spawnCard: {fileID: 0}
+      selectionWeight: 1
+      spawnDistance: 0
+      preventOverhead: 0
+      minimumStageCompletions: 5
+      requiredUnlockable: 
+      forbiddenUnlockable: 
+      requiredUnlockableDef: {fileID: 0}
+      forbiddenUnlockableDef: {fileID: 0}
+    - spawnCard: {fileID: 0}
+      selectionWeight: 1
+      spawnDistance: 0
+      preventOverhead: 0
+      minimumStageCompletions: 5
+      requiredUnlockable: 
+      forbiddenUnlockable: 
+      requiredUnlockableDef: {fileID: 0}
+      forbiddenUnlockableDef: {fileID: 0}
+    selectionWeight: 8
+  - name: Void Stuff
+    cards:
+    - spawnCard: {fileID: 0}
+      selectionWeight: 1
+      spawnDistance: 0
+      preventOverhead: 0
+      minimumStageCompletions: 5
+      requiredUnlockable: 
+      forbiddenUnlockable: 
+      requiredUnlockableDef: {fileID: 0}
+      forbiddenUnlockableDef: {fileID: 0}
+    - spawnCard: {fileID: 0}
+      selectionWeight: 1
+      spawnDistance: 0
+      preventOverhead: 0
+      minimumStageCompletions: 5
+      requiredUnlockable: 
+      forbiddenUnlockable: 
+      requiredUnlockableDef: {fileID: 0}
+      forbiddenUnlockableDef: {fileID: 0}
+    selectionWeight: 3

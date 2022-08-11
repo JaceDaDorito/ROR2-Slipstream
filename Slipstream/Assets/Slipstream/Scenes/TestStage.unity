@@ -10546,8 +10546,7 @@ MonoBehaviour:
   m_Script: {fileID: 818754807, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  teleporterSpawnCard: {fileID: -1775688641126402382, guid: 00000000000000000000000000000000,
-    type: 0}
+  teleporterSpawnCard: {fileID: 0}
   expRewardCoefficient: 0.06666667
   eliteBias: 2
   spawnDistanceMultiplier: 6
@@ -15989,19 +15988,15 @@ MonoBehaviour:
   m_Script: {fileID: -235412878, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monsterDccsPool: {fileID: 7187708436087846909, guid: 00000000000000000000000000000000,
-    type: 0}
-  interactableDccsPool: {fileID: -2810141190926354528, guid: 00000000000000000000000000000000,
-    type: 0}
+  monsterDccsPool: {fileID: 0}
+  interactableDccsPool: {fileID: 0}
   sceneDirectorInteractibleCredits: 200
   sceneDirectorMonsterCredits: 20
   bonusInteractibleCreditObjects: []
   monsterCards: []
   interactableCards: []
-  interactableCategories: {fileID: 1535721310760214027, guid: 00000000000000000000000000000000,
-    type: 0}
-  monsterCategories: {fileID: -3888277554873069152, guid: 00000000000000000000000000000000,
-    type: 0}
+  interactableCategories: {fileID: 0}
+  monsterCategories: {fileID: 0}
   possibleMonsterFamilies: []
 --- !u!114 &1906547445
 MonoBehaviour:
