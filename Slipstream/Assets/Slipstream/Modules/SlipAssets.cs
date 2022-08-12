@@ -14,7 +14,7 @@ using Path = System.IO.Path;
 
 namespace Slipstream
 {
-    public class SlipAssets: AssetsLoader<SlipAssets>
+    public class SlipAssets : AssetsLoader<SlipAssets>
     {
         //Loads all assets such as models, effects, and soundbanks (not yet but soon)
         private const string assetBundleFolderName = "assetbundles";

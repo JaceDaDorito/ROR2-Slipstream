@@ -102,6 +102,16 @@ MonoBehaviour:
       requiredUnlockableDef: {fileID: 0}
       forbiddenUnlockableDef: {fileID: 0}
       spawnCardKey: RoR2/Base/Wisp/cscLesserWisp.asset
+    - spawnCard: {fileID: 0}
+      selectionWeight: 0
+      spawnDistance: 0
+      preventOverhead: 0
+      minimumStageCompletions: 1
+      requiredUnlockable: 
+      forbiddenUnlockable: 
+      requiredUnlockableDef: {fileID: 0}
+      forbiddenUnlockableDef: {fileID: 0}
+      spawnCardKey: RoR2/Base/Vulture/cscVulture.asset
     selectionWeight: 4
   - name: Special
     addressableCards:

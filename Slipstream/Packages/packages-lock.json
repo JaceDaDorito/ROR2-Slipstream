@@ -100,12 +100,6 @@
       "source": "embedded",
       "dependencies": {}
     },
-    "riskofthunder-fixplugintypesserialization": {
-      "version": "file:FixPluginTypesSerialization",
-      "depth": 0,
-      "source": "embedded",
-      "dependencies": {}
-    },
     "riskofthunder-hookgenpatcher": {
       "version": "file:HookGenPatcher",
       "depth": 0,

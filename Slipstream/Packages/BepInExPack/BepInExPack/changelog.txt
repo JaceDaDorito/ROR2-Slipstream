@@ -1,4 +1,2 @@
-Latest Changelog
-
 RoR2 BepInExPack specific changes :
-Fix achievements error. For real this time.
+    - Remove the console dev check in the BepInEx.GUI, replaced by a disclaimer instead: If you want #tech-support in the modding discord, please use the "Copy Log to Clipboard" button and then paste it in the discord channel.

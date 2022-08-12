@@ -15,13 +15,13 @@ icon.png
 ```
 
 ### What each folder is for:
-* `BepInEx/plugins` - This is where normal mods/plugins are placed to be loaded. If a mod is just a `NAME.dll` file, it probably goes in here.For your own organisation, consider putting them inside folders, eg: `plugins/ActualRain/ActualRain.dll`
+* `BepInEx/plugins` - This is where normal mods/plugins are placed to be loaded. If a mod is just a `NAME.dll` file, it probably goes in here. For your own organisation, consider putting them inside folders, eg: `plugins/ActualRain/ActualRain.dll`
 
 * `BepInEx/patchers` - These are more advanced types of plugins that need to access Mono.Cecil to edit .dll files during runtime. Only copy paste your mods here if the author tells you to.
 
 * `BepInEx/config` - If your plugin has support for configuration, you can find the config file here to edit it.
 
-* `BepInEx/core` - Core BepInEx .dll files, you'll usually never want to touch these files (unless you're updating)
+* `BepInEx/core` - Core BepInEx .dll files, you'll usually never want to touch these files (unless you're updating manually)
 
 
 ### What is included in this pack
@@ -30,13 +30,13 @@ icon.png
 This is what loads all of your plugins/mods. 
 
 **Customized BepInEx configuration**
-BepInEx config customized for use with RoR2
+BepInEx config customized for use with RoR2.
 
 ### Writing your own mods
 
 There's 2 documentation pages available:
 
-* [R2Wiki](https://github.com/risk-of-thunder/R2Wiki/wiki)
+* [R2Wiki](https://risk-of-thunder.github.io/R2Wiki/)
 * [BepInEx docs](https://docs.bepinex.dev/)
 
 Places to talk:
@@ -47,6 +47,23 @@ Places to talk:
 BepInEx contains helper libraries like [MonoMod.RuntimeDetour](https://github.com/MonoMod/MonoMod/blob/master/README-RuntimeDetour.md) and [HarmonyX](https://github.com/BepInEx/HarmonyX/wiki)
 
 ### Changelog
+* **5.4.2101**
+	* RoR2 BepInExPack specific changes :
+		* Remove the console dev check in the BepInEx.GUI, replaced by a disclaimer instead: If you want #tech-support in the modding discord, please use the "Copy Log to Clipboard" button and then paste it in the discord channel.
+
+* **5.4.2100**
+    * Updated BepInEx to 5.4.21
+	* RoR2 BepInExPack specific changes :
+		* New BepInEx GUI, it should fix some performance issues the old one had + the .zip is now much smaller, you can still go back to the old console by setting to `true` the `Enables showing a console for log output` option in the `BepInEx/config/BepInEx.cfg` file
+		* Thunderstore Mod Manifests if available are printed in the log file to allow for better debugging.
+		* `FixPluginTypesSerialization` patcher is now shipped by default
+		* The `RoR2BepInExPack` (v1.1.0) plugin now contains a mod compatibility fix for when multiple corruption (void items) targets for an item are present, a config is available to determine which gets the new stack:
+			* Random -> (Default Option) picks randomly
+			* First -> Oldest Target Picked Up
+			* Last -> Newest Target Picked Up
+			* Rarest -> Rarest Target Picked Up (falls back to Newest on ambiguity)
+			* Alternate -> All targets get a turn in acquisition order
+
 * **5.4.1905**
 	* RoR2 BepInExPack specific changes :
 		* Fix achievements not working correctly. For real this time.

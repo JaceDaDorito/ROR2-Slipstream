@@ -14,6 +14,55 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settings:
   - {fileID: 4160586808749845559}
+  - {fileID: 5533666753074354731}
+  - {fileID: 262673185520589578}
+--- !u!114 &262673185520589578
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48a79b01ea5641d4aa6daa2e23605641, type: 3}
+  m_Name: Bloom
+  m_EditorClassIdentifier: 
+  active: 1
+  enabled:
+    overrideState: 1
+    value: 1
+  intensity:
+    overrideState: 1
+    value: 1
+  threshold:
+    overrideState: 1
+    value: 0.67
+  softKnee:
+    overrideState: 0
+    value: 0.5
+  clamp:
+    overrideState: 0
+    value: 65472
+  diffusion:
+    overrideState: 1
+    value: 10
+  anamorphicRatio:
+    overrideState: 1
+    value: 1
+  color:
+    overrideState: 0
+    value: {r: 1, g: 1, b: 1, a: 1}
+  fastMode:
+    overrideState: 0
+    value: 0
+  dirtTexture:
+    overrideState: 0
+    value: {fileID: 0}
+    defaultState: 1
+  dirtIntensity:
+    overrideState: 0
+    value: 0
 --- !u!114 &4160586808749845559
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -35,13 +84,13 @@ MonoBehaviour:
     value: 0.2
   fogPower:
     overrideState: 1
-    value: 0.5
+    value: 1
   fogZero:
     overrideState: 1
-    value: -0.015
+    value: -0.03
   fogOne:
     overrideState: 1
-    value: 0.12
+    value: 0.039
   fogHeightStart:
     overrideState: 0
     value: -37
@@ -53,13 +102,60 @@ MonoBehaviour:
     value: 0
   fogColorStart:
     overrideState: 1
-    value: {r: 0.5580278, g: 0.65869826, b: 0.7169812, a: 0}
+    value: {r: 0.5254902, g: 0.85490197, b: 0.9490196, a: 0}
   fogColorMid:
     overrideState: 1
-    value: {r: 0.50980395, g: 0.47965723, b: 0.45882353, a: 0.7372549}
+    value: {r: 0.28235295, g: 0.3137255, b: 0.3254902, a: 0.72156864}
   fogColorEnd:
     overrideState: 1
-    value: {r: 0.5568628, g: 0.40392157, b: 0.33333334, a: 1}
+    value: {r: 0.63529414, g: 0.34509805, b: 0.21960784, a: 0.74509805}
   skyboxStrength:
     overrideState: 1
     value: 0.1
+--- !u!114 &5533666753074354731
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5088dde39ffec804daf7aab79db44f40, type: 3}
+  m_Name: SlipBloom
+  m_EditorClassIdentifier: 
+  active: 0
+  enabled:
+    overrideState: 1
+    value: 1
+  intensity:
+    overrideState: 1
+    value: 1
+  threshold:
+    overrideState: 1
+    value: 0.67
+  softKnee:
+    overrideState: 0
+    value: 0
+  clamp:
+    overrideState: 0
+    value: 1
+  diffusion:
+    overrideState: 1
+    value: 10
+  anamorphicRatio:
+    overrideState: 1
+    value: 1
+  color:
+    overrideState: 0
+    value: {r: 1, g: 1, b: 1, a: 1}
+  fastMode:
+    overrideState: 0
+    value: 0
+  dirtTexture:
+    overrideState: 0
+    value: {fileID: 0}
+    defaultState: 1
+  dirtIntensity:
+    overrideState: 0
+    value: 1

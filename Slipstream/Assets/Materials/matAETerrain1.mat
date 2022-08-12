@@ -80,9 +80,9 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _BlueChannelBias: 0.4
+    - _BlueChannelBias: 0.5
     - _BlueChannelSmoothness: 0
-    - _BlueChannelSpecularExponent: 0
+    - _BlueChannelSpecularExponent: 1.2
     - _BlueChannelSpecularStrength: 0
     - _BumpScale: 1
     - _ColorsOn: 1
@@ -96,7 +96,7 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _GreenChannelBias: 0.9
+    - _GreenChannelBias: 0.87
     - _GreenChannelSmoothness: 0
     - _GreenChannelSpecularExponent: 0
     - _GreenChannelSpecularStrength: 0
@@ -108,7 +108,7 @@ Material:
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _RampInfo: 1
-    - _RedChannelBias: 1.29
+    - _RedChannelBias: 0.77
     - _RedChannelSmoothness: 0
     - _RedChannelSpecularExponent: 0
     - _RedChannelSpecularStrength: 0
@@ -121,5 +121,5 @@ Material:
     - _VerticalBiasOn: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.74509805, g: 0.74509805, b: 0.74509805, a: 1}
+    - _Color: {r: 0.8490566, g: 0.78227675, b: 0.70888215, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}

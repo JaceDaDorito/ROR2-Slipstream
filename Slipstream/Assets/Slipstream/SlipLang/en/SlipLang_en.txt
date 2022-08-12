@@ -25,6 +25,7 @@
 
 	"SLIP_SCENE_ARIDEXPANSE_NAME": "Arid Expanse",
 	"SLIP_SCENE_ARIDEXPANSE_SUB": "Ground Zero",
-	"SLIP_SCENE_ARIDEXPANSE_LORE": "Please pee on me I'm dying."
+	"SLIP_SCENE_ARIDEXPANSE_LORE": "Please pee on me I'm dying.",
+	"UNLOCKABLE_LOG_STAGES_ARIDEXPANSE": "Environment Log: Arid Expanse"
     }
 }
