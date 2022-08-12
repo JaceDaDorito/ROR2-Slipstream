@@ -11,7 +11,7 @@ namespace Slipstream.PostProcess
     public sealed class SlipRampFog : PostProcessEffectSettings
     {
 		[Range(0f, 1f)]
-		[Tooltip("Fog intensity.")]
+		[Tooltip("Fog intensity")]
 		public FloatParameter fogIntensity = new FloatParameter
 		{
 			value = 0.5f
