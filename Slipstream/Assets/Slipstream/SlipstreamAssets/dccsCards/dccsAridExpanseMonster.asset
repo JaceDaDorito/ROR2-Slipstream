@@ -27,9 +27,9 @@ MonoBehaviour:
       forbiddenUnlockableDef: {fileID: 0}
       spawnCardKey: RoR2/Base/Titan/cscTitanGooLake.asset
     - spawnCard: {fileID: 0}
-      selectionWeight: 0
+      selectionWeight: 1
       spawnDistance: 0
-      preventOverhead: 0
+      preventOverhead: 1
       minimumStageCompletions: 0
       requiredUnlockable: 
       forbiddenUnlockable: 
@@ -37,7 +37,7 @@ MonoBehaviour:
       forbiddenUnlockableDef: {fileID: 0}
       spawnCardKey: RoR2/Base/Vagrant/cscVagrant.asset
     - spawnCard: {fileID: 0}
-      selectionWeight: 0
+      selectionWeight: 1
       spawnDistance: 0
       preventOverhead: 0
       minimumStageCompletions: 0
@@ -50,7 +50,7 @@ MonoBehaviour:
   - name: Minibosses
     addressableCards:
     - spawnCard: {fileID: 0}
-      selectionWeight: 0
+      selectionWeight: 1
       spawnDistance: 0
       preventOverhead: 0
       minimumStageCompletions: 0
@@ -60,9 +60,9 @@ MonoBehaviour:
       forbiddenUnlockableDef: {fileID: 0}
       spawnCardKey: RoR2/Base/Bison/cscBison.asset
     - spawnCard: {fileID: 0}
-      selectionWeight: 0
+      selectionWeight: 1
       spawnDistance: 0
-      preventOverhead: 0
+      preventOverhead: 1
       minimumStageCompletions: 0
       requiredUnlockable: 
       forbiddenUnlockable: 
@@ -76,7 +76,7 @@ MonoBehaviour:
       selectionWeight: 0
       spawnDistance: 0
       preventOverhead: 0
-      minimumStageCompletions: 0
+      minimumStageCompletions: 2
       requiredUnlockable: 
       forbiddenUnlockable: 
       requiredUnlockableDef: {fileID: 0}
@@ -86,7 +86,7 @@ MonoBehaviour:
       selectionWeight: 0
       spawnDistance: 0
       preventOverhead: 0
-      minimumStageCompletions: 0
+      minimumStageCompletions: 2
       requiredUnlockable: 
       forbiddenUnlockable: 
       requiredUnlockableDef: {fileID: 0}
@@ -96,14 +96,14 @@ MonoBehaviour:
       selectionWeight: 0
       spawnDistance: 0
       preventOverhead: 0
-      minimumStageCompletions: 0
+      minimumStageCompletions: 2
       requiredUnlockable: 
       forbiddenUnlockable: 
       requiredUnlockableDef: {fileID: 0}
       forbiddenUnlockableDef: {fileID: 0}
       spawnCardKey: RoR2/Base/Wisp/cscLesserWisp.asset
     - spawnCard: {fileID: 0}
-      selectionWeight: 0
+      selectionWeight: 1
       spawnDistance: 0
       preventOverhead: 0
       minimumStageCompletions: 1
@@ -112,11 +112,21 @@ MonoBehaviour:
       requiredUnlockableDef: {fileID: 0}
       forbiddenUnlockableDef: {fileID: 0}
       spawnCardKey: RoR2/Base/Vulture/cscVulture.asset
+    - spawnCard: {fileID: 0}
+      selectionWeight: 1
+      spawnDistance: 0
+      preventOverhead: 0
+      minimumStageCompletions: 1
+      requiredUnlockable: 
+      forbiddenUnlockable: 
+      requiredUnlockableDef: {fileID: 0}
+      forbiddenUnlockableDef: {fileID: 0}
+      spawnCardKey: RoR2/Base/HermitCrab/cscHermitCrab.asset
     selectionWeight: 4
   - name: Special
     addressableCards:
     - spawnCard: {fileID: 0}
-      selectionWeight: 0
+      selectionWeight: 1
       spawnDistance: 0
       preventOverhead: 0
       minimumStageCompletions: 5

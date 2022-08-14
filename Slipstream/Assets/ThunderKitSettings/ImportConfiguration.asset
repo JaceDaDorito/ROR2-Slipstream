@@ -94,7 +94,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0eacdf291dc183458517d6b18760c52, type: 3}
   m_Name: Install FixPluginTypesSerialization
   m_EditorClassIdentifier: 
-  enabled: 1
+  enabled: 0
 --- !u!114 &-3560849530324141429
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -167,7 +167,7 @@ MonoBehaviour:
   - {fileID: -7338449356815391792}
   - {fileID: 1673831322843966002}
   - {fileID: 5859650904980281631}
-  ConfigurationIndex: -1
+  ConfigurationIndex: 20
 --- !u!114 &372778894217701086
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -9,14 +9,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -104859921, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+  m_Script: {fileID: 11500000, guid: 6f00d426383560f469d7dea667cb6de6, type: 3}
   m_Name: dccsAridExpanseInteractables
   m_EditorClassIdentifier: 
-  categories:
+  categories: []
+  addressableCategories:
   - name: Chests
-    cards:
+    addressableCards:
     - spawnCard: {fileID: 0}
       selectionWeight: 0
+      spawnDistance: 0
+      preventOverhead: 0
+      minimumStageCompletions: 24
+      requiredUnlockable: 
+      forbiddenUnlockable: 
+      requiredUnlockableDef: {fileID: 0}
+      forbiddenUnlockableDef: {fileID: 0}
+      spawnCardKey: RoR2/Base/Chest1/iscChest1.asset
+    - spawnCard: {fileID: 0}
+      selectionWeight: 4
       spawnDistance: 0
       preventOverhead: 0
       minimumStageCompletions: 0
@@ -24,8 +35,9 @@ MonoBehaviour:
       forbiddenUnlockable: 
       requiredUnlockableDef: {fileID: 0}
       forbiddenUnlockableDef: {fileID: 0}
+      spawnCardKey: RoR2/Base/Chest2/iscChest2.asset
     - spawnCard: {fileID: 0}
-      selectionWeight: 0
+      selectionWeight: 2
       spawnDistance: 0
       preventOverhead: 0
       minimumStageCompletions: 0
@@ -33,8 +45,9 @@ MonoBehaviour:
       forbiddenUnlockable: 
       requiredUnlockableDef: {fileID: 0}
       forbiddenUnlockableDef: {fileID: 0}
+      spawnCardKey: RoR2/Base/EquipmentBarrel/iscEquipmentBarrel.asset
     - spawnCard: {fileID: 0}
-      selectionWeight: 0
+      selectionWeight: 8
       spawnDistance: 0
       preventOverhead: 0
       minimumStageCompletions: 0
@@ -42,8 +55,9 @@ MonoBehaviour:
       forbiddenUnlockable: 
       requiredUnlockableDef: {fileID: 0}
       forbiddenUnlockableDef: {fileID: 0}
+      spawnCardKey: RoR2/Base/TripleShop/iscTripleShop.asset
     - spawnCard: {fileID: 0}
-      selectionWeight: 0
+      selectionWeight: 2
       spawnDistance: 0
       preventOverhead: 0
       minimumStageCompletions: 0
@@ -51,8 +65,9 @@ MonoBehaviour:
       forbiddenUnlockable: 
       requiredUnlockableDef: {fileID: 0}
       forbiddenUnlockableDef: {fileID: 0}
+      spawnCardKey: RoR2/Base/LunarChest/iscLunarChest.asset
     - spawnCard: {fileID: 0}
-      selectionWeight: 0
+      selectionWeight: 2
       spawnDistance: 0
       preventOverhead: 0
       minimumStageCompletions: 0
@@ -60,8 +75,9 @@ MonoBehaviour:
       forbiddenUnlockable: 
       requiredUnlockableDef: {fileID: 0}
       forbiddenUnlockableDef: {fileID: 0}
+      spawnCardKey: RoR2/Base/CategoryChest/iscCategoryChestDamage.asset
     - spawnCard: {fileID: 0}
-      selectionWeight: 0
+      selectionWeight: 2
       spawnDistance: 0
       preventOverhead: 0
       minimumStageCompletions: 0
@@ -69,8 +85,9 @@ MonoBehaviour:
       forbiddenUnlockable: 
       requiredUnlockableDef: {fileID: 0}
       forbiddenUnlockableDef: {fileID: 0}
+      spawnCardKey: RoR2/Base/CategoryChest/iscCategoryChestHealing.asset
     - spawnCard: {fileID: 0}
-      selectionWeight: 0
+      selectionWeight: 2
       spawnDistance: 0
       preventOverhead: 0
       minimumStageCompletions: 0
@@ -78,20 +95,12 @@ MonoBehaviour:
       forbiddenUnlockable: 
       requiredUnlockableDef: {fileID: 0}
       forbiddenUnlockableDef: {fileID: 0}
-    - spawnCard: {fileID: 0}
-      selectionWeight: 0
-      spawnDistance: 0
-      preventOverhead: 0
-      minimumStageCompletions: 0
-      requiredUnlockable: 
-      forbiddenUnlockable: 
-      requiredUnlockableDef: {fileID: 0}
-      forbiddenUnlockableDef: {fileID: 0}
+      spawnCardKey: RoR2/Base/CategoryChest/iscCategoryChestHealing.asset
     selectionWeight: 45
   - name: Barrels
-    cards:
+    addressableCards:
     - spawnCard: {fileID: 0}
-      selectionWeight: 0
+      selectionWeight: 10
       spawnDistance: 0
       preventOverhead: 0
       minimumStageCompletions: 0
@@ -99,11 +108,12 @@ MonoBehaviour:
       forbiddenUnlockable: 
       requiredUnlockableDef: {fileID: 0}
       forbiddenUnlockableDef: {fileID: 0}
+      spawnCardKey: RoR2/Base/Barrel1/iscBarrel1.asset
     selectionWeight: 10
   - name: Shrines
-    cards:
+    addressableCards:
     - spawnCard: {fileID: 0}
-      selectionWeight: 0
+      selectionWeight: 3
       spawnDistance: 0
       preventOverhead: 0
       minimumStageCompletions: 0
@@ -111,8 +121,9 @@ MonoBehaviour:
       forbiddenUnlockable: 
       requiredUnlockableDef: {fileID: 0}
       forbiddenUnlockableDef: {fileID: 0}
+      spawnCardKey: RoR2/Base/ShrineCombat/iscShrineCombat.asset
     - spawnCard: {fileID: 0}
-      selectionWeight: 0
+      selectionWeight: 1
       spawnDistance: 0
       preventOverhead: 0
       minimumStageCompletions: 0
@@ -120,8 +131,9 @@ MonoBehaviour:
       forbiddenUnlockable: 
       requiredUnlockableDef: {fileID: 0}
       forbiddenUnlockableDef: {fileID: 0}
+      spawnCardKey: RoR2/Base/ShrineBoss/iscShrineBoss.asset
     - spawnCard: {fileID: 0}
-      selectionWeight: 0
+      selectionWeight: 4
       spawnDistance: 0
       preventOverhead: 0
       minimumStageCompletions: 0
@@ -129,133 +141,148 @@ MonoBehaviour:
       forbiddenUnlockable: 
       requiredUnlockableDef: {fileID: 0}
       forbiddenUnlockableDef: {fileID: 0}
+      spawnCardKey: RoR2/Base/ShrineChance/iscShrineChance.asset
     selectionWeight: 10
   - name: Drones
-    cards:
+    addressableCards:
     - spawnCard: {fileID: 0}
-      selectionWeight: 1
+      selectionWeight: 7
       spawnDistance: 0
       preventOverhead: 0
-      minimumStageCompletions: 5
+      minimumStageCompletions: 0
       requiredUnlockable: 
       forbiddenUnlockable: 
       requiredUnlockableDef: {fileID: 0}
       forbiddenUnlockableDef: {fileID: 0}
+      spawnCardKey: RoR2/Base/Drones/iscBrokenDrone1.asset
     - spawnCard: {fileID: 0}
-      selectionWeight: 1
+      selectionWeight: 7
       spawnDistance: 0
       preventOverhead: 0
-      minimumStageCompletions: 5
+      minimumStageCompletions: 0
       requiredUnlockable: 
       forbiddenUnlockable: 
       requiredUnlockableDef: {fileID: 0}
       forbiddenUnlockableDef: {fileID: 0}
+      spawnCardKey: RoR2/Base/Drones/iscBrokenDrone2.asset
     - spawnCard: {fileID: 0}
-      selectionWeight: 1
+      selectionWeight: 2
       spawnDistance: 0
       preventOverhead: 0
-      minimumStageCompletions: 5
+      minimumStageCompletions: 0
       requiredUnlockable: 
       forbiddenUnlockable: 
       requiredUnlockableDef: {fileID: 0}
       forbiddenUnlockableDef: {fileID: 0}
+      spawnCardKey: RoR2/Base/Drones/iscBrokenEmergencyDrone.asset
     selectionWeight: 14
   - name: Misc
-    cards:
+    addressableCards:
     - spawnCard: {fileID: 0}
-      selectionWeight: 1
+      selectionWeight: 7
       spawnDistance: 0
       preventOverhead: 0
-      minimumStageCompletions: 5
+      minimumStageCompletions: 0
       requiredUnlockable: 
       forbiddenUnlockable: 
       requiredUnlockableDef: {fileID: 0}
       forbiddenUnlockableDef: {fileID: 0}
+      spawnCardKey: RoR2/Base/Drones/iscBrokenTurret1.asset
     selectionWeight: 7
   - name: Rare
-    cards:
+    addressableCards:
     - spawnCard: {fileID: 0}
-      selectionWeight: 1
+      selectionWeight: 6
       spawnDistance: 0
       preventOverhead: 0
-      minimumStageCompletions: 5
+      minimumStageCompletions: 0
       requiredUnlockable: 
       forbiddenUnlockable: 
       requiredUnlockableDef: {fileID: 0}
       forbiddenUnlockableDef: {fileID: 0}
+      spawnCardKey: RoR2/Base/Chest1StealthedVariant/iscChest1Stealthed.asset
     - spawnCard: {fileID: 0}
-      selectionWeight: 1
+      selectionWeight: 2
       spawnDistance: 0
       preventOverhead: 0
-      minimumStageCompletions: 5
+      minimumStageCompletions: 0
+      requiredUnlockable: 
+      forbiddenUnlockable: 
+      requiredUnlockableDef: {fileID: 0}
+      forbiddenUnlockableDef: {fileID: 11400000, guid: 173db8e7eabe5c443b83c83c435dc118,
+        type: 2}
+      spawnCardKey: RoR2/Base/RadarTower/iscRadarTower.asset
+    - spawnCard: {fileID: 0}
+      selectionWeight: 2
+      spawnDistance: 0
+      preventOverhead: 0
+      minimumStageCompletions: 0
       requiredUnlockable: 
       forbiddenUnlockable: 
       requiredUnlockableDef: {fileID: 0}
       forbiddenUnlockableDef: {fileID: 0}
+      spawnCardKey: RoR2/Base/ShrineGoldshoresAccess/iscShrineGoldshoresAccess.asset
     - spawnCard: {fileID: 0}
-      selectionWeight: 1
+      selectionWeight: 2
       spawnDistance: 0
       preventOverhead: 0
-      minimumStageCompletions: 5
+      minimumStageCompletions: 0
       requiredUnlockable: 
       forbiddenUnlockable: 
       requiredUnlockableDef: {fileID: 0}
       forbiddenUnlockableDef: {fileID: 0}
-    - spawnCard: {fileID: 0}
-      selectionWeight: 1
-      spawnDistance: 0
-      preventOverhead: 0
-      minimumStageCompletions: 5
-      requiredUnlockable: 
-      forbiddenUnlockable: 
-      requiredUnlockableDef: {fileID: 0}
-      forbiddenUnlockableDef: {fileID: 0}
+      spawnCardKey: RoR2/Base/GoldChest/iscGoldChest.asset
     selectionWeight: 0.4
   - name: Duplicator
-    cards:
+    addressableCards:
     - spawnCard: {fileID: 0}
-      selectionWeight: 1
+      selectionWeight: 30
       spawnDistance: 0
       preventOverhead: 0
-      minimumStageCompletions: 5
+      minimumStageCompletions: 0
       requiredUnlockable: 
       forbiddenUnlockable: 
       requiredUnlockableDef: {fileID: 0}
       forbiddenUnlockableDef: {fileID: 0}
+      spawnCardKey: RoR2/Base/Duplicator/iscDuplicator.asset
     - spawnCard: {fileID: 0}
-      selectionWeight: 1
+      selectionWeight: 6
       spawnDistance: 0
       preventOverhead: 0
-      minimumStageCompletions: 5
+      minimumStageCompletions: 1
       requiredUnlockable: 
       forbiddenUnlockable: 
       requiredUnlockableDef: {fileID: 0}
       forbiddenUnlockableDef: {fileID: 0}
+      spawnCardKey: RoR2/Base/DuplicatorLarge/iscDuplicatorLarge.asset
     - spawnCard: {fileID: 0}
-      selectionWeight: 1
+      selectionWeight: 0
       spawnDistance: 0
       preventOverhead: 0
-      minimumStageCompletions: 5
+      minimumStageCompletions: 4
       requiredUnlockable: 
       forbiddenUnlockable: 
       requiredUnlockableDef: {fileID: 0}
       forbiddenUnlockableDef: {fileID: 0}
+      spawnCardKey: RoR2/Base/DuplicatorMilitary/iscDuplicatorMilitary.asset
     - spawnCard: {fileID: 0}
-      selectionWeight: 1
+      selectionWeight: 2
       spawnDistance: 0
       preventOverhead: 0
-      minimumStageCompletions: 5
+      minimumStageCompletions: 1
       requiredUnlockable: 
       forbiddenUnlockable: 
       requiredUnlockableDef: {fileID: 0}
       forbiddenUnlockableDef: {fileID: 0}
+      spawnCardKey: RoR2/Base/DuplicatorWild/iscDuplicatorWild.asset
     - spawnCard: {fileID: 0}
-      selectionWeight: 1
+      selectionWeight: 12
       spawnDistance: 0
       preventOverhead: 0
-      minimumStageCompletions: 5
+      minimumStageCompletions: 0
       requiredUnlockable: 
       forbiddenUnlockable: 
       requiredUnlockableDef: {fileID: 0}
       forbiddenUnlockableDef: {fileID: 0}
+      spawnCardKey: RoR2/Base/Scrapper/iscScrapper.asset
     selectionWeight: 8
