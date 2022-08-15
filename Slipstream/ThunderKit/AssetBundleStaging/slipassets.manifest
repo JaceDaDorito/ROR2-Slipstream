@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 2299976536
+CRC: 155297483
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: a4404629bc63867027782da03e9dabee
+    Hash: 9cb93a3cb41c6730704298d775ad011e
   TypeTreeHash:
     serializedVersion: 2
     Hash: 020b56b65eb41ceb03a1b622ec024d22
@@ -207,6 +207,7 @@ Assets:
 - Assets/Slipstream/SlipstreamAssets/Prefabs/SizeReference.prefab
 - Assets/Materials/MobsterMando_Diffuse.png
 - Assets/Materials/glasseye_Flowmap.png
+- Assets/Materials/Test2.mat
 - Assets/Slipstream/SlipstreamAssets/BuffDefs/BedeviledMark.asset
 - Assets/Slipstream/SlipstreamAssets/BuffDefs/PepperSpeed.asset
 - Assets/Materials/texGP2GrassTerrain.png
@@ -251,7 +252,7 @@ Assets:
 - Assets/Slipstream/SlipstreamAssets/Prefabs/Effects/PepperSprayExplosion.prefab
 - Assets/Mesh/mobstermando.fbx
 - Assets/Materials/matDefaultItem.mat
-- Assets/Mesh/donut5Mesh.asset
+- Assets/Mesh/RippedMeshes/donut5Mesh.asset
 - Assets/Materials/matPepperSprayExplosion.mat
 - Assets/Materials/texPepperSprayCloud.png
 - Assets/Materials/texOmniShockwave1Mask.png
@@ -291,7 +292,7 @@ Assets:
 - Assets/Materials/texBarrierBarPlaceholder.png
 - Assets/Materials/texGenericStarburstMask.png
 - Assets/Materials/MobsterMando_Normal.png
-- Assets/Mesh/VFXLightShaft.asset
+- Assets/Mesh/RippedMeshes/VFXLightShaft.asset
 - Assets/Materials/texRampPepperEmit.png
 - Assets/Materials/matTestSkin.mat
 - Assets/Materials/GlassEye_GlowyEmit.png
