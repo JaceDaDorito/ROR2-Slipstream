@@ -17,10 +17,10 @@ MonoBehaviour:
   - name: Chests
     addressableCards:
     - spawnCard: {fileID: 0}
-      selectionWeight: 0
+      selectionWeight: 24
       spawnDistance: 0
       preventOverhead: 0
-      minimumStageCompletions: 24
+      minimumStageCompletions: 0
       requiredUnlockable: 
       forbiddenUnlockable: 
       requiredUnlockableDef: {fileID: 0}
@@ -96,7 +96,7 @@ MonoBehaviour:
       requiredUnlockableDef: {fileID: 0}
       forbiddenUnlockableDef: {fileID: 0}
       spawnCardKey: RoR2/Base/CategoryChest/iscCategoryChestHealing.asset
-    selectionWeight: 45
+    selectionWeight: 47
   - name: Barrels
     addressableCards:
     - spawnCard: {fileID: 0}
@@ -109,7 +109,7 @@ MonoBehaviour:
       requiredUnlockableDef: {fileID: 0}
       forbiddenUnlockableDef: {fileID: 0}
       spawnCardKey: RoR2/Base/Barrel1/iscBarrel1.asset
-    selectionWeight: 10
+    selectionWeight: 12
   - name: Shrines
     addressableCards:
     - spawnCard: {fileID: 0}
@@ -142,7 +142,7 @@ MonoBehaviour:
       requiredUnlockableDef: {fileID: 0}
       forbiddenUnlockableDef: {fileID: 0}
       spawnCardKey: RoR2/Base/ShrineChance/iscShrineChance.asset
-    selectionWeight: 10
+    selectionWeight: 12
   - name: Drones
     addressableCards:
     - spawnCard: {fileID: 0}
@@ -216,7 +216,7 @@ MonoBehaviour:
       selectionWeight: 2
       spawnDistance: 0
       preventOverhead: 0
-      minimumStageCompletions: 0
+      minimumStageCompletions: 1
       requiredUnlockable: 
       forbiddenUnlockable: 
       requiredUnlockableDef: {fileID: 0}
@@ -226,7 +226,7 @@ MonoBehaviour:
       selectionWeight: 2
       spawnDistance: 0
       preventOverhead: 0
-      minimumStageCompletions: 0
+      minimumStageCompletions: 3
       requiredUnlockable: 
       forbiddenUnlockable: 
       requiredUnlockableDef: {fileID: 0}
@@ -256,7 +256,7 @@ MonoBehaviour:
       forbiddenUnlockableDef: {fileID: 0}
       spawnCardKey: RoR2/Base/DuplicatorLarge/iscDuplicatorLarge.asset
     - spawnCard: {fileID: 0}
-      selectionWeight: 0
+      selectionWeight: 1
       spawnDistance: 0
       preventOverhead: 0
       minimumStageCompletions: 4

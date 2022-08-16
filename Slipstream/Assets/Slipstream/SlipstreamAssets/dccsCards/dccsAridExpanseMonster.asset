@@ -73,30 +73,30 @@ MonoBehaviour:
   - name: Basic Monsters
     addressableCards:
     - spawnCard: {fileID: 0}
-      selectionWeight: 0
+      selectionWeight: 2
       spawnDistance: 0
       preventOverhead: 0
-      minimumStageCompletions: 2
+      minimumStageCompletions: 0
       requiredUnlockable: 
       forbiddenUnlockable: 
       requiredUnlockableDef: {fileID: 0}
       forbiddenUnlockableDef: {fileID: 0}
       spawnCardKey: RoR2/Base/Lemurian/cscLemurian.asset
     - spawnCard: {fileID: 0}
-      selectionWeight: 0
+      selectionWeight: 2
       spawnDistance: 0
       preventOverhead: 0
-      minimumStageCompletions: 2
+      minimumStageCompletions: 0
       requiredUnlockable: 
       forbiddenUnlockable: 
       requiredUnlockableDef: {fileID: 0}
       forbiddenUnlockableDef: {fileID: 0}
       spawnCardKey: RoR2/Base/Beetle/cscBeetle.asset
     - spawnCard: {fileID: 0}
-      selectionWeight: 0
+      selectionWeight: 2
       spawnDistance: 0
       preventOverhead: 0
-      minimumStageCompletions: 2
+      minimumStageCompletions: 0
       requiredUnlockable: 
       forbiddenUnlockable: 
       requiredUnlockableDef: {fileID: 0}
