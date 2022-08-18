@@ -14,7 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settings:
   - {fileID: 4160586808749845559}
-  - {fileID: 5533666753074354731}
   - {fileID: 262673185520589578}
 --- !u!114 &262673185520589578
 MonoBehaviour:
@@ -84,13 +83,13 @@ MonoBehaviour:
     value: 0.2
   fogPower:
     overrideState: 1
-    value: 1
+    value: 0.15
   fogZero:
     overrideState: 1
-    value: -0.03
+    value: 0
   fogOne:
     overrideState: 1
-    value: 0.039
+    value: 0.208
   fogHeightStart:
     overrideState: 0
     value: -37
@@ -102,16 +101,16 @@ MonoBehaviour:
     value: 0
   fogColorStart:
     overrideState: 1
-    value: {r: 0.5254902, g: 0.85490197, b: 0.9490196, a: 0}
+    value: {r: 0.3492346, g: 0.6059095, b: 0.6792453, a: 0}
   fogColorMid:
     overrideState: 1
-    value: {r: 0.28235295, g: 0.3137255, b: 0.3254902, a: 0.72156864}
+    value: {r: 0.13725491, g: 0.15294118, b: 0.16470589, a: 0.5921569}
   fogColorEnd:
     overrideState: 1
-    value: {r: 0.63529414, g: 0.34509805, b: 0.21960784, a: 0.74509805}
+    value: {r: 0.6509804, g: 0.30980393, b: 0.21176471, a: 1}
   skyboxStrength:
     overrideState: 1
-    value: 0.1
+    value: 0.234
 --- !u!114 &5533666753074354731
 MonoBehaviour:
   m_ObjectHideFlags: 3

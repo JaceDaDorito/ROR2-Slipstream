@@ -111,7 +111,7 @@ MonoBehaviour:
       forbiddenUnlockable: 
       requiredUnlockableDef: {fileID: 0}
       forbiddenUnlockableDef: {fileID: 0}
-      spawnCardKey: RoR2/DLC1/Vermin/cscVermin.asset
+      spawnCardKey: RoR2/Base/Vulture/cscVulture.asset
     - spawnCard: {fileID: 0}
       selectionWeight: 1
       spawnDistance: 2

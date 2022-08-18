@@ -5808,8 +5808,7 @@ MonoBehaviour:
   m_Script: {fileID: 818754807, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  teleporterSpawnCard: {fileID: -1775688641126402382, guid: 00000000000000000000000000000000,
-    type: 0}
+  teleporterSpawnCard: {fileID: 0}
   expRewardCoefficient: 0.06666667
   eliteBias: 2
   spawnDistanceMultiplier: 6
@@ -7444,7 +7443,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 0.6509434, g: 0.473241, b: 0.34082413, a: 1}
+  m_Color: {r: 0.007843138, g: 0.34901962, b: 0.5803922, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
@@ -7531,8 +7530,7 @@ MonoBehaviour:
   NGSS_PCSS_SOFTNESS_NEAR: 0.932
   NGSS_PCSS_SOFTNESS_FAR: 2
   NGSS_NOISE_TO_DITHERING_SCALE: 1
-  NGSS_NOISE_TEXTURE: {fileID: -7261684554061668849, guid: 00000000000000000000000000000000,
-    type: 0}
+  NGSS_NOISE_TEXTURE: {fileID: 0}
   NGSS_DENOISER_ENABLED: 0
   NGSS_DENOISER_ITERATIONS: 2
   NGSS_DENOISER_BLUR: 0.25
@@ -9156,19 +9154,15 @@ MonoBehaviour:
   m_Script: {fileID: -235412878, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monsterDccsPool: {fileID: 7187708436087846909, guid: 00000000000000000000000000000000,
-    type: 0}
-  interactableDccsPool: {fileID: -2810141190926354528, guid: 00000000000000000000000000000000,
-    type: 0}
+  monsterDccsPool: {fileID: 0}
+  interactableDccsPool: {fileID: 0}
   sceneDirectorInteractibleCredits: 200
   sceneDirectorMonsterCredits: 20
   bonusInteractibleCreditObjects: []
   monsterCards: []
   interactableCards: []
-  interactableCategories: {fileID: 1535721310760214027, guid: 00000000000000000000000000000000,
-    type: 0}
-  monsterCategories: {fileID: -3888277554873069152, guid: 00000000000000000000000000000000,
-    type: 0}
+  interactableCategories: {fileID: 0}
+  monsterCategories: {fileID: 0}
   possibleMonsterFamilies: []
 --- !u!114 &1906547445
 MonoBehaviour:
@@ -9209,7 +9203,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1906547443}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
   m_Name: 
@@ -9251,7 +9245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bfd4b453809938449258f32ab2f990c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Key: RoR2/Base/frozenwall/dccsFrozenWallInteractablesDLC1.asset
+  Key: RoR2/Base/frozenwall/dccsFrozenWallInteractables.asset
   _targetComponent: {fileID: 1906547444}
   _targetMemberInfoName: (ClassicStageInfo) interactableCategories
 --- !u!114 &1906547450
@@ -9266,7 +9260,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bfd4b453809938449258f32ab2f990c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Key: RoR2/Base/frozenwall/dccsFrozenWallMonstersDLC1.asset
+  Key: RoR2/Base/frozenwall/dccsFrozenWallMonsters.asset
   _targetComponent: {fileID: 1906547444}
   _targetMemberInfoName: (ClassicStageInfo) monsterCategories
 --- !u!114 &1906547451

@@ -19,8 +19,8 @@ namespace Slipstream.Scenes
         public override SceneDef SceneDef { get; } = SlipAssets.Instance.MainAssetBundle.LoadAsset<SceneDef>("TestStage");
         private static MusicTrackDef music = Addressables.LoadAssetAsync<MusicTrackDef>("RoR2/Base/Common/muGameplayBase_09.asset").WaitForCompletion();
         private static MusicTrackDef bossMusic = Addressables.LoadAssetAsync<MusicTrackDef>("RoR2/DLC1/Common/muBossfightDLC1_10.asset").WaitForCompletion(); //change later
-        private static SceneCollection stageThrees = Addressables.LoadAssetAsync<SceneCollection>("RoR2/Base/SceneGroups/sgStage3.asset").WaitForCompletion();
-        private static SceneCollection stageFours = Addressables.LoadAssetAsync<SceneCollection>("RoR2/Base/SceneGroups/sgStage4.asset").WaitForCompletion();
+        //private static SceneCollection stageThrees = Addressables.LoadAssetAsync<SceneCollection>("RoR2/Base/SceneGroups/sgStage3.asset").WaitForCompletion();
+        //private static SceneCollection stageFours = Addressables.LoadAssetAsync<SceneCollection>("RoR2/Base/SceneGroups/sgStage4.asset").WaitForCompletion();
         public override void Initialize()
         {
             SceneDef.mainTrack = music;
