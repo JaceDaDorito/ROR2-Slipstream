@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 2578089393
+CRC: 3895319941
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: a9efafe93abf4542c58fcf54ad669913
+    Hash: 5ae7641da7de014d83f3a3b0b00da952
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 020b56b65eb41ceb03a1b622ec024d22
+    Hash: b49a64f6fdec3ac1a532b99ddbaac0cd
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -63,8 +63,6 @@ ClassTypes:
   Script: {fileID: 662316482, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: -335047464, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
-- Class: 114
-  Script: {fileID: -104859921, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: 511512695, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
@@ -180,7 +178,6 @@ Assets:
 - Assets/Slipstream/SlipstreamAssets/EquipmentDefs/SoulSucker.asset
 - Assets/Materials/skyboxAridCubemap.png
 - Assets/Slipstream/SlipstreamAssets/dccsCards/dccsAridExpanseMonster.asset
-- Assets/Slipstream/SlipstreamAssets/dccsCards/dccsAridExpanseMonstersDLC1.asset
 - Assets/Slipstream/SlipstreamAssets/dccsCards/dccsAridExpanseInteractables.asset
 - Assets/Materials/GlassEye_Ramp.png
 - Assets/Icons/Capture2.png
@@ -248,6 +245,7 @@ Assets:
 - Assets/Slipstream/SlipstreamAssets/dccsCards/dccsAridExpanseInteractablesDLC1.asset
 - Assets/Slipstream/SlipstreamAssets/Prefabs/Projectiles/SoulSuckerProjectile.prefab
 - Assets/Materials/matChuckTriplanar.mat
+- Assets/Slipstream/SlipstreamAssets/dccsCards/dccsAridExpanseMonsterDLC1.asset
 - Assets/Materials/texCriticalShieldIndi.png
 - Assets/Slipstream/SlipstreamAssets/Prefabs/Effects/PepperSprayExplosion.prefab
 - Assets/Mesh/mobstermando.fbx

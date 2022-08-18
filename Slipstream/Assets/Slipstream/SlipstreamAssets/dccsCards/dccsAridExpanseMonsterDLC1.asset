@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6f00d426383560f469d7dea667cb6de6, type: 3}
-  m_Name: dccsAridExpanseMonster
+  m_Name: dccsAridExpanseMonsterDLC1
   m_EditorClassIdentifier: Slipstream:Slipstream.Scenes:SlipDccsHandler/SlipDccs
   categories: []
   addressableCategories:
@@ -111,7 +111,7 @@ MonoBehaviour:
       forbiddenUnlockable: 
       requiredUnlockableDef: {fileID: 0}
       forbiddenUnlockableDef: {fileID: 0}
-      spawnCardKey: RoR2/Base/Vulture/cscVulture.asset
+      spawnCardKey: RoR2/DLC1/Vermin/cscVermin.asset
     - spawnCard: {fileID: 0}
       selectionWeight: 1
       spawnDistance: 2

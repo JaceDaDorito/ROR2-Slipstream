@@ -15,10 +15,15 @@ MonoBehaviour:
   poolCategories:
   - name: Standard
     categoryWeight: 0.98
-    alwaysIncluded:
+    alwaysIncluded: []
+    includedIfConditionsMet:
+    - dccs: {fileID: 11400000, guid: 3034620bcf0085c44878d8dccaa3ebf9, type: 2}
+      weight: 1
+      hasBeenSerialized: 1
+      requiredExpansions:
+      - {fileID: 0}
+    includedIfNoConditionsMet:
     - dccs: {fileID: 11400000, guid: e52c5824652974c4e802b8bfea604e22, type: 2}
       weight: 1
       hasBeenSerialized: 1
-    includedIfConditionsMet: []
-    includedIfNoConditionsMet: []
     hasBeenSerialized: 1

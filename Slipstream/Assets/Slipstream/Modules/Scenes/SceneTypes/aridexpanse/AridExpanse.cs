@@ -1,6 +1,7 @@
 ﻿using Moonstorm;
 using Slipstream.Buffs;
 using RoR2;
+using RoR2.ExpansionManagement;
 using System;
 using UnityEngine;
 using UnityEngine.Networking;
@@ -20,13 +21,8 @@ namespace Slipstream.Scenes
         private static MusicTrackDef bossMusic = Addressables.LoadAssetAsync<MusicTrackDef>("RoR2/Base/Common/muSong05.asset").WaitForCompletion();
         private static SceneCollection sceneEntryGroup = Addressables.LoadAssetAsync<SceneCollection>("RoR2/Base/SceneGroups/sgStage1.asset").WaitForCompletion(); //Stage 1s
         private static SceneCollection sceneDestinations = Addressables.LoadAssetAsync<SceneCollection>("RoR2/Base/SceneGroups/sgStage2.asset").WaitForCompletion(); // Stage 2s
-
-        /*private static DirectorCardCategorySelection interactablesNoDLC { get; } = SlipAssets.Instance.MainAssetBundle.LoadAsset<DirectorCardCategorySelection>("dccsAridExpanseInteractables");
-        private static DirectorCardCategorySelection interactablesDLC1 { get; } = SlipAssets.Instance.MainAssetBundle.LoadAsset<DirectorCardCategorySelection>("dccsAridExpanseInteractablesDLC1");
-        private static DirectorCardCategorySelection monstersNoDLC { get; } = SlipAssets.Instance.MainAssetBundle.LoadAsset<DirectorCardCategorySelection>("dccsAridExpanseMonsters");
-        private static DirectorCardCategorySelection monstersDLC1 { get; } = SlipAssets.Instance.MainAssetBundle.LoadAsset<DirectorCardCategorySelection>("dccsAridExpanseMonstersDLC1");
-
-        private static DccsPool interactablesPool { get; } = SlipAssets.Instance.MainAssetBundle.LoadAsset<DccsPool>("dpAridExpanseInteractables");*/
+        private static DccsPool intPool { get; } = SlipAssets.Instance.MainAssetBundle.LoadAsset<DccsPool>("dpAridExpanseInteractables");
+        private static DccsPool monsterPool { get; } = SlipAssets.Instance.MainAssetBundle.LoadAsset<DccsPool>("dpAridExpanseMonsters");
         public override void Initialize()
         {
             SceneDef.mainTrack = music;
@@ -47,6 +43,14 @@ namespace Slipstream.Scenes
             //Adds destinations to this stage
             SceneDef.destinationsGroup = sceneDestinations;
 
+            //Makes dlc a requirement for dlc content
+            ExpansionDef[] arrayExpansions = { Addressables.LoadAssetAsync<ExpansionDef>("RoR2/DLC1/Common/DLC1.asset").WaitForCompletion() };
+
+            ref DccsPool.Category intStandard = ref intPool.poolCategories[0];
+            intStandard.includedIfConditionsMet[0].requiredExpansions = arrayExpansions;
+
+            ref DccsPool.Category monStandard = ref monsterPool.poolCategories[0];
+            monStandard.includedIfConditionsMet[0].requiredExpansions = arrayExpansions;
         }
     }
 
