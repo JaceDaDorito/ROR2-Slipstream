@@ -58,8 +58,9 @@ namespace Slipstream
         }
 
 
-        //copied this part from SS2
-        private void LoadPostProcessing()
+        //This is completely obsolete now, but I'm keeping it here just in case
+
+        /*private void LoadPostProcessing()
         {
             var ppProfiles = MainAssetBundle.LoadAllAssets<PostProcessProfile>();
             foreach (var ppProfile in ppProfiles)
@@ -112,7 +113,7 @@ namespace Slipstream
                 }
                 ppProfile.isDirty = modified;
             }
-        }
+        }/*
 
         /*private void LoadSoundBank()
         {

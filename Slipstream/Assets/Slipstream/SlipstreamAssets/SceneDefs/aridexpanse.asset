@@ -28,7 +28,7 @@ MonoBehaviour:
   portalSelectionMessageString: BAZAAR_SEER_ARIDEXPANSE
   shouldIncludeInLogbook: 1
   loreToken: SLIP_SCENE_ARIDEXPANSE_LORE
-  dioramaPrefab: {fileID: 1386817072003766323, guid: e5985c07275a1b34a83c50477f893f8e,
+  dioramaPrefab: {fileID: 4007963685829075342, guid: 90e5f6f076a468f41b2af23ab637ee9c,
     type: 3}
   mainTrack: {fileID: 0}
   bossTrack: {fileID: 0}

@@ -18,22 +18,9 @@ MonoBehaviour:
   namedDisplayDictionary:
   - idrs:
       address: RoR2/Base/Commando/idrsCommando.asset
+      useDirectReference: 0
       asset: {fileID: 0}
     displayRules:
-    - ruleType: 0
-      childName: Chest
-      localPos: {x: -0.09959, y: 0.1803, z: 0.20208}
-      localAngles: {x: 17.81564, y: 266.7696, z: 315.3183}
-      localScales: {x: 0.09, y: 0.09, z: 0.09}
-      limbMask: 0
-      finishedRule:
-        ruleType: 0
-        followerPrefab: {fileID: 0}
-        childName: 
-        localPos: {x: 0, y: 0, z: 0}
-        localAngles: {x: 0, y: 0, z: 0}
-        localScale: {x: 0, y: 0, z: 0}
-        limbMask: 0
     - ruleType: 0
       childName: Chest
       localPos: {x: 0.09959, y: 0.1803, z: 0.20208}
@@ -48,8 +35,23 @@ MonoBehaviour:
         localAngles: {x: 0, y: 0, z: 0}
         localScale: {x: 0, y: 0, z: 0}
         limbMask: 0
+    - ruleType: 0
+      childName: Chest
+      localPos: {x: -0.09959, y: 0.1803, z: 0.20208}
+      localAngles: {x: 17.81564, y: 266.7696, z: 315.3183}
+      localScales: {x: 0.09, y: 0.09, z: 0.09}
+      limbMask: 0
+      finishedRule:
+        ruleType: 0
+        followerPrefab: {fileID: 0}
+        childName: 
+        localPos: {x: 0, y: 0, z: 0}
+        localAngles: {x: 0, y: 0, z: 0}
+        localScale: {x: 0, y: 0, z: 0}
+        limbMask: 0
   - idrs:
       address: RoR2/Base/Croco/idrsCroco.asset
+      useDirectReference: 0
       asset: {fileID: 0}
     displayRules:
     - ruleType: 0
@@ -68,6 +70,7 @@ MonoBehaviour:
         limbMask: 0
   - idrs:
       address: RoR2/Base/Mage/idrsMage.asset
+      useDirectReference: 0
       asset: {fileID: 0}
     displayRules:
     - ruleType: 0
@@ -100,6 +103,7 @@ MonoBehaviour:
         limbMask: 0
   - idrs:
       address: RoR2/Base/Bandit2/idrsBandit2.asset
+      useDirectReference: 0
       asset: {fileID: 0}
     displayRules:
     - ruleType: 0
@@ -118,13 +122,14 @@ MonoBehaviour:
         limbMask: 0
   - idrs:
       address: RoR2/Base/Captain/idrsCaptain.asset
+      useDirectReference: 0
       asset: {fileID: 0}
     displayRules:
     - ruleType: 0
       childName: Head
-      localPos: {x: -0.0045, y: 0.20548, z: 0.09458}
-      localAngles: {x: 3.94016, y: 271.7144, z: 329.0855}
-      localScales: {x: 271.7144, y: 329.0855, z: 0.1}
+      localPos: {x: -0.0075, y: 0.20265, z: 0.09782}
+      localAngles: {x: 30.62883, y: 271.5639, z: 323.6266}
+      localScales: {x: 0.1, y: 0.1, z: 0.1}
       limbMask: 0
       finishedRule:
         ruleType: 0
@@ -136,6 +141,7 @@ MonoBehaviour:
         limbMask: 0
   - idrs:
       address: RoR2/Base/Engi/idrsEngi.asset
+      useDirectReference: 0
       asset: {fileID: 0}
     displayRules:
     - ruleType: 0
@@ -168,6 +174,7 @@ MonoBehaviour:
         limbMask: 0
   - idrs:
       address: RoR2/Base/Engi/idrsEngiTurret.asset
+      useDirectReference: 0
       asset: {fileID: 0}
     displayRules:
     - ruleType: 0
@@ -186,6 +193,7 @@ MonoBehaviour:
         limbMask: 0
   - idrs:
       address: RoR2/Base/Engi/idrsEngiWalkerTurret.asset
+      useDirectReference: 0
       asset: {fileID: 0}
     displayRules:
     - ruleType: 0
@@ -204,6 +212,7 @@ MonoBehaviour:
         limbMask: 0
   - idrs:
       address: RoR2/Base/Huntress/idrsHuntress.asset
+      useDirectReference: 0
       asset: {fileID: 0}
     displayRules:
     - ruleType: 0
@@ -236,6 +245,7 @@ MonoBehaviour:
         limbMask: 0
   - idrs:
       address: RoR2/Base/Loader/idrsLoader.asset
+      useDirectReference: 0
       asset: {fileID: 0}
     displayRules:
     - ruleType: 0
@@ -254,6 +264,7 @@ MonoBehaviour:
         limbMask: 0
   - idrs:
       address: RoR2/Base/Toolbot/idrsToolbot.asset
+      useDirectReference: 0
       asset: {fileID: 0}
     displayRules:
     - ruleType: 0
@@ -272,6 +283,7 @@ MonoBehaviour:
         limbMask: 0
   - idrs:
       address: RoR2/Base/Merc/idrsMerc.asset
+      useDirectReference: 0
       asset: {fileID: 0}
     displayRules:
     - ruleType: 0
@@ -290,6 +302,7 @@ MonoBehaviour:
         limbMask: 0
   - idrs:
       address: RoR2/Base/Treebot/idrsTreebot.asset
+      useDirectReference: 0
       asset: {fileID: 0}
     displayRules:
     - ruleType: 0
@@ -308,6 +321,7 @@ MonoBehaviour:
         limbMask: 0
   - idrs:
       address: RoR2/DLC1/Railgunner/idrsRailGunner.asset
+      useDirectReference: 0
       asset: {fileID: 0}
     displayRules:
     - ruleType: 0
@@ -326,6 +340,7 @@ MonoBehaviour:
         limbMask: 0
   - idrs:
       address: RoR2/DLC1/VoidSurvivor/idrsVoidSurvivor.asset
+      useDirectReference: 0
       asset: {fileID: 0}
     displayRules:
     - ruleType: 0
@@ -358,6 +373,7 @@ MonoBehaviour:
         limbMask: 0
   - idrs:
       address: RoR2/Base/Scav/idrsScav.asset
+      useDirectReference: 0
       asset: {fileID: 0}
     displayRules:
     - ruleType: 0

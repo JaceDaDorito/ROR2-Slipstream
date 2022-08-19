@@ -1,4 +1,5 @@
 ﻿using Moonstorm;
+using Moonstorm.Components;
 using Slipstream.Buffs;
 using RoR2;
 using RoR2.ExpansionManagement;
@@ -16,6 +17,7 @@ namespace Slipstream.Scenes
     public class AridExpanse : SceneBase
     {
         public override SceneDef SceneDef { get; } = SlipAssets.Instance.MainAssetBundle.LoadAsset<SceneDef>("aridexpanse");
+
 
         private static MusicTrackDef music = Addressables.LoadAssetAsync<MusicTrackDef>("RoR2/Base/Common/muFULLSong02.asset").WaitForCompletion();
         private static MusicTrackDef bossMusic = Addressables.LoadAssetAsync<MusicTrackDef>("RoR2/Base/Common/muSong05.asset").WaitForCompletion();
@@ -51,6 +53,8 @@ namespace Slipstream.Scenes
 
             ref DccsPool.Category monStandard = ref monsterPool.poolCategories[0];
             monStandard.includedIfConditionsMet[0].requiredExpansions = arrayExpansions;
+
+            //SceneDef.dioramaPrefab.AddComponent<MaterialControllerComponents.>();
         }
     }
 

@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 2853183452
+CRC: 4008393501
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 4110e00fa7a3b3011ef1896271799dbe
+    Hash: 140d12b9e17df9a743fd7b3ac48b5a67
   TypeTreeHash:
     serializedVersion: 2
-    Hash: b49a64f6fdec3ac1a532b99ddbaac0cd
+    Hash: c0634abe3ad9e704ba975dc0c95d8cba
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -106,6 +106,8 @@ ClassTypes:
 - Class: 114
   Script: {fileID: -1819008361, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
+  Script: {fileID: 2011136271, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
   Script: {fileID: -794597441, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: -565067572, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
@@ -119,8 +121,6 @@ ClassTypes:
   Script: {fileID: -1746479147, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 2651678a724e0a046809590077436ef6, type: 3}
-- Class: 114
-  Script: {fileID: 11500000, guid: f88ef64bd2dc7c6489d1b2bdb5fe45d7, type: 3}
 - Class: 114
   Script: {fileID: 1395413934, guid: da77c7bbf69f66ab2145560542327715, type: 3}
 - Class: 115
@@ -139,161 +139,162 @@ ClassTypes:
   Script: {instanceID: 0}
 SerializeReferenceClassIdentifiers: []
 Assets:
-- Assets/Materials/texRampTritone2.png
+- Assets/Materials/Textures/texRampTritone2.png
 - Assets/Materials/skyboxArid.mat
 - Assets/Materials/matWindowsXPTerrain.mat
-- Assets/Materials/texRampPepperRad.png
+- Assets/Mesh/RippedMeshes/DCHeroPillars1.asset
+- Assets/Materials/Textures/texRampPepperRad.png
 - Assets/Shaders/ActualShaders/deferred/hgtriplanarterrainblend.asset
+- Assets/Slipstream/SlipstreamAssets/Prefabs/Diorama/AridDioramaDisplay.prefab
+- Assets/Materials/Textures/texBlackbeachDirt2.png
 - Assets/Slipstream/SlipstreamAssets/dccsCards/dpAridExpanseInteractables.asset
 - Assets/Icons/iconGlassEye.png
 - Assets/Slipstream/SlipstreamAssets/SceneDefs/TestStage.asset
 - Assets/Icons/iconPepperSpray.png
-- Assets/Materials/texRampEngi.png
+- Assets/Materials/Textures/texFocusedConvergenceOrb2.png
+- Assets/Materials/Textures/texRampEngi.png
+- Assets/Materials/Textures/texSMRockBridgeNormal.png
+- Assets/Materials/Textures/texSMRockSide.png
 - Assets/Slipstream/SlipstreamAssets/EliteDefs/Sandswept.asset
-- Assets/Materials/texPepperSmoke.png
+- Assets/Materials/Textures/texPepperSmoke.png
 - Assets/Materials/matFireFlyTrail.mat
-- Assets/Materials/texUIMainRect.png
+- Assets/Materials/Textures/texUIMainRect.png
 - Assets/Slipstream/SlipstreamAssets/dccsCards/dpAridExpanseMonsters.asset
-- Assets/Materials/texWindowsGrass.png
+- Assets/Materials/Textures/texWindowsGrass.png
 - Assets/Slipstream/SlipstreamAssets/ContentPack.asset
 - Packages/com.unity.postprocessing/PostProcessing/Gizmos/PostProcessLayer.png
-- Assets/Materials/texRampGreaterWisp.png
+- Assets/Materials/Textures/texRampGreaterWisp.png
 - Assets/Slipstream/SlipstreamAssets/Prefabs/NetworkedObjects/SoulSuckerTrap.prefab
-- Assets/Materials/texUIHighlightExecute.png
-- Assets/Materials/texCloudDifferenceBW1.png
-- Assets/Materials/Capture.PNG
+- Assets/Materials/Textures/texUIHighlightExecute.png
+- Assets/Materials/Textures/texCloudDifferenceBW1.png
+- Assets/Materials/Textures/Capture.PNG
 - Assets/Icons/iconPepperSpeed.png
-- Assets/Materials/texLightning1Mask.png
-- Assets/Materials/skyboxFoggyFullNoPlanet.png
+- Assets/Materials/Textures/texLightning1Mask.png
 - Assets/Slipstream/SlipstreamAssets/ItemDefs/BlackHealth.asset
 - Assets/Shaders/ActualShaders/deferred/hgstandard.asset
 - Assets/Materials/matPepperSprayEmit - Copy.mat
 - Assets/Slipstream/SlipstreamAssets/Prefabs/Pickups/PickupPepperSpray.prefab
 - Assets/Icons/iconSlipstreamExpansion.png
-- Assets/Materials/texHippoRezRamp.png
+- Assets/Materials/Textures/texHippoRezRamp.png
 - Assets/Slipstream/SlipstreamAssets/BuffDefs/SoulRoot.asset
 - Assets/Slipstream/SlipstreamAssets/EquipmentDefs/Incubator.asset
-- Assets/Materials/texAllyCoalitionBar.png
+- Assets/Materials/Textures/texAllyCoalitionBar.png
 - Assets/Slipstream/SlipstreamAssets/EquipmentDefs/AffixSandswept.asset
 - Assets/Slipstream/SlipstreamAssets/EquipmentDefs/SoulSucker.asset
 - Assets/Materials/skyboxAridCubemap.png
 - Assets/Slipstream/SlipstreamAssets/dccsCards/dccsAridExpanseMonster.asset
 - Assets/Slipstream/SlipstreamAssets/dccsCards/dccsAridExpanseInteractables.asset
-- Assets/Materials/GlassEye_Ramp.png
+- Assets/Materials/Textures/GlassEye_Ramp.png
 - Assets/Icons/Capture2.png
-- Assets/Materials/texGPRockSide3.png
-- Assets/Materials/GlassEye_HeightMap.png
+- Assets/Materials/Textures/texGPRockSide3.png
+- Assets/Materials/Textures/GlassEye_HeightMap.png
 - Assets/Slipstream/SlipstreamAssets/Prefabs/Pickups/PickupTestItem.prefab
-- Assets/Materials/texBlackbeachBasicRockSide2.png
-- Assets/Materials/texBasicMask.png
-- Assets/Materials/matPepperSpray.png
-- Assets/Materials/texRampDefault.png
-- Assets/Materials/texThermiteDroplet2Mask.png
+- Assets/Materials/Textures/texBlackbeachBasicRockSide2.png
+- Assets/Materials/Textures/texBasicMask.png
+- Assets/Materials/Textures/matPepperSpray.png
+- Assets/Materials/Textures/texRampDefault.png
+- Assets/Materials/Textures/texThermiteDroplet2Mask.png
 - Assets/Slipstream/SlipstreamAssets/Prefabs/DisplayPrefabs/DisplayPepperSpray.prefab
-- Assets/Materials/texDCGrass2.png
+- Assets/Materials/Textures/texDCGrass2.png
+- Assets/Slipstream/SlipstreamAssets/ItemDisplayRules/iddGlassEye.asset
 - Assets/Slipstream/SlipstreamAssets/Prefabs/DisplayPrefabs/DisplayGlassEye.prefab
 - Assets/Slipstream/SlipstreamAssets/BuffDefs/AffixSandswept.asset
-- Assets/Materials/texRampThermite2.png
+- Assets/Materials/Textures/texRampThermite2.png
 - Assets/Slipstream/SlipstreamAssets/ItemDefs/JaceHat.asset
 - Assets/Materials/matPepperSpray.mat
 - Assets/Slipstream/SlipstreamAssets/ItemDefs/GlassEye.asset
-- Assets/Materials/GlassEye_Emission.png
+- Assets/Materials/Textures/GlassEye_Emission.png
 - Assets/Slipstream/SlipstreamAssets/Prefabs/Skins/mobstermando.prefab
-- Assets/Materials/texBanditSkullMask.png
+- Assets/Materials/Textures/texBanditSkullMask.png
 - Assets/Shaders/ActualShaders/fx/hgintersectioncloudremap.asset
 - Assets/Slipstream/SlipstreamAssets/Prefabs/SizeReference.prefab
-- Assets/Materials/MobsterMando_Diffuse.png
-- Assets/Materials/glasseye_Flowmap.png
+- Assets/Materials/Textures/glasseye_Flowmap.png
 - Assets/Materials/Test2.mat
 - Assets/Slipstream/SlipstreamAssets/BuffDefs/BedeviledMark.asset
 - Assets/Slipstream/SlipstreamAssets/BuffDefs/PepperSpeed.asset
-- Assets/Materials/texGP2GrassTerrain.png
+- Assets/Materials/Textures/texGP2GrassTerrain.png
 - Assets/Materials/New Material 1.mat
 - Assets/Materials/matPepperRim.mat
 - Assets/Mesh/Sphere.asset
 - Assets/Slipstream/SlipstreamAssets/UnlockableDefs/Logs.Stages.aridexpanse.asset
-- Assets/Materials/glasseye_Diffuse.png
-- Assets/Materials/texSmokeExplosionMask.png
+- Assets/Materials/Textures/glasseye_Diffuse.png
+- Assets/Materials/Textures/texSmokeExplosionMask.png
 - Assets/Slipstream/SlipstreamAssets/SkillDefs/Marauder.asset
-- Assets/Materials/texCloudOrganic1.png
-- Assets/Materials/texTileRustyMetal.png
+- Assets/Materials/Textures/texCloudOrganic1.png
+- Assets/Materials/Textures/texTileRustyMetal.png
 - Assets/Slipstream/SlipstreamAssets/ExpansionDef/SlipExpansionDef.asset
-- Assets/Materials/texOmniHitspark1Mask.png
-- Assets/Materials/texRampParentTeleport.png
+- Assets/Materials/Textures/texOmniHitspark1Mask.png
+- Assets/Materials/Textures/texRampParentTeleport.png
 - Assets/Materials/matSmoke.mat
 - Assets/Slipstream/SlipstreamAssets/ItemDefs/PepperSpray.asset
 - Assets/Mesh/mdlGlassEye.fbx
-- Assets/Materials/skyboxJungleFull.png
 - Assets/Icons/iconSlipstreamDisable.png
 - Assets/Shaders/ActualShaders/fx/hgcloudremap.asset
-- Assets/Materials/MobsterMando_Emission.png
 - Assets/Slipstream/SlipstreamAssets/dccsCards/README.txt
 - Assets/Materials/matAETerrain1.mat
 - Assets/Materials/matPepperSprayEmit.mat
-- Assets/Materials/skyboxFoggyFull.png
-- Assets/Materials/texRJGrassTerrain4.png
+- Assets/Materials/Textures/texSMGrassTerrain2.png
+- Assets/Materials/Textures/texRJGrassTerrain4.png
 - Assets/Slipstream/SlipstreamAssets/ItemDefs/Coalition.asset
-- Assets/Materials/texRootJungleSpore.png
-- Assets/Materials/texAEGrass.png
-- Assets/Materials/glasseye_Normal.png
+- Assets/Materials/Textures/texRootJungleSpore.png
+- Assets/Materials/Textures/texAEGrass.png
+- Assets/Materials/Textures/glasseye_Normal.png
+- Assets/Materials/Textures/texFWBasicRockSide2.png
 - Assets/Slipstream/SlipstreamAssets/PPProfiles/ppAridExpanse.asset
-- Assets/Materials/texGPRockSide2.png
-- Assets/Materials/GlassEye_Glowy.png
-- Assets/Materials/texGPRockSide4.png
-- Assets/Slipstream/SlipstreamAssets/ItemDisplayRules/iddGlassEye.asset
-- Assets/Materials/texRampHealingMedkit.png
+- Assets/Materials/Textures/texGPRockSide2.png
+- Assets/Materials/Textures/GlassEye_Glowy.png
+- Assets/Materials/Textures/texGPRockSide4.png
+- Assets/Materials/Textures/texRampHealingMedkit.png
 - Assets/Slipstream/SlipstreamAssets/dccsCards/dccsAridExpanseInteractablesDLC1.asset
 - Assets/Slipstream/SlipstreamAssets/Prefabs/Projectiles/SoulSuckerProjectile.prefab
-- Assets/Materials/matChuckTriplanar.mat
 - Assets/Slipstream/SlipstreamAssets/dccsCards/dccsAridExpanseMonsterDLC1.asset
-- Assets/Materials/texCriticalShieldIndi.png
+- Assets/Materials/Textures/texCriticalShieldIndi.png
 - Assets/Slipstream/SlipstreamAssets/Prefabs/Effects/PepperSprayExplosion.prefab
 - Assets/Mesh/mobstermando.fbx
 - Assets/Materials/matDefaultItem.mat
 - Assets/Mesh/RippedMeshes/donut5Mesh.asset
 - Assets/Materials/matPepperSprayExplosion.mat
-- Assets/Materials/texPepperSprayCloud.png
-- Assets/Materials/texOmniShockwave1Mask.png
+- Assets/Materials/Textures/texPepperSprayCloud.png
+- Assets/Materials/Textures/texOmniShockwave1Mask.png
 - Assets/Slipstream/SlipstreamAssets/ItemDefs/FriendshipBracelet.asset
-- Assets/Materials/skyboxArid.png
-- Assets/Materials/texEgyptThing.png
-- Assets/Materials/texCriticalVoidShiIndi.png
+- Assets/Materials/Textures/skyboxArid.png
+- Assets/Materials/Textures/texEgyptThing.png
+- Assets/Materials/Textures/texCriticalVoidShiIndi.png
 - Assets/Materials/New Material.mat
 - Assets/Mesh/meshPepperSpray.fbx
 - Assets/Slipstream/SlipstreamAssets/SurfaceDefs/DefaultDef.asset
-- Assets/Materials/texGlowPaintMask.png
-- Assets/Materials/texRJGrassTerrain3.png
-- Assets/Materials/texParticleDust3Mask.png
-- Assets/Materials/texCloudPixel.png
-- Assets/Materials/texRampHuntressSoft.png
+- Assets/Materials/Textures/texGlowPaintMask.png
+- Assets/Materials/Textures/texRJGrassTerrain3.png
+- Assets/Materials/Textures/texParticleDust3Mask.png
+- Assets/Materials/Textures/texCloudPixel.png
+- Assets/Materials/Textures/texRampHuntressSoft.png
 - Assets/Materials/Test.mat
-- Assets/Materials/texCloudDifferenceBW2.png
+- Assets/Materials/Textures/texCloudDifferenceBW2.png
 - Assets/Slipstream/SlipstreamAssets/ItemDefs/RustyGenerator.asset
 - Assets/Icons/Capture.PNG
-- Assets/Materials/texRJRockNormal.png
+- Assets/Materials/Textures/texRJRockNormal.png
 - Assets/Materials/matCoalitionShafts.mat
 - Assets/Slipstream/SlipstreamAssets/Prefabs/Pickups/PickupGlassEye.prefab
 - Assets/Materials/matGlassEyeMetal.mat
-- Assets/Materials/rampPepperSpray.png
-- Assets/Materials/texRJDirtDiffuse2.png
+- Assets/Materials/Textures/rampPepperSpray.png
+- Assets/Materials/Textures/texRJDirtDiffuse2.png
 - Assets/Slipstream/SlipstreamAssets/Prefabs/Effects/CoalitionPreDetonation.prefab
-- Assets/Materials/texRampPepperRim.png
+- Assets/Materials/Textures/texRampPepperRim.png
 - Assets/Slipstream/SlipstreamAssets/Prefabs/Projectiles/JaceHatProjectile.prefab
-- Assets/Materials/texCloudOrganicNormal.png
+- Assets/Materials/Textures/texCloudOrganicNormal.png
 - Assets/Slipstream/SlipstreamAssets/Prefabs/Projectiles/JaceHatGhost.prefab
 - Assets/Slipstream/SlipstreamAssets/SceneDefs/aridexpanse.asset
-- Assets/Materials/textTileScratchSplat.png
+- Assets/Materials/Textures/textTileScratchSplat.png
 - Assets/Materials/matGlassEyeGlowy.mat
 - Assets/Materials/matPepperSprayOldSmoke.mat
-- Assets/Materials/texBBMudNormal.png
-- Assets/Materials/texBlack.png
-- Assets/Materials/texBarrierBarPlaceholder.png
-- Assets/Materials/texGenericStarburstMask.png
+- Assets/Materials/Textures/texBBMudNormal.png
+- Assets/Materials/Textures/texBlack.png
+- Assets/Materials/Textures/texBarrierBarPlaceholder.png
+- Assets/Materials/Textures/texGenericStarburstMask.png
 - Assets/Materials/MobsterMando_Normal.png
 - Assets/Mesh/RippedMeshes/VFXLightShaft.asset
-- Assets/Materials/texRampPepperEmit.png
-- Assets/Materials/matTestSkin.mat
-- Assets/Materials/GlassEye_GlowyEmit.png
+- Assets/Materials/Textures/texRampPepperEmit.png
+- Assets/Materials/Textures/GlassEye_GlowyEmit.png
 - Assets/Slipstream/SlipstreamAssets/ItemDefs/BrineSwarm.asset
 - Assets/Slipstream/SlipstreamAssets/BuffDefs/BrineBuff.asset
 Dependencies: []
