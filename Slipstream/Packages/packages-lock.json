@@ -62,12 +62,6 @@
       "dependencies": {},
       "url": "https://packages.unity.com"
     },
-    "com.unity.multiplayer-hlapi": {
-      "version": "file:RoR2MultiplayerHLAPI",
-      "depth": 0,
-      "source": "embedded",
-      "dependencies": {}
-    },
     "com.unity.postprocessing": {
       "version": "2.3.0",
       "depth": 0,
@@ -152,6 +146,12 @@
       "source": "git",
       "dependencies": {},
       "hash": "879ac85ac2a5aea48a3c08f8d58c8c43dceb1df5"
+    },
+    "riskofthunder-ror2multiplayerhlapi": {
+      "version": "file:RoR2MultiplayerHLAPI",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {}
     },
     "rune580-risk_of_options": {
       "version": "file:Risk_Of_Options",

@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: MaterialEditorSettings
   m_EditorClassIdentifier: 
   EnableMaterialEditor: 1
+  myString: 
   shaderStringPairs: []

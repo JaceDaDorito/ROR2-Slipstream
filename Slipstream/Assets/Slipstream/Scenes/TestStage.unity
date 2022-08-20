@@ -7018,14 +7018,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1526610185}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc6f9998366fcae41b665531e4e24df7, type: 3}
+  m_Script: {fileID: 11500000, guid: 1bfd4b453809938449258f32ab2f990c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Address: RoR2/Base/blackbeach/matBBWater.mat
-  TargetComponents:
-  - {fileID: 1526610187}
+  Key: RoR2/Base/blackbeach/matBBWater.mat
+  _targetComponent: {fileID: 1526610187}
+  _targetMemberInfoName: (Renderer) sharedMaterial
 --- !u!23 &1526610187
 MeshRenderer:
   m_ObjectHideFlags: 0
