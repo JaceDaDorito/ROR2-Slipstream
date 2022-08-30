@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 892ee265a9c0b884c8c9c36e42a802c6, type: 3}
   m_Name: Install BepInEx
   m_EditorClassIdentifier: 
-  enabled: 1
+  enabled: 0
 --- !u!114 &-8594531666137627282
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -51,7 +51,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6a6266570ba40d41bad5cf59676ab77, type: 3}
   m_Name: Install RoR2MultiplayerHLAPI
   m_EditorClassIdentifier: 
-  enabled: 1
+  enabled: 0
 --- !u!114 &-4202106202987679915
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -205,7 +205,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f4761da1836bc043a94000ffe25bf40, type: 3}
   m_Name: Install RoR2 Editor Kit
   m_EditorClassIdentifier: 
-  enabled: 1
+  enabled: 0
 --- !u!114 &3239380294027184238
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -261,7 +261,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe2f3f38321f2a74aae53ccf8a34a3de, type: 3}
   m_Name: Install DebugToolkit
   m_EditorClassIdentifier: 
-  enabled: 1
+  enabled: 0
 --- !u!114 &6996058666816372067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -300,4 +300,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7156a49146b0bc44791e7e0141f1a773, type: 3}
   m_Name: Install R2API
   m_EditorClassIdentifier: 
-  enabled: 1
+  enabled: 0

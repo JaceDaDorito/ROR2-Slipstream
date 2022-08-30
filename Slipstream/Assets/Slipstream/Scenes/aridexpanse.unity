@@ -33757,7 +33757,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -4814476532854777788, guid: 00000000000000000000000000000000, type: 0}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -103568,8 +103568,7 @@ MonoBehaviour:
   m_Script: {fileID: 1052602003, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  surfaceDef: {fileID: -8696080620969594277, guid: 00000000000000000000000000000000,
-    type: 0}
+  surfaceDef: {fileID: 0}
 --- !u!65 &1902611126
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -117089,6 +117088,7 @@ GameObject:
   - component: {fileID: 3182728407768560202}
   - component: {fileID: 1414489714370432109}
   - component: {fileID: 1414489714370432108}
+  - component: {fileID: 1414489714370432110}
   m_Layer: 11
   m_Name: Plane.002
   m_TagString: Untagged
@@ -117122,8 +117122,54 @@ MeshCollider:
   m_Enabled: 1
   serializedVersion: 4
   m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 6416302070336371891, guid: d07a2d78a49c44c43a87a00c083c8e0f, type: 3}
+  m_CookingOptions: -1
+  m_Mesh: {fileID: -7062237550436784827, guid: 5ec2aaa93f1c8d8478a9290e9f5cc5f4, type: 3}
+--- !u!114 &1414489714370432110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1414489714370432107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e284ad04ccd4de34981ab40f1de86ead, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  material: {fileID: 2100000, guid: ad2c1829dbfc05f42b858f50eea08c79, type: 2}
+  renderer: {fileID: 0}
+  MaterialName: 
+  _ColorsOn: 0
+  _MixColorsOn: 0
+  _MaskOn: 0
+  _VerticalBiasOn: 0
+  _DoubleSampleOn: 0
+  _Color: {r: 0, g: 0, b: 0, a: 0}
+  _NormalTex: {fileID: 0}
+  _NormalStrength: 0
+  _RampInfo: 0
+  _DecalLayer: 0
+  _Cull: 0
+  _TextureFactor: 0
+  _Depth: 0
+  _SplatmapTex: {fileID: 0}
+  _RedChannelTopTex: {fileID: 0}
+  _RedChannelSideTex: {fileID: 0}
+  _RedChannelSmoothness: 0
+  _RedChannelSpecularStrength: 0
+  _RedChannelSpecularExponent: 0
+  _RedChannelBias: 0
+  _GreenChannelTex: {fileID: 0}
+  _GreenChannelSmoothness: 0
+  _GreenChannelSpecularStrength: 0
+  _GreenChannelSpecularExponent: 0
+  _GreenChannelBias: 0
+  _BlueChannelTex: {fileID: 0}
+  _BlueChannelSmoothness: 0
+  _BlueChannelSpecularStrength: 0
+  _BlueChannelSpecularExponent: 0
+  _BlueChannelBias: 0
+  _SnowOn: 0
 --- !u!4 &2546354110230668701
 Transform:
   m_ObjectHideFlags: 0
@@ -117131,9 +117177,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1414489714370432107}
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 30000, y: 30000, z: 25000}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 176808839}
   m_RootOrder: 0
@@ -117202,7 +117248,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1414489714370432107}
-  m_Mesh: {fileID: 6416302070336371891, guid: d07a2d78a49c44c43a87a00c083c8e0f, type: 3}
+  m_Mesh: {fileID: -7062237550436784827, guid: 5ec2aaa93f1c8d8478a9290e9f5cc5f4, type: 3}
 --- !u!33 &6040718014135697738
 MeshFilter:
   m_ObjectHideFlags: 0

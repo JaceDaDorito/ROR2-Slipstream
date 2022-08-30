@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3290134553993269800}
   - component: {fileID: 2629460143247040641}
   - component: {fileID: 8589573636828973034}
+  - component: {fileID: 9109929647791823290}
   m_Layer: 0
   m_Name: AridDioramaDisplay
   m_TagString: Untagged
@@ -79,3 +80,49 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &9109929647791823290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4007963685829075342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e284ad04ccd4de34981ab40f1de86ead, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  material: {fileID: 2100000, guid: ad2c1829dbfc05f42b858f50eea08c79, type: 2}
+  renderer: {fileID: 0}
+  MaterialName: 
+  _ColorsOn: 0
+  _MixColorsOn: 0
+  _MaskOn: 0
+  _VerticalBiasOn: 0
+  _DoubleSampleOn: 0
+  _Color: {r: 0, g: 0, b: 0, a: 0}
+  _NormalTex: {fileID: 0}
+  _NormalStrength: 0
+  _RampInfo: 0
+  _DecalLayer: 0
+  _Cull: 0
+  _TextureFactor: 0
+  _Depth: 0
+  _SplatmapTex: {fileID: 0}
+  _RedChannelTopTex: {fileID: 0}
+  _RedChannelSideTex: {fileID: 0}
+  _RedChannelSmoothness: 0
+  _RedChannelSpecularStrength: 0
+  _RedChannelSpecularExponent: 0
+  _RedChannelBias: 0
+  _GreenChannelTex: {fileID: 0}
+  _GreenChannelSmoothness: 0
+  _GreenChannelSpecularStrength: 0
+  _GreenChannelSpecularExponent: 0
+  _GreenChannelBias: 0
+  _BlueChannelTex: {fileID: 0}
+  _BlueChannelSmoothness: 0
+  _BlueChannelSpecularStrength: 0
+  _BlueChannelSpecularExponent: 0
+  _BlueChannelBias: 0
+  _SnowOn: 0
