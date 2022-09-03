@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 2893708754
+CRC: 2048875239
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 3e2371fb7f156c8f7944c67bef79e973
+    Hash: 0588c7d62983662c3aa3177e137315aa
   TypeTreeHash:
     serializedVersion: 2
-    Hash: ac8ca802c08b38fb7b94f2d61678740f
+    Hash: 676570d7696fb03a4ac63430601581e2
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -42,11 +42,15 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 11500000, guid: f8258ea15b8f74c4889ce485d21cbbb1, type: 3}
 - Class: 114
+  Script: {fileID: 11500000, guid: adb84e30e02715445aeb9959894e3b4d, type: 3}
+- Class: 114
   Script: {fileID: 11500000, guid: 48a79b01ea5641d4aa6daa2e23605641, type: 3}
 - Class: 114
   Script: {fileID: 870831823, guid: c8c954e10545f6cd0045de066bc4846b, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 8e6292b2c06870d4495f009f912b9600, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 40b924e2dad56384a8df2a1e111bb675, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 3c9c430476270cb42ae82672a367a0e1, type: 3}
 - Class: 114
@@ -268,11 +272,13 @@ Assets:
 - Assets/Slipstream/SlipstreamAssets/SurfaceDefs/DefaultDef.asset
 - Assets/Materials/Textures/texGlowPaintMask.png
 - Assets/Materials/Textures/texRJGrassTerrain3.png
+- Assets/Materials/matAridWeatherDust.mat
 - Assets/Materials/Textures/texParticleDust3Mask.png
 - Assets/Materials/Textures/texCloudPixel.png
 - Assets/Materials/Textures/texRampHuntressSoft.png
 - Assets/Materials/Test.mat
 - Assets/Materials/Textures/texCloudDifferenceBW2.png
+- Assets/Materials/Textures/texWhite.png
 - Assets/Slipstream/SlipstreamAssets/ItemDefs/RustyGenerator.asset
 - Assets/Icons/Capture.PNG
 - Assets/Materials/Textures/texRJRockNormal.png

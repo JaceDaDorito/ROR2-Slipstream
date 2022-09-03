@@ -38,7 +38,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7156a49146b0bc44791e7e0141f1a773, type: 3}
   m_Name: Install R2API
   m_EditorClassIdentifier: 
-  enabled: 1
+  enabled: 0
 --- !u!114 &-5738980206642384087
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -51,7 +51,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 892ee265a9c0b884c8c9c36e42a802c6, type: 3}
   m_Name: Install BepInEx
   m_EditorClassIdentifier: 
-  enabled: 1
+  enabled: 0
 --- !u!114 &-3728718862454672838
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -77,7 +77,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0eacdf291dc183458517d6b18760c52, type: 3}
   m_Name: Install FixPluginTypesSerialization
   m_EditorClassIdentifier: 
-  enabled: 1
+  enabled: 0
 --- !u!114 &-2514247988965457091
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -105,7 +105,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enabled: 1
   OldGuidGenerationMode: 0
-  GuidGenerationMode: 0
+  GuidGenerationMode: 1
 --- !u!114 &-1126975012628612438
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -131,7 +131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe2f3f38321f2a74aae53ccf8a34a3de, type: 3}
   m_Name: Install DebugToolkit
   m_EditorClassIdentifier: 
-  enabled: 1
+  enabled: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -144,8 +144,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc02a62d93c1105498092e320b2f0f46, type: 3}
   m_Name: ImportConfiguration
   m_EditorClassIdentifier: 
-  ConfigurationExecutors: []
-  ConfigurationIndex: -1
+  ConfigurationExecutors:
+  - {fileID: 3903370655419104831}
+  - {fileID: 127774801625395036}
+  - {fileID: -7401464905480251881}
+  - {fileID: -8987107726693123284}
+  - {fileID: 8537906418757534145}
+  - {fileID: -1773697194147732331}
+  - {fileID: -3728718862454672838}
+  - {fileID: 92100018176983517}
+  - {fileID: 7655107609255616699}
+  - {fileID: -1126975012628612438}
+  - {fileID: -2514247988965457091}
+  - {fileID: 7547417821343369994}
+  - {fileID: 7952207596632836774}
+  - {fileID: -5738980206642384087}
+  - {fileID: -2829236780727240640}
+  - {fileID: -7032052654589685550}
+  - {fileID: 9136439432595319837}
+  - {fileID: 1228113626392556786}
+  - {fileID: -68843329341023058}
+  - {fileID: 4538615337193585040}
+  ConfigurationIndex: 20
 --- !u!114 &92100018176983517
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -159,7 +179,7 @@ MonoBehaviour:
   m_Name: Import Project Settings
   m_EditorClassIdentifier: 
   enabled: 1
-  IncludedSettings: 0
+  IncludedSettings: -1
 --- !u!114 &127774801625395036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -185,7 +205,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f4761da1836bc043a94000ffe25bf40, type: 3}
   m_Name: Install RoR2 Editor Kit
   m_EditorClassIdentifier: 
-  enabled: 1
+  enabled: 0
 --- !u!114 &3903370655419104831
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -267,7 +287,7 @@ MonoBehaviour:
   assemblyNames:
   - RoR2.dll
   - KinematicCharacterController.dll
-  NStripExecutable: {fileID: 0}
+  NStripExecutable: {fileID: 102900000, guid: 39e2644fdd2b31844bb745cba95889bb, type: 3}
 --- !u!114 &9136439432595319837
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -280,4 +300,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6a6266570ba40d41bad5cf59676ab77, type: 3}
   m_Name: Install RoR2MultiplayerHLAPI
   m_EditorClassIdentifier: 
-  enabled: 1
+  enabled: 0
