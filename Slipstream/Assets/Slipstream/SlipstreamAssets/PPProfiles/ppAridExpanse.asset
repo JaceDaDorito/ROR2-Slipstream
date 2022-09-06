@@ -1582,16 +1582,16 @@ MonoBehaviour:
     value: 1
   fogIntensity:
     overrideState: 1
-    value: 0.3
+    value: 1
   fogPower:
     overrideState: 1
-    value: 0.15
+    value: 0.57
   fogZero:
     overrideState: 1
-    value: 0
+    value: -0.05
   fogOne:
     overrideState: 1
-    value: 0.16
+    value: 0.24
   fogHeightStart:
     overrideState: 0
     value: 0
@@ -1603,13 +1603,13 @@ MonoBehaviour:
     value: 0
   fogColorStart:
     overrideState: 1
-    value: {r: 0.6745098, g: 0.23529412, b: 0.20392157, a: 0}
+    value: {r: 0.30980393, g: 0.25490198, b: 0.21176471, a: 0}
   fogColorMid:
     overrideState: 1
-    value: {r: 0.25882354, g: 0.1764706, b: 0.15294118, a: 0.27450982}
+    value: {r: 0.20784314, g: 0.20392157, b: 0.27450982, a: 0.32941177}
   fogColorEnd:
     overrideState: 1
-    value: {r: 0.1254902, g: 0.17254902, b: 0.2901961, a: 1}
+    value: {r: 0.101960786, g: 0.22745098, b: 0.33333334, a: 1}
   skyboxStrength:
     overrideState: 1
-    value: 0.234
+    value: 0.39

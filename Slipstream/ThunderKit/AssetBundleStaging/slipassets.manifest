@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 2048875239
+CRC: 3840311978
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 0588c7d62983662c3aa3177e137315aa
+    Hash: a62a38aebd02a62b2df06cbfc1a113ae
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 676570d7696fb03a4ac63430601581e2
+    Hash: 780ca2b979e163318de7e7d2ffc9e163
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -47,6 +47,8 @@ ClassTypes:
   Script: {fileID: 11500000, guid: 48a79b01ea5641d4aa6daa2e23605641, type: 3}
 - Class: 114
   Script: {fileID: 870831823, guid: c8c954e10545f6cd0045de066bc4846b, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 556797029e73b2347956b6579e77e05b, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 8e6292b2c06870d4495f009f912b9600, type: 3}
 - Class: 114
@@ -192,6 +194,7 @@ Assets:
 - Assets/Slipstream/SlipstreamAssets/dccsCards/dccsAridExpanseMonster.asset
 - Assets/Slipstream/SlipstreamAssets/dccsCards/dccsAridExpanseInteractables.asset
 - Assets/Materials/Textures/GlassEye_Ramp.png
+- Assets/Slipstream/SlipstreamAssets/PPProfiles/ppAridExpanseCave.asset
 - Assets/Icons/Capture2.png
 - Assets/Materials/Textures/texGPRockSide3.png
 - Assets/Materials/Textures/GlassEye_HeightMap.png
@@ -260,6 +263,7 @@ Assets:
 - Assets/Mesh/mobstermando.fbx
 - Assets/Materials/matDefaultItem.mat
 - Assets/Mesh/RippedMeshes/donut5Mesh.asset
+- Assets/Materials/matAEDistant.mat
 - Assets/Materials/matPepperSprayExplosion.mat
 - Assets/Materials/Textures/texPepperSprayCloud.png
 - Assets/Materials/Textures/texOmniShockwave1Mask.png
@@ -300,7 +304,7 @@ Assets:
 - Assets/Materials/Textures/texBlack.png
 - Assets/Materials/Textures/texBarrierBarPlaceholder.png
 - Assets/Materials/Textures/texGenericStarburstMask.png
-- Assets/Materials/MobsterMando_Normal.png
+- Assets/Materials/Textures/MobsterMando_Normal.png
 - Assets/Mesh/RippedMeshes/VFXLightShaft.asset
 - Assets/Materials/Textures/texRampPepperEmit.png
 - Assets/Materials/Textures/GlassEye_GlowyEmit.png

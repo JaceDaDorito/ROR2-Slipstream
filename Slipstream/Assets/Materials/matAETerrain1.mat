@@ -44,7 +44,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _GreenChannelTex:
-        m_Texture: {fileID: 2800000, guid: dd0ca649d0c82c140b04e75c37b5c019, type: 3}
+        m_Texture: {fileID: 2800000, guid: 74dd3bc9c983be448a3ba3091cba7db8, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
@@ -96,7 +96,7 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _GreenChannelBias: 0.87
+    - _GreenChannelBias: 0.46
     - _GreenChannelSmoothness: 0
     - _GreenChannelSpecularExponent: 0.1
     - _GreenChannelSpecularStrength: 0
@@ -104,10 +104,10 @@ Material:
     - _Metallic: 0
     - _MixColorsOn: 0
     - _Mode: 0
-    - _NormalStrength: 0.301
+    - _NormalStrength: 0.314
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _RampInfo: 1
+    - _RampInfo: 5
     - _RedChannelBias: 3.11
     - _RedChannelSmoothness: 0
     - _RedChannelSpecularExponent: 0.1
