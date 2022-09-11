@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 3359000851
+CRC: 3036391343
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 45b789115c61abec05a3857d889c478e
+    Hash: 338f06f01270fada1701188ffae380a1
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 80fd2b7ab1d450e8d6bb8eeffefaad0f
+    Hash: f5f484a559954e34c6df58adeb2793d2
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -24,8 +24,6 @@ ClassTypes:
 - Class: 48
   Script: {instanceID: 0}
 - Class: 114
-  Script: {fileID: 649313124, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
-- Class: 114
   Script: {fileID: 11500000, guid: f8258ea15b8f74c4889ce485d21cbbb1, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 25691571cb7e6154fba2b46ef9402c18, type: 3}
@@ -38,15 +36,21 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 11500000, guid: 52a44ac676c8ff547be985bc3a8ae891, type: 3}
 - Class: 114
+  Script: {fileID: 11500000, guid: 462267d798a056b4ab94d737b7da67f6, type: 3}
+- Class: 114
   Script: {fileID: 11500000, guid: 0361a1980df246f4b9c782ef4f442b98, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: e98f718981210a343a10825d2d88abfb, type: 3}
 - Class: 114
   Script: {fileID: -830614127, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
+  Script: {fileID: 89795172, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
   Script: {fileID: 1297580292, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: 733712478, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: 649313124, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: 1918207524, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
@@ -77,6 +81,8 @@ Assets:
 - Packages/teammoonstorm-moonstormsharedutils/Runtime/MSUAssets/Prefabs/MaterialTester.prefab
 - Packages/teammoonstorm-moonstormsharedutils/Runtime/MSUAssets/VanillaEventCategories/ecdcVoidCell.asset
 - Packages/teammoonstorm-moonstormsharedutils/Runtime/MSUAssets/VanillaEventCategories/Simulacrum/ecdcAbandonedAqueductSimulacrum.asset
+- Packages/teammoonstorm-moonstormsharedutils/Runtime/MSUAssets/EntityStates.Events.DummyEventState.asset
+- Packages/teammoonstorm-moonstormsharedutils/Runtime/MSUAssets/DummyEventCard.asset
 - Packages/teammoonstorm-moonstormsharedutils/Runtime/MSUAssets/VanillaEventCategories/ecdcDistantRoost.asset
 - Packages/teammoonstorm-moonstormsharedutils/Runtime/MSUAssets/VanillaEventCategories/ecdcScorchedAcres.asset
 - Packages/teammoonstorm-moonstormsharedutils/Runtime/MSUAssets/VanillaEventCategories/ecdcSulphurPools.asset

@@ -8,6 +8,7 @@ using Slipstream.Modules;
 using System.Linq;
 using RoR2;
 using UnityEngine;
+using Moonstorm;
 
 
 namespace Slipstream
@@ -19,21 +20,30 @@ namespace Slipstream
         {
             //Buffs go here
             //public static BuffDef BedeviledMark;
+            public static BuffDef AffixSandswept;
             public static BuffDef BrineBuff;
             public static BuffDef PepperSpeed;
             public static BuffDef SoulRoot;
         }
 
+        public static class Characters
+        {
+            #region Survivors
+            #endregion
+
+            #region Enemies
+            #endregion
+        }
         public static class Elites
         {
             //Elites go here
-            //public static EliteDef Sandswept;
+            public static EliteDef Sandswept;
         }
-        
         public static class Equipments
         {
             //Equipments go here
             #region Orange equips
+            public static EquipmentDef AffixSandswept;
             public static EquipmentDef Incubator;
             public static EquipmentDef SoulSucker;
             #endregion
@@ -41,7 +51,7 @@ namespace Slipstream
             #region Lunar equips
             #endregion
         }
-
+        
         public static class Items
         {
             //Items go here
@@ -107,6 +117,7 @@ namespace Slipstream
                 {
                     new Modules.Projectiles().Initialize();
                 },
+                
                 delegate
                 {
                     new Modules.Equipments().Initialize();
@@ -114,6 +125,10 @@ namespace Slipstream
                 delegate
                 {
                     new Modules.Items().Initialize();
+                },
+                delegate
+                {
+                    new Modules.Elites().Initialize();
                 },
                 delegate
                 {
@@ -154,6 +169,10 @@ namespace Slipstream
                 delegate
                 {
                     PopulateTypeFields(typeof(Buffs), ContentPack.buffDefs);
+                },
+                delegate
+                {
+                    PopulateTypeFields(typeof(Elites), ContentPack.eliteDefs);
                 },
                 delegate
                 {

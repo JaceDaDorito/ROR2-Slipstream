@@ -11,6 +11,8 @@ using R2API;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using System.Linq;
+using System.Collections;
+using RoR2.ContentManagement;
 
 namespace Slipstream.Scenes
 {
@@ -25,6 +27,9 @@ namespace Slipstream.Scenes
         private static SceneCollection sceneDestinations = Addressables.LoadAssetAsync<SceneCollection>("RoR2/Base/SceneGroups/sgStage2.asset").WaitForCompletion(); // Stage 2s
         private static DccsPool intPool { get; } = SlipAssets.Instance.MainAssetBundle.LoadAsset<DccsPool>("dpAridExpanseInteractables");
         private static DccsPool monsterPool { get; } = SlipAssets.Instance.MainAssetBundle.LoadAsset<DccsPool>("dpAridExpanseMonsters");
+
+        private static Material golemPlainsBazaarMat = Addressables.LoadAssetAsync<Material>("RoR2/Base/bazaar/matBazaarSeerGolemplains.mat").WaitForCompletion();
+        private static Material bazaarMat;
         public override void Initialize()
         {
             SceneDef.mainTrack = music;
@@ -44,6 +49,10 @@ namespace Slipstream.Scenes
 
             //Adds destinations to this stage
             SceneDef.destinationsGroup = sceneDestinations;
+
+            bazaarMat = UnityEngine.Object.Instantiate(golemPlainsBazaarMat);
+            bazaarMat.mainTexture = SlipAssets.Instance.MainAssetBundle.LoadAsset<Texture>("Capture");
+            SceneDef.portalMaterial = bazaarMat;
 
             //Makes dlc a requirement for dlc content
             ExpansionDef[] arrayExpansions = { Addressables.LoadAssetAsync<ExpansionDef>("RoR2/DLC1/Common/DLC1.asset").WaitForCompletion() };

@@ -25,7 +25,9 @@
 
 	"SLIP_SCENE_ARIDEXPANSE_NAME": "Arid Expanse",
 	"SLIP_SCENE_ARIDEXPANSE_SUB": "Ground Zero",
-	"SLIP_SCENE_ARIDEXPANSE_LORE": "Please pee on me I'm dying.",
-	"UNLOCKABLE_LOG_STAGES_ARIDEXPANSE": "Environment Log: Arid Expanse"
+	"SLIP_SCENE_ARIDEXPANSE_LORE": "<style=cMono>\r\nFIELDTECH Image-To-Text Translator (v2.5.10b)\r\n# Awaiting input... done.\r\n# Reading image for text... done.\r\n# Transcribing data... done.\r\n# Translating text... done. [12 exceptions raised]\r\nComplete: outputting results.<\/style>\r\n\r\nReady the cattle and alert the crustaceans. The wicked season is upon us. The moon shines brilliantly and the arid wind is slow; [the predators] are soon to feed. We shall once again partake in glorious battle to protect our home.\n\nLet our homes remain unscathed from the [their] maws and [our hero's] courage bathe our souls.
+\r\n\r\n<style=cMono>Translation Errors:<\/style>\r\n# [Our Hero] could not be fully translated.\n# [The Predator] could not be fully translated\r\n",
+	"UNLOCKABLE_LOG_STAGES_ARIDEXPANSE": "Environment Log: Arid Expanse",
+	"BAZAAR_SEER_ARIDEXPANSE": "<style=cWorldEvent>You dream of civilization.</style>"
     }
 }

@@ -20,6 +20,7 @@ namespace Slipstream.Modules
             base.Initialize();
             SlipLogger.LogD($"Initializing Slipstream Equipment");
             GetEquipmentBases();
+            GetEliteEquipmentBases();
         }
         protected override IEnumerable<EquipmentBase> GetEquipmentBases()
         {

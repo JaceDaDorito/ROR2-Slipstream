@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 1512808244, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: AffixSandswept
   m_EditorClassIdentifier: 
-  _equipmentIndex: -1
   pickupModelPrefab: {fileID: 7929237051835553819, guid: a10de8559b0060946865c49cac0e6a0f,
     type: 3}
   cooldown: 0
@@ -24,7 +23,7 @@ MonoBehaviour:
   unlockableDef: {fileID: 0}
   colorIndex: 5
   canDrop: 0
-  dropOnDeathChance: 0
+  dropOnDeathChance: 0.025
   canBeRandomlyTriggered: 1
   enigmaCompatible: 0
   isLunar: 0

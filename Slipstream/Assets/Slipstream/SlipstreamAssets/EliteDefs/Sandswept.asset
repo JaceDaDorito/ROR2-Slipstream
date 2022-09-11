@@ -9,15 +9,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -585069481, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+  m_Script: {fileID: 11500000, guid: af00c00fb9bbb5b49976a40609f990d5, type: 3}
   m_Name: Sandswept
   m_EditorClassIdentifier: 
-  <eliteIndex>k__BackingField: -1
   modifierToken: SLIP_MODIFIER_SANDSWEPT
   eliteEquipmentDef: {fileID: 11400000, guid: 0ef89ed3073e0f04b83e62e2766d2cf4, type: 2}
   color:
     serializedVersion: 2
     rgba: 5738920
   shaderEliteRampIndex: -1
-  healthBoostCoefficient: 1
-  damageBoostCoefficient: 1
+  healthBoostCoefficient: 4
+  damageBoostCoefficient: 2
+  eliteTier: 1
+  lightColor: {r: 0, g: 0, b: 0, a: 0}
+  eliteRamp: {fileID: 2800000, guid: 23ec31f4da73b4e4c996d92882042c2c, type: 3}
+  overlay: {fileID: 0}
+  effect: {fileID: 0}
