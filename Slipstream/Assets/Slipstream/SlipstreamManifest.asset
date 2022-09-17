@@ -40,6 +40,9 @@ MonoBehaviour:
   - assetBundleName: aridexpanse
     assets:
     - {fileID: 102900000, guid: f9e1e743a45dd0e4085183c8d766e150, type: 3}
+  - assetBundleName: teststage
+    assets:
+    - {fileID: 102900000, guid: 095c9fdbe2a956842b95d921c9833e13, type: 3}
 --- !u!114 &-4602117282012248594
 MonoBehaviour:
   m_ObjectHideFlags: 0

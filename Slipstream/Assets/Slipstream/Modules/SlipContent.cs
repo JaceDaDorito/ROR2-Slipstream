@@ -94,7 +94,7 @@ namespace Slipstream
 
         public static class Scenes
         {
-            //public static SceneDef TestStage;
+            public static SceneDef TestStage;
             public static SceneDef aridexpanse;
         }
         public override string identifier => SlipMain.GUID;

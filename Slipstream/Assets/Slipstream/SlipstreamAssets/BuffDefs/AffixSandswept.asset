@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: AffixSandswept
   m_EditorClassIdentifier: 
   iconPath: 
-  iconSprite: {fileID: 21300000, guid: 4e23a7ad02947cc4c87cb51f0d7015f6, type: 3}
+  iconSprite: {fileID: 21300000, guid: 6ced559f0a452fe43a73b097e9f1b14c, type: 3}
   buffColor: {r: 1, g: 1, b: 1, a: 1}
   canStack: 0
   eliteDef: {fileID: 11400000, guid: 200de7a0c1f95704c9415538826e9e3b, type: 2}

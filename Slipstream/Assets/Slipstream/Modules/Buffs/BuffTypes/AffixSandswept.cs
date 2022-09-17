@@ -11,14 +11,15 @@ namespace Slipstream.Buffs
     {
         public override BuffDef BuffDef { get; } = SlipAssets.Instance.MainAssetBundle.LoadAsset<BuffDef>("AffixSandswept");
 
-        public class AffixSandsweptBehavior : BaseBuffBodyBehavior, IBodyStatArgModifier
+        public class AffixSandsweptBehavior : BaseBuffBodyBehavior, IOnIncomingDamageOtherServerReciever
         {
             [BuffDefAssociation(useOnClient = true, useOnServer = true)]
             public static BuffDef GetBuffDef() => SlipContent.Buffs.AffixSandswept;
 
-            public void ModifyStatArguments(RecalculateStatsAPI.StatHookEventArgs args)
+
+            public void OnIncomingDamageOther(HealthComponent victimHealthComponent, DamageInfo damageInfo)
             {
-                args.moveSpeedMultAdd += 5;
+                damageInfo.damageType = DamageType.Stun1s;
             }
         }
     }

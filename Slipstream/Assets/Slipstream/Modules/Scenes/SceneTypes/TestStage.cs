@@ -12,7 +12,7 @@ using System.Linq;
 
 namespace Slipstream.Scenes
 {
-    /*
+    
     public class TestStage : SceneBase
     {
         //Commented code is what you would do if you wanted to add the stage to a group of stages and add destinations.
@@ -26,7 +26,7 @@ namespace Slipstream.Scenes
             SceneDef.mainTrack = music;
             SceneDef.bossTrack = bossMusic;
 
-            var sceneEntries = stageThrees._sceneEntries.ToList();
+            /*var sceneEntries = stageThrees._sceneEntries.ToList();
             for (int i = 0; i < sceneEntries.Count; i++)
             {
                 var sceneEntry = sceneEntries[i];
@@ -36,8 +36,8 @@ namespace Slipstream.Scenes
             sceneEntries.Add(new SceneCollection.SceneEntry { sceneDef = SceneDef, weightMinusOne = 0 });
             stageThrees._sceneEntries = sceneEntries.ToArray();
 
-            SceneDef.destinationsGroup = stageFours;
+            SceneDef.destinationsGroup = stageFours;*/
         }
-    }*/
+    }
 
 }

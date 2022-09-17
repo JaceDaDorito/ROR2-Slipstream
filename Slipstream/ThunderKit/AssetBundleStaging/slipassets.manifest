@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 510167761
+CRC: 2205019964
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 17a9731f1db114f74211460520402a77
+    Hash: 43544c43399af1db7981408355f702b9
   TypeTreeHash:
     serializedVersion: 2
     Hash: f299e78acf2c8402c79f9ee56b4d942c
@@ -160,6 +160,7 @@ Assets:
 - Assets/Materials/Textures/texBlackbeachDirt2.png
 - Assets/Mesh/AridExpanse/dioramaGround.fbx
 - Assets/Slipstream/SlipstreamAssets/dccsCards/dpAridExpanseInteractables.asset
+- Assets/Materials/Textures/T_Noise_07.png
 - Assets/Icons/iconGlassEye.png
 - Assets/Slipstream/SlipstreamAssets/SceneDefs/TestStage.asset
 - Assets/Icons/iconPepperSpray.png
@@ -169,6 +170,7 @@ Assets:
 - Assets/Materials/Textures/texSMRockSide.png
 - Assets/Materials/Textures/texPepperSmoke.png
 - Assets/Materials/matFireFlyTrail.mat
+- Assets/Materials/Textures/T_Noise_05.png
 - Assets/Materials/Textures/texUIMainRect.png
 - Assets/Slipstream/SlipstreamAssets/dccsCards/dpAridExpanseMonsters.asset
 - Assets/Materials/Textures/texWindowsGrass.png
@@ -189,6 +191,7 @@ Assets:
 - Assets/Icons/iconSlipstreamExpansion.png
 - Assets/Slipstream/SlipstreamAssets/Prefabs/NetworkedObjects/SlipstreamRunBehavior.prefab
 - Assets/Materials/Textures/texHippoRezRamp.png
+- Assets/Materials/Textures/T_Noise_06.png
 - Assets/Slipstream/SlipstreamAssets/BuffDefs/SoulRoot.asset
 - Assets/Slipstream/SlipstreamAssets/EquipmentDefs/Incubator.asset
 - Assets/Materials/Textures/texAllyCoalitionBar.png
@@ -196,6 +199,8 @@ Assets:
 - Assets/Slipstream/SlipstreamAssets/EquipmentDefs/SoulSucker.asset
 - Assets/Materials/skyboxAridCubemap.png
 - Assets/Slipstream/SlipstreamAssets/dccsCards/dccsAridExpanseMonster.asset
+- Assets/Materials/Textures/texSuperPerlin1.png
+- Assets/Materials/Textures/texGrain2.png
 - Assets/Slipstream/SlipstreamAssets/dccsCards/dccsAridExpanseInteractables.asset
 - Assets/Materials/Textures/GlassEye_Ramp.png
 - Assets/Materials/Textures/texRampSand.png
@@ -203,6 +208,7 @@ Assets:
 - Assets/Icons/Capture2.png
 - Assets/Materials/Textures/texGPRockSide3.png
 - Assets/Materials/Textures/GlassEye_HeightMap.png
+- Assets/Materials/Textures/T_Noise_03.png
 - Assets/Slipstream/SlipstreamAssets/Prefabs/Pickups/PickupTestItem.prefab
 - Assets/Materials/Textures/texBlackbeachBasicRockSide2.png
 - Assets/Materials/Textures/texBasicMask.png
@@ -216,8 +222,10 @@ Assets:
 - Assets/Slipstream/SlipstreamAssets/BuffDefs/AffixSandswept.asset
 - Assets/Materials/Textures/texRampThermite2.png
 - Assets/Slipstream/SlipstreamAssets/ItemDefs/JaceHat.asset
+- Assets/Materials/matSandTornado.mat
 - Assets/Materials/matPepperSpray.mat
 - Assets/Slipstream/SlipstreamAssets/ItemDefs/GlassEye.asset
+- Assets/Materials/Textures/texCloudSand.png
 - Assets/Materials/Textures/GlassEye_Emission.png
 - Assets/Slipstream/SlipstreamAssets/Prefabs/Skins/mobstermando.prefab
 - Assets/Materials/Textures/texBanditSkullMask.png
@@ -232,6 +240,7 @@ Assets:
 - Assets/Materials/New Material 1.mat
 - Assets/Materials/matPepperRim.mat
 - Assets/Mesh/Sphere.asset
+- Assets/Materials/Textures/T_Noise_04.png
 - Assets/Slipstream/SlipstreamAssets/UnlockableDefs/Logs.Stages.aridexpanse.asset
 - Assets/Materials/Textures/glasseye_Diffuse.png
 - Assets/Materials/Textures/texSmokeExplosionMask.png
@@ -249,11 +258,13 @@ Assets:
 - Assets/Icons/iconSlipstreamDisable.png
 - Assets/Shaders/ActualShaders/fx/hgcloudremap.asset
 - Assets/Materials/matAridTree.mat
+- Assets/Materials/matEliteSandOverlay.mat
 - Assets/Slipstream/SlipstreamAssets/dccsCards/README.txt
 - Assets/Materials/matAETerrain1.mat
 - Assets/Materials/matPepperSprayEmit.mat
 - Assets/Materials/Textures/texSMGrassTerrain2.png
 - Assets/Materials/Textures/texRJGrassTerrain4.png
+- Assets/Materials/Textures/texGrain1.png
 - Assets/Slipstream/SlipstreamAssets/ItemDefs/Coalition.asset
 - Assets/Materials/Textures/texRootJungleSpore.png
 - Assets/Materials/Textures/texAEGrass.png
@@ -277,6 +288,7 @@ Assets:
 - Assets/Materials/Textures/texPepperSprayCloud.png
 - Assets/Materials/Textures/texOmniShockwave1Mask.png
 - Assets/Slipstream/SlipstreamAssets/ItemDefs/FriendshipBracelet.asset
+- Assets/Materials/Textures/T_Noise_02.png
 - Assets/Materials/Textures/skyboxArid.png
 - Assets/Materials/Textures/texEgyptThing.png
 - Assets/Materials/Textures/texCriticalVoidShiIndi.png
@@ -285,7 +297,11 @@ Assets:
 - Assets/Slipstream/SlipstreamAssets/SurfaceDefs/DefaultDef.asset
 - Assets/Materials/Textures/texGlowPaintMask.png
 - Assets/Materials/Textures/texRJGrassTerrain3.png
+- Assets/Materials/Textures/T_Noise_01.png
+- Assets/Materials/Textures/texRampEliteSand.png
+- Assets/Materials/Textures/texStreak1.png
 - Assets/Materials/matAridWeatherDust.mat
+- Assets/Materials/Textures/EternityStreak.png
 - Assets/Materials/Textures/texParticleDust3Mask.png
 - Assets/Materials/Textures/texCloudPixel.png
 - Assets/Materials/Textures/texRampHuntressSoft.png
@@ -296,6 +312,7 @@ Assets:
 - Assets/Icons/Capture.PNG
 - Assets/Materials/Textures/texRJRockNormal.png
 - Assets/Materials/matCoalitionShafts.mat
+- Assets/Materials/Textures/Portal_08.png
 - Assets/Slipstream/SlipstreamAssets/Prefabs/Pickups/PickupGlassEye.prefab
 - Assets/Materials/matGlassEyeMetal.mat
 - Assets/Materials/Textures/rampPepperSpray.png
@@ -313,6 +330,7 @@ Assets:
 - Assets/Materials/Textures/texBlack.png
 - Assets/Materials/Textures/texBarrierBarPlaceholder.png
 - Assets/Materials/Textures/texGenericStarburstMask.png
+- Assets/Icons/texBuffAffixSand.png
 - Assets/Materials/Textures/MobsterMando_Normal.png
 - Assets/Mesh/RippedMeshes/VFXLightShaft.asset
 - Assets/Materials/Textures/texRampPepperEmit.png
