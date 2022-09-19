@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 2205019964
+CRC: 2514447089
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 43544c43399af1db7981408355f702b9
+    Hash: 15ae4bededbadefa1141c31f7726107a
   TypeTreeHash:
     serializedVersion: 2
     Hash: f299e78acf2c8402c79f9ee56b4d942c
@@ -224,6 +224,7 @@ Assets:
 - Assets/Slipstream/SlipstreamAssets/ItemDefs/JaceHat.asset
 - Assets/Materials/matSandTornado.mat
 - Assets/Materials/matPepperSpray.mat
+- Assets/Materials/matSandTornadoDistortion.mat
 - Assets/Slipstream/SlipstreamAssets/ItemDefs/GlassEye.asset
 - Assets/Materials/Textures/texCloudSand.png
 - Assets/Materials/Textures/GlassEye_Emission.png
@@ -236,6 +237,7 @@ Assets:
 - Assets/Slipstream/SlipstreamAssets/BuffDefs/BedeviledMark.asset
 - Assets/Slipstream/SlipstreamAssets/BuffDefs/PepperSpeed.asset
 - Assets/Materials/Textures/texGP2GrassTerrain.png
+- Assets/Shaders/ActualShaders/fx/hgdistortion.asset
 - Assets/Shaders/ActualShaders/deferred/hgsnowtopped.asset
 - Assets/Materials/New Material 1.mat
 - Assets/Materials/matPepperRim.mat
@@ -300,6 +302,7 @@ Assets:
 - Assets/Materials/Textures/T_Noise_01.png
 - Assets/Materials/Textures/texRampEliteSand.png
 - Assets/Materials/Textures/texStreak1.png
+- Assets/Icons/iconSandsweptAffix.png
 - Assets/Materials/matAridWeatherDust.mat
 - Assets/Materials/Textures/EternityStreak.png
 - Assets/Materials/Textures/texParticleDust3Mask.png

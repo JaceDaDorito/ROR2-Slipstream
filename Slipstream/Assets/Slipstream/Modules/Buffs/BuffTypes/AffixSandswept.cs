@@ -19,7 +19,7 @@ namespace Slipstream.Buffs
 
             public void OnIncomingDamageOther(HealthComponent victimHealthComponent, DamageInfo damageInfo)
             {
-                damageInfo.damageType = DamageType.Stun1s;
+                damageInfo.damageType |= DamageType.Stun1s;
             }
         }
     }

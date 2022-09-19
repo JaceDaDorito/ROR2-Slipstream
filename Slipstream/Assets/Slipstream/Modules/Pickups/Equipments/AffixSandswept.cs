@@ -22,7 +22,7 @@ namespace Slipstream.Equipments
         };
         public override EquipmentDef EquipmentDef { get; } = SlipAssets.Instance.MainAssetBundle.LoadAsset<EquipmentDef>("AffixSandswept");
 
-        private Color eliteColor = new Color(0.96862f, 0.76862f, 0.46666f, 1f);
+        private Color eliteColor = ColorCatalog.ColorRGB(247f, 196f, 119f, 1f); //new Color(0.96862f, 0.76862f, 0.46666f, 1f);
         public override void Initialize()
         {
             Slipstream.SlipstreamEliteRamps.SlipstreamEliteRamp item = new SlipstreamEliteRamps.SlipstreamEliteRamp();

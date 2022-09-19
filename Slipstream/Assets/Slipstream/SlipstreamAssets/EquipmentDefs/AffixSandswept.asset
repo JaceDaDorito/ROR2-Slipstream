@@ -19,7 +19,7 @@ MonoBehaviour:
   pickupToken: SLIP_EQUIP_AFFIXSANDSWEPT_PICKUP
   descriptionToken: SLIP_EQUIP_AFFIXSANDSWEPT_DESC
   loreToken: SLIP_EQUIP_AFFIXSANDSWEPT_LORE
-  pickupIconSprite: {fileID: 21300000, guid: 4e23a7ad02947cc4c87cb51f0d7015f6, type: 3}
+  pickupIconSprite: {fileID: 21300000, guid: 12fc9cac36367004b9274a6698bbb28d, type: 3}
   unlockableDef: {fileID: 0}
   colorIndex: 5
   canDrop: 0
