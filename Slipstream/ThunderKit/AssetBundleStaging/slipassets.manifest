@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 2514447089
+CRC: 3097025444
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 15ae4bededbadefa1141c31f7726107a
+    Hash: ec8f53e98b0f069ababd81e83ad5f166
   TypeTreeHash:
     serializedVersion: 2
-    Hash: f299e78acf2c8402c79f9ee56b4d942c
+    Hash: 437b1c02aefd27f5c122725d72d3fc57
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -24,8 +24,6 @@ ClassTypes:
 - Class: 43
   Script: {instanceID: 0}
 - Class: 48
-  Script: {instanceID: 0}
-- Class: 49
   Script: {instanceID: 0}
 - Class: 54
   Script: {instanceID: 0}
@@ -261,7 +259,6 @@ Assets:
 - Assets/Shaders/ActualShaders/fx/hgcloudremap.asset
 - Assets/Materials/matAridTree.mat
 - Assets/Materials/matEliteSandOverlay.mat
-- Assets/Slipstream/SlipstreamAssets/dccsCards/README.txt
 - Assets/Materials/matAETerrain1.mat
 - Assets/Materials/matPepperSprayEmit.mat
 - Assets/Materials/Textures/texSMGrassTerrain2.png

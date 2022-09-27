@@ -133,6 +133,12 @@
       "source": "embedded",
       "dependencies": {}
     },
+    "riskofthunder-fixplugintypesserialization": {
+      "version": "file:FixPluginTypesSerialization",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {}
+    },
     "riskofthunder-hookgenpatcher": {
       "version": "file:HookGenPatcher",
       "depth": 0,
@@ -140,11 +146,10 @@
       "dependencies": {}
     },
     "riskofthunder-ror2editorkit": {
-      "version": "https://github.com/risk-of-thunder/RoR2EditorKit.git",
+      "version": "file:RoR2EditorKit",
       "depth": 0,
-      "source": "git",
-      "dependencies": {},
-      "hash": "e20b87639b6a96f76b1b7401fb17a45109e12f99"
+      "source": "embedded",
+      "dependencies": {}
     },
     "riskofthunder-ror2importextensions": {
       "version": "https://github.com/PassivePicasso/RoR2ImportExtensions.git",

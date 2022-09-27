@@ -14,7 +14,7 @@ using System.Collections.Generic;
 namespace Slipstream.Scenes
 {
 
-    [CreateAssetMenu(menuName = "SlipStream/SlipDccs")]
+    [CreateAssetMenu(menuName = "Slipstream/SlipDccs")]
     public class SlipDccs : DirectorCardCategorySelection
     {
         public void ResolveAddressableCategories()
