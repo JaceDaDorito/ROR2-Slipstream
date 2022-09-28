@@ -57,6 +57,7 @@ namespace Slipstream
             //Items go here
             #region White items
             public static ItemDef FriendshipBracelet;
+            public static ItemDef RustyGenerator;
             #endregion
 
             #region Green items

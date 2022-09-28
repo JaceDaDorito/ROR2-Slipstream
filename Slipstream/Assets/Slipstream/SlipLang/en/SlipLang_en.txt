@@ -10,8 +10,8 @@
 	"SLIP_ITEM_FRIENDSHIPBRACELET_LORE": "Your my frien :)",
 
         "SLIP_ITEM_GLASSEYE_NAME": "Bionic Eye",
-	"SLIP_ITEM_GLASSEYE_PICKUP": "When shield is active, gain a critical strike damage boost.",
-	"SLIP_ITEM_GLASSEYE_DESC": "When shield is active, gain a <style=cIsDamage>10% </style><style=cStack>(+5% per stack) </style><style=cIsDamage>critical strike damage boost</style>. Grants <style=cIsDamage>5% crit chance </style>and <style=cIsHealing>shield</style> equal to <style=cIsHealing>6%</style> of your maximum health.",
+	"SLIP_ITEM_GLASSEYE_PICKUP": "While you have a shield, gain a critical strike damage boost.",
+	"SLIP_ITEM_GLASSEYE_DESC": "While you have a shield, gain a <style=cIsDamage>10% </style><style=cStack>(+5% per stack) </style><style=cIsDamage>critical strike damage boost</style>. Grants <style=cIsDamage>5% crit chance </style>and <style=cIsHealing>shield</style> equal to <style=cIsHealing>6%</style> of your maximum health.",
 	"SLIP_ITEM_GLASSEYE_LORE": "Like most technological marvels before it, bionics – touted as the greatest advancement in medical science since discovery of Penicillin – quickly became a topic of public obsession, to the point of hysteria across both Earth & Mars.\n\nMany people desiring bionic “upgrades” – for one reason or another – went to extreme lengths in order to reach their goals. Some repeatedly broke bones in order to qualify for titanium implants throughout their bodies, others arranged accidents in order to gain a mechanical arm or leg.\n\nIn one case, the famous ‘William R Smith’ – known as an early advocate for personal shielding technologies – reportedly gouged out their right eye with a pair of gardening sheers with the intent of replacing the eye with a self-made, bionic glass eye.\n\nUniquely, this bionic eye used an integrated shield generator in place of the standard mechanical lens used at the time, using the glass structure of the eye as a medium to control the shield-based lens instead.\n\n-    A history of early bionics, Chapter 2 – Public Perception, Overall Obsession",
 
 	"SLIP_ITEM_PEPPERSPRAY_NAME": "Pepper Spray",
@@ -32,6 +32,11 @@
 	"SLIP_SCENE_ARIDEXPANSE_LORE": "<style=cMono>\r\nFIELDTECH Image-To-Text Translator (v2.5.10b)\r\n# Awaiting input... done.\r\n# Reading image for text... done.\r\n# Transcribing data... done.\r\n# Translating text... done. [12 exceptions raised]\r\nComplete: outputting results.<\/style>\r\n\r\nReady the cattle and alert the crustaceans. The wicked season is upon us. The moon shines brilliantly and the arid wind is slow; [the predators] are soon to feed. We shall once again partake in glorious battle to protect our home.\n\nLet our homes remain unscathed from the [their] maws and [our hero's] courage bathe our souls.
 \r\n\r\n<style=cMono>Translation Errors:<\/style>\r\n# [Our Hero] could not be fully translated.\n# [The Predator] could not be fully translated\r\n",
 	"UNLOCKABLE_LOG_STAGES_ARIDEXPANSE": "Environment Log: Arid Expanse",
-	"BAZAAR_SEER_ARIDEXPANSE": "<style=cWorldEvent>You dream of civilization.</style>"
+	"BAZAAR_SEER_ARIDEXPANSE": "<style=cWorldEvent>You dream of civilization.</style>",
+
+	"SLIP_ITEM_RUSTYGEN_NAME": "Dull S.O.S.",
+	"SLIP_ITEM_RUSTYGEN_PICKUP": "While you have a shield, reduce debuff timers.",
+	"SLIP_ITEM_RUSTYGEN_DESC": "Gain a <style=cIsHealing>shield</style> equal to <style=cIsHealing>3%</style> of your maximum health. While you have a <style=cIsHealing>shield</style>, reduce debuff timers by 5% <style=cStack>(+5% per stack)</style>.",
+	"SLIP_ITEM_RUSTYGEN_LORE": "...Out here, no one will save you. The lights on my satellite S.O.S. have begun to dim, food's running low... All I've got left is myself, and you Victor. \n<style=cIsDamage>*Sounds of brutal, unparalleled violence can be heard over the recorder*</style>"
     }
 }
