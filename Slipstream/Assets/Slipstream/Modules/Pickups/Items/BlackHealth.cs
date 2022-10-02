@@ -61,7 +61,7 @@ namespace Slipstream.Items
 
             public void OnEnable()
             {
-
+                //Makes owners of Blackhealth completely immune to void explosions (when its enabled)
                 changedFlag = false;
                 allyOwnerMaster = body.master?.minionOwnership.ownerMaster;
                 if ((body.bodyFlags & CharacterBody.BodyFlags.ImmuneToVoidDeath) == CharacterBody.BodyFlags.None && preventsVoidDeath)
@@ -74,6 +74,7 @@ namespace Slipstream.Items
 
             public void OnDisable()
             {
+                //Removes tag if the immunity was given (that way allies somehow initially having the ImmuneToVoidDeath flag don't get screwed over)
                 if (changedFlag)
                     body.bodyFlags &= ~CharacterBody.BodyFlags.ImmuneToVoidDeath;
             }
@@ -88,6 +89,11 @@ namespace Slipstream.Items
             {
                 if (allyOwnerMaster)
                     args.armorAdd += allyOwnerMaster.inventory.GetItemCount(SlipContent.Items.Coalition) * armorIncrease;
+            }
+
+            public void AddBlackOverlay()
+            {
+                RoR2.TemporaryOverlay overlay;
             }
         }
     }

@@ -23,7 +23,7 @@ namespace Slipstream.Items
         //[TokenModifier(token, StatTypes.Default, 0)]
         public static bool preventsVoidDeath = true;
 
-        [ConfigurableField(ConfigName = "Amplification health percentage", ConfigDesc = "(Approximate) Initial health threshold percentage at one stack", ConfigSection = "Coalition")]
+        [ConfigurableField(ConfigName = "Initial health threshold/Hyperbolic Scaling", ConfigDesc = "Initial health threshold percentage at one stack and hyperbolic staling", ConfigSection = "Coalition")]
         [TokenModifier(token, StatTypes.Percentage, 0)]
         public static float amplificationPercentage = 0.25f;
 
@@ -41,6 +41,8 @@ namespace Slipstream.Items
             private void Start()
             {
                 destroyEffectPrefab = SlipAssets.Instance.MainAssetBundle.LoadAsset<GameObject>("CoalitionPreDetonation");
+
+                //Adds Blackhealth item to all your allies
                 CharacterMaster master = body.master;
                 if (master)
                 {
@@ -56,6 +58,7 @@ namespace Slipstream.Items
 
             private void OnDestroy()
             {
+                //When you get rid of Coalition, get rid of Blackhealth from all allies
                 CharacterMaster master = body.master;
                 if (master)
                 {
@@ -82,10 +85,12 @@ namespace Slipstream.Items
             }
             private void HealthComponent_UpdateLastHitTime(On.RoR2.HealthComponent.orig_UpdateLastHitTime orig, HealthComponent self, float damageValue, Vector3 damagePosition, bool damageIsSilent, GameObject attacker)
             {
-                //call orig to make sure that Elixr is activated first
+                //call orig to make sure that Elixr is activated first. This only matters at 1 stack though.
                 orig(self, damageValue, damagePosition, damageIsSilent, attacker);
-                float reductionPercentage = RoR2.Util.ConvertAmplificationPercentageIntoReductionPercentage(amplificationPercentage * 100f * stack);
-                if (body == self.body && (body.healthComponent.health + body.healthComponent.shield)/body.healthComponent.fullCombinedHealth < reductionPercentage /100f)
+
+                //Kill all allies when player is below the current threshold.
+                float threshold = Moonstorm.MSUtil.InverseHyperbolicScaling(amplificationPercentage, amplificationPercentage, 1, stack);
+                if (body == self.body && (body.healthComponent.health + body.healthComponent.shield)/body.healthComponent.fullCombinedHealth < threshold) //Character body check and ratio of curent health compared to the threshold
                 {
                     CharacterMaster master = body.master;
                     foreach (CharacterMaster characterMaster in CharacterMaster.instancesList)
@@ -104,6 +109,7 @@ namespace Slipstream.Items
 
             private void MasterSummon_onServerMasterSummonGlobal(MasterSummon.MasterSummonReport report)
             {
+                //If allies are gained while having Coalition, give them Blackhealth
                 if (body.master && body.master == report.leaderMasterInstance)
                 {
                     CharacterMaster summonMasterInstance = report.summonMasterInstance;

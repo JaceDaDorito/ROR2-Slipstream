@@ -25,12 +25,12 @@ namespace Slipstream.Items
         public static float baseCrit = 5;
 
         [ConfigurableField(ConfigName = "Initial Crit Dmg", ConfigDesc = "Initial crit dmg on first stack.", ConfigSection = "GlassEye")]
-        [TokenModifier(token, StatTypes.Default, 2)]
-        public static float initialCritDmg = 0.1f;
+        [TokenModifier(token, StatTypes.Percentage, 2)]
+        public static float initialCritDmg = 0.2f;
 
         [ConfigurableField(ConfigName = "Crit Dmg per Stack", ConfigDesc = "Increased crit damage per item stack.", ConfigSection = "GlassEye")]
-        [TokenModifier(token, StatTypes.Default, 3)]
-        public static float stackCritDmg = 0.05f;
+        [TokenModifier(token, StatTypes.Percentage, 3)]
+        public static float stackCritDmg = 0.1f;
 
         //Color SuperCrit = new Color(0.495194f, 0.5953774f, 0.9811321f); Color for later, just dont know how to do it yet
         public class GlassEyeBehavior : BaseItemBodyBehavior, IBodyStatArgModifier

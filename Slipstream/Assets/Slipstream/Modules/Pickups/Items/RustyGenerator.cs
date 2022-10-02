@@ -16,12 +16,12 @@ namespace Slipstream.Items
         //baseShield configurable field
         [ConfigurableField(ConfigName = "Base Shield", ConfigDesc = "Shield percentage after having at least one stack.", ConfigSection = "RustyGenerator")]
         [TokenModifier(token, StatTypes.Percentage, 0)]
-        public static float baseShield = 0.03f;
+        public static float baseShield = 0.05f;
 
         //debuffDurationReduction configurable field
         [ConfigurableField(ConfigName = "Debuff Duration Reduction", ConfigDesc = "Percentage of debuff time reduced by one item.", ConfigSection = "RustyGenerator")]
-        [TokenModifier(token, StatTypes.Percentage, 0)]
-        public static float debuffDurationReduction = 0.05f;
+        [TokenModifier(token, StatTypes.Percentage, 1)]
+        public static float debuffDurationReduction = 0.12f;
 
         //Hooks! We love hooks :)
         public override void Initialize()
@@ -47,6 +47,11 @@ namespace Slipstream.Items
                 {
                     //reduces the duration of the DoT using MSU's InverseHyperbolicScaling method for calculation
                     inflictDotInfo.duration -= (inflictDotInfo.duration * MSUtil.InverseHyperbolicScaling(debuffDurationReduction, debuffDurationReduction, 1, count));
+
+                    //For things like burn, ignition tank burn, and helfire. Total damage is directly tied with the duration of these Dots, inflictDotInfo.duration doesn't effect these Dots.
+                    //This shouldn't affect Dots like bleed.
+                    if(inflictDotInfo.totalDamage != null)
+                        inflictDotInfo.totalDamage -= (inflictDotInfo.totalDamage * MSUtil.InverseHyperbolicScaling(debuffDurationReduction, debuffDurationReduction, 1, count));
                 }
             }
             //inserts modified parameters back into the original method
