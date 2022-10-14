@@ -13,7 +13,7 @@ using System.Collections.Generic;
 
 namespace Slipstream.Scenes
 {
-    public class SlipDccsHandler
+    public class SlipDirectorUtilsHandler
     {
         public void Init()
         {
@@ -21,6 +21,11 @@ namespace Slipstream.Scenes
             foreach (SlipDccs slipDccs in allSlipDccs)
             {
                 slipDccs.ResolveAddressableCategories();
+            }
+            SlipDccsPool[] allSlipDccsPools = SlipAssets.LoadAllAssetsOfType<SlipDccsPool>();
+            foreach (SlipDccsPool slipDccsPool in allSlipDccsPools)
+            {
+                slipDccsPool.ResolveAddressableCategories();
             }
         }
 

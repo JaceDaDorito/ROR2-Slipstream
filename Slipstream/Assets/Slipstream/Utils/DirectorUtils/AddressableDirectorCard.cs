@@ -14,11 +14,15 @@ using System.Collections.Generic;
 namespace Slipstream.Scenes
 {
     [Serializable]
-    public class AddressableDirectorCard : DirectorCard
+    public class AddressableDirectorCard : DirectorCard, IAddressableKeyProvider<SpawnCard>
     {
+        
         [Tooltip("An optional addressable key to load a vanilla spawn card")]
         public string spawnCardKey;
-        
+
+        public string Key => spawnCardKey;
+
+        public SpawnCard Addressable { set => spawnCard = value; }
     }
 
 }
