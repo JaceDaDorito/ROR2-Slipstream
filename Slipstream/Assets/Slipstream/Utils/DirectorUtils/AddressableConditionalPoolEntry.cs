@@ -15,28 +15,27 @@ using UnityEngine.Serialization;
 
 namespace Slipstream.Scenes
 {
-		[Serializable]
-		public class AddressableConditionalPoolEntry : DccsPool.ConditionalPoolEntry, IAddressableKeyProvider<DirectorCardCategorySelection>, IAddressableKeyArrayProvider<ExpansionDef>
+	[Serializable]
+	public class AddressableConditionalPoolEntry : DccsPool.ConditionalPoolEntry, IBasicAddressableKeyProvider<DirectorCardCategorySelection>, IArrayAddressableKeyProvider<ExpansionDef>
+	{
+		[Tooltip("An optional addressable key to load a vanilla dccs")]
+		public string dccsKey;
+		[Tooltip("Optional addressable keys to load vanilla expansions as additional required expansions")]
+		[SerializeField]
+		[SerializeReference]
+		public string[] requiredExpansionsKeys = Array.Empty<string>();
+		public string Key => dccsKey;
+		public DirectorCardCategorySelection Addressable { set => dccs = value; }
+		public string[] Keys => requiredExpansionsKeys;
+		public void AppendAddressable(ExpansionDef addressable)
 		{
-			[Tooltip("An optional addressable key to load a vanilla dccs")]
-			public string dccsKey;
-			[Tooltip("Optional addressable keys to load vanilla expansions as additional required expansions")]
-			[SerializeField]
-			[SerializeReference]
-			public string[] requiredExpansionsKeys = Array.Empty<string>();
-			public string Key => dccsKey;
-			public DirectorCardCategorySelection Addressable { set => dccs = value; }
-            string[] IAddressableKeyArrayProvider<ExpansionDef>.Key => requiredExpansionsKeys;
-            ExpansionDef IAddressableKeyProvider<ExpansionDef>.Addressable {
-				set 
-				{ 
-					if( requiredExpansions == null)
-                    {
-						SlipLogger.LogD("Deez Nuts");
-						requiredExpansions = Array.Empty<ExpansionDef>();
-                    }
-					HG.ArrayUtils.ArrayAppend(ref requiredExpansions, value);
-				}
+			SlipLogger.LogI(this + " appending expansiondef from adressable key!!");
+			if (requiredExpansions == null)
+			{
+				SlipLogger.LogD("Deez Nuts");
+				requiredExpansions = Array.Empty<ExpansionDef>();
 			}
-        }
+			HG.ArrayUtils.ArrayAppend(ref requiredExpansions, addressable);
+		}
+	}
 }

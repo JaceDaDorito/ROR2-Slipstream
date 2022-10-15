@@ -17,41 +17,58 @@ namespace Slipstream.Scenes
     {
         public static void Resolve<T>(this IAddressableKeyProvider<T> provider)
         {
-            SlipLogger.LogI("Resolving");
-            if(provider is IAddressableKeyArrayProvider<T> arrayProvider)
+            if (provider is IBasicAddressableKeyProvider<T> basicProvider)
             {
-                SlipLogger.LogW(arrayProvider.Key.Length);
-                foreach (string key in arrayProvider.Key)
-                {
-                    ResolveSingle(arrayProvider, key);
-                }
-                return;
+                ResolveBasic(basicProvider);
             }
-            ResolveSingle(provider, provider.Key);
-        }
-        public static void ResolveSingle<T>(IAddressableKeyProvider<T> provider, string key)
-        {
-            if (!string.IsNullOrEmpty(key))
+            if (provider is IArrayAddressableKeyProvider<T> arrayProvider)
             {
-                T addressable = Addressables.LoadAssetAsync<T>(key).WaitForCompletion();
+                ResolveArray(arrayProvider);
+            }
+        }
+        public static void ResolveBasic<T>(IBasicAddressableKeyProvider<T> provider)
+        {
+            if (!string.IsNullOrEmpty(provider.Key))
+            {
+                T addressable = Addressables.LoadAssetAsync<T>(provider.Key).WaitForCompletion();
                 if (addressable == null)
                 {
-                    SlipLogger.LogW(provider + ": Addressable key [" + key + "] was provided, but returned null!");
+                    SlipLogger.LogW(provider + ": Addressable key [" + provider.Key + "] was provided, but returned null!");
                 }
                 provider.Addressable = addressable;
             }
             
         }
+        public static void ResolveArray<T>(IArrayAddressableKeyProvider<T> provider)
+        {
+            SlipLogger.LogI("resolve addressable keys array:");
+            foreach (string key in provider.Keys)
+            {
+                if (!string.IsNullOrEmpty(key))
+                {
+                    SlipLogger.LogI("found key: " + key);
+                    T addressable = Addressables.LoadAssetAsync<T>(key).WaitForCompletion();
+                    if (addressable == null)
+                    {
+                        SlipLogger.LogW(provider + ": Addressable key [" + key + "] was provided, but returned null!");
+                    }
+                    provider.AppendAddressable(addressable);
+                }
+            }
+
+        }
     }
-    public interface IAddressableKeyProvider<T>
+    public interface IAddressableKeyProvider<T> { }
+    public interface IBasicAddressableKeyProvider<T> : IAddressableKeyProvider<T>
     {
         string Key { get; }
         T Addressable { set; }
         
     }
-    public interface IAddressableKeyArrayProvider<T> : IAddressableKeyProvider<T>
+    public interface IArrayAddressableKeyProvider<T> : IAddressableKeyProvider<T>
     {
-        new string[] Key { get; }
+        string[] Keys { get; }
+        void AppendAddressable(T addressable);
     }
 
 }

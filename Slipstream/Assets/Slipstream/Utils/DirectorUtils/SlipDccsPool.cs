@@ -32,7 +32,7 @@ namespace Slipstream.Scenes
 		private AddressableCategory[] addressablePoolCategories;
 
 		[Serializable]
-		public class AddressablePoolEntry : DccsPool.PoolEntry, IAddressableKeyProvider<DirectorCardCategorySelection>
+		public class AddressablePoolEntry : DccsPool.PoolEntry, IBasicAddressableKeyProvider<DirectorCardCategorySelection>
 		{
 			[Tooltip("An optional addressable key to load a vanilla dccs")]
 			public string dccsKey;
@@ -57,6 +57,7 @@ namespace Slipstream.Scenes
 					}
 					foreach (IAddressableKeyProvider<ExpansionDef> provider in includedIfConditionsMet)
 					{
+						SlipLogger.LogI("resolve expansiondef keys provider!");
 						provider.Resolve();
 					}
 					foreach (IAddressableKeyProvider<DirectorCardCategorySelection> provider in includedIfNoConditionsMet)
