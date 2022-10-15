@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 973737116
+CRC: 1460571739
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 6a12c57dbfdf17bc7bc9759a57c06b09
+    Hash: 0d8f712ce91b0d1962942483c85b7471
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 437b1c02aefd27f5c122725d72d3fc57
+    Hash: 974c5a83e0a977646af190ee860387e1
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -55,6 +55,8 @@ ClassTypes:
   Script: {fileID: 11500000, guid: 3c9c430476270cb42ae82672a367a0e1, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 6f00d426383560f469d7dea667cb6de6, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 80c71bd6f033c484e9317562c0a92db8, type: 3}
 - Class: 114
   Script: {fileID: -1752031980, guid: b2ac317a67c468eb8fd6ed06da7572d4, type: 3}
 - Class: 114
@@ -316,6 +318,7 @@ Assets:
 - Assets/Slipstream/SlipstreamAssets/Prefabs/Pickups/PickupGlassEye.prefab
 - Assets/Materials/matGlassEyeMetal.mat
 - Assets/Materials/Textures/rampPepperSpray.png
+- Assets/Slipstream/SlipstreamAssets/dccsCards/dpAridExpanseMons.asset
 - Assets/Materials/Textures/texRJDirtDiffuse2.png
 - Assets/Slipstream/SlipstreamAssets/Prefabs/Effects/CoalitionPreDetonation.prefab
 - Assets/Materials/Textures/texRampPepperRim.png

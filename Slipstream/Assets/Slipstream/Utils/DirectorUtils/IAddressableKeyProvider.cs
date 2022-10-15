@@ -17,8 +17,10 @@ namespace Slipstream.Scenes
     {
         public static void Resolve<T>(this IAddressableKeyProvider<T> provider)
         {
+            SlipLogger.LogI("Resolving");
             if(provider is IAddressableKeyArrayProvider<T> arrayProvider)
             {
+                SlipLogger.LogW(arrayProvider.Key.Length);
                 foreach (string key in arrayProvider.Key)
                 {
                     ResolveSingle(arrayProvider, key);

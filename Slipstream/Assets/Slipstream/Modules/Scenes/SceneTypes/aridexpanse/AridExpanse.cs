@@ -26,7 +26,7 @@ namespace Slipstream.Scenes
         private static SceneCollection sceneEntryGroup = Addressables.LoadAssetAsync<SceneCollection>("RoR2/Base/SceneGroups/sgStage1.asset").WaitForCompletion(); //Stage 1s
         private static SceneCollection sceneDestinations = Addressables.LoadAssetAsync<SceneCollection>("RoR2/Base/SceneGroups/sgStage2.asset").WaitForCompletion(); // Stage 2s
         private static DccsPool intPool { get; } = SlipAssets.Instance.MainAssetBundle.LoadAsset<DccsPool>("dpAridExpanseInteractables");
-        private static DccsPool monsterPool { get; } = SlipAssets.Instance.MainAssetBundle.LoadAsset<DccsPool>("dpAridExpanseMonsters");
+        private static DccsPool monsterPool { get; } = SlipAssets.Instance.MainAssetBundle.LoadAsset<DccsPool>("dpAridExpanseMons");
 
         private static Material golemPlainsBazaarMat = Addressables.LoadAssetAsync<Material>("RoR2/Base/bazaar/matBazaarSeerGolemplains.mat").WaitForCompletion();
         private static Material bazaarMat;
@@ -60,8 +60,8 @@ namespace Slipstream.Scenes
             ref DccsPool.Category intStandard = ref intPool.poolCategories[0];
             intStandard.includedIfConditionsMet[0].requiredExpansions = arrayExpansions;
 
-            ref DccsPool.Category monStandard = ref monsterPool.poolCategories[0];
-            monStandard.includedIfConditionsMet[0].requiredExpansions = arrayExpansions;
+            /*ref DccsPool.Category monStandard = ref monsterPool.poolCategories[0];
+            monStandard.includedIfConditionsMet[0].requiredExpansions = arrayExpansions;*/
 
             //SceneDef.dioramaPrefab.AddComponent<MaterialControllerComponents.>();
         }

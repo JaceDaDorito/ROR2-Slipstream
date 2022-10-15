@@ -41,18 +41,6 @@ namespace Slipstream.Scenes
         }
 
 		[Serializable]
-		public class AddressableConditionalPoolEntry : DccsPool.ConditionalPoolEntry, IAddressableKeyProvider<DirectorCardCategorySelection>, IAddressableKeyArrayProvider<ExpansionDef>
-		{
-			[Tooltip("An optional addressable key to load a vanilla dccs")]
-			public string dccsKey;
-			[Tooltip("Optional addressable keys to load vanilla expansions as additional required expansions")]
-			public string[] requiredExpansionsKeys;
-			public string Key => dccsKey;
-			public DirectorCardCategorySelection Addressable { set => dccs = value; }
-            string[] IAddressableKeyArrayProvider<ExpansionDef>.Key => requiredExpansionsKeys;
-            ExpansionDef IAddressableKeyProvider<ExpansionDef>.Addressable { set => HG.ArrayUtils.ArrayAppend(ref requiredExpansions, value); }
-        }
-		[Serializable]
 		public class AddressableCategory : ISerializationCallbackReceiver
 		{
 			public Category ToCategory()
@@ -64,6 +52,10 @@ namespace Slipstream.Scenes
 						provider.Resolve();
 					}
 					foreach (IAddressableKeyProvider<DirectorCardCategorySelection> provider in includedIfConditionsMet)
+					{
+						provider.Resolve();
+					}
+					foreach (IAddressableKeyProvider<ExpansionDef> provider in includedIfConditionsMet)
 					{
 						provider.Resolve();
 					}

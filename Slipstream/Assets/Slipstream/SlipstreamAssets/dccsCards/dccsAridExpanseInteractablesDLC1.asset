@@ -105,7 +105,7 @@ MonoBehaviour:
       forbiddenUnlockable: 
       requiredUnlockableDef: {fileID: 0}
       forbiddenUnlockableDef: {fileID: 0}
-      spawnCardKey: RoR2/Base/CategoryChest/iscCategoryChestDamage2.asset
+      spawnCardKey: RoR2/DLC1/CategoryChest2/iscCategoryChest2Damage.asset
     selectionWeight: 45
   - name: Barrels
     addressableCards:
