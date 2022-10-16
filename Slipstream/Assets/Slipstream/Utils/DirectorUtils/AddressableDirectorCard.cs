@@ -14,7 +14,7 @@ using System.Collections.Generic;
 namespace Slipstream.Scenes
 {
     [Serializable]
-    public class AddressableDirectorCard : DirectorCard, IBasicAddressableKeyProvider<SpawnCard>
+    public class AddressableDirectorCard : DirectorCard, IAddressableKeyProvider<SpawnCard>
     {
         
         [Tooltip("An optional addressable key to load a vanilla spawn card")]
