@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using RoR2.ExpansionManagement;
 using UnityEngine.Serialization;
 
+
 namespace Slipstream.Scenes
 {
 	[Serializable]
@@ -22,7 +23,6 @@ namespace Slipstream.Scenes
 		public string dccsKey;
 		[Tooltip("Optional addressable keys to load vanilla expansions as additional required expansions")]
 		[SerializeField]
-		[SerializeReference]
 		public string[] requiredExpansionsKeys = Array.Empty<string>();
 		public string Key => dccsKey;
 		public DirectorCardCategorySelection Addressable { set => dccs = value; }
@@ -30,7 +30,7 @@ namespace Slipstream.Scenes
 		public void AppendAddressable(ExpansionDef addressable)
 		{
 			SlipLogger.LogI(this + " appending expansiondef from adressable key!!");
-			if (requiredExpansions == null)
+			if (requiredExpansions.Length == 0)
 			{
 				SlipLogger.LogD("Deez Nuts");
 				requiredExpansions = Array.Empty<ExpansionDef>();
