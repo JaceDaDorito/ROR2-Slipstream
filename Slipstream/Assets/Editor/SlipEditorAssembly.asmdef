@@ -1,0 +1,15 @@
+{
+    "name": "SlipEditorAssembly",
+    "references": [
+        "GUID:48945b114b79a914c9ada363fa1172c2"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
