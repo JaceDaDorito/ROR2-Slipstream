@@ -67,7 +67,7 @@ namespace Slipstream.Scenes
 		{
 			public static ExpansionDef DLC1
             {
-				get => _DLC1 ??= Addressables.LoadAssetAsync<ExpansionDef>("RoR2/DLC1/Common/DLC1.asset").WaitForCompletion();
+				get => _DLC1 ?? (_DLC1 = Addressables.LoadAssetAsync<ExpansionDef>("RoR2/DLC1/Common/DLC1.asset").WaitForCompletion());
             }
 			private static ExpansionDef _DLC1;
 			public DccsPool.Category ToCategory()
