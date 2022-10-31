@@ -78,7 +78,7 @@ namespace Slipstream.Items
                     body.AddTimedBuff(SlipContent.Buffs.PepperSpeed.buffIndex, maxBuffTime * (body.healthComponent.fullShield / (body.healthComponent.fullShield + body.healthComponent.fullHealth)) + buffTimeConstant);
                 }
                 //Util.PlaySound(explosionSoundString, gameObject);
-                RoR2.Util.PlaySound("Play_PepperSpray_SFX", gameObject);
+                RoR2.Util.PlaySound(EntityStates.Bison.PrepCharge.enterSoundString, gameObject);
             }
 
             private void FireStunSpray()
