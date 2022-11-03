@@ -87,12 +87,6 @@ namespace Slipstream
 
         }
 
-        public static class ItemRelationshipProviders
-        {
-            //any other item relationship should be in the unity content pack I think?
-            public static List<ItemRelationshipProvider> contagiousRelationships = new List<ItemRelationshipProvider>();
-        }
-
         public static class Scenes
         {
             public static SceneDef TestStage;
@@ -130,13 +124,6 @@ namespace Slipstream
                 delegate
                 {
                     new Modules.Elites().Initialize();
-                },
-                delegate
-                {
-                    //bool notNull = ItemRelationshipProviders.contagiousRelationships[0];
-                    //SlipLogger.LogI(notNull);
-                    //SlipLogger.LogI($"Contagious item 1:" + ItemRelationshipProviders.contagiousRelationships[0].relationships[0].itemDef1 + $"Contagious item 2:" + ItemRelationshipProviders.contagiousRelationships[0].relationships[0].itemDef2);
-                    SerializableContentPack.itemRelationshipProviders = ItemRelationshipProviders.contagiousRelationships.ToArray();
                 },
                 delegate
                 {
@@ -186,10 +173,6 @@ namespace Slipstream
                 delegate
                 {
                     PopulateTypeFields(typeof(Scenes), ContentPack.sceneDefs);
-                },
-                delegate
-                {
-                    PopulateTypeFields(typeof(ItemRelationshipProvider), ContentPack.itemRelationshipProviders);
                 }
                 #endregion
             };

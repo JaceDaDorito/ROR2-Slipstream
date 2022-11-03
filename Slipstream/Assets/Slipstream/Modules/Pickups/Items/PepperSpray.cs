@@ -25,11 +25,11 @@ namespace Slipstream.Items
         //Establishes the config fields to allow easy changes in values in certain calculations and such.
 
         [ConfigurableField(ConfigName = "Base Shield", ConfigDesc = "Shield percentage after having at least one stack.", ConfigSection = "PepperSpray")]
-        [TokenModifier(token, StatTypes.Percentage, 0)]
+        [TokenModifier(token, StatTypes.MultiplyByN, 0, "100")]
         public static float baseShield = 0.08f;
 
         //[ConfigurableField(ConfigName = "Shield Threshold", ConfigDesc = "Percentage of total shield in order to trigger the effect.", ConfigSection = "PepperSpray")]
-        [TokenModifier(token, StatTypes.Percentage, 1)]
+        [TokenModifier(token, StatTypes.MultiplyByN, 1, "100")]
         public static float threshold = CriticalShield.threshold;
 
         [ConfigurableField(ConfigName = "Base Radius", ConfigDesc = "Initial radius of the stun effect.", ConfigSection = "PepperSpray")]
@@ -41,7 +41,7 @@ namespace Slipstream.Items
         public static float radiusPerStack = 6.0f;
 
         [ConfigurableField(ConfigName = "Speed Increase", ConfigDesc = "Movement speed increase when Pepper Speed is active.", ConfigSection = "PepperSpray")]
-        [TokenModifier(token, StatTypes.Percentage, 4)]
+        [TokenModifier(token, StatTypes.MultiplyByN, 4, "100")]
         public static float speedIncrease = 0.6f;
 
         [ConfigurableField(ConfigName = "Max Speed Duration", ConfigDesc = "The time on your buff if your entire healthbar is shield + Base Speed Duration Constant.", ConfigSection = "PepperSpray")]
@@ -78,7 +78,7 @@ namespace Slipstream.Items
                     body.AddTimedBuff(SlipContent.Buffs.PepperSpeed.buffIndex, maxBuffTime * (body.healthComponent.fullShield / (body.healthComponent.fullShield + body.healthComponent.fullHealth)) + buffTimeConstant);
                 }
                 //Util.PlaySound(explosionSoundString, gameObject);
-                RoR2.Util.PlaySound(EntityStates.Bison.PrepCharge.enterSoundString, gameObject);
+                RoR2.Util.PlaySound("Play_PepperSpray_SFX", gameObject);
             }
 
             private void FireStunSpray()

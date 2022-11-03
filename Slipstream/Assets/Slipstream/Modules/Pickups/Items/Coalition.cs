@@ -24,7 +24,7 @@ namespace Slipstream.Items
         public static bool preventsVoidDeath = true;
 
         [ConfigurableField(ConfigName = "Initial health threshold/Hyperbolic Scaling", ConfigDesc = "Initial health threshold percentage at one stack and hyperbolic staling", ConfigSection = "Coalition")]
-        [TokenModifier(token, StatTypes.Percentage, 0)]
+        [TokenModifier(token, StatTypes.MultiplyByN, 0, "100")]
         public static float amplificationPercentage = 0.25f;
 
         [ConfigurableField(ConfigName = "Armor increase per stack", ConfigDesc = "Armor increase applied to allies per stack", ConfigSection = "Coalition")]

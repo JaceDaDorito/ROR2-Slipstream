@@ -15,12 +15,12 @@ namespace Slipstream.Items
 
         //baseShield configurable field
         [ConfigurableField(ConfigName = "Base Shield", ConfigDesc = "Shield percentage after having at least one stack.", ConfigSection = "RustyGenerator")]
-        [TokenModifier(token, StatTypes.Percentage, 0)]
+        [TokenModifier(token, StatTypes.MultiplyByN, 0, "100")]
         public static float baseShield = 0.05f;
 
         //debuffDurationReduction configurable field
         [ConfigurableField(ConfigName = "Debuff Duration Reduction", ConfigDesc = "Percentage of debuff time reduced by one item.", ConfigSection = "RustyGenerator")]
-        [TokenModifier(token, StatTypes.Percentage, 1)]
+        [TokenModifier(token, StatTypes.MultiplyByN, 1, "100")]
         public static float debuffDurationReduction = 0.12f;
 
         //Hooks! We love hooks :)

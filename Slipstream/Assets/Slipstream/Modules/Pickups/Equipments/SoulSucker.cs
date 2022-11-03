@@ -13,8 +13,10 @@ using System.Linq;
 
 namespace Slipstream.Equipments
 {
-    public class SoulSucker : EquipmentBase
+	[DisabledContent]
+	public class SoulSucker : EquipmentBase
     {
+		
         public override EquipmentDef EquipmentDef { get; } = SlipAssets.Instance.MainAssetBundle.LoadAsset<EquipmentDef>("SoulSucker");
 
         public static DeployableSlot SoulSuckerTrapDeployable;

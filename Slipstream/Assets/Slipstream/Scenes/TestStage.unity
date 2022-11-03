@@ -1081,14 +1081,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 212541571}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc6f9998366fcae41b665531e4e24df7, type: 3}
+  m_Script: {fileID: 11500000, guid: 1bfd4b453809938449258f32ab2f990c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Address: RoR2/Base/blackbeach/matWaterFoam.mat
-  TargetComponents:
-  - {fileID: 212541574}
+  Key: RoR2/Base/blackbeach/matWaterFoam.mat
+  _targetComponent: {fileID: 212541574}
+  _targetMemberInfoName: (Renderer) sharedMaterial
 --- !u!23 &212541574
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5602,14 +5602,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1352990979}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc6f9998366fcae41b665531e4e24df7, type: 3}
+  m_Script: {fileID: 11500000, guid: 1bfd4b453809938449258f32ab2f990c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Address: RoR2/Base/blackbeach/matWaterFoam.mat
-  TargetComponents:
-  - {fileID: 1352990982}
+  Key: RoR2/Base/blackbeach/matWaterFoam.mat
+  _targetComponent: {fileID: 1352990982}
+  _targetMemberInfoName: (Renderer) sharedMaterial
 --- !u!23 &1352990982
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6864,14 +6864,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1487877435}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc6f9998366fcae41b665531e4e24df7, type: 3}
+  m_Script: {fileID: 11500000, guid: 1bfd4b453809938449258f32ab2f990c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Address: RoR2/Base/blackbeach/matWaterFoam.mat
-  TargetComponents:
-  - {fileID: 1487877438}
+  Key: RoR2/Base/blackbeach/matWaterFoam.mat
+  _targetComponent: {fileID: 1487877438}
+  _targetMemberInfoName: (Renderer) sharedMaterial
 --- !u!23 &1487877438
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7083,14 +7083,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1526610185}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc6f9998366fcae41b665531e4e24df7, type: 3}
+  m_Script: {fileID: 11500000, guid: 1bfd4b453809938449258f32ab2f990c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Address: RoR2/Base/blackbeach/matBBWater.mat
-  TargetComponents:
-  - {fileID: 1526610187}
+  Key: RoR2/Base/blackbeach/matBBWater.mat
+  _targetComponent: {fileID: 1526610187}
+  _targetMemberInfoName: (Renderer) sharedMaterial
 --- !u!23 &1526610187
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7595,7 +7595,8 @@ MonoBehaviour:
   NGSS_PCSS_SOFTNESS_NEAR: 0.932
   NGSS_PCSS_SOFTNESS_FAR: 2
   NGSS_NOISE_TO_DITHERING_SCALE: 1
-  NGSS_NOISE_TEXTURE: {fileID: 0}
+  NGSS_NOISE_TEXTURE: {fileID: -7261684554061668849, guid: 00000000000000000000000000000000,
+    type: 0}
   NGSS_DENOISER_ENABLED: 0
   NGSS_DENOISER_ITERATIONS: 2
   NGSS_DENOISER_BLUR: 0.25
@@ -8854,14 +8855,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1791119119}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc6f9998366fcae41b665531e4e24df7, type: 3}
+  m_Script: {fileID: 11500000, guid: 1bfd4b453809938449258f32ab2f990c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Address: RoR2/Base/blackbeach/matWaterFoam.mat
-  TargetComponents:
-  - {fileID: 1791119122}
+  Key: RoR2/Base/blackbeach/matWaterFoam.mat
+  _targetComponent: {fileID: 1791119122}
+  _targetMemberInfoName: (Renderer) sharedMaterial
 --- !u!23 &1791119122
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -9293,7 +9294,6 @@ GameObject:
   - component: {fileID: 1906547450}
   - component: {fileID: 1906547449}
   - component: {fileID: 1906547447}
-  - component: {fileID: 1906547453}
   - component: {fileID: 1906547448}
   m_Layer: 20
   m_Name: SceneInfo
@@ -9363,16 +9363,16 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1906547443}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sharedProfile: {fileID: 0}
+  sharedProfile: {fileID: 11400000, guid: 8804bef9a1ec5fe45bf7dc1f9bfb7231, type: 2}
   isGlobal: 1
   blendDistance: 0
   weight: 1
-  priority: 999
+  priority: 1
 --- !u!114 &1906547448
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9453,21 +9453,6 @@ MonoBehaviour:
   Key: RoR2/Base/frozenwall/dpFrozenWallMonsters.asset
   _targetComponent: {fileID: 1906547444}
   _targetMemberInfoName: (ClassicStageInfo) monsterDccsPool
---- !u!114 &1906547453
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1906547443}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1bfd4b453809938449258f32ab2f990c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Key: RoR2/Base/title/ppSceneGolemplainsTrailer.asset
-  _targetComponent: {fileID: 1906547447}
-  _targetMemberInfoName: (PostProcessVolume) sharedProfile
 --- !u!1 &1918927447
 GameObject:
   m_ObjectHideFlags: 0
@@ -10206,7 +10191,7 @@ MonoBehaviour:
   m_Script: {fileID: -376374237, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triggerType: 0
+  triggerType: 1
   zoneType: 0
   explicitDestination: {fileID: 0}
   explicitSpawnEffectPrefab: {fileID: 0}

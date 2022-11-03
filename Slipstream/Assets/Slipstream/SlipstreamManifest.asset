@@ -18,6 +18,7 @@ MonoBehaviour:
   - {fileID: 2800000, guid: 5fc53213b7358dd49b9953c29358a105, type: 3}
   - {fileID: 4900000, guid: ddfe8be3934954f4aac2939fb12f5c66, type: 3}
   - {fileID: 102900000, guid: ae489e71b6a2ca54388f5e677554b7f0, type: 3}
+  - {fileID: 102900000, guid: 2808caf3af503eb4f803c32d100ca114, type: 3}
 --- !u!114 &-5775786412066446189
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37,12 +38,12 @@ MonoBehaviour:
     assets:
     - {fileID: 102900000, guid: 50c385205ff85314091c2cf5fa4efead, type: 3}
     - {fileID: 102900000, guid: 3eb5c6a41a2d4e8499a1014d0fc960b3, type: 3}
-  - assetBundleName: aridexpanse
-    assets:
-    - {fileID: 102900000, guid: f9e1e743a45dd0e4085183c8d766e150, type: 3}
   - assetBundleName: teststage
     assets:
     - {fileID: 102900000, guid: 095c9fdbe2a956842b95d921c9833e13, type: 3}
+  - assetBundleName: aridexpanse
+    assets:
+    - {fileID: 102900000, guid: fc44a2ed8a95eaa4089ae548715cd56f, type: 3}
 --- !u!114 &-4602117282012248594
 MonoBehaviour:
   m_ObjectHideFlags: 0

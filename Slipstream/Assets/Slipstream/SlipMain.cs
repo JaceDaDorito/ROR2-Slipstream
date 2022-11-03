@@ -30,7 +30,7 @@ namespace Slipstream
 
     [NetworkCompatibility(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.EveryoneNeedSameModVersion)]
     [BepInPlugin(GUID, MODNAME, VERSION)]
-    [R2APISubmoduleDependency(nameof(DotAPI), nameof(DamageAPI), nameof(PrefabAPI), nameof(DeployableAPI))]
+    [R2APISubmoduleDependency(nameof(DotAPI), nameof(DamageAPI), nameof(PrefabAPI), nameof(DeployableAPI), nameof(SoundAPI))]
     public class SlipMain : BaseUnityPlugin
     {
         //Big credit to Starstorm/Lost in Transit devs Swuff and NebNeb, the structure of the mod is purely based off of LIT and without them I wouldn't know what to do.

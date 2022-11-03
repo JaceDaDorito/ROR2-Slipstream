@@ -11,6 +11,7 @@ using On.RoR2;
 using On.RoR2.UI;
 using TMPro;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 namespace Slipstream.Items
 {
@@ -18,19 +19,17 @@ namespace Slipstream.Items
     {
         private const string token = "SLIP_ITEM_BRINESWARM_DESC";
         public override RoR2.ItemDef ItemDef { get; } = SlipAssets.Instance.MainAssetBundle.LoadAsset<RoR2.ItemDef>("BrineSwarm");
-        public override RoR2.ItemDef[] ItemsToCorrupt { get; } = {
-            SlipAssets.Instance.MainAssetBundle.LoadAsset<RoR2.ItemDef>("PepperSpray")
-        };
+        
 
         [ConfigurableField(ConfigName = "Base Shield", ConfigDesc = "Shield percentage after having at least one stack.", ConfigSection = "BrineSwarm")]
-        [TokenModifier(token, StatTypes.Percentage, 0)]
+        [TokenModifier(token, StatTypes.MultiplyByN, 0, "100")]
         public static float baseShield = 0.08f;
 
-        [TokenModifier(token, StatTypes.Percentage, 1)]
+        [TokenModifier(token, StatTypes.MultiplyByN, 1, "100")]
         public static float threshold = CriticalShield.threshold;
 
         [ConfigurableField(ConfigName = "Damage Increase", ConfigDesc = "Damage increase when Brine Buff is active.", ConfigSection = "BrineSwarm")]
-        [TokenModifier(token, StatTypes.Percentage, 2)]
+        [TokenModifier(token, StatTypes.MultiplyByN, 2, "100")]
         public static float damageIncrease = 0.2f;
 
         [ConfigurableField(ConfigName = "Armor Increase", ConfigDesc = "Damage increase when Brine Buff is active.", ConfigSection = "BrineSwarm")]
@@ -50,6 +49,12 @@ namespace Slipstream.Items
             base.Initialize();
             VoidShieldCatalog.AddVoidShieldCatalog(ItemDef);
         }
+
+        public override IEnumerable<RoR2.ItemDef> LoadItemsToInfect()
+        {
+            return new RoR2.ItemDef[1] { SlipAssets.Instance.MainAssetBundle.LoadAsset<RoR2.ItemDef>("PepperSpray") };
+        }
+
         public class BrineSwarmBehavior : CriticalShield.CriticalShieldBehavior, IBodyStatArgModifier
         {
             [ItemDefAssociation(useOnClient = true, useOnServer = true)]

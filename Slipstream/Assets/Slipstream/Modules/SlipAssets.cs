@@ -1,6 +1,5 @@
 ﻿//using Slipstream.Utils;
 using Moonstorm.Loaders;
-using Slipstream.PostProcess;
 using R2API;
 using RoR2.ContentManagement;
 using System;
@@ -56,69 +55,5 @@ namespace Slipstream
                .OrderByDescending(path => Path.GetFileName(path).Equals(mainAssetBundleName))
                .ToArray();
         }
-
-
-        //This is completely obsolete now, but I'm keeping it here just in case
-
-        /*private void LoadPostProcessing()
-        {
-            var ppProfiles = MainAssetBundle.LoadAllAssets<PostProcessProfile>();
-            foreach (var ppProfile in ppProfiles)
-            {
-                SlipRampFog tempFog;
-                SlipSobelOutline tempOutline;
-                SlipSobelRain tempRain;
-                bool modified = false;
-                if (ppProfile.TryGetSettings(out tempFog))
-                {
-                    var fog = ppProfile.AddSettings<RampFog>();
-                    fog.enabled = tempFog.enabled;
-                    fog.active = tempFog.active;
-                    fog.fogIntensity = tempFog.fogIntensity;
-                    fog.fogPower = tempFog.fogPower;
-                    fog.fogZero = tempFog.fogZero;
-                    fog.fogOne = tempFog.fogOne;
-                    fog.fogHeightStart = tempFog.fogHeightStart;
-                    fog.fogHeightEnd = tempFog.fogHeightEnd;
-                    fog.fogHeightIntensity = tempFog.fogHeightIntensity;
-                    fog.fogColorStart = tempFog.fogColorStart;
-                    fog.fogColorMid = tempFog.fogColorMid;
-                    fog.fogColorEnd = tempFog.fogColorEnd;
-                    fog.skyboxStrength = tempFog.skyboxStrength;
-                    ppProfile.RemoveSettings(typeof(SlipRampFog));
-                    modified = true;
-                }
-                if (ppProfile.TryGetSettings(out tempOutline))
-                {
-                    var outline = ppProfile.AddSettings<SobelOutline>();
-                    outline.enabled = tempOutline.enabled;
-                    outline.active = tempOutline.active;
-                    outline.outlineIntensity = tempOutline.outlineIntensity;
-                    outline.outlineScale = tempOutline.outlineScale;
-                    ppProfile.RemoveSettings(typeof(SlipSobelOutline));
-                    modified = true;
-                }
-                if (ppProfile.TryGetSettings(out tempRain))
-                {
-                    var rain = ppProfile.AddSettings<SobelRain>();
-                    rain.enabled = tempRain.enabled;
-                    rain.active = tempRain.active;
-                    rain.rainIntensity = tempRain.rainIntensity;
-                    rain.outlineScale = tempRain.outlineScale;
-                    rain.rainDensity = tempRain.rainDensity;
-                    rain.rainTexture = tempRain.rainTexture;
-                    rain.rainColor = tempRain.rainColor;
-                    ppProfile.RemoveSettings(typeof(SlipSobelRain));
-                    modified = true;
-                }
-                ppProfile.isDirty = modified;
-            }
-        }/*
-
-        /*private void LoadSoundBank()
-        {
-            byte[] array = File.ReadAllBytes(SoundBankPath);
-            SoundAPI.SoundBanks.Add(array);
-        }*/
     }
 }

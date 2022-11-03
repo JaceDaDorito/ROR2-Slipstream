@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 51316375
+CRC: 3546428205
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 0d8f712ce91b0d1962942483c85b7471
+    Hash: 45cb5044e3f2602228981318e39cf8f1
   TypeTreeHash:
     serializedVersion: 2
-    Hash: c1e59bdb46c7a702a76bbe8587b2e34b
+    Hash: 8f1240c4ab67b2281740cfd8cc9b2b96
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -27,8 +27,6 @@ ClassTypes:
   Script: {instanceID: 0}
 - Class: 54
   Script: {instanceID: 0}
-- Class: 65
-  Script: {instanceID: 0}
 - Class: 74
   Script: {instanceID: 0}
 - Class: 89
@@ -39,6 +37,8 @@ ClassTypes:
   Script: {fileID: 816898038, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: f8258ea15b8f74c4889ce485d21cbbb1, type: 3}
+- Class: 114
+  Script: {fileID: 662316482, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: adb84e30e02715445aeb9959894e3b4d, type: 3}
 - Class: 114
@@ -58,15 +58,9 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 11500000, guid: 80c71bd6f033c484e9317562c0a92db8, type: 3}
 - Class: 114
-  Script: {fileID: -1752031980, guid: b2ac317a67c468eb8fd6ed06da7572d4, type: 3}
-- Class: 114
-  Script: {fileID: -130519023, guid: b2ac317a67c468eb8fd6ed06da7572d4, type: 3}
-- Class: 114
   Script: {fileID: -1783169300, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: 2014855634, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
-- Class: 114
-  Script: {fileID: 662316482, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: -335047464, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
@@ -82,10 +76,6 @@ ClassTypes:
 - Class: 114
   Script: {fileID: -1193882409, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
-  Script: {fileID: 1783796254, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
-- Class: 114
-  Script: {fileID: -1294804675, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
-- Class: 114
   Script: {fileID: -1284244208, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: -1479993534, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
@@ -98,17 +88,7 @@ ClassTypes:
 - Class: 114
   Script: {fileID: -1848696948, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
-  Script: {fileID: 1790887305, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
-- Class: 114
-  Script: {fileID: -848926067, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
-- Class: 114
-  Script: {fileID: 678291247, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
-- Class: 114
   Script: {fileID: -270136354, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
-- Class: 114
-  Script: {fileID: -899414464, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
-- Class: 114
-  Script: {fileID: -941154584, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: -1819008361, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
@@ -127,8 +107,6 @@ ClassTypes:
   Script: {fileID: -1746479147, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 2651678a724e0a046809590077436ef6, type: 3}
-- Class: 114
-  Script: {fileID: 1395413934, guid: da77c7bbf69f66ab2145560542327715, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: a12e312ecd952a342bf131ff0dc858e3, type: 3}
 - Class: 114
@@ -151,11 +129,11 @@ SerializeReferenceClassIdentifiers: []
 Assets:
 - Assets/Materials/Textures/texRampTritone2.png
 - Assets/Materials/skyboxArid.mat
-- Assets/Materials/skyboxAridCubemap2.png
+- Assets/Materials/Textures/skyboxAridCubemap2.png
 - Assets/Materials/matWindowsXPTerrain.mat
 - Assets/Materials/Textures/texRampPepperRad.png
 - Assets/Slipstream/SlipstreamAssets/EliteDefs/Sandswept.asset
-- Assets/Shaders/ActualShaders/deferred/hgtriplanarterrainblend.asset
+- Assets/Shaders/RoR2/Base/Shaders/FX/Hopoo Games/FX/Cloud Remap.asset
 - Assets/Slipstream/SlipstreamAssets/Prefabs/Diorama/AridDioramaDisplay.prefab
 - Assets/Materials/Textures/texBlackbeachDirt2.png
 - Assets/Mesh/AridExpanse/dioramaGround.fbx
@@ -185,7 +163,6 @@ Assets:
 - Assets/Icons/iconPepperSpeed.png
 - Assets/Materials/Textures/texLightning1Mask.png
 - Assets/Slipstream/SlipstreamAssets/ItemDefs/BlackHealth.asset
-- Assets/Shaders/ActualShaders/deferred/hgstandard.asset
 - Assets/Materials/matPepperSprayEmit - Copy.mat
 - Assets/Slipstream/SlipstreamAssets/Prefabs/Pickups/PickupPepperSpray.prefab
 - Assets/Icons/iconSlipstreamExpansion.png
@@ -197,7 +174,9 @@ Assets:
 - Assets/Materials/Textures/texAllyCoalitionBar.png
 - Assets/Slipstream/SlipstreamAssets/EquipmentDefs/AffixSandswept.asset
 - Assets/Slipstream/SlipstreamAssets/EquipmentDefs/SoulSucker.asset
-- Assets/Materials/skyboxAridCubemap.png
+- Assets/Materials/Textures/skyboxAridCubemap.png
+- Assets/Shaders/RoR2/Base/Shaders/Deferred/Hopoo Games/Deferred/Triplanar Terrain
+  Blend.asset
 - Assets/Slipstream/SlipstreamAssets/dccsCards/dccsAridExpanseMonster.asset
 - Assets/Materials/Textures/texSuperPerlin1.png
 - Assets/Materials/Textures/texGrain2.png
@@ -229,17 +208,15 @@ Assets:
 - Assets/Materials/Textures/texCloudSand.png
 - Assets/Materials/Textures/GlassEye_Emission.png
 - Assets/Slipstream/SlipstreamAssets/Prefabs/Skins/mobstermando.prefab
+- Assets/Shaders/RoR2/Base/Shaders/FX/Hopoo Games/FX/Cloud Intersection Remap.asset
 - Assets/Materials/Textures/texBanditSkullMask.png
-- Assets/Shaders/ActualShaders/fx/hgintersectioncloudremap.asset
+- Assets/Shaders/RoR2/Base/Shaders/FX/Hopoo Games/FX/Distortion.asset
 - Assets/Slipstream/SlipstreamAssets/Prefabs/SizeReference.prefab
 - Assets/Materials/Textures/glasseye_Flowmap.png
 - Assets/Materials/Test2.mat
 - Assets/Slipstream/SlipstreamAssets/BuffDefs/BedeviledMark.asset
 - Assets/Slipstream/SlipstreamAssets/BuffDefs/PepperSpeed.asset
 - Assets/Materials/Textures/texGP2GrassTerrain.png
-- Assets/Shaders/ActualShaders/fx/hgdistortion.asset
-- Assets/Shaders/ActualShaders/deferred/hgsnowtopped.asset
-- Assets/Materials/New Material 1.mat
 - Assets/Materials/matPepperRim.mat
 - Assets/Mesh/Sphere.asset
 - Assets/Materials/Textures/T_Noise_04.png
@@ -256,9 +233,8 @@ Assets:
 - Assets/Slipstream/SlipstreamAssets/ItemDefs/PepperSpray.asset
 - Assets/Slipstream/SlipstreamAssets/EliteDefs/SandsweptHonor.asset
 - Assets/Mesh/mdlGlassEye.fbx
-- Assets/Materials/skyboxAridCubemapOG.png
+- Assets/Materials/Textures/skyboxAridCubemapOG.png
 - Assets/Icons/iconSlipstreamDisable.png
-- Assets/Shaders/ActualShaders/fx/hgcloudremap.asset
 - Assets/Materials/matAridTree.mat
 - Assets/Materials/matEliteSandOverlay.mat
 - Assets/Materials/matAETerrain1.mat
@@ -290,10 +266,10 @@ Assets:
 - Assets/Materials/Textures/texOmniShockwave1Mask.png
 - Assets/Slipstream/SlipstreamAssets/ItemDefs/FriendshipBracelet.asset
 - Assets/Materials/Textures/T_Noise_02.png
+- Assets/Shaders/RoR2/Base/Shaders/Deferred/Hopoo Games/Deferred/Snow Topped.asset
 - Assets/Materials/Textures/skyboxArid.png
 - Assets/Materials/Textures/texEgyptThing.png
 - Assets/Materials/Textures/texCriticalVoidShiIndi.png
-- Assets/Materials/New Material.mat
 - Assets/Mesh/meshPepperSpray.fbx
 - Assets/Slipstream/SlipstreamAssets/SurfaceDefs/DefaultDef.asset
 - Assets/Materials/Textures/texGlowPaintMask.png
@@ -314,6 +290,7 @@ Assets:
 - Assets/Icons/Capture.PNG
 - Assets/Materials/Textures/texRJRockNormal.png
 - Assets/Materials/matCoalitionShafts.mat
+- Assets/Shaders/RoR2/Base/Shaders/Deferred/Hopoo Games/Deferred/Standard.asset
 - Assets/Materials/Textures/Portal_08.png
 - Assets/Slipstream/SlipstreamAssets/Prefabs/Pickups/PickupGlassEye.prefab
 - Assets/Materials/matGlassEyeMetal.mat
@@ -322,9 +299,7 @@ Assets:
 - Assets/Materials/Textures/texRJDirtDiffuse2.png
 - Assets/Slipstream/SlipstreamAssets/Prefabs/Effects/CoalitionPreDetonation.prefab
 - Assets/Materials/Textures/texRampPepperRim.png
-- Assets/Slipstream/SlipstreamAssets/Prefabs/Projectiles/JaceHatProjectile.prefab
 - Assets/Materials/Textures/texCloudOrganicNormal.png
-- Assets/Slipstream/SlipstreamAssets/Prefabs/Projectiles/JaceHatGhost.prefab
 - Assets/Slipstream/SlipstreamAssets/SceneDefs/aridexpanse.asset
 - Assets/Materials/Textures/textTileScratchSplat.png
 - Assets/Materials/matGlassEyeGlowy.mat

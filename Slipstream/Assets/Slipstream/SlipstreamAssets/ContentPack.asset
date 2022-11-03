@@ -15,7 +15,6 @@ MonoBehaviour:
   bodyPrefabs: []
   masterPrefabs: []
   projectilePrefabs:
-  - {fileID: 9205177128277356338, guid: 87c530ce242fac448aa2c7ac7c12c70e, type: 3}
   - {fileID: 276149831023992206, guid: 43c552daef709a945918269922540841, type: 3}
   gameModePrefabs: []
   effectPrefabs:

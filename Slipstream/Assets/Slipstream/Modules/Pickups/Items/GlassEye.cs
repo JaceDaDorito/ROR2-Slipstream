@@ -17,7 +17,7 @@ namespace Slipstream.Items
         //public static string section = "GlassEye";
 
         [ConfigurableField(ConfigName = "Base Shield", ConfigDesc = "Shield percentage after having at least one stack.", ConfigSection = "GlassEye")]
-        [TokenModifier(token, StatTypes.Percentage, 0)]
+        [TokenModifier(token, StatTypes.MultiplyByN, 0, "100")]
         public static float baseShield = 0.06f;
 
         [ConfigurableField(ConfigName = "Base Crit", ConfigDesc = "Crit chance given when having at least one stack.", ConfigSection = "GlassEye")]
@@ -25,11 +25,11 @@ namespace Slipstream.Items
         public static float baseCrit = 5;
 
         [ConfigurableField(ConfigName = "Initial Crit Dmg", ConfigDesc = "Initial crit dmg on first stack.", ConfigSection = "GlassEye")]
-        [TokenModifier(token, StatTypes.Percentage, 2)]
+        [TokenModifier(token, StatTypes.MultiplyByN, 2, "100")]
         public static float initialCritDmg = 0.2f;
 
         [ConfigurableField(ConfigName = "Crit Dmg per Stack", ConfigDesc = "Increased crit damage per item stack.", ConfigSection = "GlassEye")]
-        [TokenModifier(token, StatTypes.Percentage, 3)]
+        [TokenModifier(token, StatTypes.MultiplyByN, 3, "100")]
         public static float stackCritDmg = 0.1f;
 
         //Color SuperCrit = new Color(0.495194f, 0.5953774f, 0.9811321f); Color for later, just dont know how to do it yet

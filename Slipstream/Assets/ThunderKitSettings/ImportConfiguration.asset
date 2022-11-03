@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-7394854473500659018
+--- !u!114 &-8304254446394210667
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9,37 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8840720793112784295b7c9b06af7493, type: 3}
-  m_Name: Get Bitness
+  m_Script: {fileID: 11500000, guid: 6d0e45bf5627b554081a563dac04ff6a, type: 3}
+  m_Name: Set Deferred Shading
   m_EditorClassIdentifier: 
   enabled: 1
---- !u!114 &-7280239534765568209
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe2f3f38321f2a74aae53ccf8a34a3de, type: 3}
-  m_Name: Install DebugToolkit
-  m_EditorClassIdentifier: 
-  enabled: 0
---- !u!114 &-6016071871429903204
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7156a49146b0bc44791e7e0141f1a773, type: 3}
-  m_Name: Install R2API
-  m_EditorClassIdentifier: 
-  enabled: 0
---- !u!114 &-5646833753130214462
+--- !u!114 &-8014107212478929950
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -52,7 +26,7 @@ MonoBehaviour:
   m_Name: Create Game Package
   m_EditorClassIdentifier: 
   enabled: 1
---- !u!114 &-5432862711597268901
+--- !u!114 &-7509889076087233988
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -61,26 +35,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5a17181e89416446b9fb82f03553599, type: 3}
-  m_Name: RoR2 LegacyResourceAPI Patcher
+  m_Script: {fileID: 11500000, guid: 512775de21a2e0e41ba77b90aced0c69, type: 3}
+  m_Name: PostProcessing Unity Package Installer
   m_EditorClassIdentifier: 
   enabled: 1
---- !u!114 &-4567308847403489232
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a87a9f1780c348d4080afaf9971d3a7e, type: 3}
-  m_Name: Import Assemblies
-  m_EditorClassIdentifier: 
-  enabled: 1
-  OldGuidGenerationMode: 0
-  GuidGenerationMode: 1
---- !u!114 &-3760543969579855824
+--- !u!114 &-7258755731888471029
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -93,7 +52,59 @@ MonoBehaviour:
   m_Name: Import Addressable Catalog
   m_EditorClassIdentifier: 
   enabled: 1
---- !u!114 &-3197430923577520647
+--- !u!114 &-7008733170037654605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f4761da1836bc043a94000ffe25bf40, type: 3}
+  m_Name: Install RoR2 Editor Kit
+  m_EditorClassIdentifier: 
+  enabled: 0
+--- !u!114 &-6837005863917019955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8840720793112784295b7c9b06af7493, type: 3}
+  m_Name: Get Bitness
+  m_EditorClassIdentifier: 
+  enabled: 1
+--- !u!114 &-6831019891825210352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 782d5ab1acc2056478f835108aa9474b, type: 3}
+  m_Name: Configure Addressable Graphics Settings
+  m_EditorClassIdentifier: 
+  enabled: 1
+--- !u!114 &-6493641892553290306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e81dec9331ebba548b09674254134864, type: 3}
+  m_Name: Wwise Blacklister
+  m_EditorClassIdentifier: 
+  enabled: 1
+--- !u!114 &-4608821695967117808
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -106,7 +117,20 @@ MonoBehaviour:
   m_Name: Ensure RoR2 Thunderstore Source
   m_EditorClassIdentifier: 
   enabled: 1
---- !u!114 &-2793435317834455135
+--- !u!114 &-4124873622526857196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe2f3f38321f2a74aae53ccf8a34a3de, type: 3}
+  m_Name: Install DebugToolkit
+  m_EditorClassIdentifier: 
+  enabled: 0
+--- !u!114 &-3088869571236471496
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -123,7 +147,7 @@ MonoBehaviour:
   - RoR2.dll
   - KinematicCharacterController.dll
   NStripExecutable: {fileID: 102900000, guid: 39e2644fdd2b31844bb745cba95889bb, type: 3}
---- !u!114 &-2670099827905265146
+--- !u!114 &-2868118873707913134
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -132,11 +156,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 512775de21a2e0e41ba77b90aced0c69, type: 3}
-  m_Name: PostProcessing Unity Package Installer
+  m_Script: {fileID: 11500000, guid: 892ee265a9c0b884c8c9c36e42a802c6, type: 3}
+  m_Name: Install BepInEx
   m_EditorClassIdentifier: 
-  enabled: 1
---- !u!114 &-1160772293653856351
+  enabled: 0
+--- !u!114 &-2292781987009713680
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -145,10 +169,36 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 782d5ab1acc2056478f835108aa9474b, type: 3}
-  m_Name: Configure Addressable Graphics Settings
+  m_Script: {fileID: 11500000, guid: e5a17181e89416446b9fb82f03553599, type: 3}
+  m_Name: RoR2 LegacyResourceAPI Patcher
   m_EditorClassIdentifier: 
   enabled: 1
+--- !u!114 &-1922044228921957373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eecc301ed1414ee4ca063a9eeee2a159, type: 3}
+  m_Name: TextMeshPro Uninstaller
+  m_EditorClassIdentifier: 
+  enabled: 1
+--- !u!114 &-1308110489201418609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0eacdf291dc183458517d6b18760c52, type: 3}
+  m_Name: Install FixPluginTypesSerialization
+  m_EditorClassIdentifier: 
+  enabled: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,28 +212,28 @@ MonoBehaviour:
   m_Name: ImportConfiguration
   m_EditorClassIdentifier: 
   ConfigurationExecutors:
-  - {fileID: -2670099827905265146}
-  - {fileID: 3758693554333490691}
-  - {fileID: 6195099521948153313}
-  - {fileID: 194961412591894938}
-  - {fileID: -2793435317834455135}
-  - {fileID: -4567308847403489232}
-  - {fileID: -5432862711597268901}
-  - {fileID: 1521336803557553156}
-  - {fileID: 976039400987760238}
-  - {fileID: -5646833753130214462}
-  - {fileID: -3760543969579855824}
-  - {fileID: -1160772293653856351}
-  - {fileID: -3197430923577520647}
-  - {fileID: 1879670330693060480}
-  - {fileID: 8549158328645016670}
-  - {fileID: -6016071871429903204}
-  - {fileID: 2942033700250184350}
-  - {fileID: 4513367500600643820}
-  - {fileID: -7280239534765568209}
-  - {fileID: -7394854473500659018}
+  - {fileID: -7509889076087233988}
+  - {fileID: -1922044228921957373}
+  - {fileID: 4684069862825458254}
+  - {fileID: -6493641892553290306}
+  - {fileID: -3088869571236471496}
+  - {fileID: 7138382888413443152}
+  - {fileID: -2292781987009713680}
+  - {fileID: 3274037219760930571}
+  - {fileID: -8304254446394210667}
+  - {fileID: -8014107212478929950}
+  - {fileID: -7258755731888471029}
+  - {fileID: -6831019891825210352}
+  - {fileID: -4608821695967117808}
+  - {fileID: -2868118873707913134}
+  - {fileID: -1308110489201418609}
+  - {fileID: 6240144961467531998}
+  - {fileID: 2411784920803189170}
+  - {fileID: -7008733170037654605}
+  - {fileID: -4124873622526857196}
+  - {fileID: -6837005863917019955}
   ConfigurationIndex: 20
---- !u!114 &194961412591894938
+--- !u!114 &2411784920803189170
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -192,24 +242,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e81dec9331ebba548b09674254134864, type: 3}
-  m_Name: Wwise Blacklister
+  m_Script: {fileID: 11500000, guid: a6a6266570ba40d41bad5cf59676ab77, type: 3}
+  m_Name: Install RoR2MultiplayerHLAPI
   m_EditorClassIdentifier: 
-  enabled: 1
---- !u!114 &976039400987760238
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d0e45bf5627b554081a563dac04ff6a, type: 3}
-  m_Name: Set Deferred Shading
-  m_EditorClassIdentifier: 
-  enabled: 1
---- !u!114 &1521336803557553156
+  enabled: 0
+--- !u!114 &3274037219760930571
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -223,59 +260,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enabled: 1
   IncludedSettings: -1
---- !u!114 &1879670330693060480
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 892ee265a9c0b884c8c9c36e42a802c6, type: 3}
-  m_Name: Install BepInEx
-  m_EditorClassIdentifier: 
-  enabled: 0
---- !u!114 &2942033700250184350
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6a6266570ba40d41bad5cf59676ab77, type: 3}
-  m_Name: Install RoR2MultiplayerHLAPI
-  m_EditorClassIdentifier: 
-  enabled: 0
---- !u!114 &3758693554333490691
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eecc301ed1414ee4ca063a9eeee2a159, type: 3}
-  m_Name: TextMeshPro Uninstaller
-  m_EditorClassIdentifier: 
-  enabled: 1
---- !u!114 &4513367500600643820
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f4761da1836bc043a94000ffe25bf40, type: 3}
-  m_Name: Install RoR2 Editor Kit
-  m_EditorClassIdentifier: 
-  enabled: 0
---- !u!114 &6195099521948153313
+--- !u!114 &4684069862825458254
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -288,7 +273,7 @@ MonoBehaviour:
   m_Name: Unity GUI Uninstaller
   m_EditorClassIdentifier: 
   enabled: 1
---- !u!114 &8549158328645016670
+--- !u!114 &6240144961467531998
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -297,7 +282,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0eacdf291dc183458517d6b18760c52, type: 3}
-  m_Name: Install FixPluginTypesSerialization
+  m_Script: {fileID: 11500000, guid: 7156a49146b0bc44791e7e0141f1a773, type: 3}
+  m_Name: Install R2API
   m_EditorClassIdentifier: 
   enabled: 0
+--- !u!114 &7138382888413443152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a87a9f1780c348d4080afaf9971d3a7e, type: 3}
+  m_Name: Import Assemblies
+  m_EditorClassIdentifier: 
+  enabled: 1
+  OldGuidGenerationMode: 0
+  GuidGenerationMode: 1
