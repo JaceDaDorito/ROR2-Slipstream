@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 3546428205
+CRC: 666558487
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 45cb5044e3f2602228981318e39cf8f1
+    Hash: 4ef698f8a1b7408d3431f5917bd64ef2
   TypeTreeHash:
     serializedVersion: 2
     Hash: 8f1240c4ab67b2281740cfd8cc9b2b96
@@ -138,9 +138,11 @@ Assets:
 - Assets/Materials/Textures/texBlackbeachDirt2.png
 - Assets/Mesh/AridExpanse/dioramaGround.fbx
 - Assets/Slipstream/SlipstreamAssets/dccsCards/dpAridExpanseInteractables.asset
+- Assets/Mesh/FriendshipBracelet05.fbx
 - Assets/Materials/Textures/T_Noise_07.png
 - Assets/Icons/iconGlassEye.png
 - Assets/Slipstream/SlipstreamAssets/SceneDefs/TestStage.asset
+- Assets/Materials/matFriendshipBracelet.mat
 - Assets/Icons/iconPepperSpray.png
 - Assets/Materials/Textures/texFocusedConvergenceOrb2.png
 - Assets/Materials/Textures/texRampEngi.png
@@ -195,6 +197,7 @@ Assets:
 - Assets/Materials/Textures/texRampDefault.png
 - Assets/Materials/Textures/texThermiteDroplet2Mask.png
 - Assets/Slipstream/SlipstreamAssets/Prefabs/DisplayPrefabs/DisplayPepperSpray.prefab
+- Assets/Slipstream/SlipstreamAssets/Prefabs/Pickups/PickupFriendshipBracelet.prefab
 - Assets/Materials/Textures/texDCGrass2.png
 - Assets/Slipstream/SlipstreamAssets/ItemDisplayRules/iddGlassEye.asset
 - Assets/Slipstream/SlipstreamAssets/Prefabs/DisplayPrefabs/DisplayGlassEye.prefab
@@ -260,6 +263,7 @@ Assets:
 - Assets/Mesh/mobstermando.fbx
 - Assets/Materials/matDefaultItem.mat
 - Assets/Mesh/RippedMeshes/donut5Mesh.asset
+- Assets/Materials/Textures/FriendshipBracelet05_Material.001_Roughness.png
 - Assets/Materials/matAEDistant.mat
 - Assets/Materials/matPepperSprayExplosion.mat
 - Assets/Materials/Textures/texPepperSprayCloud.png
@@ -275,6 +279,7 @@ Assets:
 - Assets/Materials/Textures/texGlowPaintMask.png
 - Assets/Materials/Textures/texRJGrassTerrain3.png
 - Assets/Materials/Textures/T_Noise_01.png
+- Assets/Materials/Textures/FriendshipBracelet05_Material.001_BaseColor.png
 - Assets/Materials/Textures/texRampEliteSand.png
 - Assets/Materials/Textures/texStreak1.png
 - Assets/Icons/iconSandsweptAffix.png
@@ -288,6 +293,7 @@ Assets:
 - Assets/Materials/Textures/texWhite.png
 - Assets/Slipstream/SlipstreamAssets/ItemDefs/RustyGenerator.asset
 - Assets/Icons/Capture.PNG
+- Assets/Materials/Textures/FriendshipBracelet05_Material.001_Normal.png
 - Assets/Materials/Textures/texRJRockNormal.png
 - Assets/Materials/matCoalitionShafts.mat
 - Assets/Shaders/RoR2/Base/Shaders/Deferred/Hopoo Games/Deferred/Standard.asset
