@@ -24,6 +24,7 @@ namespace Slipstream
             public static BuffDef BrineBuff;
             public static BuffDef PepperSpeed;
             public static BuffDef SoulRoot;
+            public static BuffDef ChungusBuff;
         }
 
         public static class Characters
@@ -67,6 +68,7 @@ namespace Slipstream
             #endregion
 
             #region Red items
+            public static ItemDef ChargedFungus;
             #endregion
 
             #region Yellow items

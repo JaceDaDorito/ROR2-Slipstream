@@ -23,7 +23,11 @@
 	"SLIP_ITEM_RUSTYGEN_PICKUP": "While you have a shield, reduce debuff timers.",
 	"SLIP_ITEM_RUSTYGEN_DESC": "Gain a <style=cIsHealing>shield</style> equal to <style=cIsHealing>{0}%</style> of your maximum health. While you have a <style=cIsHealing>shield</style>, reduce debuff timers by {1}% <style=cStack>(+{1}% per stack)</style>.",
 	"SLIP_ITEM_RUSTYGEN_LORE": "...Out here, no one will save you. The lights on my satellite S.O.S. have begun to dim, food's running low... All I've got left is myself, and you Victor. \n<style=cIsDamage>*Sounds of brutal, unparalleled violence can be heard over the recorder*</style>",
-
+	
+	"SLIP_ITEM_CHUNGUS_NAME": "Charged Fungus",
+	"SLIP_ITEM_CHUNGUS_PICKUP": "Passively heal while your equipment is charged",
+	"SLIP_ITEM_CHUNGUS_DESC": "While you have a stock of your equipment, <style=cIsHealing>Heal for {3}% of your maximum hp</style> every second",
+	"SLIP_ITEM_CHANGUS_LORE": "Whats up oc?"
 	"SLIP_MODIFIER_SANDSWEPT": "Sandswept {0}",
 	"SLIP_EQUIP_AFFIXSANDSWEPT_NAME": "The Third Wish",
 	"SLIP_EQUIP_AFFIXSANDSWEPT_PICKUP": "Become an aspect of sand.",
