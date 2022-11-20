@@ -27,5 +27,14 @@ namespace Slipstream.Utils
                 renderer.material = material;
             return gameObject;
         }
+        public static void AddOverlay(CharacterModel model, Material overlayMaterial)
+        {
+            if (model.activeOverlayCount >= CharacterModel.maxOverlays || !overlayMaterial)
+                return;
+            Material[] array = model.currentOverlays;
+            int num = model.activeOverlayCount;
+            model.activeOverlayCount = num + 1;
+            array[num] = overlayMaterial;
+        }
     }
 }

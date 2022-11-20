@@ -150,7 +150,7 @@
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "0bf189c8cd1a40201480598bfba52f32371de7de"
+      "hash": "06f5d481e75a6e9bd50e465f2b928f3a5c31bd5c"
     },
     "riskofthunder-ror2importextensions": {
       "version": "https://github.com/PassivePicasso/RoR2ImportExtensions.git",
@@ -170,7 +170,7 @@
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "e13f96d257254ed430110a6639eede2b712da4c4"
+      "hash": "a8d926fdea03ae9cf5980090505a81cb974d2f3e"
     },
     "tristanmcpherson-r2api": {
       "version": "file:R2API",

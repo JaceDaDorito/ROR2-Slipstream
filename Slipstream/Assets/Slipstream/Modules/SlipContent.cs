@@ -133,6 +133,10 @@ namespace Slipstream
                 },
                 /*delegate
                 {
+                    new Modules.VanillaSkillCatalog().Initialize();
+                },*/
+                /*delegate
+                {
                     new ItemDisplays().Initialize();
                 },*/
                 delegate

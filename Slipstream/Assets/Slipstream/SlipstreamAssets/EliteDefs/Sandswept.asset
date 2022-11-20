@@ -23,5 +23,5 @@ MonoBehaviour:
   eliteTier: 1
   lightColor: {r: 0.06657174, g: 0.8301887, b: 0.47810176, a: 0.5372549}
   eliteRamp: {fileID: 2800000, guid: 3a466f6c3e0c55d4ab945a919db6524f, type: 3}
-  overlay: {fileID: 2100000, guid: b19031f89709ab1418a4bb372ba83636, type: 2}
+  overlay: {fileID: 0}
   effect: {fileID: 0}

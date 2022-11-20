@@ -1,5 +1,5 @@
 ManifestFileVersion: 0
-CRC: 1654992566
+CRC: 2531185053
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
@@ -11,4 +11,5 @@ AssetBundleManifest:
         Dependency_0: slipassets
     Info_2:
       Name: aridexpanse
-      Dependencies: {}
+      Dependencies:
+        Dependency_0: slipassets

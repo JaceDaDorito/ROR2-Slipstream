@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 666558487
+CRC: 4041682751
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 4ef698f8a1b7408d3431f5917bd64ef2
+    Hash: 91471f984951314fcc71537fae69a31e
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 8f1240c4ab67b2281740cfd8cc9b2b96
+    Hash: b68693ccbcc605bf36a31b86a54c5a0d
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -58,6 +58,8 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 11500000, guid: 80c71bd6f033c484e9317562c0a92db8, type: 3}
 - Class: 114
+  Script: {fileID: 11500000, guid: 055ad47894d63994fa4e32d1cfa2f4d3, type: 3}
+- Class: 114
   Script: {fileID: -1783169300, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: 2014855634, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
@@ -108,6 +110,8 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 11500000, guid: 2651678a724e0a046809590077436ef6, type: 3}
 - Class: 114
+  Script: {fileID: 11500000, guid: 7d2dc8cbdb9720c418fcff8f84588cab, type: 3}
+- Class: 114
   Script: {fileID: 11500000, guid: a12e312ecd952a342bf131ff0dc858e3, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: af00c00fb9bbb5b49976a40609f990d5, type: 3}
@@ -131,6 +135,8 @@ Assets:
 - Assets/Materials/skyboxArid.mat
 - Assets/Materials/Textures/skyboxAridCubemap2.png
 - Assets/Materials/matWindowsXPTerrain.mat
+- Assets/Slipstream/SlipstreamAssets/SkillDefs/Example.asset
+- Assets/Icons/iconSkillPlaceholder.png
 - Assets/Materials/Textures/texRampPepperRad.png
 - Assets/Slipstream/SlipstreamAssets/EliteDefs/Sandswept.asset
 - Assets/Shaders/RoR2/Base/Shaders/FX/Hopoo Games/FX/Cloud Remap.asset
@@ -152,9 +158,11 @@ Assets:
 - Assets/Materials/matFireFlyTrail.mat
 - Assets/Materials/Textures/T_Noise_05.png
 - Assets/Materials/Textures/texUIMainRect.png
+- Assets/Slipstream/SlipstreamAssets/UnlockableDefs/slip.skin.merc.ghostrunner.asset
 - Assets/Slipstream/SlipstreamAssets/dccsCards/dpAridExpanseMonsters.asset
 - Assets/Materials/Textures/texWindowsGrass.png
 - Assets/Slipstream/SlipstreamAssets/ContentPack.asset
+- Assets/Slipstream/SlipstreamAssets/BuffDefs/ChungusBuff.asset
 - Assets/Materials/Textures/texRampElitePlated.png
 - Packages/com.unity.postprocessing/PostProcessing/Gizmos/PostProcessLayer.png
 - Assets/Materials/Textures/texRampGreaterWisp.png
@@ -166,6 +174,7 @@ Assets:
 - Assets/Materials/Textures/texLightning1Mask.png
 - Assets/Slipstream/SlipstreamAssets/ItemDefs/BlackHealth.asset
 - Assets/Materials/matPepperSprayEmit - Copy.mat
+- Assets/Icons/iconFriendshipBracelet.png
 - Assets/Slipstream/SlipstreamAssets/Prefabs/Pickups/PickupPepperSpray.prefab
 - Assets/Icons/iconSlipstreamExpansion.png
 - Assets/Slipstream/SlipstreamAssets/Prefabs/NetworkedObjects/SlipstreamRunBehavior.prefab
@@ -179,6 +188,7 @@ Assets:
 - Assets/Materials/Textures/skyboxAridCubemap.png
 - Assets/Shaders/RoR2/Base/Shaders/Deferred/Hopoo Games/Deferred/Triplanar Terrain
   Blend.asset
+- Assets/Icons/iconGhostrunnerMerc.png
 - Assets/Slipstream/SlipstreamAssets/dccsCards/dccsAridExpanseMonster.asset
 - Assets/Materials/Textures/texSuperPerlin1.png
 - Assets/Materials/Textures/texGrain2.png
@@ -195,9 +205,11 @@ Assets:
 - Assets/Materials/Textures/texBasicMask.png
 - Assets/Materials/Textures/matPepperSpray.png
 - Assets/Materials/Textures/texRampDefault.png
+- Assets/Slipstream/SlipstreamAssets/ItemDefs/ChargedFungus.asset
 - Assets/Materials/Textures/texThermiteDroplet2Mask.png
 - Assets/Slipstream/SlipstreamAssets/Prefabs/DisplayPrefabs/DisplayPepperSpray.prefab
 - Assets/Slipstream/SlipstreamAssets/Prefabs/Pickups/PickupFriendshipBracelet.prefab
+- Assets/Icons/tweakin.png
 - Assets/Materials/Textures/texDCGrass2.png
 - Assets/Slipstream/SlipstreamAssets/ItemDisplayRules/iddGlassEye.asset
 - Assets/Slipstream/SlipstreamAssets/Prefabs/DisplayPrefabs/DisplayGlassEye.prefab
@@ -214,6 +226,7 @@ Assets:
 - Assets/Shaders/RoR2/Base/Shaders/FX/Hopoo Games/FX/Cloud Intersection Remap.asset
 - Assets/Materials/Textures/texBanditSkullMask.png
 - Assets/Shaders/RoR2/Base/Shaders/FX/Hopoo Games/FX/Distortion.asset
+- Assets/Materials/Textures/SynthMerc_Emission.png
 - Assets/Slipstream/SlipstreamAssets/Prefabs/SizeReference.prefab
 - Assets/Materials/Textures/glasseye_Flowmap.png
 - Assets/Materials/Test2.mat
@@ -255,12 +268,13 @@ Assets:
 - Assets/Materials/Textures/GlassEye_Glowy.png
 - Assets/Materials/Textures/texGPRockSide4.png
 - Assets/Materials/Textures/texRampHealingMedkit.png
+- Assets/Materials/Textures/SynthMerc_Diffuse.png
 - Assets/Slipstream/SlipstreamAssets/dccsCards/dccsAridExpanseInteractablesDLC1.asset
 - Assets/Slipstream/SlipstreamAssets/Prefabs/Projectiles/SoulSuckerProjectile.prefab
 - Assets/Slipstream/SlipstreamAssets/dccsCards/dccsAridExpanseMonsterDLC1.asset
 - Assets/Materials/Textures/texCriticalShieldIndi.png
+- Assets/Materials/matGhostrunnerMerc.mat
 - Assets/Slipstream/SlipstreamAssets/Prefabs/Effects/PepperSprayExplosion.prefab
-- Assets/Mesh/mobstermando.fbx
 - Assets/Materials/matDefaultItem.mat
 - Assets/Mesh/RippedMeshes/donut5Mesh.asset
 - Assets/Materials/Textures/FriendshipBracelet05_Material.001_Roughness.png
@@ -281,8 +295,11 @@ Assets:
 - Assets/Materials/Textures/T_Noise_01.png
 - Assets/Materials/Textures/FriendshipBracelet05_Material.001_BaseColor.png
 - Assets/Materials/Textures/texRampEliteSand.png
+- Assets/Materials/Textures/SynthMerc_Normal.png
+- Assets/Materials/matSandInside.mat
 - Assets/Materials/Textures/texStreak1.png
 - Assets/Icons/iconSandsweptAffix.png
+- Assets/Mesh/merc.fbx
 - Assets/Materials/matAridWeatherDust.mat
 - Assets/Materials/Textures/EternityStreak.png
 - Assets/Materials/Textures/texParticleDust3Mask.png
@@ -302,12 +319,14 @@ Assets:
 - Assets/Materials/matGlassEyeMetal.mat
 - Assets/Materials/Textures/rampPepperSpray.png
 - Assets/Slipstream/SlipstreamAssets/dccsCards/dpAridExpanseMons.asset
+- Assets/Materials/matSandOuter.mat
 - Assets/Materials/Textures/texRJDirtDiffuse2.png
 - Assets/Slipstream/SlipstreamAssets/Prefabs/Effects/CoalitionPreDetonation.prefab
 - Assets/Materials/Textures/texRampPepperRim.png
 - Assets/Materials/Textures/texCloudOrganicNormal.png
 - Assets/Slipstream/SlipstreamAssets/SceneDefs/aridexpanse.asset
 - Assets/Materials/Textures/textTileScratchSplat.png
+- Assets/Slipstream/SlipstreamAssets/VanillaSkinDefs/GhostrunnerMerc.asset
 - Assets/Materials/matGlassEyeGlowy.mat
 - Assets/Materials/matPepperSprayOldSmoke.mat
 - Assets/Materials/Textures/texBBMudNormal.png
@@ -315,7 +334,6 @@ Assets:
 - Assets/Materials/Textures/texBarrierBarPlaceholder.png
 - Assets/Materials/Textures/texGenericStarburstMask.png
 - Assets/Icons/texBuffAffixSand.png
-- Assets/Materials/Textures/MobsterMando_Normal.png
 - Assets/Mesh/RippedMeshes/VFXLightShaft.asset
 - Assets/Materials/Textures/texRampPepperEmit.png
 - Assets/Materials/Textures/GlassEye_GlowyEmit.png

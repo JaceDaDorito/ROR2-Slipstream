@@ -16,6 +16,7 @@ using System.Linq;
 
 namespace Slipstream.Items
 {
+
     public class BlackHealth : ItemBase
     {
         public override ItemDef ItemDef { get; } = SlipAssets.Instance.MainAssetBundle.LoadAsset<ItemDef>("BlackHealth");
