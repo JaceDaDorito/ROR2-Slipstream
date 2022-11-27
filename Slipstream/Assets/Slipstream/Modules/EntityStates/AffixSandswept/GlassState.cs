@@ -1,12 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using RoR2;
-using EntityStates;
 using UnityEngine.Networking;
-using RoR2.Orbs;
-using Slipstream.Buffs;
-using UnityEngine.Networking;
+using Slipstream;
 
 namespace EntityStates.Sandswept
 {
@@ -17,6 +12,34 @@ namespace EntityStates.Sandswept
         private Animator modelAnimator;
         private float duration;
         private float freezeDuration = 30f;
+
+        public Material frozenOverlayMaterial = SlipAssets.Instance.MainAssetBundle.LoadAsset<Material>("matIsGlass");
+
+        private GameObject eliteSandKnockbackIndicator;
+
+        private bool indicatorEnabled
+        {
+            get
+            {
+                return eliteSandKnockbackIndicator;
+            }
+            set
+            {
+                if(indicatorEnabled == value)
+                {
+                    return;
+                }
+                if (value)
+                {
+                    GameObject original = SlipAssets.Instance.MainAssetBundle.LoadAsset<GameObject>("EliteSandKnockbackIndicator");
+                    eliteSandKnockbackIndicator = UnityEngine.Object.Instantiate<GameObject>(original, base.characterBody.corePosition, Quaternion.identity);
+                    eliteSandKnockbackIndicator.transform.localScale = new Vector3(characterBody.bestFitRadius * 5, characterBody.bestFitRadius * 5, characterBody.bestFitRadius * 5);
+                    eliteSandKnockbackIndicator.GetComponent<NetworkedBodyAttachment>().AttachToGameObjectAndSpawn(base.gameObject, null);
+                    return;
+                }
+
+            }
+        }
 
         //private bool died;
 
@@ -40,7 +63,7 @@ namespace EntityStates.Sandswept
                     temporaryOverlay.duration = freezeDuration; //doesn't matter what you put here
                     temporaryOverlay.destroyComponentOnEnd = false;
                     temporaryOverlay.destroyObjectOnEnd = false;
-                    temporaryOverlay.originalMaterial = LegacyResourcesAPI.Load<Material>("Materials/matIsFrozen");
+                    temporaryOverlay.originalMaterial = frozenOverlayMaterial;
                     temporaryOverlay.AddToCharacerModel(model);
 
                     //turn off all lights
@@ -67,6 +90,8 @@ namespace EntityStates.Sandswept
             }
             if (characterDirection)
                 characterDirection.moveVector = characterDirection.forward;
+
+            indicatorEnabled = true;
             
         }
 
@@ -88,6 +113,8 @@ namespace EntityStates.Sandswept
                     transform = null;
                 }
             }
+
+            indicatorEnabled = false;
 
             Util.PlayAttackSpeedSound("Play_char_glass_death", gameObject, 2f);
 

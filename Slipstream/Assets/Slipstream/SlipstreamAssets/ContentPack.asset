@@ -23,6 +23,7 @@ MonoBehaviour:
   networkedObjectPrefabs:
   - {fileID: 2749793177716746256, guid: a97e54d27d218714d88515a26101e58e, type: 3}
   - {fileID: 4469780739943632523, guid: 34677373b0ebf1849948c92f9e0ced26, type: 3}
+  - {fileID: 3546640047192735099, guid: c1463dfd13edcf749bc5bd473e94b922, type: 3}
   skillDefs: []
   skillFamilies: []
   sceneDefs: []

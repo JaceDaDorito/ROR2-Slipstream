@@ -18,10 +18,13 @@ namespace Slipstream.Buffs
 
         public EntityStateMachine targetStateMachine;
 
+        
+
         public override void Initialize()
         {
             GlobalEventManager.onServerDamageDealt += GlobalEventManager_onServerDamageDealt;
             IL.EntityStates.GenericCharacterDeath.OnEnter += GenericCharacterDeath_OnEnter; //IL hook, you hook onto a method like any other hook.
+            //IL.RoR2.CharacterModel.UpdateRendererMaterials += CharacterModel_UpdateRendererMaterials;
         }
 
         private void GlobalEventManager_onServerDamageDealt(DamageReport obj)
@@ -67,6 +70,21 @@ namespace Slipstream.Buffs
             }
             else
                 SlipLogger.LogW($"Couldn't find Void Death location. Can't inject Sandswept death IL code");
+
+        }
+
+        private void CharacterModel_UpdateRendererMaterials(ILContext il)
+        {
+            ILLabel returnLabel = null;
+            ILCursor c = new ILCursor(il);
+            bool found = c.TryGotoNext(
+                MoveType.After,
+                x => x.MatchLdarg(0),
+                x => x.MatchCall<CharacterModel>("IsGummyClone"),
+                x => x.MatchBrfalse(out _),
+                x => x.MatchLdsfld(nameof(CharacterModel), nameof(CharacterModel.gummyCloneMaterial)),
+                x => x.MatchStloc(0),
+                x => x.MatchBr(out returnLabel));
 
         }
 

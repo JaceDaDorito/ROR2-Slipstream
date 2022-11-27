@@ -12,18 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 591b5409da3943148ba99344d0e7cbc1, type: 3}
   m_Name: MaterialEditorSettings
   m_EditorClassIdentifier: 
-  EnableMaterialEditor: 0
+  EnableMaterialEditor: 1
   myString: 
-  shaderStringPairs:
-  - shaderName: hgStandard
-    shader:
-      shaderName: 
-      shaderGUID: 
-  - shaderName: hgSnowtopped
-    shader:
-      shaderName: 
-      shaderGUID: 
-  - shaderName: hgCloudRemap
-    shader:
-      shaderName: 
-      shaderGUID: 
+  shaderStringPairs: []
