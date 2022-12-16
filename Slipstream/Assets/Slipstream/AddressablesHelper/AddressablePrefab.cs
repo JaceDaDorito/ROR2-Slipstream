@@ -63,7 +63,7 @@ namespace AddressablesHelper
             }
                 
 
-            instance.hideFlags = HideFlags.DontSaveInEditor;
+            instance.hideFlags |= (HideFlags.DontSaveInEditor | HideFlags.DontSaveInBuild | HideFlags.NotEditable);
         }
     }
 }

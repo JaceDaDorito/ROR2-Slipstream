@@ -1201,7 +1201,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 1660837815656992537, guid: 00000000000000000000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -10825,7 +10825,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 1660837815656992537, guid: 00000000000000000000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -11070,7 +11070,8 @@ MonoBehaviour:
   m_Script: {fileID: 818754807, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  teleporterSpawnCard: {fileID: 0}
+  teleporterSpawnCard: {fileID: -1775688641126402382, guid: 00000000000000000000000000000000,
+    type: 0}
   expRewardCoefficient: 0.06666667
   eliteBias: 2
   spawnDistanceMultiplier: 6
@@ -12087,7 +12088,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 1660837815656992537, guid: 00000000000000000000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -12306,7 +12307,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 230126055419921248, guid: 00000000000000000000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -14089,7 +14090,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 1660837815656992537, guid: 00000000000000000000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -14630,15 +14631,19 @@ MonoBehaviour:
   m_Script: {fileID: -235412878, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monsterDccsPool: {fileID: 0}
-  interactableDccsPool: {fileID: 0}
+  monsterDccsPool: {fileID: 7187708436087846909, guid: 00000000000000000000000000000000,
+    type: 0}
+  interactableDccsPool: {fileID: -2810141190926354528, guid: 00000000000000000000000000000000,
+    type: 0}
   sceneDirectorInteractibleCredits: 200
   sceneDirectorMonsterCredits: 20
   bonusInteractibleCreditObjects: []
   monsterCards: []
   interactableCards: []
-  interactableCategories: {fileID: 0}
-  monsterCategories: {fileID: 0}
+  interactableCategories: {fileID: 418832512780377213, guid: 00000000000000000000000000000000,
+    type: 0}
+  monsterCategories: {fileID: 5833152536586853771, guid: 00000000000000000000000000000000,
+    type: 0}
   possibleMonsterFamilies: []
 --- !u!114 &1906547445
 MonoBehaviour:

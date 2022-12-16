@@ -43,7 +43,7 @@ MonoBehaviour:
     - {fileID: 102900000, guid: 095c9fdbe2a956842b95d921c9833e13, type: 3}
   - assetBundleName: aridexpanse
     assets:
-    - {fileID: 102900000, guid: fc44a2ed8a95eaa4089ae548715cd56f, type: 3}
+    - {fileID: 102900000, guid: ddb0f470f7ff4ad42ae5de4ec57c3ba7, type: 3}
 --- !u!114 &-4602117282012248594
 MonoBehaviour:
   m_ObjectHideFlags: 0

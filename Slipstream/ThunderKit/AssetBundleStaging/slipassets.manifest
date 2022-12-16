@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 3621042230
+CRC: 83566856
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 99699466253fe8820fbe17518d4abe2f
+    Hash: 590ef5f58d1a39ef67aa8d3b0eb4e901
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 54e213cd373e94f81a6411644121fde0
+    Hash: c1f4fc8ce75387f3d09fade0a280a84e
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -36,9 +36,9 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 816898038, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
-  Script: {fileID: 1985007777, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
-- Class: 114
   Script: {fileID: 11500000, guid: f8258ea15b8f74c4889ce485d21cbbb1, type: 3}
+- Class: 114
+  Script: {fileID: 1985007777, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: adb84e30e02715445aeb9959894e3b4d, type: 3}
 - Class: 114
@@ -138,6 +138,7 @@ Assets:
 - Assets/Materials/Textures/texRampTritone2.png
 - Assets/Materials/skyboxArid.mat
 - Assets/Materials/Textures/skyboxAridCubemap2.png
+- Assets/Materials/Textures/CMerc_diffuse.png
 - Assets/Materials/matWindowsXPTerrain.mat
 - Assets/Slipstream/SlipstreamAssets/SkillDefs/Example.asset
 - Assets/Icons/iconSkillPlaceholder.png
@@ -149,6 +150,7 @@ Assets:
 - Assets/Materials/Textures/texBlackbeachDirt2.png
 - Assets/Mesh/AridExpanse/dioramaGround.fbx
 - Assets/Slipstream/SlipstreamAssets/dccsCards/dpAridExpanseInteractables.asset
+- Assets/Materials/Textures/CMerc_emission.png
 - Assets/Mesh/FriendshipBracelet05.fbx
 - Assets/Materials/Textures/T_Noise_07.png
 - Assets/Icons/iconGlassEye.png
@@ -178,7 +180,9 @@ Assets:
 - Assets/Materials/Textures/Capture.PNG
 - Assets/Icons/iconPepperSpeed.png
 - Assets/Materials/Textures/texLightning1Mask.png
+- Assets/Materials/matGhostrunnerSword.mat
 - Assets/Materials/Textures/texAlphaGradient2Mask.png
+- Assets/Materials/Textures/CMerc_normal.png
 - Assets/Slipstream/SlipstreamAssets/ItemDefs/BlackHealth.asset
 - Assets/Materials/matPepperSprayEmit - Copy.mat
 - Assets/Icons/iconFriendshipBracelet.png
@@ -223,6 +227,7 @@ Assets:
 - Assets/Slipstream/SlipstreamAssets/Prefabs/DisplayPrefabs/DisplayGlassEye.prefab
 - Assets/Slipstream/SlipstreamAssets/BuffDefs/AffixSandswept.asset
 - Assets/Materials/Textures/texSandGlass.png
+- Assets/Mesh/CMerc.fbx
 - Assets/Materials/Textures/texRampThermite2.png
 - Assets/Slipstream/SlipstreamAssets/ItemDefs/JaceHat.asset
 - Assets/Materials/matSandTornado.mat
@@ -259,9 +264,12 @@ Assets:
 - Assets/Materials/matSmoke.mat
 - Assets/Slipstream/SlipstreamAssets/ItemDefs/PepperSpray.asset
 - Assets/Slipstream/SlipstreamAssets/EliteDefs/SandsweptHonor.asset
+- Assets/Materials/Textures/CMercSword_diffuse.png
 - Assets/Mesh/mdlGlassEye.fbx
 - Assets/Materials/Textures/skyboxAridCubemapOG.png
 - Assets/Icons/iconSlipstreamDisable.png
+- Assets/Materials/Textures/CMercSword_normal.png
+- Assets/Materials/Textures/CMercSword_emission.png
 - Assets/Materials/matAridTree.mat
 - Assets/Materials/matEliteSandOverlay.mat
 - Assets/Materials/matAETerrain1.mat
@@ -310,7 +318,6 @@ Assets:
 - Assets/Materials/matSandInside.mat
 - Assets/Materials/Textures/texStreak1.png
 - Assets/Icons/iconSandsweptAffix.png
-- Assets/Mesh/merc.fbx
 - Assets/Materials/matAridWeatherDust.mat
 - Assets/Materials/Textures/EternityStreak.png
 - Assets/Materials/Textures/texParticleDust3Mask.png
