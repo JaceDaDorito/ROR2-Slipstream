@@ -19,13 +19,13 @@
         "HGUnityUtils.dll",
         "KinematicCharacterController.dll",
         "MMHOOK_RoR2.dll",
-        "Wwise.dll",
         "LegacyResourcesAPI.dll",
         "Unity.Addressables.dll",
         "Unity.ResourceManager.dll",
         "UnityEngine.UI.dll",
         "Unity.TextMeshPro.dll",
-        "RoR2.dll"
+        "RoR2.dll",
+        "Wwise.dll"
     ],
     "autoReferenced": true,
     "defineConstraints": [],

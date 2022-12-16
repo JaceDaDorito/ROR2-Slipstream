@@ -1,72 +1,19 @@
 {
   "dependencies": {
-    "addons-debuggingplains": {
-      "version": "file:DebuggingPlains",
-      "depth": 0,
-      "source": "embedded",
-      "dependencies": {}
-    },
     "bbepis-bepinexpack": {
       "version": "file:BepInExPack",
       "depth": 0,
       "source": "embedded",
       "dependencies": {}
     },
-    "com.autodesk.fbx": {
-      "version": "4.2.0",
-      "depth": 1,
-      "source": "registry",
-      "dependencies": {},
-      "url": "https://packages.unity.com"
-    },
     "com.passivepicasso.thunderkit": {
-      "version": "https://github.com/PassivePicasso/ThunderKit.git#5.4.3",
+      "version": "https://github.com/PassivePicasso/ThunderKit.git#6.0.0",
       "depth": 0,
       "source": "git",
       "dependencies": {
         "com.unity.scriptablebuildpipeline": "1.16.1"
       },
-      "hash": "cca72fc1207c38392c022746991c6c68d88e25ea"
-    },
-    "com.unity.collab-proxy": {
-      "version": "1.2.16",
-      "depth": 0,
-      "source": "registry",
-      "dependencies": {},
-      "url": "https://packages.unity.com"
-    },
-    "com.unity.ext.nunit": {
-      "version": "1.0.6",
-      "depth": 1,
-      "source": "registry",
-      "dependencies": {},
-      "url": "https://packages.unity.com"
-    },
-    "com.unity.formats.fbx": {
-      "version": "4.2.0",
-      "depth": 0,
-      "source": "registry",
-      "dependencies": {
-        "com.unity.timeline": "1.7.1",
-        "com.autodesk.fbx": "4.2.0"
-      },
-      "url": "https://packages.unity.com"
-    },
-    "com.unity.ide.rider": {
-      "version": "1.2.1",
-      "depth": 0,
-      "source": "registry",
-      "dependencies": {
-        "com.unity.test-framework": "1.1.1"
-      },
-      "url": "https://packages.unity.com"
-    },
-    "com.unity.ide.vscode": {
-      "version": "1.2.3",
-      "depth": 0,
-      "source": "registry",
-      "dependencies": {},
-      "url": "https://packages.unity.com"
+      "hash": "ed5d32591dcd4d36ed8a54f10b7dcc95eb7715a0"
     },
     "com.unity.multiplayer-hlapi": {
       "version": "file:RoR2MultiplayerHLAPI",
@@ -104,29 +51,6 @@
       "dependencies": {},
       "url": "https://packages.unity.com"
     },
-    "com.unity.test-framework": {
-      "version": "1.1.24",
-      "depth": 0,
-      "source": "registry",
-      "dependencies": {
-        "com.unity.ext.nunit": "1.0.6",
-        "com.unity.modules.imgui": "1.0.0",
-        "com.unity.modules.jsonserialize": "1.0.0"
-      },
-      "url": "https://packages.unity.com"
-    },
-    "com.unity.timeline": {
-      "version": "1.7.1",
-      "depth": 1,
-      "source": "registry",
-      "dependencies": {
-        "com.unity.modules.director": "1.0.0",
-        "com.unity.modules.animation": "1.0.0",
-        "com.unity.modules.audio": "1.0.0",
-        "com.unity.modules.particlesystem": "1.0.0"
-      },
-      "url": "https://packages.unity.com"
-    },
     "iharbhd-debugtoolkit": {
       "version": "file:DebugToolkit",
       "depth": 0,
@@ -158,12 +82,6 @@
       "source": "git",
       "dependencies": {},
       "hash": "879ac85ac2a5aea48a3c08f8d58c8c43dceb1df5"
-    },
-    "rune580-risk_of_options": {
-      "version": "file:Risk_Of_Options",
-      "depth": 0,
-      "source": "embedded",
-      "dependencies": {}
     },
     "teammoonstorm-moonstormsharedutils": {
       "version": "https://github.com/TeamMoonstorm/MoonstormSharedUtils.git",
