@@ -51,7 +51,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7156a49146b0bc44791e7e0141f1a773, type: 3}
   m_Name: Install R2API
   m_EditorClassIdentifier: 
-  enabled: 0
+  enabled: 1
 --- !u!114 &-7911657098462964960
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -64,7 +64,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe2f3f38321f2a74aae53ccf8a34a3de, type: 3}
   m_Name: Install DebugToolkit
   m_EditorClassIdentifier: 
-  enabled: 0
+  enabled: 1
 --- !u!114 &-2657867238408023160
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -193,7 +193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e81dec9331ebba548b09674254134864, type: 3}
   m_Name: Wwise Blacklister
   m_EditorClassIdentifier: 
-  enabled: 1
+  enabled: 0
 --- !u!114 &4565274318203785971
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -206,7 +206,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 892ee265a9c0b884c8c9c36e42a802c6, type: 3}
   m_Name: Install BepInEx
   m_EditorClassIdentifier: 
-  enabled: 0
+  enabled: 1
 --- !u!114 &4586618245730523693
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -259,8 +259,6 @@ MonoBehaviour:
   m_Name: Import Assemblies
   m_EditorClassIdentifier: 
   enabled: 1
-  OldGuidGenerationMode: 0
-  GuidGenerationMode: 1
 --- !u!114 &7107908470179892015
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -300,4 +298,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6a6266570ba40d41bad5cf59676ab77, type: 3}
   m_Name: Install RoR2MultiplayerHLAPI
   m_EditorClassIdentifier: 
-  enabled: 0
+  enabled: 1

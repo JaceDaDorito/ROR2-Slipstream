@@ -1,1 +1,0 @@
-Hey so currently language Token updates dont work. The actual language files will be in "LangTempFolder". The ones in game rn are hardcoded.

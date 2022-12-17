@@ -76,6 +76,11 @@ Packages/Risk of Rain 2
 ThunderKit/
 Assets/ThunderKitSettings/Logs/
 
+#Other
+Slipstream/Packages/*
+!Slipstream/Packages/packages-lock.json
+!Slipstream/Packages/manifest.json
+
 ##-------##
 ## wwise ##
 ##-------##
