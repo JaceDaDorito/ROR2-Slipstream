@@ -1,0 +1,7 @@
+﻿How to navigate through Slipstream content
+	
+1. Pickups are items and equipment (minus elite equipments).
+2. Scripts and their related assets are paired with each other (ItemDef, Script, Pickup ect.)
+3. Buffs, EntityStates, Prefabs, Textures, Materials, Definitions, etc. are all paired with each other. For example if you are trying to find the buff for Pepper Spray (PepperSpeed), go to Pickups -> Items -> Pepperspray and the buff is there.
+4. Scenes are not in here as they would prevent building the mod if they are paired with any other asset.
+5. GeneralMaterials aren't specific to anything.
