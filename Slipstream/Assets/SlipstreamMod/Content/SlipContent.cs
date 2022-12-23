@@ -131,6 +131,14 @@ namespace Slipstream
                 {
                     new Modules.Scenes().Initialize();
                 },
+                delegate
+                {
+                    new Modules.Unlocks().Initialize();
+                },
+                delegate
+                {
+                    new VanillaSkillCatalog().Initialize();
+                },
                 /*delegate
                 {
                     new Modules.VanillaSkillCatalog().Initialize();

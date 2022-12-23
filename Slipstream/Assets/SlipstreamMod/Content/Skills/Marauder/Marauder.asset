@@ -17,7 +17,7 @@ MonoBehaviour:
   skillDescriptionToken: SLIP_SKILL_MARAUDER_DESC
   keywordTokens:
   - 
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: f1181c25741818b41b98d74f0f8656b6, type: 3}
   activationStateMachineName: 
   activationState:
     _typeName: 

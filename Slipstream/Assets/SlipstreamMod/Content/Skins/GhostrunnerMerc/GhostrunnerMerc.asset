@@ -16,7 +16,7 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 2cb66ff3a8ba0f942bfdc7e996e280f5, type: 3}
   nameToken: SLIP_SKIN_MERCENARY_GHOSTRUNNER
   unlockableName: 
-  unlockableDef: {fileID: 0}
+  unlockableDef: {fileID: 11400000, guid: 0ea5fb822bacc67498425c0485565df4, type: 2}
   rootObject: {fileID: 0}
   rendererInfos: []
   gameObjectActivations: []

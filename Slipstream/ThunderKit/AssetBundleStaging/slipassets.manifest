@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 727224497
+CRC: 188611891
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 5ab24f6df3004b61646f68e595e36ada
+    Hash: 9990f90462df61a14ff3248a23f6e7a7
   TypeTreeHash:
     serializedVersion: 2
     Hash: 27c4f0675888aca520a46c145a1fc6f9
@@ -184,6 +184,7 @@ Assets:
 - Assets/SlipstreamMod/Content/Pickups/Items/Coalition/BlackHealth.asset
 - Assets/SlipstreamMod/Content/Pickups/Items/PepperSpray/Assets/matPepperSprayEmit
   - Copy.mat
+- Assets/SlipstreamMod/Content/Scenes/aridexpanse/Assets/skyboxArid2.mat
 - Assets/SlipstreamMod/Content/Pickups/Items/FriendshipBracelet/Assets/iconFriendshipBracelet.png
 - Assets/SlipstreamMod/Content/Pickups/Items/PepperSpray/PickupPepperSpray.prefab
 - Assets/SlipstreamMod/Content/iconSlipstreamExpansion.png
@@ -225,6 +226,7 @@ Assets:
 - Assets/SlipstreamMod/Content/Pickups/Items/GlassEye/iddGlassEye.asset
 - Assets/SlipstreamMod/Content/Pickups/Items/GlassEye/DisplayGlassEye.prefab
 - Assets/SlipstreamMod/Content/Elites/Sandswept/Buff/AffixSandswept.asset
+- Assets/SlipstreamMod/Content/Scenes/aridexpanse/pp/ppAridExpanse2.asset
 - Assets/SlipstreamMod/Content/Elites/Sandswept/Assets/texSandGlass.png
 - Assets/Mesh/CMerc.fbx
 - Assets/SlipstreamMod/Content/GeneralMaterials/Stolen/texRampThermite2.png
@@ -263,7 +265,6 @@ Assets:
 - Assets/SlipstreamMod/Content/Elites/Sandswept/SandsweptHonor.asset
 - Assets/SlipstreamMod/Content/Skins/GhostrunnerMerc/Assets/CMercSword_diffuse.png
 - Assets/Mesh/Items/mdlGlassEye.fbx
-- Assets/SlipstreamMod/Content/Scenes/aridexpanse/Assets/skyboxAridCubemapOG.png
 - Assets/SlipstreamMod/Content/iconSlipstreamDisable.png
 - Assets/SlipstreamMod/Content/Skins/GhostrunnerMerc/Assets/CMercSword_normal.png
 - Assets/SlipstreamMod/Content/Skins/GhostrunnerMerc/Assets/CMercSword_emission.png
@@ -281,6 +282,7 @@ Assets:
 - Assets/SlipstreamMod/Content/GeneralMaterials/Terrain/texFWBasicRockSide2.png
 - Assets/SlipstreamMod/Content/Scenes/aridexpanse/pp/ppAridExpanse.asset
 - Assets/SlipstreamMod/Content/GeneralMaterials/Terrain/texGPRockSide2.png
+- Assets/SlipstreamMod/Content/Scenes/aridexpanse/Assets/skyboxAridCubemap3.png
 - Assets/SlipstreamMod/Content/Pickups/Items/GlassEye/Assets/GlassEye_Glowy.png
 - Assets/SlipstreamMod/Content/GeneralMaterials/Terrain/texGPRockSide4.png
 - Assets/SlipstreamMod/Content/GeneralMaterials/StolenRamps/texRampHealingMedkit.png
@@ -300,7 +302,6 @@ Assets:
 - Assets/SlipstreamMod/Content/Pickups/Items/FriendshipBracelet/FriendshipBracelet.asset
 - Assets/SlipstreamMod/Content/GeneralMaterials/ShaderTextures/T_Noise_02.png
 - Assets/Shaders/RoR2/Base/Shaders/Deferred/Hopoo Games/Deferred/Snow Topped.asset
-- Assets/SlipstreamMod/Content/Scenes/aridexpanse/Assets/skyboxArid.png
 - Assets/SlipstreamMod/Content/GeneralMaterials/ShaderTextures/texEgyptThing.png
 - Assets/SlipstreamMod/Content/Pickups/Interfaces/texCriticalVoidShiIndi.png
 - Assets/Mesh/Items/meshPepperSpray.fbx

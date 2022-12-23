@@ -24,7 +24,8 @@ MonoBehaviour:
   - {fileID: 2749793177716746256, guid: a97e54d27d218714d88515a26101e58e, type: 3}
   - {fileID: 4469780739943632523, guid: 34677373b0ebf1849948c92f9e0ced26, type: 3}
   - {fileID: 3546640047192735099, guid: c1463dfd13edcf749bc5bd473e94b922, type: 3}
-  skillDefs: []
+  skillDefs:
+  - {fileID: 11400000, guid: af842af7d2ecee34d9caf02b7dfdd5af, type: 2}
   skillFamilies: []
   sceneDefs: []
   itemDefs: []
@@ -36,6 +37,7 @@ MonoBehaviour:
   eliteDefs: []
   unlockableDefs:
   - {fileID: 11400000, guid: 173db8e7eabe5c443b83c83c435dc118, type: 2}
+  - {fileID: 11400000, guid: 0ea5fb822bacc67498425c0485565df4, type: 2}
   survivorDefs: []
   artifactDefs: []
   surfaceDefs: []

@@ -45,6 +45,6 @@
 
 	"SLIP_SKIN_MERCENARY_GHOSTRUNNER": "Ghostrunner",
 	"SLIP_UNLOCK_GHOSTRUNNER_NAME": "Mercenary: Now You're Mine",
-	"SLIP_UNLOCK_GHOSTRUNNER_DESC": "???"
+	"SLIP_UNLOCK_GHOSTRUNNER_DESC": "As Mercenary, progress two stages while only killing teleporter bosses."
     }
 }
