@@ -23,7 +23,7 @@ MonoBehaviour:
   unlockableDef: {fileID: 0}
   colorIndex: 5
   canDrop: 0
-  dropOnDeathChance: 0.025
+  dropOnDeathChance: 0.00025
   canBeRandomlyTriggered: 1
   enigmaCompatible: 0
   isLunar: 0

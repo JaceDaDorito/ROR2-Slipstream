@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Slipstream
 {
-    public static class ColorCatalog
+    public static class ColorUtils
     {
         public static Color ColorRGB(float rUnscaled, float gUnscaled, float bUnscaled, float a = 1f)
         {

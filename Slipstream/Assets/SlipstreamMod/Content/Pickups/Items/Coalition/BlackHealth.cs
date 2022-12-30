@@ -25,8 +25,8 @@ namespace Slipstream.Items
 
         private static bool preventsVoidDeath = Coalition.preventsVoidDeath;
 
-        public static Color blackOverHealthColor = ColorCatalog.ColorRGB(11f, 11f, 9f);
-        public static Color blackHealingHealthColor = ColorCatalog.ColorRGB(159f, 160, 159f);
+        public static Color blackOverHealthColor = ColorUtils.ColorRGB(11f, 11f, 9f);
+        public static Color blackHealingHealthColor = ColorUtils.ColorRGB(159f, 160, 159f);
 
         public override void Initialize()
         {

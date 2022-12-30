@@ -16,12 +16,12 @@ MonoBehaviour:
   skillNameToken: SLIP_SKILL_MARAUDER_NAME
   skillDescriptionToken: SLIP_SKILL_MARAUDER_DESC
   keywordTokens:
-  - 
+  - KEYWORD_SLAYER
   icon: {fileID: 21300000, guid: f1181c25741818b41b98d74f0f8656b6, type: 3}
-  activationStateMachineName: 
+  activationStateMachineName: Weapon
   activationState:
     _typeName: 
-  interruptPriority: 1
+  interruptPriority: 2
   baseRechargeInterval: 1
   baseMaxStock: 1
   rechargeStock: 1

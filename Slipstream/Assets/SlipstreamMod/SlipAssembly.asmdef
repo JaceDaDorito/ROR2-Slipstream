@@ -32,7 +32,8 @@
         "UnityEngine.UI.dll",
         "Unity.TextMeshPro.dll",
         "RoR2.dll",
-        "Wwise.dll"
+        "Wwise.dll",
+        "R2API.Core.dll"
     ],
     "autoReferenced": true,
     "defineConstraints": [],
