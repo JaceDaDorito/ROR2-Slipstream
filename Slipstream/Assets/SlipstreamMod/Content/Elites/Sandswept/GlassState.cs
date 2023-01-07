@@ -5,6 +5,7 @@ using Slipstream;
 using Slipstream.Buffs;
 using System.Collections.Generic;
 using AK;
+
 namespace EntityStates.Sandswept
 {
     public class GlassState : BaseState
@@ -17,6 +18,9 @@ namespace EntityStates.Sandswept
         private ParticleSystem[] particleSystem;
         private float duration;
         private float freezeDuration = 30f;
+        protected float radius;
+        protected static float invulnDuration = AffixSandswept.timeInvulnerable;
+        private float animatorVel = 0f;
 
         public Color beginColor = new Color(255f, 255f, 255f, 255f);
         public Color endColor = new Color(94f, 255f, 236f, 255f);
@@ -27,6 +31,8 @@ namespace EntityStates.Sandswept
         public Material frozenFlashMaterial = SlipAssets.Instance.MainAssetBundle.LoadAsset<Material>("matIsGlassGradient");
 
         private GameObject eliteSandKnockbackIndicator;
+
+        public CharacterBody attackerBody;
 
         private bool indicatorEnabled
         {
@@ -46,10 +52,9 @@ namespace EntityStates.Sandswept
                     GameObject original = SlipAssets.Instance.MainAssetBundle.LoadAsset<GameObject>("EliteSandKnockbackIndicator");
                     //ref int pos;
                     //Vector3 corePosition = RoR2.Util.GetCorePosition(characterBody.gameObject);
-                    float diameter = AffixSandswept.CalculateRadius(characterBody) * 2f;
+                    
 
                     eliteSandKnockbackIndicator = UnityEngine.Object.Instantiate<GameObject>(original, characterBody.footPosition, Quaternion.identity);
-                    eliteSandKnockbackIndicator.transform.localScale = new Vector3(diameter, diameter, diameter);
                     eliteSandKnockbackIndicator.GetComponent<NetworkedBodyAttachment>().AttachToGameObjectAndSpawn(base.gameObject, null);
 
                     MeshRenderer renderer = eliteSandKnockbackIndicator.transform.Find("Radius, Spherical").GetComponent<MeshRenderer>();
@@ -57,7 +62,8 @@ namespace EntityStates.Sandswept
                         instanceIndicator = renderer.material;
                     return;
                 }
-
+                UnityEngine.Object.Destroy(eliteSandKnockbackIndicator);
+                eliteSandKnockbackIndicator = null;
             }
         }
 
@@ -116,7 +122,7 @@ namespace EntityStates.Sandswept
             if (modelAnimator)
             {
                 //modelAnimator.enabled = false;
-                modelAnimator.speed = 0; //this should have the same effect as modelAnimator.enabled = false but without fucking up the IKs on Beetle Queen and Void Reavers
+                //modelAnimator.speed = 0; //this should have the same effect as modelAnimator.enabled = false but without fucking up the IKs on Beetle Queen and Void Reavers
                 aimAnimator = base.GetAimAnimator();
                 if (aimAnimator)
                     aimAnimator.enabled = false;
@@ -156,8 +162,12 @@ namespace EntityStates.Sandswept
                     Destroy(particleSystem[i]);
             }
 
+            radius = AffixSandswept.CalculateRadius(characterBody);
+            float diameter = radius * 2f;
+
             indicatorEnabled = true;
-            
+            eliteSandKnockbackIndicator.transform.localScale = new Vector3(diameter, diameter, diameter);
+
         }
 
 
@@ -201,14 +211,28 @@ namespace EntityStates.Sandswept
                     instancesOverlay[i].color = Color.Lerp(beginColor, endColor, fixedAge);
                 }*/
 
+                if(fixedAge <= invulnDuration && modelAnimator)
+                {
+                    modelAnimator.speed = Mathf.SmoothDamp(modelAnimator.speed, 0f, ref animatorVel, invulnDuration/2);
+                }
+                else if (modelAnimator)
+                {
+                    modelAnimator.speed = 0f;
+                }
+
                 if (base.fixedAge >= duration)
                 {
-                    AffixSandswept.FireKBBlast(characterBody);
-                    base.characterBody.healthComponent.Suicide();
+                    CommitSuicide();
                 }
                     
             }
 
-        }        
+        }
+
+        protected void CommitSuicide()
+        {
+            AffixSandswept.FireKBBlast(characterBody);
+            base.characterBody.healthComponent.Suicide(attackerBody?.gameObject); //already defaults to null if theres no attacker body
+        }
     }
 }

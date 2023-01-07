@@ -4916,7 +4916,7 @@ MonoBehaviour:
     i13: 0
     i14: 0
     i15: 0
-  m_ServerOnly: 0
+  m_ServerOnly: 1
   m_LocalPlayerAuthority: 0
 --- !u!114 &7146091526347975858
 MonoBehaviour:
@@ -4949,3 +4949,4 @@ MonoBehaviour:
   outwardForce: 0
   upwardForce: 0
   time: 0
+  team: 0

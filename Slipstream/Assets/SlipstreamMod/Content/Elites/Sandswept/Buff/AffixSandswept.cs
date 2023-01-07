@@ -12,26 +12,51 @@ using System;
 using UnityEngine.Networking;
 using System.Collections.Generic;
 using Slipstream.Components;
+using KinematicCharacterController;
+using RoR2.Projectile;
 
 namespace Slipstream.Buffs
 {
     public class AffixSandswept : BuffBase
     {
         public override BuffDef BuffDef { get; } = SlipAssets.Instance.MainAssetBundle.LoadAsset<BuffDef>("AffixSandswept");
+        public static BuffDef buff;
+        //public BuffDef grainDebuff = SlipAssets.Instance.MainAssetBundle.LoadAsset<BuffDef>("Grainy");
 
         private static GameObject knockbackExplosion = SlipAssets.Instance.MainAssetBundle.LoadAsset<GameObject>("EliteSandKnockback");
+
+        private static GameObject sandsweptMissile = SlipAssets.Instance.MainAssetBundle.LoadAsset<GameObject>("SandsweptMissile");
 
         public EntityStateMachine targetStateMachine;
 
         public static float timeInvulnerable = 1f;
 
-        public static float upwardForce = 40f;
-        public static float outwardForce = 40f;
+        public static float upwardForce = 5000f;
+
+        public static float outwardForce = 5500f;
+
+        public static int buffCount = 4;
+        public static float debuffUpwardForce = 4000f;
+
+        #region proj
+        //public static float projectileVel = 20f;
+        //public static float minimumDistance = 10f;
+        //public static float timeToTarget = 3f;
+
+        //public static float missileInterval = 8f;
+        //public static float maxSeekDistance = 40f;
+
+        //public static DamageAPI.ModdedDamageType sandDamageType;
+
         //public static float differenceForceMultiplier = 1.5f;
         //public static float secondForce = 4700f;
-
+        #endregion
         public override void Initialize()
         {
+            base.Initialize();
+            buff = BuffDef;
+            //sandDamageType = DamageAPI.ReserveDamageType();
+
             GlobalEventManager.onServerDamageDealt += GlobalEventManager_onServerDamageDealt;
             IL.EntityStates.GenericCharacterDeath.OnEnter += GenericCharacterDeath_OnEnter; //IL hook, you hook onto a method like any other hook.
             //IL.RoR2.CharacterModel.UpdateRendererMaterials += CharacterModel_UpdateRendererMaterials;
@@ -45,6 +70,8 @@ namespace Slipstream.Buffs
                 //If the body just died, is Sandswept, isn't in the glass state, and didn't die to the void implosions, make body into glass state.
                 if (!body.healthComponent.alive && body.HasBuff(BuffDef.buffIndex) && !body.GetComponent<AffixSandsweptBehavior>().isGlass && ((obj.damageInfo.damageType & DamageType.VoidDeath) <= 0))
                 {
+                    Util.CleanseBody(body, true, false, true, true, true, false);
+
                     body.healthComponent.Networkbarrier = 0f;
                     body.healthComponent.Networkhealth = 1f;
                     body.healthComponent.Networkshield = 0f;               
@@ -60,10 +87,12 @@ namespace Slipstream.Buffs
                         machineArray[i].SetNextStateToMain();
                     }
 
-                    if(body.isFlying || (body.characterMotor && !body.characterMotor.isGrounded))
-                        deathBehaviour.deathStateMachine.SetNextState(new AirGlassState());
+                    GlassState state;
+                    if(body.isFlying/* || (body.characterMotor && !body.characterMotor.isGrounded)*/)
+                        deathBehaviour.deathStateMachine.SetNextState(state = new AirGlassState());
                     else
-                        deathBehaviour.deathStateMachine.SetNextState(new GlassState());
+                        deathBehaviour.deathStateMachine.SetNextState(state = new GlassState());
+                    state.attackerBody = obj.attackerBody; //Records the attacker who put this body into the glass state to give them money later if the body suicides
 
                     /*EntityStateMachine[] array = deathBehaviour.idleStateMachine;
                     for( int i = 0; i < array.Length; i++)
@@ -76,8 +105,7 @@ namespace Slipstream.Buffs
                 //I would do this check in the entity state but I wanted the entity state to be skipped if they died to a void implosion.
                 else if (!body.healthComponent.alive && body.HasBuff(BuffDef.buffIndex) && (body.GetComponent<AffixSandsweptBehavior>().isGlass || ((obj.damageInfo.damageType & DamageType.VoidDeath) > 0)))
                 {
-                    
-
+                    //This grants money to the attacker anyway
                     FireKBBlast(body);
                 }
             }        
@@ -103,12 +131,8 @@ namespace Slipstream.Buffs
             return hullRadius + (body.bestFitRadius / 2f);
         }
 
-        public static void FireKBBlast(CharacterBody body)
+        public static void DisableColliders(CharacterBody body)
         {
-            SlipLogger.LogD("Fired Sandswept Glass Explosion");
-            //Util.PlayAttackSpeedSound("Play_char_glass_death", body.gameObject, 2f);
-            //Vector3 corePosition = RoR2.Util.GetCorePosition(body.gameObject);
-
             Collider[] collider = body.gameObject.GetComponents<Collider>();
             if (collider.Length > 0)
             {
@@ -116,30 +140,35 @@ namespace Slipstream.Buffs
                     collider[i].enabled = false;
 
             }
+        }
 
-            if (NetworkServer.active)
+        public static void FireKBBlast(CharacterBody body)
+        {
+            SlipLogger.LogD("Fired Sandswept Glass Explosion");
+            //Util.PlayAttackSpeedSound("Play_char_glass_death", body.gameObject, 2f);
+            //Vector3 corePosition = RoR2.Util.GetCorePosition(body.gameObject);
+
+            Vector3 feetPosition = body.footPosition;
+            float combinedRadius = CalculateRadius(body);
+
+            GameObject explosion = UnityEngine.Object.Instantiate(knockbackExplosion, feetPosition, Quaternion.identity);
+            DelayedUpwardBlast blast = explosion.GetComponent<DelayedUpwardBlast>();
+            if (blast)
             {
+                blast.combinedRadius = combinedRadius;
+                blast.position = feetPosition;
+                blast.searchDirection = body.transform.forward;
+                blast.outwardForce = outwardForce;
+                blast.upwardForce = upwardForce;
+                blast.time = 0.12f;
+                blast.team = body.teamComponent.teamIndex;
 
-                Vector3 feetPosition = body.footPosition;
-                float combinedRadius = CalculateRadius(body);
-
-                GameObject explosion = UnityEngine.Object.Instantiate(knockbackExplosion, feetPosition, Quaternion.identity);
-                DelayedUpwardBlast blast = explosion.GetComponent<DelayedUpwardBlast>();
-                if (blast)
-                {
-                    blast.combinedRadius = combinedRadius;
-                    blast.position = feetPosition;
-                    blast.searchDirection = body.transform.forward;
-                    blast.outwardForce = outwardForce;
-                    blast.upwardForce = upwardForce;
-                    blast.time = 0.1f;
-
-                    NetworkServer.Spawn(explosion);
-                }
-                else
-                    SlipLogger.LogE("Couldn't fire upward blast in AffixSandswept FireKBBlast");
+                NetworkServer.Spawn(explosion);
             }
+            else
+                SlipLogger.LogE("Couldn't fire upward blast in AffixSandswept FireKBBlast");
 
+            //All of these knockbacks were previous iterations of the knockback. Keeping them here for archival purposes.
             #region UpwardBlast
             /*
             //Bullseye search to get bodies that are grounded
@@ -179,7 +208,6 @@ namespace Slipstream.Buffs
             #endregion
             //Util.CharacterSpherecast
 
-            //Both of these knockbacks were previous iterations of the knockback. Keeping them here for archival purposes.
             #region BlastAttackKB
             //RaycastHit hit;
             //bool isRaycastExplosion = Physics.Raycast(corePosition, Vector3.down, out hit, combinedRadius * 2f, LayerIndex.world.mask);
@@ -293,7 +321,7 @@ namespace Slipstream.Buffs
 
         }
 
-        public class AffixSandsweptBehavior : BaseBuffBodyBehavior, IOnIncomingDamageOtherServerReciever, IOnIncomingDamageServerReceiver, IBodyStatArgModifier
+        public class AffixSandsweptBehavior : BaseBuffBodyBehavior/*, IOnIncomingDamageOtherServerReciever*/, IOnIncomingDamageServerReceiver, IBodyStatArgModifier, IOnDamageDealtServerReceiver
         {
             [BuffDefAssociation(useOnClient = true, useOnServer = true)]
             public static BuffDef GetBuffDef() => SlipContent.Buffs.AffixSandswept;
@@ -301,12 +329,96 @@ namespace Slipstream.Buffs
             public Run.FixedTimeStamp lastBecameGlass;
             public bool isGlass = false;
 
-            
-            public void OnIncomingDamageOther(HealthComponent victimHealthComponent, DamageInfo damageInfo)
+            #region oldProjectile
+            //private float timer = 0f;
+            //private bool cachedFire = false;
+
+            //BullseyeSearch bullseyeSearch = new BullseyeSearch();
+
+            /*public void OnEnable()
+            {
+                bullseyeSearch.teamMaskFilter = TeamMask.GetEnemyTeams(body.teamComponent.teamIndex);
+                bullseyeSearch.filterByDistinctEntity = true;
+                bullseyeSearch.filterByLoS = true;
+                bullseyeSearch.maxDistanceFilter = maxSeekDistance;
+                
+            }*/
+
+            /*public void FixedUpdate()
+            {
+                if (!isGlass)
+                {
+                    timer += Time.deltaTime;
+                    if(timer >= missileInterval || cachedFire)
+                    {
+                        cachedFire = true;
+                        bullseyeSearch.searchOrigin = body.corePosition;
+                        bullseyeSearch.searchDirection = body.transform.forward;
+                        bullseyeSearch.RefreshCandidates();
+                        HurtBox hurtbox = bullseyeSearch.GetResults().First<HurtBox>();
+
+                        if (hurtbox && hurtbox.healthComponent.body)
+                        {
+                            cachedFire = false;
+                            timer = 0f;
+                            FireSandMotar(hurtbox.healthComponent.body);
+                        }                    
+                    }
+                }
+            }*/
+
+            /*public void FireSandMotar(CharacterBody target)
+            {
+                GameObject projectilePrefab = sandsweptMissile;
+                DamageAPI.ModdedDamageTypeHolderComponent holder = projectilePrefab.AddComponent<DamageAPI.ModdedDamageTypeHolderComponent>();
+                holder.Add(sandDamageType);
+                bool isCrit = Util.CheckRoll(body.crit, body.master);
+
+                Ray ray = new Ray(body.corePosition, Vector3.up);
+                Vector3 targetPos = target.corePosition;
+                Vector3 vector = targetPos - ray.origin;
+                Vector2 a = new Vector2(vector.x, vector.z);
+                float distanceMagnitude = a.magnitude;
+                Vector3 vector2 = a /distanceMagnitude;
+
+                float y = Trajectory.CalculateInitialYSpeed(timeToTarget, vector.y);
+                float num = distanceMagnitude / timeToTarget;
+                Vector3 direction = new Vector3(vector2.x * num, y, vector2.y * num);
+                distanceMagnitude = direction.magnitude;
+                ray.direction = direction;
+
+                ProjectileManager.instance.FireProjectile(projectilePrefab, ray.origin, Quaternion.identity, body.gameObject, body.damage, 0f, isCrit, DamageColorIndex.Item, null, distanceMagnitude);
+            }*/
+
+
+            /*public void OnIncomingDamageOther(HealthComponent victimHealthComponent, DamageInfo damageInfo)
             {
                 damageInfo.damageType |= DamageType.Stun1s;
             }
 
+            public void OnDamageDealtServer(DamageReport damageReport)
+            {
+                DamageInfo damageInfo = damageReport.damageInfo;
+                CharacterBody victimBody = damageReport.victimBody;
+                if (damageInfo.HasModdedDamageType(sandDamageType) && !victimBody.bodyFlags.HasFlag(CharacterBody.BodyFlags.Mechanical))
+                {
+                    KinematicCharacterMotor indexKCC = victimBody.GetComponent<KinematicCharacterMotor>();
+                    if (indexKCC)
+                        indexKCC.ForceUnground();
+
+                    PhysForceInfo physInfo = new PhysForceInfo()
+                    {
+                        force = Vector3.up * projUpwardForce,
+                        ignoreGroundStick = true,
+                        disableAirControlUntilCollision = false,
+                        massIsOne = false//MassIsOne just means if mass will have a factor in the force. I set it to false because I want the mass to contribute.
+                    };
+                    victimBody.characterMotor.ApplyForceImpulse(physInfo);
+                }
+            }*/
+
+
+            #endregion
             public void OnIncomingDamageServer(DamageInfo damageInfo)
             {
                 if (isGlass && lastBecameGlass.timeSince <= timeInvulnerable)
@@ -317,6 +429,38 @@ namespace Slipstream.Buffs
             {
                 if (isGlass)
                     args.baseCurseAdd += body.healthComponent.combinedHealth;
+            }
+
+            public void OnDamageDealtServer(DamageReport damageReport)
+            {
+                //DamageInfo damageInfo = damageReport.damageInfo;
+                CharacterBody victimBody = damageReport.victimBody;
+                if (!victimBody.bodyFlags.HasFlag(CharacterBody.BodyFlags.Mechanical))
+                {
+                    victimBody.AddBuff(Grainy.buff);
+                    int count = victimBody.GetBuffCount(Grainy.buff);
+                    if (victimBody.GetBuffCount(Grainy.buff) >= buffCount)
+                    {
+                        GenericUtils.RemoveStacksOfBuff(victimBody, Grainy.buff, count);
+                        Explode(victimBody);
+                    }
+                }
+            }
+
+            public void Explode(CharacterBody victim)
+            {
+                KinematicCharacterMotor indexKCC = victim.GetComponent<KinematicCharacterMotor>();
+                if (indexKCC)
+                    indexKCC.ForceUnground();
+
+                PhysForceInfo physInfo = new PhysForceInfo()
+                {
+                    force = Vector3.up * debuffUpwardForce,
+                    ignoreGroundStick = true,
+                    disableAirControlUntilCollision = false,
+                    massIsOne = false //MassIsOne just means if mass will have a factor in the force. I set it to false because I want the mass to contribute.
+                };
+                victim.characterMotor.ApplyForceImpulse(physInfo);
             }
         }
     }

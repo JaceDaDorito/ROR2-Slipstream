@@ -27,7 +27,8 @@
 	"SLIP_ITEM_CHUNGUS_NAME": "Charged Fungus",
 	"SLIP_ITEM_CHUNGUS_PICKUP": "Passively heal while your equipment is charged",
 	"SLIP_ITEM_CHUNGUS_DESC": "While you have a stock of your equipment, <style=cIsHealing>Heal for {3}% of your maximum hp</style> every second",
-	"SLIP_ITEM_CHANGUS_LORE": "Whats up oc?"
+	"SLIP_ITEM_CHANGUS_LORE": "Whats up oc?",
+
 	"SLIP_MODIFIER_SANDSWEPT": "Sandswept {0}",
 	"SLIP_EQUIP_AFFIXSANDSWEPT_NAME": "The Third Wish",
 	"SLIP_EQUIP_AFFIXSANDSWEPT_PICKUP": "Become an aspect of sand.",

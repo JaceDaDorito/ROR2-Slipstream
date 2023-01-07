@@ -6,67 +6,57 @@ using Slipstream.Buffs;
 using AK;
 namespace EntityStates.Sandswept
 {
-    public class AirGlassState : BaseState
+    public class AirGlassState : GlassState
     {
-        private TemporaryOverlay temporaryOverlay;
-        private Animator modelAnimator;
-        private AimAnimator aimAnimator;
-        private AkEvent[] AkSoundEvent;
-        private AkEvent[] AkSoundEventChildren;
-        private ParticleSystem[] particleSystem;
-        private float duration;
-        private static float freezeDuration = 30f;
-        private static float airDuration = AffixSandswept.timeInvulnerable;
 
         ICharacterGravityParameterProvider characterGravityParameterProvider;
         ICharacterFlightParameterProvider characterFlightParameterProvider;
-        private bool antiGravity = true;
 
-        public Material frozenOverlayMaterial = SlipAssets.Instance.MainAssetBundle.LoadAsset<Material>("matIsGlass");
-        public Material frozenFlashMaterial = SlipAssets.Instance.MainAssetBundle.LoadAsset<Material>("matIsGlassGradient");
+        RaycastHit hit;
+        bool raycastToGround;
+        bool antiGravity = true;
+        float differenceFeet;
+        float differenceCore;
+        float setMass = 40f;
+        float setAcc = 10f;
 
-        private GameObject eliteSandKnockbackIndicator;
-
-        private bool indicatorEnabled
+        float bonusRadius;
+        float BonusRadius
         {
-            get
-            {
-                return eliteSandKnockbackIndicator;
-            }
+            get { return this.bonusRadius; }
             set
             {
-                if (indicatorEnabled == value)
-                {
-                    return;
-                }
-                if (value)
-                {
-
-                    GameObject original = SlipAssets.Instance.MainAssetBundle.LoadAsset<GameObject>("EliteSandKnockbackIndicator");
-                    //ref int pos;
-                    //Vector3 corePosition = RoR2.Util.GetCorePosition(characterBody.gameObject);
-                    float diameter = AffixSandswept.CalculateRadius(characterBody) * 2f;
-
-                    eliteSandKnockbackIndicator = UnityEngine.Object.Instantiate<GameObject>(original, characterBody.footPosition, Quaternion.identity);
-                    eliteSandKnockbackIndicator.transform.localScale = new Vector3(diameter, diameter, diameter);
-                    eliteSandKnockbackIndicator.GetComponent<NetworkedBodyAttachment>().AttachToGameObjectAndSpawn(base.gameObject, null);
-                    return;
-                }
-
+                if (characterBody.hullClassification == HullClassification.Human)
+                    bonusRadius = 2f;
+                else if (characterBody.hullClassification == HullClassification.Golem)
+                    bonusRadius = 10f;
+                else
+                    bonusRadius = 20f;
             }
         }
 
-        //private bool died;
+        //Collider collider;
 
-        public override InterruptPriority GetMinimumInterruptPriority()
-        {
-            return InterruptPriority.Death;
-        }
+        //private bool died;
         public override void OnEnter()
         {
             base.OnEnter();
             /*if (sfxLocator && sfxLocator.barkSound != "")
                 Util.PlaySound(base.sfxLocator.barkSound, base.gameObject);*/
+            //characterBody.gameObject.layer = LayerIndex.noCollision.mask;
+
+
+
+            /*AffixSandswept.DisableColliders(characterBody);
+
+            SphereCollider setCollider = characterBody.gameObject.AddComponent<SphereCollider>();
+            setCollider.enabled = true;
+            setCollider.center = new Vector3(0f, 0f, 0f);
+            setCollider.radius = characterBody.bestFitRadius;
+            setCollider.isTrigger = true;*/
+
+            DieOnCollision doc = characterBody.gameObject.AddComponent<DieOnCollision>();
+            doc.attackerBody = attackerBody;
 
             characterGravityParameterProvider = characterBody.GetComponent<ICharacterGravityParameterProvider>();
             characterFlightParameterProvider = characterBody.GetComponent<ICharacterFlightParameterProvider>();
@@ -84,151 +74,55 @@ namespace EntityStates.Sandswept
                 this.characterFlightParameterProvider.flightParameters = flightParameters;
             }
 
-            Transform modelTransform = GetModelTransform();
-            if (modelTransform)
-            {
-                CharacterModel model = modelTransform.GetComponent<CharacterModel>();
-
-                if (model)
-                {
-                    /*temporaryOverlay = gameObject.AddComponent<TemporaryOverlay>();
-                    temporaryOverlay.duration = freezeDuration; //doesn't matter what you put here
-                    temporaryOverlay.destroyComponentOnEnd = false;
-                    temporaryOverlay.destroyObjectOnEnd = false;
-                    temporaryOverlay.originalMaterial = frozenFlashMaterial;
-                    temporaryOverlay.AddToCharacerModel(model);*/
-
-                    //sets the material of the mf to be glass
-                    for (int i = 0; i < model.baseRendererInfos.Length; i++)
-                    {
-                        var mat = model.baseRendererInfos[i].defaultMaterial;
-                        if (mat.shader.name.StartsWith("Hopoo Games/Deferred"))
-                        {
-                            mat = frozenOverlayMaterial;
-                            model.baseRendererInfos[i].defaultMaterial = mat;
-                        }
-                    }
-
-                    model.particleMaterialOverride = frozenOverlayMaterial;
-                    model.lightColorOverride = new Color32(0, 0, 0, 0);
-
-                    //turn off all lights
-                    CharacterModel.LightInfo[] lights = model.baseLightInfos;
-                    for (int i = 0; i < lights.Length; i++)
-                    {
-                        lights[i].light.gameObject.SetActive(false);
-                    }
-
-                    //model.material
-                }
-            }
-            modelAnimator = base.GetModelAnimator();
-            //Freezes animations
-            if (modelAnimator)
-            {
-                //modelAnimator.enabled = false;
-                modelAnimator.speed = 0; //this should have the same effect as modelAnimator.enabled = false but without fucking up the IKs on Beetle Queen and Void Reavers
-                aimAnimator = base.GetAimAnimator();
-                if (aimAnimator)
-                    aimAnimator.enabled = false;
-                duration = freezeDuration;
-            }
-            if (rigidbody && !rigidbody.isKinematic)
-            {
-                rigidbody.velocity = Vector3.zero;
-                if (rigidbodyMotor)
-                    rigidbodyMotor.moveVector = Vector3.zero;
-            }
-            if (characterDirection)
-            {
-                //characterDirection.moveVector = characterDirection.forward;
-                characterDirection.enabled = false;
-            }
-            //Destroys any sound emitters
-            AkSoundEvent = characterBody.gameObject.GetComponents<AkEvent>();
-            if (AkSoundEvent.Length > 0)
-            {
-                for (int i = 0; i < AkSoundEvent.Length; i++)
-                    Destroy(AkSoundEvent[i]);
-
-            }
-            AkSoundEventChildren = characterBody.gameObject.GetComponentsInChildren<AkEvent>();
-            if (AkSoundEventChildren.Length > 0)
-            {
-                for (int i = 0; i < AkSoundEventChildren.Length; i++)
-                    Destroy(AkSoundEventChildren[i]);
-
-            }
-            //Destroys any particle systems (Wisp flame turns off for example)
-            particleSystem = characterBody.gameObject.GetComponentsInChildren<ParticleSystem>();
-            if (particleSystem.Length > 0)
-            {
-                for (int i = 0; i < particleSystem.Length; i++)
-                    Destroy(particleSystem[i]);
-            }
-
-            indicatorEnabled = true;
-
         }
-
-
-        public override void OnExit()
-        {
-            /*if (temporaryOverlay)
-                Destroy(temporaryOverlay);*/
-
-            //gameObject.GetComponent<AffixSandswept.AffixSandsweptBehavior>().isGlass = false;
-            //EffectManager.SpawnEffect()
-            if (eliteSandKnockbackIndicator)
-                Destroy(eliteSandKnockbackIndicator);
-
-            CharacterBody body = base.characterBody;
-            if (body)
-            {
-                Transform transform = body.modelLocator.modelTransform;
-                if (transform)
-                {
-                    EntityState.Destroy(transform.gameObject);
-                    transform = null;
-                }
-            }
-
-            indicatorEnabled = false;
-
-            base.OnExit();
-        }
-
         public override void FixedUpdate()
         {
             base.FixedUpdate();
             if (NetworkServer.active)
             {
 
-                if(antiGravity && fixedAge >= airDuration )
+                if(fixedAge >= invulnDuration)
                 {
-                    antiGravity = false;
-                    if (characterGravityParameterProvider != null)
+                    /*if (antiGravity)
                     {
-                        CharacterGravityParameters gravityParameters = characterGravityParameterProvider.gravityParameters;
-                        gravityParameters.channeledAntiGravityGranterCount--;
-                        characterGravityParameterProvider.gravityParameters = gravityParameters;
-                    }
-                    if (characterFlightParameterProvider != null)
+                        antiGravity = false;
+                        if (characterGravityParameterProvider != null)
+                        {
+                            CharacterGravityParameters gravityParameters = characterGravityParameterProvider.gravityParameters;
+                            gravityParameters.channeledAntiGravityGranterCount--;
+                            characterGravityParameterProvider.gravityParameters = gravityParameters;
+                        }
+                        if (characterFlightParameterProvider != null)
+                        {
+                            CharacterFlightParameters flightParameters = characterFlightParameterProvider.flightParameters;
+                            flightParameters.channeledFlightGranterCount--;
+                            this.characterFlightParameterProvider.flightParameters = flightParameters;
+                        }
+                        characterBody.rigidbody.mass = setMass;
+                    }*/
+
+                    if (antiGravity)
                     {
-                        CharacterFlightParameters flightParameters = characterFlightParameterProvider.flightParameters;
-                        flightParameters.channeledFlightGranterCount--;
-                        this.characterFlightParameterProvider.flightParameters = flightParameters;
+                        antiGravity = false;
+                        characterBody.rigidbody.mass = setMass;
+                        characterBody.rigidbody.drag = 0f;
+                        characterBody.acceleration = setAcc;
                     }
-                }
 
-                if (base.fixedAge >= duration)
-                {
-                    AffixSandswept.FireKBBlast(characterBody);
-                    base.characterBody.healthComponent.Suicide();
-                }
+                    if(characterMotor)
+                        characterMotor.velocity.y += Physics.gravity.y * Time.deltaTime;
+                    else if (rigidbody && !rigidbody.useGravity)
+                        rigidbody.useGravity = true;
 
+                    raycastToGround = Physics.Raycast(characterBody.footPosition, Vector3.down, out hit, Mathf.Infinity, LayerIndex.world.mask);
+                    differenceFeet = characterBody.footPosition.y - hit.point.y;
+                    if (raycastToGround && differenceFeet < 0.1f)
+                    {
+                        CommitSuicide();
+                    }
+                    
+                }
             }
-
         }
     }
 }

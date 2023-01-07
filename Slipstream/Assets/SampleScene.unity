@@ -150,7 +150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14baa2509d6666748a1d7d0c6e146b5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AssetPath: RoR2/Base/Titan/TitanBody.prefab
+  AssetPath: RoR2/Base/HermitCrab/HermitCrabBombProjectile.prefab
   _refreshInEditor: 1
   _networkInstantiate: 0
 --- !u!4 &10525273
@@ -196,7 +196,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14baa2509d6666748a1d7d0c6e146b5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AssetPath: RoR2/Base/Vulture/VultureBody.prefab
+  AssetPath: RoR2/Base/Engi/EngiHarpoonGhost.prefab
   _refreshInEditor: 1
   _networkInstantiate: 0
 --- !u!4 &287845915
@@ -526,6 +526,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PepperSprayExplosion
+      objectReference: {fileID: 0}
+    - target: {fileID: 4988260258862888624, guid: 8a4cb82b1a7775045a0a337a0c15b84d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8160636145868234659, guid: 8a4cb82b1a7775045a0a337a0c15b84d,
         type: 3}
@@ -938,6 +943,75 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1361778750464243780
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5084299091454942208, guid: 8d38da68101eca543b9e50a27fc7f54f,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 5084299091454942208, guid: 8d38da68101eca543b9e50a27fc7f54f,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5084299091454942208, guid: 8d38da68101eca543b9e50a27fc7f54f,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5084299091454942208, guid: 8d38da68101eca543b9e50a27fc7f54f,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5084299091454942208, guid: 8d38da68101eca543b9e50a27fc7f54f,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5084299091454942208, guid: 8d38da68101eca543b9e50a27fc7f54f,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5084299091454942208, guid: 8d38da68101eca543b9e50a27fc7f54f,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5084299091454942208, guid: 8d38da68101eca543b9e50a27fc7f54f,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5084299091454942208, guid: 8d38da68101eca543b9e50a27fc7f54f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5084299091454942208, guid: 8d38da68101eca543b9e50a27fc7f54f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5084299091454942208, guid: 8d38da68101eca543b9e50a27fc7f54f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6142482487434859095, guid: 8d38da68101eca543b9e50a27fc7f54f,
+        type: 3}
+      propertyPath: m_Name
+      value: SandsweptMissileGhost
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8d38da68101eca543b9e50a27fc7f54f, type: 3}
 --- !u!1001 &4020253039926130217
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -949,6 +1023,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: EliteSandKnockbackExplosion
+      objectReference: {fileID: 0}
+    - target: {fileID: 3162379417891592895, guid: c4e4cb5ea75a36d43ae684505a19f979,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7148949944991795108, guid: c4e4cb5ea75a36d43ae684505a19f979,
         type: 3}
@@ -1028,6 +1107,80 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 4020253039926130217}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &5478417786440771243
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -7603739351560982319, guid: 9f758a110d5af8c41b820d5c44f54663,
+        type: 3}
+      propertyPath: PID.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2128199866537743043, guid: 9f758a110d5af8c41b820d5c44f54663,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 2128199866537743043, guid: 9f758a110d5af8c41b820d5c44f54663,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2128199866537743043, guid: 9f758a110d5af8c41b820d5c44f54663,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2128199866537743043, guid: 9f758a110d5af8c41b820d5c44f54663,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2128199866537743043, guid: 9f758a110d5af8c41b820d5c44f54663,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2128199866537743043, guid: 9f758a110d5af8c41b820d5c44f54663,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2128199866537743043, guid: 9f758a110d5af8c41b820d5c44f54663,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2128199866537743043, guid: 9f758a110d5af8c41b820d5c44f54663,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2128199866537743043, guid: 9f758a110d5af8c41b820d5c44f54663,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2128199866537743043, guid: 9f758a110d5af8c41b820d5c44f54663,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2128199866537743043, guid: 9f758a110d5af8c41b820d5c44f54663,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5114218928227557938, guid: 9f758a110d5af8c41b820d5c44f54663,
+        type: 3}
+      propertyPath: m_Name
+      value: SandsweptMissile
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9f758a110d5af8c41b820d5c44f54663, type: 3}
 --- !u!1001 &5693135344125156592
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1049,6 +1202,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: EliteSandKnockbackDelay
+      objectReference: {fileID: 0}
+    - target: {fileID: 6251616152835370559, guid: 3755c25f9bc69144f9c05e016112b32b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7624398152608728555, guid: 3755c25f9bc69144f9c05e016112b32b,
         type: 3}

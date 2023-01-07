@@ -21,7 +21,9 @@ namespace Slipstream.Components
         public float outwardForce;
         public float upwardForce;
         public float time;
+        public TeamIndex team;
         private Run.FixedTimeStamp timer;
+        
         //private bool didntFire = true;
 
         private void OnEnable()
@@ -45,7 +47,7 @@ namespace Slipstream.Components
             //Vector3 corePosition = RoR2.Util.GetCorePosition(body.gameObject);
 
             BullseyeSearch bullseyeSearch = new BullseyeSearch();
-            bullseyeSearch.teamMaskFilter = TeamMask.all;
+            bullseyeSearch.teamMaskFilter = TeamMask.GetEnemyTeams(team);
             bullseyeSearch.filterByDistinctEntity = true;
             bullseyeSearch.filterByLoS = true;
             bullseyeSearch.maxDistanceFilter = combinedRadius;
@@ -60,7 +62,7 @@ namespace Slipstream.Components
             {
                 CharacterBody indexBody = hurtbox.healthComponent.body;
                 
-                if (indexBody && indexBody.characterMotor)
+                if (indexBody && indexBody.characterMotor && /*indexBody.teamComponent.teamIndex != team &&*/ !indexBody.bodyFlags.HasFlag(CharacterBody.BodyFlags.Mechanical))
                 {
                     KinematicCharacterMotor indexKCC = indexBody.GetComponent<KinematicCharacterMotor>();
                     if (indexKCC)
@@ -73,7 +75,7 @@ namespace Slipstream.Components
                         force = new Vector3(result.x * outwardForce, upwardForce, result.z * outwardForce),
                         ignoreGroundStick = true,
                         disableAirControlUntilCollision = false,
-                        massIsOne = true
+                        massIsOne = false //MassIsOne just means if mass will have a factor in the force. I set it to false because I want the mass to contribute.
                     };
                     indexBody.characterMotor.ApplyForceImpulse(physInfo);
                 }
