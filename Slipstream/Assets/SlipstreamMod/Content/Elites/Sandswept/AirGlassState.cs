@@ -116,7 +116,7 @@ namespace EntityStates.Sandswept
 
                     raycastToGround = Physics.Raycast(characterBody.footPosition, Vector3.down, out hit, Mathf.Infinity, LayerIndex.world.mask);
                     differenceFeet = characterBody.footPosition.y - hit.point.y;
-                    if (raycastToGround && differenceFeet < 0.1f)
+                    if (raycastToGround && differenceFeet < 1f)
                     {
                         CommitSuicide();
                     }

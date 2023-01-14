@@ -14,6 +14,7 @@ using System.Collections.Generic;
 using Slipstream.Components;
 using KinematicCharacterController;
 using RoR2.Projectile;
+using System.Collections.ObjectModel;
 
 namespace Slipstream.Buffs
 {
@@ -37,6 +38,29 @@ namespace Slipstream.Buffs
 
         public static int buffCount = 4;
         public static float debuffUpwardForce = 4000f;
+        public static float debuffProc = 100f;
+
+        //List of character bodies sandswept knockback doesn't effect
+        
+        private static readonly List<BodyIndex> blacklistedBodyIndices = new List<BodyIndex>();
+        //public so the delayedupwardblast can get this blacklist
+        public static ReadOnlyCollection<BodyIndex> BlacklistedBodyIndices = new ReadOnlyCollection<BodyIndex>(blacklistedBodyIndices);
+
+        //Modders with custom drones should add to this blacklist with a soft dependency
+        public static List<string> blacklistedBodies = new List<string>()
+        {
+            "DroneBackupBody",
+            "Drone1Body",
+            "Drone2Body",
+            "EmergencyDroneBody",
+            "EquipmentDroneBody",
+            "FlameDroneBody",
+            "MegaDroneBody",
+            "DroneMissileBody",
+            "EngiWalkerTurretBody",
+            "RoboBallRedBuddyBody",
+            "RoboBallGreenBuddyBody"
+        };
 
         #region proj
         //public static float projectileVel = 20f;
@@ -51,6 +75,19 @@ namespace Slipstream.Buffs
         //public static float differenceForceMultiplier = 1.5f;
         //public static float secondForce = 4700f;
         #endregion
+        [SystemInitializer(typeof(BodyCatalog))]
+        private static void SystemInit()
+        {
+            foreach (string bodyName in blacklistedBodies)
+            {
+                BodyIndex bodyIndex = BodyCatalog.FindBodyIndex(bodyName);
+                if (bodyIndex != BodyIndex.None)
+                {
+                    AddBodyToBlacklist(bodyIndex);
+                }
+            }
+        }
+
         public override void Initialize()
         {
             base.Initialize();
@@ -60,6 +97,23 @@ namespace Slipstream.Buffs
             GlobalEventManager.onServerDamageDealt += GlobalEventManager_onServerDamageDealt;
             IL.EntityStates.GenericCharacterDeath.OnEnter += GenericCharacterDeath_OnEnter; //IL hook, you hook onto a method like any other hook.
             //IL.RoR2.CharacterModel.UpdateRendererMaterials += CharacterModel_UpdateRendererMaterials;
+        }
+        public static void AddBodyToBlacklist(BodyIndex bodyIndex)
+        {
+            if (bodyIndex == BodyIndex.None)
+            {
+                SlipLogger.LogD($"Tried to add a master to the blacklist, but it's index is none.");
+                return;
+            }
+
+            if (blacklistedBodyIndices.Contains(bodyIndex))
+            {
+                GameObject prefab = BodyCatalog.GetBodyPrefab(bodyIndex);
+                SlipLogger.LogD($"Master PRefab {prefab} is already blacklisted.");
+                return;
+            }
+
+            blacklistedBodyIndices.Add(bodyIndex);
         }
 
         private void GlobalEventManager_onServerDamageDealt(DamageReport obj)
@@ -306,7 +360,7 @@ namespace Slipstream.Buffs
 
         }
 
-        private void CharacterModel_UpdateRendererMaterials(ILContext il)
+        /*private void CharacterModel_UpdateRendererMaterials(ILContext il)
         {
             ILLabel returnLabel = null;
             ILCursor c = new ILCursor(il);
@@ -319,7 +373,7 @@ namespace Slipstream.Buffs
                 x => x.MatchStloc(0),
                 x => x.MatchBr(out returnLabel));
 
-        }
+        }*/
 
         public class AffixSandsweptBehavior : BaseBuffBodyBehavior/*, IOnIncomingDamageOtherServerReciever*/, IOnIncomingDamageServerReceiver, IBodyStatArgModifier, IOnDamageDealtServerReceiver
         {
@@ -435,7 +489,7 @@ namespace Slipstream.Buffs
             {
                 //DamageInfo damageInfo = damageReport.damageInfo;
                 CharacterBody victimBody = damageReport.victimBody;
-                if (!victimBody.bodyFlags.HasFlag(CharacterBody.BodyFlags.Mechanical))
+                if (victimBody && Util.CheckRoll(damageReport.damageInfo.procCoefficient * debuffProc, damageReport.attackerBody.master))
                 {
                     victimBody.AddBuff(Grainy.buff);
                     int count = victimBody.GetBuffCount(Grainy.buff);
@@ -453,14 +507,18 @@ namespace Slipstream.Buffs
                 if (indexKCC)
                     indexKCC.ForceUnground();
 
-                PhysForceInfo physInfo = new PhysForceInfo()
+                if (!BlacklistedBodyIndices.Contains(victim.bodyIndex))
                 {
-                    force = Vector3.up * debuffUpwardForce,
-                    ignoreGroundStick = true,
-                    disableAirControlUntilCollision = false,
-                    massIsOne = false //MassIsOne just means if mass will have a factor in the force. I set it to false because I want the mass to contribute.
-                };
-                victim.characterMotor.ApplyForceImpulse(physInfo);
+                    PhysForceInfo physInfo = new PhysForceInfo()
+                    {
+                        force = Vector3.up * debuffUpwardForce,
+                        ignoreGroundStick = true,
+                        disableAirControlUntilCollision = false,
+                        massIsOne = false //MassIsOne just means if mass will have a factor in the force. I set it to false because I want the mass to contribute.
+                    };
+                    victim.characterMotor.ApplyForceImpulse(physInfo);
+                }
+                
             }
         }
     }

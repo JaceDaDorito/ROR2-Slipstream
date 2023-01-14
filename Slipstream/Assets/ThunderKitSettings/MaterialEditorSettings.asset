@@ -13,17 +13,5 @@ MonoBehaviour:
   m_Name: MaterialEditorSettings
   m_EditorClassIdentifier: 
   EnableMaterialEditor: 1
-  myString: 
-  shaderStringPairs:
-  - shaderName: hgStandard
-    shader:
-      shaderName: Hopoo Games/Deferred/Standard
-      shaderGUID: dec18c1eeb97ff6468ff790a2c721c41
-  - shaderName: hgSnowtopped
-    shader:
-      shaderName: Hopoo Games/Deferred/Snow Topped
-      shaderGUID: f8bd07eb3c993e743b1815a26bff7ad5
-  - shaderName: hgCloudRemap
-    shader:
-      shaderName: Hopoo Games/FX/Cloud Remap
-      shaderGUID: bd3280d07a5a3f0459cc68bdc2b5feaa
+  myString: Lol
+  shaderStringPairs: []

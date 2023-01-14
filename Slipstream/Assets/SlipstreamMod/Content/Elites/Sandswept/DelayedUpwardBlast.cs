@@ -49,7 +49,7 @@ namespace Slipstream.Components
             BullseyeSearch bullseyeSearch = new BullseyeSearch();
             bullseyeSearch.teamMaskFilter = TeamMask.GetEnemyTeams(team);
             bullseyeSearch.filterByDistinctEntity = true;
-            bullseyeSearch.filterByLoS = true;
+            bullseyeSearch.filterByLoS = false;
             bullseyeSearch.maxDistanceFilter = combinedRadius;
             bullseyeSearch.searchOrigin = position;
             bullseyeSearch.searchDirection = searchDirection;
@@ -62,7 +62,7 @@ namespace Slipstream.Components
             {
                 CharacterBody indexBody = hurtbox.healthComponent.body;
                 
-                if (indexBody && indexBody.characterMotor && /*indexBody.teamComponent.teamIndex != team &&*/ !indexBody.bodyFlags.HasFlag(CharacterBody.BodyFlags.Mechanical))
+                if (indexBody && indexBody.characterMotor && indexBody.master && !AffixSandswept.BlacklistedBodyIndices.Contains(indexBody.bodyIndex) /*&& indexBody.teamComponent.teamIndex != team &&*/)
                 {
                     KinematicCharacterMotor indexKCC = indexBody.GetComponent<KinematicCharacterMotor>();
                     if (indexKCC)

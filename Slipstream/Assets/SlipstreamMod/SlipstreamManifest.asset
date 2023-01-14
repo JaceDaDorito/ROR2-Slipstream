@@ -36,7 +36,7 @@ MonoBehaviour:
   assetBundles:
   - assetBundleName: slipassets
     assets:
-    - {fileID: 102900000, guid: 86cac7e19b3111144a52331d30c43985, type: 3}
+    - {fileID: 102900000, guid: 07aa771fa8bab384ca57a075b93a71ca, type: 3}
   - assetBundleName: teststage
     assets:
     - {fileID: 102900000, guid: 095c9fdbe2a956842b95d921c9833e13, type: 3}

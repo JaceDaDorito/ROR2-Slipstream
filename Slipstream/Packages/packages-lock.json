@@ -254,7 +254,7 @@
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "56ab06c015d1bf1ef9539e415934e9f6875eac75"
+      "hash": "38a3716970e589ecc20e2292c13352bc0efaa1c5"
     },
     "teammoonstorm-moonstormsharedutils": {
       "version": "https://github.com/TeamMoonstorm/MoonstormSharedUtils.git",

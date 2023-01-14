@@ -173,7 +173,7 @@ Material:
     - _GreenChannelBias: 0
     - _GreenChannelSmoothness: 0
     - _InternalSimpleBlendMode: 0
-    - _InvFade: 0.4
+    - _InvFade: 0
     - _LimbPrimeMask: 1
     - _LimbRemovalOn: 0
     - _Metallic: 0
