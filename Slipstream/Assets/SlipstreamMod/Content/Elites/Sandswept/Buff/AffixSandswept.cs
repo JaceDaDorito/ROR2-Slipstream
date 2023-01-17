@@ -40,8 +40,10 @@ namespace Slipstream.Buffs
         public static float debuffUpwardForce = 4000f;
         public static float debuffProc = 100f;
 
+        public static DamageAPI.ModdedDamageType sandDamageType;
+
         //List of character bodies sandswept knockback doesn't effect
-        
+
         private static readonly List<BodyIndex> blacklistedBodyIndices = new List<BodyIndex>();
         //public so the delayedupwardblast can get this blacklist
         public static ReadOnlyCollection<BodyIndex> BlacklistedBodyIndices = new ReadOnlyCollection<BodyIndex>(blacklistedBodyIndices);
@@ -92,7 +94,7 @@ namespace Slipstream.Buffs
         {
             base.Initialize();
             buff = BuffDef;
-            //sandDamageType = DamageAPI.ReserveDamageType();
+            sandDamageType = DamageAPI.ReserveDamageType();
 
             GlobalEventManager.onServerDamageDealt += GlobalEventManager_onServerDamageDealt;
             IL.EntityStates.GenericCharacterDeath.OnEnter += GenericCharacterDeath_OnEnter; //IL hook, you hook onto a method like any other hook.
@@ -448,27 +450,6 @@ namespace Slipstream.Buffs
             /*public void OnIncomingDamageOther(HealthComponent victimHealthComponent, DamageInfo damageInfo)
             {
                 damageInfo.damageType |= DamageType.Stun1s;
-            }
-
-            public void OnDamageDealtServer(DamageReport damageReport)
-            {
-                DamageInfo damageInfo = damageReport.damageInfo;
-                CharacterBody victimBody = damageReport.victimBody;
-                if (damageInfo.HasModdedDamageType(sandDamageType) && !victimBody.bodyFlags.HasFlag(CharacterBody.BodyFlags.Mechanical))
-                {
-                    KinematicCharacterMotor indexKCC = victimBody.GetComponent<KinematicCharacterMotor>();
-                    if (indexKCC)
-                        indexKCC.ForceUnground();
-
-                    PhysForceInfo physInfo = new PhysForceInfo()
-                    {
-                        force = Vector3.up * projUpwardForce,
-                        ignoreGroundStick = true,
-                        disableAirControlUntilCollision = false,
-                        massIsOne = false//MassIsOne just means if mass will have a factor in the force. I set it to false because I want the mass to contribute.
-                    };
-                    victimBody.characterMotor.ApplyForceImpulse(physInfo);
-                }
             }*/
 
 
@@ -489,19 +470,42 @@ namespace Slipstream.Buffs
             {
                 //DamageInfo damageInfo = damageReport.damageInfo;
                 CharacterBody victimBody = damageReport.victimBody;
-                if (victimBody && Util.CheckRoll(damageReport.damageInfo.procCoefficient * debuffProc, damageReport.attackerBody.master))
+                if (victimBody && !victimBody.HasBuff(GrainyExplode.buff) && Util.CheckRoll(damageReport.damageInfo.procCoefficient * debuffProc, damageReport.attackerBody.master))
                 {
                     victimBody.AddBuff(Grainy.buff);
                     int count = victimBody.GetBuffCount(Grainy.buff);
                     if (victimBody.GetBuffCount(Grainy.buff) >= buffCount)
                     {
                         GenericUtils.RemoveStacksOfBuff(victimBody, Grainy.buff, count);
-                        Explode(victimBody);
+                        var dotInfo = new InflictDotInfo();
+                        dotInfo.attackerObject = damageReport.attacker;
+                        dotInfo.victimObject = damageReport.victim.gameObject;
+                        dotInfo.dotIndex = GrainyExplode.index;
+                        dotInfo.duration = 3f;
+                        dotInfo.damageMultiplier = damageReport.attackerBody.baseDamage;
+                        DotController.InflictDot(ref dotInfo);
                     }
                 }
+
+                /*DamageInfo damageInfo = damageReport.damageInfo;
+                if (damageInfo.HasModdedDamageType(sandDamageType) && !BlacklistedBodyIndices.Contains(victimBody.bodyIndex))
+                {
+                    KinematicCharacterMotor indexKCC = victimBody.GetComponent<KinematicCharacterMotor>();
+                    if (indexKCC)
+                        indexKCC.ForceUnground();
+
+                    PhysForceInfo physInfo = new PhysForceInfo()
+                    {
+                        force = Vector3.up * debuffUpwardForce,
+                        ignoreGroundStick = true,
+                        disableAirControlUntilCollision = false,
+                        massIsOne = false//MassIsOne just means if mass will have a factor in the force. I set it to false because I want the mass to contribute.
+                    };
+                    victimBody.characterMotor.ApplyForceImpulse(physInfo);
+                }*/
             }
 
-            public void Explode(CharacterBody victim)
+            /*public void Explode(CharacterBody victim)
             {
                 KinematicCharacterMotor indexKCC = victim.GetComponent<KinematicCharacterMotor>();
                 if (indexKCC)
@@ -519,7 +523,9 @@ namespace Slipstream.Buffs
                     victim.characterMotor.ApplyForceImpulse(physInfo);
                 }
                 
-            }
+            }*/
+
+
         }
     }
 }

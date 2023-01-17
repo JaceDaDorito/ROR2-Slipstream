@@ -20,10 +20,10 @@ MonoBehaviour:
   effectPrefabs:
   - {fileID: 4988260258862888624, guid: 8a4cb82b1a7775045a0a337a0c15b84d, type: 3}
   - {fileID: 8481313028846615252, guid: b0282cae778fd0747bb2abe94219f055, type: 3}
+  - {fileID: 7769048311328285231, guid: 9a5c07cbdd5c96d4faeefea228adeca0, type: 3}
   networkedObjectPrefabs:
   - {fileID: 2749793177716746256, guid: a97e54d27d218714d88515a26101e58e, type: 3}
   - {fileID: 4469780739943632523, guid: 34677373b0ebf1849948c92f9e0ced26, type: 3}
-  - {fileID: 3546640047192735099, guid: c1463dfd13edcf749bc5bd473e94b922, type: 3}
   - {fileID: 6251616152835370559, guid: 3755c25f9bc69144f9c05e016112b32b, type: 3}
   skillDefs:
   - {fileID: 11400000, guid: af842af7d2ecee34d9caf02b7dfdd5af, type: 2}

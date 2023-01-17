@@ -24,12 +24,12 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Cloud1Tex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 20, y: 6}
+        m_Texture: {fileID: 2800000, guid: ea9c66485ca9e4f488f698dfe9630e22, type: 3}
+        m_Scale: {x: 1, y: 5}
         m_Offset: {x: 0, y: 0}
     - _Cloud2Tex:
-        m_Texture: {fileID: 2800000, guid: ea9c66485ca9e4f488f698dfe9630e22, type: 3}
-        m_Scale: {x: 10, y: 1.5}
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 7, y: 7}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
         m_Texture: {fileID: 0}
@@ -48,7 +48,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: e4dcf77d29519414f9fefb3e20ef9e96, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0.2}
     - _MetallicGlossMap:
@@ -64,12 +64,12 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _RemapTex:
-        m_Texture: {fileID: 2800000, guid: c46339d394968b643881a1857e97c29e, type: 3}
+        m_Texture: {fileID: 2800000, guid: 605fe8f1b94e5ce449f123f6a106f9da, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _AlphaBoost: 0.2
-    - _Boost: 1.3
+    - _AlphaBoost: 2
+    - _Boost: 1
     - _BumpScale: 1
     - _Cull: 0
     - _Cutoff: 0.5
@@ -81,8 +81,8 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _IntersectionStrength: 20
-    - _InvFade: 0.05
+    - _IntersectionStrength: 5.3
+    - _InvFade: 0.6
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
@@ -99,6 +99,6 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _CutoffScroll: {r: 0, g: 0, b: 1, a: 1}
+    - _CutoffScroll: {r: -0.5, g: 1, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _TintColor: {r: 1, g: 1, b: 1, a: 1}
+    - _TintColor: {r: 2.8284268, g: 2.4464796, b: 1.4956603, a: 1}

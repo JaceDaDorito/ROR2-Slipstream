@@ -6,6 +6,8 @@ using Slipstream.Buffs;
 using System.Collections.Generic;
 using AK;
 using System.Collections.ObjectModel;
+using Slipstream.Orbs;
+using RoR2.Orbs;
 
 namespace EntityStates.Sandswept
 {
@@ -31,6 +33,7 @@ namespace EntityStates.Sandswept
         private List<CharacterModel.RendererInfo> rendererList = new List<CharacterModel.RendererInfo>();
         public Material frozenOverlayMaterial = SlipAssets.Instance.MainAssetBundle.LoadAsset<Material>("matIsGlass");
         public Material frozenFlashMaterial = SlipAssets.Instance.MainAssetBundle.LoadAsset<Material>("matIsGlassFlash");
+        private GameObject original = SlipAssets.Instance.MainAssetBundle.LoadAsset<GameObject>("EliteSandKnockbackIndicator");
 
         private Color CurrentColor;
 
@@ -46,25 +49,22 @@ namespace EntityStates.Sandswept
             }
             set
             {
-                if(indicatorEnabled == value)
+                if (indicatorEnabled == value)
                 {
                     return;
                 }
                 if (value)
                 {
-                    
-                    GameObject original = SlipAssets.Instance.MainAssetBundle.LoadAsset<GameObject>("EliteSandKnockbackIndicator");
-                    //ref int pos;
-                    //Vector3 corePosition = RoR2.Util.GetCorePosition(characterBody.gameObject);
-                    
-
                     eliteSandKnockbackIndicator = UnityEngine.Object.Instantiate<GameObject>(original, characterBody.footPosition, Quaternion.identity);
-                    eliteSandKnockbackIndicator.GetComponent<NetworkedBodyAttachment>().AttachToGameObjectAndSpawn(base.gameObject, null);
-                    eliteSandKnockbackIndicator.transform.Find("Radius, Spherical").GetComponent<MeshRenderer>();
+                    float diameter = radius * 2f;
+                    eliteSandKnockbackIndicator.transform.localScale = new Vector3(diameter, diameter, diameter);
+                    eliteSandKnockbackIndicator.transform.parent = characterBody.coreTransform;
+                    //eliteSandKnockbackIndicator.GetComponent<NetworkedBodyAttachment>().AttachToGameObjectAndSpawn(base.gameObject, null);
                     return;
                 }
                 UnityEngine.Object.Destroy(eliteSandKnockbackIndicator);
                 eliteSandKnockbackIndicator = null;
+
             }
         }
 
@@ -188,10 +188,10 @@ namespace EntityStates.Sandswept
             }
 
             radius = AffixSandswept.CalculateRadius(characterBody);
-            float diameter = radius * 2f;
-
+            //float diameter = radius * 2f;
+            
             indicatorEnabled = true;
-            eliteSandKnockbackIndicator.transform.localScale = new Vector3(diameter, diameter, diameter);
+            //eliteSandKnockbackIndicator.transform.localScale = new Vector3(diameter, diameter, diameter);
 
         }
 
@@ -227,6 +227,7 @@ namespace EntityStates.Sandswept
         public override void FixedUpdate()
         {
             base.FixedUpdate();
+
             if (NetworkServer.active)
             {
 
@@ -261,6 +262,13 @@ namespace EntityStates.Sandswept
         protected void CommitSuicide()
         {
             AffixSandswept.FireKBBlast(characterBody);
+            if (attackerBody.HasBuff(Grainy.buff))
+            {
+                SandsweptDeathOrb sandsweptDeathOrb = new SandsweptDeathOrb();
+                sandsweptDeathOrb.origin = characterBody.corePosition;
+                sandsweptDeathOrb.target = Util.FindBodyMainHurtBox(attackerBody);
+                OrbManager.instance.AddOrb(sandsweptDeathOrb);
+            }
             base.characterBody.healthComponent.Suicide(attackerBody?.gameObject); //already defaults to null if theres no attacker body
         }
     }

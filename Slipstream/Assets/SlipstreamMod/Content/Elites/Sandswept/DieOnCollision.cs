@@ -6,6 +6,8 @@ using UnityEngine.Networking;
 using Slipstream;
 using Slipstream.Buffs;
 using AK;
+using Slipstream.Orbs;
+using RoR2.Orbs;
 
 public class DieOnCollision : MonoBehaviour
 {
@@ -26,7 +28,15 @@ public class DieOnCollision : MonoBehaviour
             SlipLogger.LogD(body.name + " died");
             collided = true;
             AffixSandswept.FireKBBlast(body);
+            if (attackerBody.HasBuff(Grainy.buff))
+            {
+                SandsweptDeathOrb sandsweptDeathOrb = new SandsweptDeathOrb();
+                sandsweptDeathOrb.origin = body.corePosition;
+                sandsweptDeathOrb.target = Util.FindBodyMainHurtBox(attackerBody);
+                OrbManager.instance.AddOrb(sandsweptDeathOrb);
+            }
             body.healthComponent.Suicide(attackerBody?.gameObject);
+            
         }
     }
 }

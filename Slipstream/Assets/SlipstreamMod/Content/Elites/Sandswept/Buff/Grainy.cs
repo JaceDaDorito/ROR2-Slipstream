@@ -14,6 +14,8 @@ using System.Collections.Generic;
 using Slipstream.Components;
 using KinematicCharacterController;
 using RoR2.Projectile;
+using Slipstream.Orbs;
+using RoR2.Orbs;
 
 namespace Slipstream.Buffs
 {
@@ -35,7 +37,10 @@ namespace Slipstream.Buffs
                 CharacterBody victimBody = damageReport.victimBody;
                 if(body.HasBuff(buff) && victimBody && victimBody.HasBuff(AffixSandswept.buff))
                 {
-                    body.RemoveBuff(buff);
+                    SandsweptDeathOrb sandsweptDeathOrb = new SandsweptDeathOrb();
+                    sandsweptDeathOrb.origin = victimBody.corePosition;
+                    sandsweptDeathOrb.target = Util.FindBodyMainHurtBox(body);
+                    OrbManager.instance.AddOrb(sandsweptDeathOrb);
                 }
             }
         }

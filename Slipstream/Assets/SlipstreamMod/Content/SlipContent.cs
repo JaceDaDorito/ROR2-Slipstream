@@ -22,6 +22,7 @@ namespace Slipstream
             //public static BuffDef BedeviledMark;
             public static BuffDef AffixSandswept;
             public static BuffDef Grainy; //Sandswept onhit debuff
+            public static BuffDef GrainyExplode;
 
             public static BuffDef BrineBuff;
             public static BuffDef PepperSpeed;
