@@ -21,7 +21,7 @@ namespace Slipstream.Items
         //debuffDurationReduction configurable field
         [ConfigurableField(ConfigName = "Debuff Duration Reduction", ConfigDesc = "Percentage of debuff time reduced by one item.", ConfigSection = "RustyGenerator")]
         [TokenModifier(token, StatTypes.MultiplyByN, 1, "100")]
-        public static float debuffDurationReduction = 0.12f;
+        public static float debuffDurationReduction = 0.2f; //Og 0.12
 
         //Hooks! We love hooks :)
         public override void Initialize()
@@ -42,9 +42,12 @@ namespace Slipstream.Items
             {
                 //sets the itemcount of Rusty Generator to a variable count for calculations
                 int count = victimBody.inventory.GetItemCount(ItemDef);
+                RustyGeneratorBehavior component = victimBody.GetComponent<RustyGeneratorBehavior>();
                 //checks if the itemcount is greater than 0, and if the victimBody has shield active
-                if (count > 0 && victimBody.healthComponent.shield > 0)
+                if (count > 0 && (victimBody.healthComponent.shield > 0 || component.triggerReduction))
                 {
+                    Util.PlaySound("Play_huntress_R_snipe_shoot", victimBody.gameObject);
+                    component.triggerReduction = false;
                     //reduces the duration of the DoT using MSU's InverseHyperbolicScaling method for calculation
                     inflictDotInfo.duration -= (inflictDotInfo.duration * MSUtil.InverseHyperbolicScaling(debuffDurationReduction, debuffDurationReduction, 1, count));
 
@@ -66,11 +69,14 @@ namespace Slipstream.Items
             {
                 //sets the itemcount of Rusty Generator to a variable count for calculations
                 int count = self.inventory.GetItemCount(ItemDef);
-                //checks if the itemcount is greater than 0, checks if the newly applied buff is a debuff, checks for the stack count of said debuff, and if the characterBody has shield active
-                if (count > 0 && buffDef.isDebuff && self.GetBuffCount(buffDef) < maxStacks && self.healthComponent.shield > 0)
+                RustyGeneratorBehavior component = self.GetComponent<RustyGeneratorBehavior>();
+                //checks if the itemcount is greater than 0, checks if the newly applied buff is a debuff, checks for the stack count of said debuff, and if the characterBody has shield active or had shield before the instance of damage
+                if (count > 0 && buffDef.isDebuff && self.GetBuffCount(buffDef) < maxStacks && (self.healthComponent.shield > 0 || component.triggerReduction))
                 {
+                    Util.PlaySound("Play_huntress_R_snipe_shoot", self.gameObject);
                     //reduces the duration of the debuff using MSU's InverseHyperbolicScaling method for calculation
                     duration -= (duration * MSUtil.InverseHyperbolicScaling(debuffDurationReduction, debuffDurationReduction, 1, count));
+                    component.triggerReduction = false;
                 }
             }
             //inserts modified parameters back into the original method
@@ -85,25 +91,48 @@ namespace Slipstream.Items
             {
                 //sets the itemcount of Rusty Generator to a variable count for calculations
                 int count = self.inventory.GetItemCount(ItemDef);
-                //checks if the itemcount is greater than 0, checks if the newly applied buff is a debuff, and if the characterBody has shield active
-                if (count > 0 && buffDef.isDebuff && self.healthComponent.shield > 0)
+                RustyGeneratorBehavior component = self.GetComponent<RustyGeneratorBehavior>();
+                //checks if the itemcount is greater than 0, checks if the newly applied buff is a debuff, and if the characterBody has shield active or had shield before the instance of damage
+                if (count > 0 && buffDef.isDebuff && (self.healthComponent.shield > 0 || component.triggerReduction))
                 {
+                    Util.PlaySound("Play_huntress_R_snipe_shoot", self.gameObject);
                     //reduces the duration of the debuff using MSU's InverseHyperbolicScaling method for calculation
                     duration -= (duration * MSUtil.InverseHyperbolicScaling(debuffDurationReduction, debuffDurationReduction, 1, count));
+                    component.triggerReduction = false;
                 }
             }
             //inserts modified parameters back into the original method
             orig(self, buffDef, duration);
         }
 
-        public class RustyGeneratorBehavior : BaseItemBodyBehavior, IBodyStatArgModifier
+        public class RustyGeneratorBehavior : BaseItemBodyBehavior, IBodyStatArgModifier, IOnIncomingDamageServerReceiver, IOnTakeDamageServerReceiver
         {
             [ItemDefAssociation(useOnClient = true, useOnServer = true)]
             public static ItemDef GetItemDef() => SlipContent.Items.RustyGenerator;
+
+            private bool hadShield = false;
+            public bool triggerReduction = false;
             public void ModifyStatArguments(RecalculateStatsAPI.StatHookEventArgs args)
             {
                 //adds 3% of max health as shield to the player
                 args.baseShieldAdd += body.healthComponent.fullHealth * baseShield;
+            }
+
+            //checks before and after damage to see if the body had shield before that instance of damage
+            public void OnIncomingDamageServer(DamageInfo damageInfo)
+            {
+                if (body.healthComponent.shield > 0f)
+                    hadShield = true;
+                else
+                    hadShield = false;
+            }
+
+            public void OnTakeDamageServer(DamageReport damageReport)
+            {
+                if (body.healthComponent.shield <= 0f && hadShield)
+                    triggerReduction = true;
+                else
+                    triggerReduction = false;
             }
         }
     }

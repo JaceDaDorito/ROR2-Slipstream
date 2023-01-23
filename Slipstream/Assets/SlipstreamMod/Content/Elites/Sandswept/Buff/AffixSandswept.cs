@@ -26,8 +26,6 @@ namespace Slipstream.Buffs
 
         private static GameObject knockbackExplosion = SlipAssets.Instance.MainAssetBundle.LoadAsset<GameObject>("EliteSandKnockback");
 
-        private static GameObject sandsweptMissile = SlipAssets.Instance.MainAssetBundle.LoadAsset<GameObject>("SandsweptMissile");
-
         public EntityStateMachine targetStateMachine;
 
         public static float timeInvulnerable = 1f;
@@ -36,11 +34,19 @@ namespace Slipstream.Buffs
 
         public static float outwardForce = 5500f;
 
-        public static int buffCount = 4;
+        public static float freezeDuration = 30f;
+
+        public static int buffCount = 5;
+        public static int buffsApplied = 2;
         public static float debuffUpwardForce = 4000f;
         public static float debuffProc = 100f;
 
+        public static float chippedPercentage = 0.4f;
+        public static float chippedDuration = 60f;
+
         public static DamageAPI.ModdedDamageType sandDamageType;
+
+        public GlassState state;
 
         //List of character bodies sandswept knockback doesn't effect
 
@@ -98,8 +104,10 @@ namespace Slipstream.Buffs
 
             GlobalEventManager.onServerDamageDealt += GlobalEventManager_onServerDamageDealt;
             IL.EntityStates.GenericCharacterDeath.OnEnter += GenericCharacterDeath_OnEnter; //IL hook, you hook onto a method like any other hook.
+            
             //IL.RoR2.CharacterModel.UpdateRendererMaterials += CharacterModel_UpdateRendererMaterials;
         }
+
         public static void AddBodyToBlacklist(BodyIndex bodyIndex)
         {
             if (bodyIndex == BodyIndex.None)
@@ -123,11 +131,21 @@ namespace Slipstream.Buffs
             CharacterBody body = obj.victimBody;
             if (body.healthComponent)
             {
-                //If the body just died, is Sandswept, isn't in the glass state, and didn't die to the void implosions, make body into glass state.
-                if (!body.healthComponent.alive && body.HasBuff(BuffDef.buffIndex) && !body.GetComponent<AffixSandsweptBehavior>().isGlass && ((obj.damageInfo.damageType & DamageType.VoidDeath) <= 0))
+                //check if they died to something without an attacker
+                if(body.HasBuff(BuffDef.buffIndex) && !body.healthComponent.alive && obj.attacker == null)
                 {
-                    Util.CleanseBody(body, true, false, true, true, true, false);
-
+                    SlipLogger.LogD(body + " glass statue died to NULL (Probably because of console)");
+                    FireKBBlast(body);
+                }
+                //If the body died to void damage, just kill it and fire the knockback
+                else if (body.HasBuff(BuffDef.buffIndex) && ((obj.damageInfo.damageType & DamageType.VoidDeath) > 0))
+                {
+                    SlipLogger.LogD(body + " glass statue died to Void Damage");
+                    FireKBBlast(body);
+                }
+                //If the body just died, is Sandswept, isn't in the glass state, make body into glass state.
+                else if (!body.healthComponent.alive && body.HasBuff(BuffDef.buffIndex) && !body.GetComponent<AffixSandsweptBehavior>().isGlass/* && ((obj.damageInfo.damageType & DamageType.VoidDeath) <= 0)*/)
+                {
                     body.healthComponent.Networkbarrier = 0f;
                     body.healthComponent.Networkhealth = 1f;
                     body.healthComponent.Networkshield = 0f;               
@@ -143,9 +161,11 @@ namespace Slipstream.Buffs
                         machineArray[i].SetNextStateToMain();
                     }
 
-                    GlassState state;
                     if(body.isFlying/* || (body.characterMotor && !body.characterMotor.isGrounded)*/)
+                    {
                         deathBehaviour.deathStateMachine.SetNextState(state = new AirGlassState());
+                        state.isAirState = true;
+                    }
                     else
                         deathBehaviour.deathStateMachine.SetNextState(state = new GlassState());
                     state.attackerBody = obj.attackerBody; //Records the attacker who put this body into the glass state to give them money later if the body suicides
@@ -157,11 +177,23 @@ namespace Slipstream.Buffs
                     }*/
                        
                 }
-                //If the body just died, is Sandswept, and is glass OR died to void implosions, do knockback explosion.
-                //I would do this check in the entity state but I wanted the entity state to be skipped if they died to a void implosion.
-                else if (!body.healthComponent.alive && body.HasBuff(BuffDef.buffIndex) && (body.GetComponent<AffixSandsweptBehavior>().isGlass || ((obj.damageInfo.damageType & DamageType.VoidDeath) > 0)))
+                //If the body just died, is Sandswept, and is glass, do knockback explosion.
+                else if (/*!body.healthComponent.alive && */body.HasBuff(BuffDef.buffIndex) && body.GetComponent<AffixSandsweptBehavior>().isGlass)
                 {
+
+                    if (body.healthComponent.alive)
+                    {
+                        body.healthComponent.Suicide(obj.attackerBody?.gameObject/*, null, obj.damageInfo.damageType*/);
+                    }
+
                     //This grants money to the attacker anyway
+                    if (state.isAirState)
+                    {
+                        //somtimes flying enemies die to the fall damage
+                        DieOnCollision doc = body.gameObject.GetComponent<DieOnCollision>();
+                        doc.collided = true;
+                    }
+                    SlipLogger.LogD(body + " glass statue died to Damage");
                     FireKBBlast(body);
                 }
             }        
@@ -175,10 +207,10 @@ namespace Slipstream.Buffs
             switch (body.hullClassification)
             {
                 case HullClassification.Human:
-                    hullRadius = 7.5f;
+                    hullRadius = 10.5f;
                     break;
                 case HullClassification.Golem:
-                    hullRadius = 15f;
+                    hullRadius = 16f;
                     break;
                 default:
                     hullRadius = 22.5f;
@@ -206,6 +238,12 @@ namespace Slipstream.Buffs
 
             Vector3 feetPosition = body.footPosition;
             float combinedRadius = CalculateRadius(body);
+
+            EffectManager.SpawnEffect(SlipAssets.Instance.MainAssetBundle.LoadAsset<GameObject>("EliteSandKnockbackVisual"), new EffectData
+            {
+                origin = feetPosition,
+                scale = combinedRadius
+            }, true);
 
             GameObject explosion = UnityEngine.Object.Instantiate(knockbackExplosion, feetPosition, Quaternion.identity);
             DelayedUpwardBlast blast = explosion.GetComponent<DelayedUpwardBlast>();
@@ -377,7 +415,7 @@ namespace Slipstream.Buffs
 
         }*/
 
-        public class AffixSandsweptBehavior : BaseBuffBodyBehavior/*, IOnIncomingDamageOtherServerReciever*/, IOnIncomingDamageServerReceiver, IBodyStatArgModifier, IOnDamageDealtServerReceiver
+        public class AffixSandsweptBehavior : BaseBuffBodyBehavior/*, IOnIncomingDamageOtherServerReciever*/, IOnIncomingDamageServerReceiver, IOnDamageDealtServerReceiver
         {
             [BuffDefAssociation(useOnClient = true, useOnServer = true)]
             public static BuffDef GetBuffDef() => SlipContent.Buffs.AffixSandswept;
@@ -460,30 +498,38 @@ namespace Slipstream.Buffs
                     damageInfo.rejected = true;
             }
 
-            public void ModifyStatArguments(RecalculateStatsAPI.StatHookEventArgs args)
+            /*public void OnTakeDamageServer(DamageReport damageReport)
             {
-                if (isGlass)
-                    args.baseCurseAdd += body.healthComponent.combinedHealth;
-            }
+                if(body.isGlass && body.healthComponent.alive)
+                {
+                    SlipLogger.LogD(body + " glass statue died to Damage (it lived but it died anyway)");
+                    FireKBBlast(body);
+                    body.healthComponent.Suicide(damageReport.attackerBody?.gameObject);
+                }
+            }*/
 
             public void OnDamageDealtServer(DamageReport damageReport)
             {
                 //DamageInfo damageInfo = damageReport.damageInfo;
                 CharacterBody victimBody = damageReport.victimBody;
-                if (victimBody && !victimBody.HasBuff(GrainyExplode.buff) && Util.CheckRoll(damageReport.damageInfo.procCoefficient * debuffProc, damageReport.attackerBody.master))
+                if (victimBody && !victimBody.HasBuff(Chipped.buff) && Util.CheckRoll(damageReport.damageInfo.procCoefficient * debuffProc, damageReport.attackerBody.master))
                 {
-                    victimBody.AddBuff(Grainy.buff);
+                    GenericUtils.AddStacksOfBuff(victimBody, Grainy.buff, buffsApplied);
                     int count = victimBody.GetBuffCount(Grainy.buff);
-                    if (victimBody.GetBuffCount(Grainy.buff) >= buffCount)
+                    if (victimBody.GetBuffCount(Grainy.buff) > buffCount)
                     {
+                        victimBody.AddTimedBuff(Chipped.buff, chippedDuration);
                         GenericUtils.RemoveStacksOfBuff(victimBody, Grainy.buff, count);
+                        Util.PlaySound("Play_merc_sword_impact", body.gameObject);
+                        //Play_merc_sword_impact
+                        /*
                         var dotInfo = new InflictDotInfo();
                         dotInfo.attackerObject = damageReport.attacker;
                         dotInfo.victimObject = damageReport.victim.gameObject;
                         dotInfo.dotIndex = GrainyExplode.index;
                         dotInfo.duration = 3f;
-                        dotInfo.damageMultiplier = damageReport.attackerBody.baseDamage;
-                        DotController.InflictDot(ref dotInfo);
+                        dotInfo.damageMultiplier = damageReport.attackerBody.baseDamage; // this will probably be tweaked. this needs a lot of testing
+                        DotController.InflictDot(ref dotInfo);*/
                     }
                 }
 
@@ -504,6 +550,8 @@ namespace Slipstream.Buffs
                     victimBody.characterMotor.ApplyForceImpulse(physInfo);
                 }*/
             }
+
+            
 
             /*public void Explode(CharacterBody victim)
             {

@@ -21,6 +21,9 @@ MonoBehaviour:
   - {fileID: 4988260258862888624, guid: 8a4cb82b1a7775045a0a337a0c15b84d, type: 3}
   - {fileID: 8481313028846615252, guid: b0282cae778fd0747bb2abe94219f055, type: 3}
   - {fileID: 7769048311328285231, guid: 9a5c07cbdd5c96d4faeefea228adeca0, type: 3}
+  - {fileID: 3845140630536551980, guid: 7701113a3cd7c99479311b3730a4fa59, type: 3}
+  - {fileID: 8173699041977657282, guid: cb90ec4ea7eed014f8baa23dd5f29017, type: 3}
+  - {fileID: 2363997347129152216, guid: 108cebece501ddb4c84ec6e908fe61cb, type: 3}
   networkedObjectPrefabs:
   - {fileID: 2749793177716746256, guid: a97e54d27d218714d88515a26101e58e, type: 3}
   - {fileID: 4469780739943632523, guid: 34677373b0ebf1849948c92f9e0ced26, type: 3}

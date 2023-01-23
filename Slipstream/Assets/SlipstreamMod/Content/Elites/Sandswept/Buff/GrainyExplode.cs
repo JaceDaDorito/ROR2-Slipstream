@@ -25,7 +25,7 @@ namespace Slipstream.Buffs
         public static BuffDef buff;
         public override void Initialize()
         {
-            index = DotAPI.RegisterDotDef(3f, 4f, DamageColorIndex.Item, BuffDef);
+            index = DotAPI.RegisterDotDef(3f, 2f, DamageColorIndex.Item, BuffDef);
             buff = BuffDef;
         }
 
@@ -33,11 +33,27 @@ namespace Slipstream.Buffs
         {
             [BuffDefAssociation]
             private static BuffDef GetBuffDef() => SlipContent.Buffs.GrainyExplode;
+            private GameObject preGrainyEffect;
+            private void OnEnter()
+            {
+                if (!preGrainyEffect)
+                {
+                    preGrainyEffect = UnityEngine.Object.Instantiate<GameObject>(SlipAssets.Instance.MainAssetBundle.LoadAsset<GameObject>("PreGrainyExplosionEffect"), body.transform);
+                }
+            }
 
+            private void OnExit()
+            {
+                if (preGrainyEffect)
+                {
+                    UnityEngine.Object.Destroy(preGrainyEffect);
+                    preGrainyEffect = null;
+                }
+            }
             public void OnTakeDamageServer(DamageReport damageReport)
             {
                 DotController.DotIndex dotType = damageReport.dotType;
-                if(dotType == index && !AffixSandswept.BlacklistedBodyIndices.Contains(body.bodyIndex))
+                if(dotType == index && body.characterMotor && !AffixSandswept.BlacklistedBodyIndices.Contains(body.bodyIndex))
                 {
                     KinematicCharacterMotor indexKCC = body.GetComponent<KinematicCharacterMotor>();
                     if (indexKCC)

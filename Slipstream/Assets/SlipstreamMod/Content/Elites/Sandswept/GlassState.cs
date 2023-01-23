@@ -13,6 +13,8 @@ namespace EntityStates.Sandswept
 {
     public class GlassState : BaseState
     {
+        public bool isAirState = false;
+
         private TemporaryOverlay temporaryOverlay;
         private Animator modelAnimator;
         private AimAnimator aimAnimator;
@@ -20,7 +22,7 @@ namespace EntityStates.Sandswept
         private AkEvent[] AkSoundEventChildren;
         private ParticleSystem[] particleSystem;
         private float duration;
-        private float freezeDuration = 30f;
+        private float freezeDuration = Slipstream.Buffs.AffixSandswept.freezeDuration;
         protected float radius;
         protected static float invulnDuration = AffixSandswept.timeInvulnerable;
         private float animatorVel = 0f;
@@ -34,6 +36,7 @@ namespace EntityStates.Sandswept
         public Material frozenOverlayMaterial = SlipAssets.Instance.MainAssetBundle.LoadAsset<Material>("matIsGlass");
         public Material frozenFlashMaterial = SlipAssets.Instance.MainAssetBundle.LoadAsset<Material>("matIsGlassFlash");
         private GameObject original = SlipAssets.Instance.MainAssetBundle.LoadAsset<GameObject>("EliteSandKnockbackIndicator");
+        private GameObject sandExplosion = SlipAssets.Instance.MainAssetBundle.LoadAsset<GameObject>("SandDustExplosion");
 
         private Color CurrentColor;
 
@@ -58,7 +61,7 @@ namespace EntityStates.Sandswept
                     eliteSandKnockbackIndicator = UnityEngine.Object.Instantiate<GameObject>(original, characterBody.footPosition, Quaternion.identity);
                     float diameter = radius * 2f;
                     eliteSandKnockbackIndicator.transform.localScale = new Vector3(diameter, diameter, diameter);
-                    eliteSandKnockbackIndicator.transform.parent = characterBody.coreTransform;
+                    eliteSandKnockbackIndicator.transform.parent = characterBody.modelLocator.modelTransform;
                     //eliteSandKnockbackIndicator.GetComponent<NetworkedBodyAttachment>().AttachToGameObjectAndSpawn(base.gameObject, null);
                     return;
                 }
@@ -81,6 +84,8 @@ namespace EntityStates.Sandswept
                 Util.PlaySound(base.sfxLocator.barkSound, base.gameObject);*/
             Util.PlaySound("Play_item_proc_armorReduction_hit", base.gameObject);
 
+            Util.CleanseBody(characterBody, true, false, true, true, true, false);
+
             Transform modelTransform = GetModelTransform();
             if (modelTransform)
             {
@@ -88,6 +93,8 @@ namespace EntityStates.Sandswept
 
                 if (model)
                 {
+                    
+
                     temporaryOverlay = gameObject.AddComponent<TemporaryOverlay>();
                     temporaryOverlay.duration = invulnDuration; //doesn't matter what you put here
                     temporaryOverlay.destroyComponentOnEnd = true;
@@ -110,20 +117,21 @@ namespace EntityStates.Sandswept
                     }
 
                     //sets the material of the mf's item displays to be glass
-                    ItemDisplay[] itemDisplays = modelTransform.GetComponents<ItemDisplay>();
+                    ItemDisplay[] itemDisplays = modelTransform.GetComponentsInChildren<ItemDisplay>();
                     if(itemDisplays.Length > 0)
                     {
                         for (int i = 0; i < itemDisplays.Length; i++)
                         {
+                            SlipLogger.LogD("ItemDisplay " + i + ": " + itemDisplays[i]);
                             var rendererInfos = itemDisplays[i].rendererInfos;
-                            for(int j = 0; j < rendererInfos.Length; i++)
+                            for(int j = 0; j < rendererInfos.Length; j++)
                             {
-                                var mat = rendererInfos[i].defaultMaterial;
+                                var mat = rendererInfos[j].defaultMaterial;
                                 if (mat.shader.name.StartsWith("Hopoo Games/Deferred"))
                                 {
                                     mat = frozenOverlayMaterial;
-                                    rendererInfos[i].defaultMaterial = mat;
-                                    rendererList.Add(rendererInfos[i]);
+                                    rendererInfos[j].defaultMaterial = mat;
+                                    rendererList.Add(rendererInfos[j]);
                                 }
                             }
                         }
@@ -189,7 +197,14 @@ namespace EntityStates.Sandswept
 
             radius = AffixSandswept.CalculateRadius(characterBody);
             //float diameter = radius * 2f;
-            
+
+            Vector3 effectOrg = new Vector3(characterBody.footPosition.x, characterBody.footPosition.y + 1f, characterBody.footPosition.z);
+            EffectManager.SpawnEffect(sandExplosion, new EffectData
+            {
+                origin = effectOrg,
+                scale = radius
+            }, true);
+
             indicatorEnabled = true;
             //eliteSandKnockbackIndicator.transform.localScale = new Vector3(diameter, diameter, diameter);
 
@@ -228,30 +243,31 @@ namespace EntityStates.Sandswept
         {
             base.FixedUpdate();
 
+            if (fixedAge <= invulnDuration && modelAnimator)
+            {
+                modelAnimator.speed = Mathf.SmoothDamp(modelAnimator.speed, 0f, ref animatorVel, invulnDuration / 2);
+            }
+            else if (modelAnimator)
+            {
+                modelAnimator.speed = 0f;
+            }
+
+            CurrentColor = Color.Lerp(beginColor, endColor, Mathf.Clamp01(fixedAge / freezeDuration));
+
+            if (rendererList.Count > 0)
+            {
+                for (int i = 0; i < rendererList.Count; i++)
+                {
+                    rendererList[i].defaultMaterial.SetColor("_TintColor", CurrentColor);
+                }
+            }
+
             if (NetworkServer.active)
             {
 
-                if(rendererList.Count > 0)
-                {
-                    CurrentColor = Color.Lerp(beginColor, endColor, Mathf.Clamp01(fixedAge / freezeDuration));
-                    for (int i = 0; i < rendererList.Count; i++)
-                    {
-                        rendererList[i].defaultMaterial.SetColor("_TintColor", CurrentColor);
-                    }
-                }
-                
-
-                if(fixedAge <= invulnDuration && modelAnimator)
-                {
-                    modelAnimator.speed = Mathf.SmoothDamp(modelAnimator.speed, 0f, ref animatorVel, invulnDuration/2);
-                }
-                else if (modelAnimator)
-                {
-                    modelAnimator.speed = 0f;
-                }
-
                 if (base.fixedAge >= duration)
                 {
+                    SlipLogger.LogD(characterBody + " glass statue died to Age.");
                     CommitSuicide();
                 }
                     

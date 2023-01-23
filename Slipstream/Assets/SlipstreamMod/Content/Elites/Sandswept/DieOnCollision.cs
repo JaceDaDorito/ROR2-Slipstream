@@ -13,7 +13,7 @@ public class DieOnCollision : MonoBehaviour
 {
     private CharacterBody body;
     public CharacterBody attackerBody;
-    private bool collided = false;
+    public bool collided = false;
 
     private void Start()
     {
@@ -22,11 +22,11 @@ public class DieOnCollision : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        SlipLogger.LogD(body.name + " collided with something");
+        //SlipLogger.LogD(body.name + " collided with something");
         if(collision.gameObject.layer == LayerIndex.world.intVal && !collided)
         {
-            SlipLogger.LogD(body.name + " died");
             collided = true;
+            //SlipLogger.LogD(body.name + " died");
             AffixSandswept.FireKBBlast(body);
             if (attackerBody.HasBuff(Grainy.buff))
             {
@@ -35,8 +35,10 @@ public class DieOnCollision : MonoBehaviour
                 sandsweptDeathOrb.target = Util.FindBodyMainHurtBox(attackerBody);
                 OrbManager.instance.AddOrb(sandsweptDeathOrb);
             }
+            SlipLogger.LogD(gameObject + " glass statue died to Collision");
             body.healthComponent.Suicide(attackerBody?.gameObject);
-            
+
+            Destroy(this);
         }
     }
 }

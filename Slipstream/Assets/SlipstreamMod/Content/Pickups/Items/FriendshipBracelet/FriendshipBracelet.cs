@@ -21,7 +21,7 @@ namespace Slipstream.Items
         public override ItemDef ItemDef { get; } = SlipAssets.Instance.MainAssetBundle.LoadAsset<ItemDef>("FriendshipBracelet");
         [ConfigurableField(ConfigName = "Items Granted per Stack", ConfigDesc = "Number of items allies will gain from each stack.", ConfigSection = "FriendshipBracelet")]
         [TokenModifier(token, StatTypes.Default, 0)]
-        public static int itemGrantPerStack = 2;
+        public static int itemGrantPerStack = 1;
         [ConfigurableField(ConfigName = "Affects Engineer Turrets", ConfigDesc = "Should Friendship Bracelet grant extra items to Engineer Turrets?", ConfigSection = "FriendshipBracelet")]
         public static bool affectsEngineerTurrets = false;
         public override void Initialize()

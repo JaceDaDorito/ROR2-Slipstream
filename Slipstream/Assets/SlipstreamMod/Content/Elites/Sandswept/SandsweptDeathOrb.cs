@@ -27,12 +27,14 @@ namespace Slipstream.Orbs
 
 		public override void OnArrival()
 		{
-			if (characterBody.HasBuff(Grainy.buff))
-			{
-				characterBody.RemoveBuff(Grainy.buff);
+            if (characterBody)
+            {
+				Util.PlaySound("Play_acrid_shift_land", characterBody.gameObject);
+				if (characterBody.HasBuff(Grainy.buff))
+				{
+					characterBody.RemoveBuff(Grainy.buff);
+				}
 			}
 		}
-
-
 	}
 }

@@ -21,6 +21,8 @@ namespace EntityStates.Sandswept
         float setAcc = 10f;
 
         float bonusRadius;
+
+        DieOnCollision doc;
         float BonusRadius
         {
             get { return this.bonusRadius; }
@@ -55,7 +57,7 @@ namespace EntityStates.Sandswept
             setCollider.radius = characterBody.bestFitRadius;
             setCollider.isTrigger = true;*/
 
-            DieOnCollision doc = characterBody.gameObject.AddComponent<DieOnCollision>();
+            doc = characterBody.gameObject.AddComponent<DieOnCollision>();
             doc.attackerBody = attackerBody;
 
             characterGravityParameterProvider = characterBody.GetComponent<ICharacterGravityParameterProvider>();
@@ -118,6 +120,8 @@ namespace EntityStates.Sandswept
                     differenceFeet = characterBody.footPosition.y - hit.point.y;
                     if (raycastToGround && differenceFeet < 1f)
                     {
+                        SlipLogger.LogD(characterBody + " glass statue died to Raycast.");
+                        doc.collided = true;
                         CommitSuicide();
                     }
                     
