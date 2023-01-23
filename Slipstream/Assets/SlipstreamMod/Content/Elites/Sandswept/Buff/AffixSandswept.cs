@@ -15,6 +15,8 @@ using Slipstream.Components;
 using KinematicCharacterController;
 using RoR2.Projectile;
 using System.Collections.ObjectModel;
+using Slipstream.Orbs;
+using RoR2.Orbs;
 
 namespace Slipstream.Buffs
 {
@@ -40,8 +42,11 @@ namespace Slipstream.Buffs
         public static int buffsApplied = 2;
         public static float debuffUpwardForce = 4000f;
         public static float debuffProc = 100f;
-
+        
+        //As you would imagine, being able to fucking cut 40% of everyone's health with Wake is... very busted.
         public static float chippedPercentage = 0.4f;
+        public static float nerfedChippedPercentage = 0.2f;
+
         public static float chippedDuration = 60f;
 
         public static DamageAPI.ModdedDamageType sandDamageType;
@@ -219,7 +224,46 @@ namespace Slipstream.Buffs
             return hullRadius + (body.bestFitRadius / 2f);
         }
 
-        public static void DisableColliders(CharacterBody body)
+        public static void CreateOrb(CharacterBody source, CharacterBody passedTarget)
+        {
+            CharacterBody leader = passedTarget.master.minionOwnership?.ownerMaster?.GetBody();
+            CharacterBody target = null;
+            MinionOwnership.MinionGroup minionGroup = null;
+
+            if(leader != null)
+                minionGroup = MinionOwnership.MinionGroup.FindGroup(leader.master.netId);
+            else
+                minionGroup = MinionOwnership.MinionGroup.FindGroup(passedTarget.master.netId);
+
+            if (leader != null && leader.HasBuff(Grainy.buff))
+                target = leader;
+            else if (passedTarget.HasBuff(Grainy.buff))
+                target = passedTarget;
+            else if(minionGroup != null)
+            {
+                foreach(MinionOwnership minionOwnership in minionGroup.members)
+                {
+                    if (minionOwnership)
+                    {
+                        CharacterBody minionBody = minionOwnership?.GetComponent<CharacterMaster>()?.GetBody();
+                        if (minionBody && minionBody.HasBuff(Grainy.buff))
+                        {
+                            target = minionBody;
+                        }
+                    }
+                }
+            }
+
+            if (target != null)
+            {
+                SandsweptDeathOrb sandsweptDeathOrb = new SandsweptDeathOrb();
+                sandsweptDeathOrb.origin = source.corePosition;
+                sandsweptDeathOrb.target = Util.FindBodyMainHurtBox(target);
+                OrbManager.instance.AddOrb(sandsweptDeathOrb);
+            }
+        }
+
+        /*public static void DisableColliders(CharacterBody body)
         {
             Collider[] collider = body.gameObject.GetComponents<Collider>();
             if (collider.Length > 0)
@@ -228,7 +272,7 @@ namespace Slipstream.Buffs
                     collider[i].enabled = false;
 
             }
-        }
+        }*/
 
         public static void FireKBBlast(CharacterBody body)
         {

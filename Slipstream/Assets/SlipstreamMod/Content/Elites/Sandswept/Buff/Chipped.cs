@@ -24,12 +24,13 @@ namespace Slipstream.Buffs
         public static BuffDef buff;
 
         public static float chippedAmount = GenericUtils.ConvertPercentCursedToCurseInput(AffixSandswept.chippedPercentage);
+        public static float nerfedChippedAmount = GenericUtils.ConvertPercentCursedToCurseInput(AffixSandswept.nerfedChippedPercentage);
         public override void Initialize()
         {
             buff = BuffDef;
         }
 
-        public sealed class GrainyExplodeBehavior : BaseBuffBodyBehavior, IBodyStatArgModifier
+        public sealed class ChippedBehavior : BaseBuffBodyBehavior, IBodyStatArgModifier
         {
             [BuffDefAssociation]
             private static BuffDef GetBuffDef() => SlipContent.Buffs.Chipped;
@@ -37,7 +38,19 @@ namespace Slipstream.Buffs
             public void ModifyStatArguments(RecalculateStatsAPI.StatHookEventArgs args)
             {
                 if (body.HasBuff(buff))
-                    args.baseCurseAdd += chippedAmount;
+                {
+                    switch (body.teamComponent.teamIndex)
+                    {
+                        case TeamIndex.Player:
+                            args.baseCurseAdd += chippedAmount;
+                            break;
+                        default:
+                            args.baseCurseAdd += nerfedChippedAmount;
+                            break;
+                    }
+                    
+                }
+                    
             }
 
         }

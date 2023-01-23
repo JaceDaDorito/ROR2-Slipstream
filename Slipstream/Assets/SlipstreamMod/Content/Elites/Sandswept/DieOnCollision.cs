@@ -28,13 +28,7 @@ public class DieOnCollision : MonoBehaviour
             collided = true;
             //SlipLogger.LogD(body.name + " died");
             AffixSandswept.FireKBBlast(body);
-            if (attackerBody.HasBuff(Grainy.buff))
-            {
-                SandsweptDeathOrb sandsweptDeathOrb = new SandsweptDeathOrb();
-                sandsweptDeathOrb.origin = body.corePosition;
-                sandsweptDeathOrb.target = Util.FindBodyMainHurtBox(attackerBody);
-                OrbManager.instance.AddOrb(sandsweptDeathOrb);
-            }
+            AffixSandswept.CreateOrb(body, attackerBody);
             SlipLogger.LogD(gameObject + " glass statue died to Collision");
             body.healthComponent.Suicide(attackerBody?.gameObject);
 

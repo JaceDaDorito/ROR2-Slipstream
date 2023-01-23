@@ -278,13 +278,7 @@ namespace EntityStates.Sandswept
         protected void CommitSuicide()
         {
             AffixSandswept.FireKBBlast(characterBody);
-            if (attackerBody.HasBuff(Grainy.buff))
-            {
-                SandsweptDeathOrb sandsweptDeathOrb = new SandsweptDeathOrb();
-                sandsweptDeathOrb.origin = characterBody.corePosition;
-                sandsweptDeathOrb.target = Util.FindBodyMainHurtBox(attackerBody);
-                OrbManager.instance.AddOrb(sandsweptDeathOrb);
-            }
+            AffixSandswept.CreateOrb(characterBody, attackerBody);
             base.characterBody.healthComponent.Suicide(attackerBody?.gameObject); //already defaults to null if theres no attacker body
         }
     }

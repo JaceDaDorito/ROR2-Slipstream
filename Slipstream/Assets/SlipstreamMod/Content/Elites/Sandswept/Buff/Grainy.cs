@@ -34,11 +34,23 @@ namespace Slipstream.Buffs
         {
             buff = BuffDef;
 
+            GlobalEventManager.onCharacterDeathGlobal += GlobalEventManager_onCharacterDeathGlobal;
+
             //On.RoR2.CharacterModel.UpdateOverlays += CharacterModel_UpdateOverlays;
         }
 
+        //This won't give orbs to non-grainy bodies, there are checks in the actual CreateOrb method.
+        //If I don't put this here, minions won't be able to give orbs to their leader.
+        private void GlobalEventManager_onCharacterDeathGlobal(DamageReport obj)
+        {
+            CharacterBody victimBody = obj.victimBody;
+            if (victimBody && victimBody.HasBuff(AffixSandswept.buff))
+            {
+                AffixSandswept.CreateOrb(victimBody, obj.attackerBody);
+            }
+        }
 
-        public class GrainyBehaviour : BaseBuffBodyBehavior, IOnKilledOtherServerReceiver
+        public class GrainyBehaviour : BaseBuffBodyBehavior/*, IOnKilledOtherServerReceiver*/
         {
             [BuffDefAssociation(useOnClient = true, useOnServer = true)]
             public static BuffDef GetBuffDef() => SlipContent.Buffs.Grainy;
@@ -133,17 +145,14 @@ namespace Slipstream.Buffs
                 return ((end - beginning) / (maximumBuffs - 1)) * (buffsActive - 1) + beginning;
             }
 
-            public void OnKilledOtherServer(DamageReport damageReport)
+            /*public void OnKilledOtherServer(DamageReport damageReport)
             {
                 CharacterBody victimBody = damageReport.victimBody;
-                if(body.HasBuff(buff) && victimBody && victimBody.HasBuff(AffixSandswept.buff))
+                if(victimBody && victimBody.HasBuff(AffixSandswept.buff))
                 {
-                    SandsweptDeathOrb sandsweptDeathOrb = new SandsweptDeathOrb();
-                    sandsweptDeathOrb.origin = victimBody.corePosition;
-                    sandsweptDeathOrb.target = Util.FindBodyMainHurtBox(body);
-                    OrbManager.instance.AddOrb(sandsweptDeathOrb);
+                    AffixSandswept.CreateOrb(victimBody, body);
                 }
-            }
+            }*/
             
         }
     }
