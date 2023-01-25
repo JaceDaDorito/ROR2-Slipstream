@@ -9,7 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: matCoreExplosion
   m_Shader: {fileID: 4800000, guid: bd3280d07a5a3f0459cc68bdc2b5feaa, type: 2}
-  m_ShaderKeywords: USE_CLOUDS
+  m_ShaderKeywords: USE_CLOUDS VERTEXCOLOR
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -112,7 +112,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _RemapTex:
-        m_Texture: {fileID: 2800000, guid: 605fe8f1b94e5ce449f123f6a106f9da, type: 3}
+        m_Texture: {fileID: 2800000, guid: 852c9b75f4717d746a97f3074240e930, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SliceAlphaTex:
@@ -128,7 +128,7 @@ Material:
     - _AlphaBoost: 1
     - _BlueChannelBias: 0
     - _BlueChannelSmoothness: 0
-    - _Boost: 1
+    - _Boost: 20
     - _BumpScale: 1
     - _CalcTextureAlphaOn: 0
     - _CloudOffsetOn: 0
@@ -203,7 +203,7 @@ Material:
     - _UVSec: 0
     - _UseUV1On: 0
     - _VertexAlphaOn: 0
-    - _VertexColorOn: 0
+    - _VertexColorOn: 1
     - _VertexOffsetOn: 0
     - _ZTest: 4
     - _ZWrite: 1

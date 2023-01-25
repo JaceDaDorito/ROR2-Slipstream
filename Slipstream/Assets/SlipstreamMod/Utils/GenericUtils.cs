@@ -34,6 +34,20 @@ namespace Slipstream
             model.activeOverlayCount = num + 1;
             array[num] = overlayMaterial;
         }
+        public static void OverrideBodyMaterials(CharacterModel model,  Material passedMat, List<CharacterModel.RendererInfo> rendererList = null)
+        {
+            for (int i = 0; i < model.baseRendererInfos.Length; i++)
+            {
+                var mat = model.baseRendererInfos[i].defaultMaterial;
+                if (mat.shader.name.StartsWith("Hopoo Games/Deferred"))
+                {
+                    mat = passedMat;
+                    model.baseRendererInfos[i].defaultMaterial = mat;
+                    if(rendererList != null)
+                        rendererList.Add(model.baseRendererInfos[i]);
+                }
+            }
+        }
 
         public static void AddStacksOfBuff(CharacterBody body, BuffDef buffDef, int count)
         {

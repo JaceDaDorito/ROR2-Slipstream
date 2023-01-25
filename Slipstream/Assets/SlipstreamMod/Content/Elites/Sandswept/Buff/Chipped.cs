@@ -25,6 +25,9 @@ namespace Slipstream.Buffs
 
         public static float chippedAmount = GenericUtils.ConvertPercentCursedToCurseInput(AffixSandswept.chippedPercentage);
         public static float nerfedChippedAmount = GenericUtils.ConvertPercentCursedToCurseInput(AffixSandswept.nerfedChippedPercentage);
+
+        public static Material glassMaterial = SlipAssets.Instance.MainAssetBundle.LoadAsset<Material>("matIsGlass");
+        private static float flashDuration = 1f;
         public override void Initialize()
         {
             buff = BuffDef;
@@ -32,8 +35,11 @@ namespace Slipstream.Buffs
 
         public sealed class ChippedBehavior : BaseBuffBodyBehavior, IBodyStatArgModifier
         {
-            [BuffDefAssociation]
+            [BuffDefAssociation(useOnClient = true, useOnServer = true)]
             private static BuffDef GetBuffDef() => SlipContent.Buffs.Chipped;
+            private TemporaryOverlay temporaryOverlay;
+            private TemporaryOverlay glassOverlay;
+            private CharacterModel model;
 
             public void ModifyStatArguments(RecalculateStatsAPI.StatHookEventArgs args)
             {
@@ -51,6 +57,42 @@ namespace Slipstream.Buffs
                     
                 }
                     
+            }
+
+            public void Start()
+            {
+                model = body.modelLocator.modelTransform.GetComponent<CharacterModel>();
+               
+                if (model)
+                {
+                    temporaryOverlay = new TemporaryOverlay();
+                    temporaryOverlay = body.gameObject.AddComponent<TemporaryOverlay>();
+                    temporaryOverlay.duration = flashDuration;
+                    temporaryOverlay.destroyComponentOnEnd = true;
+                    temporaryOverlay.destroyObjectOnEnd = false;
+                    temporaryOverlay.originalMaterial = glassMaterial;
+                    temporaryOverlay.inspectorCharacterModel = model;
+                    temporaryOverlay.alphaCurve = AnimationCurve.Linear(0f, 1f, flashDuration, 0f);
+                    temporaryOverlay.animateShaderAlpha = true;
+
+                    glassOverlay = new TemporaryOverlay();
+                    glassOverlay = body.gameObject.AddComponent<TemporaryOverlay>();
+                    glassOverlay.duration = flashDuration; //doesn't matter what you put here
+                    glassOverlay.destroyComponentOnEnd = false;
+                    glassOverlay.destroyObjectOnEnd = false;
+                    glassOverlay.originalMaterial = glassMaterial;
+                    glassOverlay.inspectorCharacterModel = model;
+                    //GenericUtils.OverrideBodyMaterials(model, glassMaterial);
+                }
+            }
+
+            public void OnDestroy()
+            {
+                if (glassOverlay)
+                {
+                    Destroy(glassOverlay);
+                    glassOverlay = null;
+                }
             }
 
         }

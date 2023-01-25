@@ -34,27 +34,18 @@ namespace Slipstream.Buffs
         {
             buff = BuffDef;
 
-            GlobalEventManager.onCharacterDeathGlobal += GlobalEventManager_onCharacterDeathGlobal;
+            //GlobalEventManager.onCharacterDeathGlobal += GlobalEventManager_onCharacterDeathGlobal;
+            //GlobalEventManager.onServerDamageDealt += GlobalEventManager_onServerDamageDealt;
 
             //On.RoR2.CharacterModel.UpdateOverlays += CharacterModel_UpdateOverlays;
         }
 
-        //This won't give orbs to non-grainy bodies, there are checks in the actual CreateOrb method.
-        //If I don't put this here, minions won't be able to give orbs to their leader.
-        private void GlobalEventManager_onCharacterDeathGlobal(DamageReport obj)
-        {
-            CharacterBody victimBody = obj.victimBody;
-            if (victimBody && victimBody.HasBuff(AffixSandswept.buff))
-            {
-                AffixSandswept.CreateOrb(victimBody, obj.attackerBody);
-            }
-        }
 
         public class GrainyBehaviour : BaseBuffBodyBehavior/*, IOnKilledOtherServerReceiver*/
         {
             [BuffDefAssociation(useOnClient = true, useOnServer = true)]
             public static BuffDef GetBuffDef() => SlipContent.Buffs.Grainy;
-            private TemporaryOverlay temporaryOverlay;
+            private TemporaryOverlay temporaryOverlay = null;
 
             private int cachedCount = 0;
             private int buffOnBody = 0;
@@ -82,30 +73,28 @@ namespace Slipstream.Buffs
             }
             public void OnDestroy()
             {
-                if (temporaryOverlay)
+                if (temporaryOverlay != null)
                     Destroy(temporaryOverlay);
             }
             public void Update()
             {
                 
-
-                if (temporaryOverlay)
+                if (temporaryOverlay != null)
                 {
-
+                    //SlipLogger.LogD("Start of Overlay");
                     buffOnBody = body.GetBuffCount(buff);
-                    
 
-                    //the actual material properties should line up with the values defined at the top of the Grainy Class.
-
-                    if (buffOnBody > 1 && buffOnBody != cachedCount)
+                    if (buffOnBody > 1 && buffOnBody != cachedCount && temporaryOverlay.materialInstance != null)
                     {
+                        //SlipLogger.LogD("Start of overlay creation");
                         cachedCount = buffOnBody; //Small optimization so  this code doesn't run every frame  until there is a change in the buff on the body
 
                         currentTint = CalculateIntervals(initialMaterialTint.a, endTintAlpha, buffCount, buffOnBody);
                         currentAlphaBoost = CalculateIntervals(initialAlphaBoost, endAlphaBoost, buffCount, buffOnBody);
                         currentScrollSpeed = CalculateIntervals(initialScrollSpeed, endScrollSpeed, buffCount, buffOnBody);
 
-                        if(buffOnBody <= buffCount - AffixSandswept.buffsApplied)
+                        //SlipLogger.LogD("value finding");
+                        if (buffOnBody <= buffCount - AffixSandswept.buffsApplied)
                             tintColor = new Color(initialMaterialTint.r, initialMaterialTint.g, initialMaterialTint.b, currentTint);
                         else
                             tintColor = new Color(dangerColor.r, dangerColor.g, dangerColor.b, currentTint);
@@ -121,6 +110,7 @@ namespace Slipstream.Buffs
                 }
                 else
                 {
+                    //SlipLogger.LogD("Overlay Reinitialized");
                     InitializeOverlay();
                 }
                 

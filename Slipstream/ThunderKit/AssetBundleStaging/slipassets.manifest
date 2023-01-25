@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 3703314436
+CRC: 622477262
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: e3ea9eb3933ec1ccd34ed113b69db6ea
+    Hash: 6a8c623e181836a25d42f604b72eb5e1
   TypeTreeHash:
     serializedVersion: 2
     Hash: 9ad7c2a0ab2fda1b058d2cbd0c836ac4
@@ -262,6 +262,7 @@ Assets:
 - Assets/SlipstreamMod/Content/GeneralMaterials/Capture2.png
 - Assets/SlipstreamMod/Content/GeneralMaterials/Terrain/texGPRockSide3.png
 - Assets/SlipstreamMod/Content/Pickups/Items/GlassEye/Assets/GlassEye_HeightMap.png
+- Assets/SlipstreamMod/Content/GeneralMaterials/texRampDefault2.png
 - Assets/SlipstreamMod/Content/Elites/Sandswept/Assets/matIsGlass.mat
 - Assets/SlipstreamMod/Content/Elites/Sandswept/Assets/matEliteSandCrown.mat
 - Assets/SlipstreamMod/Content/GeneralMaterials/ShaderTextures/T_Noise_03.png
@@ -336,6 +337,7 @@ Assets:
 - Assets/SlipstreamMod/Content/Skins/GhostrunnerMerc/Assets/CMercSword_emission.png
 - Assets/SlipstreamMod/Content/Scenes/aridexpanse/Assets/matAridTree.mat
 - Assets/SlipstreamMod/Content/Elites/Sandswept/Assets/matEliteSandOverlay.mat
+- Assets/SlipstreamMod/Content/Elites/Sandswept/Assets/matGlassLightShaft.mat
 - Assets/SlipstreamMod/Content/Scenes/aridexpanse/Assets/matAETerrain1.mat
 - Assets/SlipstreamMod/Content/Pickups/Items/PepperSpray/Assets/matPepperSprayEmit.mat
 - Assets/SlipstreamMod/Content/Elites/Sandswept/Assets/texRampSandTrail2.png
@@ -356,6 +358,7 @@ Assets:
 - Assets/SlipstreamMod/Content/GeneralMaterials/Terrain/texGPRockSide2.png
 - Assets/SlipstreamMod/Content/Elites/Sandswept/SandDeathOrbImpact.prefab
 - Assets/SlipstreamMod/Content/Scenes/aridexpanse/Assets/skyboxAridCubemap3.png
+- Assets/Mesh/RippedMeshes/mdlIcoRockM.asset
 - Assets/SlipstreamMod/Content/Pickups/Items/GlassEye/Assets/GlassEye_Glowy.png
 - Assets/SlipstreamMod/Content/GeneralMaterials/Terrain/texGPRockSide4.png
 - Assets/SlipstreamMod/Content/GeneralMaterials/StolenRamps/texRampHealingMedkit.png
@@ -365,6 +368,7 @@ Assets:
 - Assets/SlipstreamMod/Content/Elites/Sandswept/Assets/matSandDeathTrail2.mat
 - Assets/SlipstreamMod/Content/Scenes/aridexpanse/dccs/dccsAridExpanseMonsterDLC1.asset
 - Assets/SlipstreamMod/Content/Pickups/Interfaces/texCriticalShieldIndi.png
+- Assets/SlipstreamMod/Content/Elites/Sandswept/Assets/matSandExplosionParticle2.mat
 - Assets/SlipstreamMod/Content/GeneralMaterials/ShaderTextures/Cracks 13 - 256x256.png
 - Assets/SlipstreamMod/Content/Skins/GhostrunnerMerc/Assets/matGhostrunnerMerc.mat
 - Assets/SlipstreamMod/Content/Pickups/Items/PepperSpray/PepperSprayExplosion.prefab

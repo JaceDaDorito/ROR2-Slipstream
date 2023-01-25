@@ -30,7 +30,10 @@ public class DieOnCollision : MonoBehaviour
             AffixSandswept.FireKBBlast(body);
             AffixSandswept.CreateOrb(body, attackerBody);
             SlipLogger.LogD(gameObject + " glass statue died to Collision");
-            body.healthComponent.Suicide(attackerBody?.gameObject);
+            if (attackerBody)
+                body.healthComponent.Suicide(attackerBody?.gameObject);
+            else
+                body.healthComponent.Suicide();
 
             Destroy(this);
         }

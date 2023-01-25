@@ -58,7 +58,8 @@ namespace EntityStates.Sandswept
             setCollider.isTrigger = true;*/
 
             doc = characterBody.gameObject.AddComponent<DieOnCollision>();
-            doc.attackerBody = attackerBody;
+            if(attackerBody)
+                doc.attackerBody = attackerBody;
 
             characterGravityParameterProvider = characterBody.GetComponent<ICharacterGravityParameterProvider>();
             characterFlightParameterProvider = characterBody.GetComponent<ICharacterFlightParameterProvider>();

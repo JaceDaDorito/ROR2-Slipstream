@@ -20,6 +20,35 @@ using RoR2.Orbs;
 
 namespace Slipstream.Buffs
 {
+
+    /* SANDSWEPT DOCUMENTATION BECAUSE THIS ELITE IS COMPLICATED
+     * ----------------------
+     * 
+     * So Sandswepts have 5 ways of "dying": 4 of which involve the glass state and the last one skipping the glass state.
+     * I want to add one more way of dying of which it dies to the kill console command but its not a big deal.
+     * Each death will be logged via console, fires the method FireKBBlast(), and gives an orb if a valid target has the grainy debuff.
+     * 
+     * Each Death is as follows:
+     * 
+     * Damage - Only happens once the elite is in the glass state and takes another instance of damage. Also allows some aerial enemies to take fall damage and die.
+     * (Found in this script under GlobalEventManager_onServerDamageDealt)
+     * 
+     * Collision - Only applies to aerial elites of which they fall to the ground and die when they are in the glass state. Triggered when the collider hits the ground.
+     * (Found in the DieOnCollision script)
+     * 
+     * Raycast - Same as Collision except that its triggered when the footposition of the elite is close enough to the ground. The point of this is because some enemies
+     * don't collide with the ground or take fall damage (vultures and pests).
+     * (Found in the AirGlassState script under FixedUpdate)
+     * 
+     * Age - When the elite goes into the glass state, it has a set timer before it explodes by itself.
+     * (Found in the GlassState script under FixedUpdate)
+     * 
+     * Void Damage - This is the one that skips the glass state entirely and directly fires the explosion. This applies to any void enemy that has void damage as well as
+     * lost seers lenses.
+     * (Found in this script under GlobalEventManager_onServerDamageDealt)
+     * 
+     * 
+     */
     public class AffixSandswept : BuffBase
     {
         public override BuffDef BuffDef { get; } = SlipAssets.Instance.MainAssetBundle.LoadAsset<BuffDef>("AffixSandswept");
@@ -136,14 +165,8 @@ namespace Slipstream.Buffs
             CharacterBody body = obj.victimBody;
             if (body.healthComponent)
             {
-                //check if they died to something without an attacker
-                if(body.HasBuff(BuffDef.buffIndex) && !body.healthComponent.alive && obj.attacker == null)
-                {
-                    SlipLogger.LogD(body + " glass statue died to NULL (Probably because of console)");
-                    FireKBBlast(body);
-                }
                 //If the body died to void damage, just kill it and fire the knockback
-                else if (body.HasBuff(BuffDef.buffIndex) && ((obj.damageInfo.damageType & DamageType.VoidDeath) > 0))
+                if (body.HasBuff(BuffDef.buffIndex) && ((obj.damageInfo.damageType & DamageType.VoidDeath) > 0))
                 {
                     SlipLogger.LogD(body + " glass statue died to Void Damage");
                     FireKBBlast(body);
@@ -166,14 +189,15 @@ namespace Slipstream.Buffs
                         machineArray[i].SetNextStateToMain();
                     }
 
-                    if(body.isFlying/* || (body.characterMotor && !body.characterMotor.isGrounded)*/)
+                    if(body.isFlying && (body.rigidbody != null || body.characterMotor != null)/* || (body.characterMotor && !body.characterMotor.isGrounded)*/)
                     {
                         deathBehaviour.deathStateMachine.SetNextState(state = new AirGlassState());
                         state.isAirState = true;
                     }
                     else
                         deathBehaviour.deathStateMachine.SetNextState(state = new GlassState());
-                    state.attackerBody = obj.attackerBody; //Records the attacker who put this body into the glass state to give them money later if the body suicides
+                    if (obj.attacker)
+                        state.attackerBody = obj.attackerBody; //Records the attacker who put this body into the glass state to give them money later if the body suicides
 
                     /*EntityStateMachine[] array = deathBehaviour.idleStateMachine;
                     for( int i = 0; i < array.Length; i++)
@@ -182,14 +206,14 @@ namespace Slipstream.Buffs
                     }*/
                        
                 }
-                //If the body just died, is Sandswept, and is glass, do knockback explosion.
+                //If the body Sandswept, and is glass, do knockback explosion. Doesn't matter if the body is alive or not, if its glass its glass
                 else if (/*!body.healthComponent.alive && */body.HasBuff(BuffDef.buffIndex) && body.GetComponent<AffixSandsweptBehavior>().isGlass)
                 {
 
-                    if (body.healthComponent.alive)
-                    {
+                    if (body.healthComponent.alive && obj.attackerBody)
                         body.healthComponent.Suicide(obj.attackerBody?.gameObject/*, null, obj.damageInfo.damageType*/);
-                    }
+                    else
+                        body.healthComponent.Suicide();
 
                     //This grants money to the attacker anyway
                     if (state.isAirState)
@@ -198,6 +222,7 @@ namespace Slipstream.Buffs
                         DieOnCollision doc = body.gameObject.GetComponent<DieOnCollision>();
                         doc.collided = true;
                     }
+                    AffixSandswept.CreateOrb(body, obj.attackerBody);
                     SlipLogger.LogD(body + " glass statue died to Damage");
                     FireKBBlast(body);
                 }
@@ -223,6 +248,7 @@ namespace Slipstream.Buffs
             }
             return hullRadius + (body.bestFitRadius / 2f);
         }
+
 
         public static void CreateOrb(CharacterBody source, CharacterBody passedTarget)
         {

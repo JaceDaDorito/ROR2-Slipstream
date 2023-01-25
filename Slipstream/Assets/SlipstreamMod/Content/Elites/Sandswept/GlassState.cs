@@ -105,7 +105,7 @@ namespace EntityStates.Sandswept
                     temporaryOverlay.animateShaderAlpha = true;
 
                     //sets the material of the mf to be glass
-                    for(int i = 0; i < model.baseRendererInfos.Length; i++)
+                    /*for(int i = 0; i < model.baseRendererInfos.Length; i++)
                     {
                         var mat = model.baseRendererInfos[i].defaultMaterial;
                         if(mat.shader.name.StartsWith("Hopoo Games/Deferred"))
@@ -114,7 +114,9 @@ namespace EntityStates.Sandswept
                             model.baseRendererInfos[i].defaultMaterial = mat;
                             rendererList.Add(model.baseRendererInfos[i]);
                         }
-                    }
+                    }*/
+
+                    GenericUtils.OverrideBodyMaterials(model, frozenOverlayMaterial, rendererList);
 
                     //sets the material of the mf's item displays to be glass
                     ItemDisplay[] itemDisplays = modelTransform.GetComponentsInChildren<ItemDisplay>();
@@ -278,8 +280,14 @@ namespace EntityStates.Sandswept
         protected void CommitSuicide()
         {
             AffixSandswept.FireKBBlast(characterBody);
-            AffixSandswept.CreateOrb(characterBody, attackerBody);
-            base.characterBody.healthComponent.Suicide(attackerBody?.gameObject); //already defaults to null if theres no attacker body
+            if (attackerBody)
+            {
+                AffixSandswept.CreateOrb(characterBody, attackerBody);
+                base.characterBody.healthComponent.Suicide(attackerBody?.gameObject); //already defaults to null if theres no attacker body
+            }
+            else
+                characterBody.healthComponent.Suicide();
+                
         }
     }
 }

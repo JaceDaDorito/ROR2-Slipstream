@@ -150,7 +150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14baa2509d6666748a1d7d0c6e146b5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AssetPath: RoR2/Base/Bandit2/HitsparkBandit2Pistol.prefab
+  AssetPath: RoR2/Base/GreaterWisp/GreaterWispBody.prefab
   _refreshInEditor: 1
   _networkInstantiate: 0
 --- !u!4 &10525273
@@ -196,7 +196,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14baa2509d6666748a1d7d0c6e146b5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AssetPath: RoR2/Base/Common/VFX/BleedEffect.prefab
+  AssetPath: RoR2/Base/Bandit2/Bandit2SmokeBomb.prefab
   _refreshInEditor: 1
   _networkInstantiate: 0
 --- !u!4 &287845915
