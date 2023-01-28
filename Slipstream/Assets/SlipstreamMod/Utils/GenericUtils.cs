@@ -69,5 +69,13 @@ namespace Slipstream
             float inverse = 1f - cursePercent;
             return (1f / inverse) - 1f;
         }
+
+        public static CharacterBody GetBodyFromInventory(RoR2.Inventory inv)
+        {
+            CharacterMaster master = inv.GetComponent<CharacterMaster>();
+            if (!master)
+                return null;
+            return master.GetBody();
+        }
     }
 }

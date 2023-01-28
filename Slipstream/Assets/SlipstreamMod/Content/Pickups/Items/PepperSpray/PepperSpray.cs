@@ -30,7 +30,7 @@ namespace Slipstream.Items
 
         //[ConfigurableField(ConfigName = "Shield Threshold", ConfigDesc = "Percentage of total shield in order to trigger the effect.", ConfigSection = "PepperSpray")]
         [TokenModifier(token, StatTypes.MultiplyByN, 1, "100")]
-        public static float threshold = CriticalShield.threshold;
+        public static float threshold = SlipCriticalShield.threshold;
 
         [ConfigurableField(ConfigName = "Base Radius", ConfigDesc = "Initial radius of the stun effect.", ConfigSection = "PepperSpray")]
         [TokenModifier(token, StatTypes.Default, 2)]
@@ -54,7 +54,7 @@ namespace Slipstream.Items
 
         //public static string explosionSoundString = "Fart";
 
-        public class PepperSprayBehavior : CriticalShield.CriticalShieldBehavior, IBodyStatArgModifier
+        public class PepperSprayBehavior : BaseItemBodyBehavior, IBodyStatArgModifier, SlipCriticalShield.ICriticalShield
         {
             [ItemDefAssociation(useOnClient = true, useOnServer = true)]
             public static RoR2.ItemDef GetItemDef() => SlipContent.Items.PepperSpray;
@@ -70,7 +70,7 @@ namespace Slipstream.Items
             }
 
             //The trigger should only happen once until you recharge, not after everytime you get hit below the threshold
-            public override void Trigger()
+            public void Trigger()
             {
                 if (NetworkServer.active)
                 {

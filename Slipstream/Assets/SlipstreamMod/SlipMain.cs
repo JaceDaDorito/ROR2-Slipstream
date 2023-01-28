@@ -71,7 +71,8 @@ namespace Slipstream
             new SlipContent().Init();
             new SlipLanguage().Init();
 
-            new CriticalShield().Init();
+            //new CriticalShield().Init();
+            new SlipCriticalShield().Init();
             new VoidShieldCatalog().Init();
             new ExpansionUtils().Init();
             //new SlipDirectorUtilsHandler().Init();

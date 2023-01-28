@@ -26,7 +26,7 @@ namespace Slipstream.Items
         public static float baseShield = 0.08f;
 
         [TokenModifier(token, StatTypes.MultiplyByN, 1, "100")]
-        public static float threshold = CriticalShield.threshold;
+        public static float threshold = SlipCriticalShield.threshold;
 
         [ConfigurableField(ConfigName = "Damage Increase", ConfigDesc = "Damage increase when Brine Buff is active.", ConfigSection = "BrineSwarm")]
         [TokenModifier(token, StatTypes.MultiplyByN, 2, "100")]
@@ -55,7 +55,7 @@ namespace Slipstream.Items
             return new RoR2.ItemDef[1] { SlipAssets.Instance.MainAssetBundle.LoadAsset<RoR2.ItemDef>("PepperSpray") };
         }
 
-        public class BrineSwarmBehavior : CriticalShield.CriticalShieldBehavior, IBodyStatArgModifier
+        public class BrineSwarmBehavior : BaseItemBodyBehavior, IBodyStatArgModifier, SlipCriticalShield.ICriticalShield
         {
             [ItemDefAssociation(useOnClient = true, useOnServer = true)]
 
@@ -66,7 +66,7 @@ namespace Slipstream.Items
                 args.baseShieldAdd += body.healthComponent.fullHealth * baseShield;
             }
 
-            public override void Trigger()
+            public void Trigger()
             {
                 if (NetworkServer.active)
                 {
