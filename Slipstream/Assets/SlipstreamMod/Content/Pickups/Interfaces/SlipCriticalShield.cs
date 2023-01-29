@@ -10,6 +10,7 @@ using TMPro;
 using UnityEngine.UI;
 using System.Collections.Generic;
 using Slipstream.Utils;
+using RoR2.UI;
 
 namespace Slipstream.Items
 {
@@ -20,20 +21,18 @@ namespace Slipstream.Items
         public static float threshold = 0.5f;
 
 
-        private static Sprite lowShieldNormal;
-        private static Sprite lowShieldVoid;
+        private static Texture lowShieldNormal = SlipAssets.Instance.MainAssetBundle.LoadAsset<Texture>("texCriticalShieldIndi");
+        private static Texture lowShieldVoid = SlipAssets.Instance.MainAssetBundle.LoadAsset<Texture>("texCriticalVoidShiIndi");
 
         public static Dictionary<CharacterBody, bool> shouldTrigger = new Dictionary<CharacterBody, bool>();
+        public static Color critShieldBaseColor = new Color(1f, 1f, 1f, 1f);
 
 
 
-        RoR2.UI.HealthBarStyle.BarStyle critShieldBarStyle;
+        public static RoR2.UI.HealthBarStyle.BarStyle critShieldBarStyle;
 
         public void Init()
         {
-            lowShieldNormal = SlipAssets.Instance.MainAssetBundle.LoadAsset<Sprite>("texCriticalShieldIndi");
-            lowShieldVoid = SlipAssets.Instance.MainAssetBundle.LoadAsset<Sprite>("texCriticalVoidShiIndi");
-
             CharacterBody.onBodyAwakeGlobal += CharacterBody_onBodyAwakeGlobal;
             CharacterBody.onBodyDestroyGlobal += CharacterBody_onBodyDestroyGlobal;
             On.RoR2.HealthComponent.FixedUpdate += HealthComponent_FixedUpdate;
@@ -86,11 +85,18 @@ namespace Slipstream.Items
         public class CriticalShieldData : ExtraHealthbarSegment.BarData
         {
             private bool enabled;
+            private Material barMat = SlipAssets.Instance.MainAssetBundle.LoadAsset<Material>("matCriticalShield");
+            private Material voidMat;
+
 
             public override RoR2.UI.HealthBarStyle.BarStyle GetStyle()
             {
-                var style = bar.style.barrierBarStyle;
+                var style = critShieldBarStyle;
                 style.sizeDelta = bar.style.lowHealthOverStyle.sizeDelta;
+                style.baseColor = critShieldBaseColor;
+                style.imageType = Image.Type.Simple;
+                style.enabled = true;
+
                 return style;
             }
 
@@ -100,21 +106,52 @@ namespace Slipstream.Items
 
                 //if there are any critical shield items in the inventory, enable healthbar
 
-                enabled = body.gameObject.GetComponent<ICriticalShield>() != null;
+                //enabled = body.gameObject.GetComponent<ICriticalShield>() != null;
+
+                if(body.gameObject.GetComponent<ICriticalShield>() == null)
+                {
+                    enabled = false;
+                    return;
+                }
+
+                if (!body) return;
+                if (!body.healthComponent) return;
+
+                enabled = true;
+
+
             }
 
             public override void UpdateInfo(ref RoR2.UI.HealthBar.BarInfo info, HealthComponent healthSource)
             {
-                info.enabled = enabled && shouldTrigger[healthSource.body];
+                //instanceMat = image.canvasRenderer.GetMaterial();
+
+                base.UpdateInfo(ref info, healthSource);
+
+                info.enabled = enabled && shouldTrigger[healthSource.body]; //&& healthSource.shield > 0;
                 var healthBarValues = healthSource.GetHealthBarValues();
-                info.sprite = healthBarValues.hasVoidShields? lowShieldVoid : lowShieldNormal;
+
+                /*if (!instanceMat)
+                {
+                    instanceMat = image.canvasRenderer.GetMaterial();
+                }*/
+               
+                barMat.SetTexture("_RemapTex", healthBarValues.hasVoidShields ? lowShieldVoid : lowShieldNormal);
+                //info.sprite = healthBarValues.hasVoidShields? lowShieldVoid : lowShieldNormal;
 
                 float minPos = healthBarValues.healthFraction;
                 info.normalizedXMin = minPos;
                 float fullShieldFraction = ((healthSource.fullShield * threshold) / (healthSource.fullShield + healthSource.fullHealth)) * (1f - healthBarValues.curseFraction);
                 info.normalizedXMax = minPos + (fullShieldFraction);
 
-                base.UpdateInfo(ref info, healthSource);
+                
+            }
+
+            public override void ApplyBar(ref HealthBar.BarInfo info, Image image, HealthComponent source, ref int i)
+            {
+                if (source.GetHealthBarValues().hasVoidShields) barMat.SetTexture("_RemapTex", lowShieldVoid);
+                image.material = barMat;
+                base.ApplyBar(ref info, image, source, ref i);
             }
 
 

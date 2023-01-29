@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 622477262
+CRC: 2459221638
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 6a8c623e181836a25d42f604b72eb5e1
+    Hash: 9808bea4f9facb463309a246df0bb9ad
   TypeTreeHash:
     serializedVersion: 2
     Hash: 9ad7c2a0ab2fda1b058d2cbd0c836ac4
@@ -187,6 +187,7 @@ Assets:
 - Assets/SlipstreamMod/Content/Elites/Sandswept/SandsweptMissile.prefab
 - Assets/SlipstreamMod/Content/GeneralMaterials/Terrain/texBlackbeachDirt2.png
 - Assets/Mesh/AridExpanse/dioramaGround.fbx
+- Assets/SlipstreamMod/Content/Pickups/Interfaces/texRampCritShieldCloud.png
 - Assets/SlipstreamMod/Content/Elites/Sandswept/Assets/SandSweptCrown_diffuse.png
 - Assets/SlipstreamMod/Content/Scenes/aridexpanse/dccs/dpAridExpanseInteractables.asset
 - Assets/SlipstreamMod/Content/Elites/Sandswept/Assets/mdlSandSweptCrown.prefab
@@ -227,6 +228,8 @@ Assets:
 - Assets/SlipstreamMod/Content/Pickups/Items/PepperSpray/Assets/iconPepperSpeed.png
 - Assets/SlipstreamMod/Content/GeneralMaterials/Stolen/texLightning1Mask.png
 - Assets/SlipstreamMod/Content/Skins/GhostrunnerMerc/Assets/matGhostrunnerSword.mat
+- Assets/SlipstreamMod/Content/GeneralMaterials/Stolen/texEngiShield.png
+- Assets/SlipstreamMod/Content/Pickups/Interfaces/matCriticalShield.mat
 - Assets/SlipstreamMod/Content/GeneralMaterials/texAlphaGradient2Mask.png
 - Assets/SlipstreamMod/Content/Skins/GhostrunnerMerc/Assets/CMerc_normal.png
 - Assets/SlipstreamMod/Content/Pickups/Items/Coalition/BlackHealth.asset

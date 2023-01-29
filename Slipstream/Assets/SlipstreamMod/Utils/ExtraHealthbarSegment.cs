@@ -116,8 +116,6 @@ namespace Slipstream.Utils
 			public HealthBar bar;
 			public HealthBar.BarInfo info;
 			public HealthBarStyle.BarStyle? cachedStyle;
-			public Material mat;
-			public Material instanceMat;
 
 			public abstract HealthBarStyle.BarStyle GetStyle();
 
@@ -129,24 +127,17 @@ namespace Slipstream.Utils
 				info.enabled &= style.enabled;
 				info.color = style.baseColor;
 				info.imageType = style.imageType;
-				if(!mat)
-					info.sprite = style.sprite;
+				info.sprite = style.sprite;
 				info.sizeDelta = style.sizeDelta;
 			}
 
 			public virtual void CheckInventory(ref HealthBar.BarInfo info, CharacterBody body) { }
 
 			//Sets bar information such as the beginning and end of the bar and the sprite/material
-			public virtual void ApplyBar(ref HealthBar.BarInfo info, Image image, ref int i)
+			public virtual void ApplyBar(ref HealthBar.BarInfo info, Image image, HealthComponent source, ref int i)
 			{
 				image.type = info.imageType;
-				if (mat)
-                {
-					image.material = mat;
-					instanceMat = image.canvasRenderer.GetMaterial();
-				}
-				else
-					image.sprite = info.sprite;
+				image.sprite = info.sprite;
 				image.color = info.color;
 
 
@@ -165,6 +156,7 @@ namespace Slipstream.Utils
 		{
 			public List<BarData> barInfos;
 			public HealthBar healthBar;
+			private static Material beforeSwap;
 
 			public void CheckInventory(CharacterBody body)
 			{
@@ -188,13 +180,27 @@ namespace Slipstream.Utils
 			}
 			public void ApplyBar(ref int i)
 			{
+
+				if (beforeSwap)
+				{
+					foreach (var image in healthBar.barAllocator.elements)
+					{
+						image.material = beforeSwap;
+					}
+				}
+
 				foreach (var barInfo in barInfos)
 				{
 					ref var info = ref barInfo.info;
 					if (!info.enabled) continue;
 
 					Image image = healthBar.barAllocator.elements[i];
-					barInfo.ApplyBar(ref barInfo.info, image, ref i);
+					if (!beforeSwap)
+					{
+						beforeSwap = image.material;
+						SlipLogger.LogD("bar mat:" + beforeSwap.name);
+					}
+					barInfo.ApplyBar(ref barInfo.info, image, healthBar.source, ref i);
 				}
 			}
 
