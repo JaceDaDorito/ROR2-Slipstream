@@ -112,6 +112,11 @@ namespace Slipstream.Items
 
             private bool hadShield = false;
             public bool triggerReduction = false;
+
+            /*public void Awake()
+            {
+                body.RecalculateStats();
+            }*/
             public void ModifyStatArguments(RecalculateStatsAPI.StatHookEventArgs args)
             {
                 //adds 3% of max health as shield to the player

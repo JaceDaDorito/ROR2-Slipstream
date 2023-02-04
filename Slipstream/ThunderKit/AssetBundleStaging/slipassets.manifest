@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 2459221638
+CRC: 651547218
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 9808bea4f9facb463309a246df0bb9ad
+    Hash: 25fdeee00d176199ec2d29c292b8fae6
   TypeTreeHash:
     serializedVersion: 2
     Hash: 9ad7c2a0ab2fda1b058d2cbd0c836ac4
@@ -175,6 +175,7 @@ Assets:
 - Assets/SlipstreamMod/Content/Skins/GhostrunnerMerc/Assets/CMerc_diffuse.png
 - Assets/SlipstreamMod/Content/Elites/Sandswept/Assets/matSandExplosionParticle.mat
 - Assets/SlipstreamMod/Content/Scenes/TestStage/matWindowsXPTerrain.mat
+- Assets/SlipstreamMod/Content/Elites/Sandswept/Assets/texCurseDebuff.png
 - Assets/SlipstreamMod/Content/Elites/Sandswept/Assets/matCoreExplosion.mat
 - Assets/SlipstreamMod/Content/Skills/Example/Example.asset
 - Assets/SlipstreamMod/Content/GeneralMaterials/iconSkillPlaceholder.png
@@ -219,6 +220,7 @@ Assets:
 - Packages/com.unity.postprocessing/PostProcessing/Gizmos/PostProcessLayer.png
 - Assets/SlipstreamMod/Content/Elites/Sandswept/Assets/matSandDeathPulse.mat
 - Assets/SlipstreamMod/Content/GeneralMaterials/texAlphaGradientBlue.png
+- Assets/SlipstreamMod/Content/Pickups/Items/Coalition/Assets/matBlackBlood.mat
 - Assets/SlipstreamMod/Content/GeneralMaterials/StolenRamps/texRampGreaterWisp.png
 - Assets/SlipstreamMod/Content/GeneralMaterials/texAlphaGradientFlipped.png
 - Assets/SlipstreamMod/Content/Pickups/Equipments/SoulSucker/SoulSuckerTrap.prefab
@@ -277,6 +279,7 @@ Assets:
 - Assets/SlipstreamMod/Content/Elites/Sandswept/Assets/SandSweptCrown_maskreverse.png
 - Assets/SlipstreamMod/Content/Pickups/Items/ChargedFungus/ChargedFungus.asset
 - Assets/SlipstreamMod/Content/GeneralMaterials/Stolen/texThermiteDroplet2Mask.png
+- Assets/SlipstreamMod/Content/GeneralMaterials/ShaderTextures/texCloudOrganic2.png
 - Assets/SlipstreamMod/Content/Pickups/Items/PepperSpray/DisplayPepperSpray.prefab
 - Assets/SlipstreamMod/Content/Pickups/Items/FriendshipBracelet/PickupFriendshipBracelet.prefab
 - Assets/SlipstreamMod/Content/GeneralMaterials/tweakin.png
@@ -388,6 +391,7 @@ Assets:
 - Assets/SlipstreamMod/Content/Pickups/Items/FriendshipBracelet/FriendshipBracelet.asset
 - Assets/SlipstreamMod/Content/Elites/Sandswept/AffixSandDeathOrbEffect.prefab
 - Assets/SlipstreamMod/Content/GeneralMaterials/ShaderTextures/T_Noise_02.png
+- Assets/SlipstreamMod/Content/Skills/primednanoflameficon.png
 - Assets/Shaders/RoR2/Base/Shaders/Deferred/Hopoo Games/Deferred/Snow Topped.asset
 - Assets/SlipstreamMod/Content/GeneralMaterials/ShaderTextures/texEgyptThing.png
 - Assets/SlipstreamMod/Content/Pickups/Interfaces/texCriticalVoidShiIndi.png
@@ -423,7 +427,7 @@ Assets:
 - Assets/SlipstreamMod/Content/Elites/Sandswept/Assets/matGlassRadiusExplode1.mat
 - Assets/SlipstreamMod/Content/Pickups/Items/FriendshipBracelet/Assets/FriendshipBracelet05_Material.001_Normal.png
 - Assets/SlipstreamMod/Content/GeneralMaterials/Normals/texRJRockNormal.png
-- Assets/SlipstreamMod/Content/Pickups/Items/Coalition/matCoalitionShafts.mat
+- Assets/SlipstreamMod/Content/Pickups/Items/Coalition/Assets/matCoalitionShafts.mat
 - Assets/SlipstreamMod/Content/GeneralMaterials/ShaderTextures/Noise_4.png
 - Assets/SlipstreamMod/Content/Elites/Sandswept/Assets/SandSweptCrown_emission.png
 - Assets/SlipstreamMod/Content/Elites/Sandswept/EliteSandKnockbackIndicator.prefab

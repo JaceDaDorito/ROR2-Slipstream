@@ -37,6 +37,11 @@ namespace Slipstream.Items
         {
             [ItemDefAssociation(useOnClient = true, useOnServer = true)]
             public static ItemDef GetItemDef() => SlipContent.Items.GlassEye;
+
+            /*public void Awake()
+            {
+                body.RecalculateStats();
+            }*/
             public void ModifyStatArguments(RecalculateStatsAPI.StatHookEventArgs args)
             {
                 args.baseShieldAdd += body.healthComponent.fullHealth * baseShield;

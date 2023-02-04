@@ -54,6 +54,11 @@ namespace Slipstream.Items
 
         //public static string explosionSoundString = "Fart";
 
+        public override void Initialize()
+        {
+            Slipstream.Items.SlipCriticalShield.critShieldItems.Add(ItemDef);
+        }
+
         public class PepperSprayBehavior : BaseItemBodyBehavior, IBodyStatArgModifier, SlipCriticalShield.ICriticalShield
         {
             [ItemDefAssociation(useOnClient = true, useOnServer = true)]
@@ -64,6 +69,10 @@ namespace Slipstream.Items
             //private bool shouldTrigger = false;
 
             //This just adds an initial shield when you have atleast one stack.
+            /*public void Awake()
+            {
+                body.RecalculateStats();
+            }*/
             public void ModifyStatArguments(RecalculateStatsAPI.StatHookEventArgs args)
             {
                 args.baseShieldAdd += body.healthComponent.fullHealth * baseShield;

@@ -48,6 +48,7 @@ namespace Slipstream.Items
         {
             base.Initialize();
             VoidShieldCatalog.AddVoidShieldCatalog(ItemDef);
+            SlipCriticalShield.critShieldItems.Add(ItemDef);
         }
 
         public override IEnumerable<RoR2.ItemDef> LoadItemsToInfect()
@@ -60,6 +61,11 @@ namespace Slipstream.Items
             [ItemDefAssociation(useOnClient = true, useOnServer = true)]
 
             public static RoR2.ItemDef GetItemDef() => SlipContent.Items.BrineSwarm;
+
+            /*public void Awake()
+            {
+                body.RecalculateStats();
+            }*/
 
             public void ModifyStatArguments(RecalculateStatsAPI.StatHookEventArgs args)
             {

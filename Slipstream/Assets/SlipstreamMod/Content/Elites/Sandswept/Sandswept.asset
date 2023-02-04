@@ -16,7 +16,7 @@ MonoBehaviour:
   eliteEquipmentDef: {fileID: 11400000, guid: 0ef89ed3073e0f04b83e62e2766d2cf4, type: 2}
   color:
     serializedVersion: 2
-    rgba: 16777215
+    rgba: 7521535
   shaderEliteRampIndex: 0
   healthBoostCoefficient: 4
   damageBoostCoefficient: 2

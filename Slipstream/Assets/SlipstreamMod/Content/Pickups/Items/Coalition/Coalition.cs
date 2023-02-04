@@ -7,10 +7,10 @@ using UnityEngine.AddressableAssets;
 using UnityEngine.Networking;
 using R2API;
 using RoR2.Items;
-using On.RoR2.UI;
 using TMPro;
 using UnityEngine.UI;
-
+using Slipstream.Utils;
+using System.Collections.Generic;
 
 namespace Slipstream.Items
 {
@@ -31,12 +31,71 @@ namespace Slipstream.Items
         [TokenModifier(token, StatTypes.Default, 1)]
         public static float armorIncrease = 100f;
 
+        public static RoR2.UI.HealthBarStyle.BarStyle coalitionBarStyle;
+
+        public class CoalitionIntervalsBetweenDeaths : MonoBehaviour
+        {
+            public List<CharacterBody> deathList = new List<CharacterBody>();
+            private Run.FixedTimeStamp timer;
+            private static float totalPhaseTime = 2f;
+            private static float pauseTime = 0.5f;
+            private float intervalTime;
+            private int index = 0;
+            private int deathIndex = 0;
+            private void Start()
+            {
+                
+                timer = Run.FixedTimeStamp.now;
+                intervalTime = totalPhaseTime / deathList.Count;
+                SlipLogger.LogD("Timer on coalition started" + intervalTime);
+
+            }
+
+            private void FixedUpdate()
+            {
+                if(timer.timeSince > 0)
+                {
+                    if (timer.timeSince <= totalPhaseTime)
+                    {
+                        if (timer.timeSince >= index * intervalTime)
+                        {
+                            //put spawn effect deathList[index] here
+                            SlipLogger.LogD("index added");
+                            index++;
+                        }
+                    }
+                    else if (timer.timeSince <= totalPhaseTime + pauseTime)
+                    {
+                        return;
+                    }
+                    else if (timer.timeSince <= totalPhaseTime * 2f + pauseTime)
+                    {
+                        if (timer.timeSince >= deathIndex * intervalTime + totalPhaseTime + pauseTime)
+                        {
+                            
+                            deathList[0].healthComponent.Suicide();
+                            deathList.RemoveAt(0);
+                            deathIndex++;
+                        }
+                    }
+                    else if (timer.timeSince >= totalPhaseTime * 2f + pauseTime)
+                    {
+                        SlipLogger.LogD("deathcomponent destroyed");
+                        Destroy(this);
+                        
+                    }
+                }
+            }
+
+        }
         public class CoalitionBehavior : BaseItemBodyBehavior
         {
             [ItemDefAssociation(useOnClient = false, useOnServer = true)]
             public static ItemDef GetItemDef() => SlipContent.Items.Coalition;
 
-            GameObject destroyEffectPrefab;
+            private GameObject destroyEffectPrefab;
+            private List<CharacterBody> deathList = new List<CharacterBody>();
+
 
             private void Start()
             {
@@ -90,18 +149,21 @@ namespace Slipstream.Items
 
                 //Kill all allies when player is below the current threshold.
                 float threshold = Moonstorm.MSUtil.InverseHyperbolicScaling(amplificationPercentage, amplificationPercentage, 1, stack);
-                if (body == self.body && (body.healthComponent.health + body.healthComponent.shield)/body.healthComponent.fullCombinedHealth < threshold) //Character body check and ratio of curent health compared to the threshold
+                if (body == self.body && (body.healthComponent.health + body.healthComponent.shield)/body.healthComponent.fullCombinedHealth < threshold && body.gameObject.GetComponent<CoalitionIntervalsBetweenDeaths>() == null) //Character body check and ratio of curent health compared to the threshold
                 {
                     CharacterMaster master = body.master;
+                    CoalitionIntervalsBetweenDeaths deathComponent = body.gameObject.AddComponent<CoalitionIntervalsBetweenDeaths>();
                     foreach (CharacterMaster characterMaster in CharacterMaster.instancesList)
                     {
                         if (characterMaster.minionOwnership && characterMaster.minionOwnership.ownerMaster == master)
                         {
                             CharacterBody allybody = characterMaster.GetBody();
-                            EffectData effectData = new EffectData { origin = allybody.corePosition, scale = allybody.radius};
+                            //EffectData effectData = new EffectData { origin = allybody.corePosition, scale = allybody.radius};
 
-                            EffectManager.SpawnEffect(destroyEffectPrefab, effectData, true);
-                            characterMaster.GetBody()?.healthComponent.Suicide();
+                            //EffectManager.SpawnEffect(destroyEffectPrefab, effectData, true);
+                            //characterMaster.GetBody()?.healthComponent.Suicide();
+
+                            deathComponent.deathList.Add(allybody);
                         }
                     }
                 }
@@ -119,6 +181,66 @@ namespace Slipstream.Items
                     }
                 }
             }
+
+        }
+
+        public class CoalitionBarData : ExtraHealthbarSegment.BarData
+        {
+            private bool enabled;
+            private Material barMat = SlipAssets.Instance.MainAssetBundle.LoadAsset<Material>("matCriticalShield");
+
+            private float threshold;
+
+
+            public override RoR2.UI.HealthBarStyle.BarStyle GetStyle()
+            {
+                var style = coalitionBarStyle;
+                style.sprite = bar.style.barrierBarStyle.sprite;
+                style.sizeDelta = bar.style.barrierBarStyle.sizeDelta;
+                style.baseColor = ExtraHealthbarSegment.defaultBaseColor;
+                style.imageType = Image.Type.Simple;
+                style.enabled = true;
+
+                return style;
+            }
+
+            public override void CheckInventory(ref RoR2.UI.HealthBar.BarInfo info, RoR2.CharacterBody body)
+            {
+                base.CheckInventory(ref info, body);
+
+                //if there are any critical shield items in the inventory, enable healthbar
+
+                //enabled = body.gameObject.GetComponent<ICriticalShield>() != null;
+
+                enabled = false;
+
+                int count = body.GetItemCount(SlipContent.Items.Coalition);
+                if (count > 0)
+                {
+                    enabled = true;
+                    threshold = Moonstorm.MSUtil.InverseHyperbolicScaling(amplificationPercentage, amplificationPercentage, 1, count);
+                }
+            }
+
+            public override void UpdateInfo(ref RoR2.UI.HealthBar.BarInfo info, HealthComponent healthSource)
+            {
+                //instanceMat = image.canvasRenderer.GetMaterial();
+
+                base.UpdateInfo(ref info, healthSource);
+
+                info.enabled = enabled; //&& healthSource.shield > 0;
+
+                info.normalizedXMin = threshold - 0.2f;
+                info.normalizedXMax = threshold + 0.2f;
+            }
+
+            public override void ApplyBar(ref RoR2.UI.HealthBar.BarInfo info, Image image, HealthComponent source, ref int i)
+            {
+
+                //image.material = barMat;
+                base.ApplyBar(ref info, image, source, ref i);
+            }
+
 
         }
     }

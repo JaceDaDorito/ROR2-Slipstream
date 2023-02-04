@@ -20,6 +20,7 @@ namespace Slipstream.Items
     public class BlackHealth : ItemBase
     {
         public override ItemDef ItemDef { get; } = SlipAssets.Instance.MainAssetBundle.LoadAsset<ItemDef>("BlackHealth");
+        private static Material material = SlipAssets.Instance.MainAssetBundle.LoadAsset<Material>("matBlackBlood");
 
         public static float armorIncrease = Coalition.armorIncrease;
 
@@ -60,6 +61,10 @@ namespace Slipstream.Items
 
             private bool changedFlag;
 
+            private TemporaryOverlay overlay;
+            
+            private CharacterModel model;
+
             public void OnEnable()
             {
                 //Makes owners of Blackhealth completely immune to void explosions (when its enabled)
@@ -70,6 +75,9 @@ namespace Slipstream.Items
                     changedFlag = true;
                     body.bodyFlags |= CharacterBody.BodyFlags.ImmuneToVoidDeath;
                 }
+                model = body.modelLocator.modelTransform.GetComponent<CharacterModel>();
+                if (model)
+                    AddBlackOverlay();
 
             }
 
@@ -78,12 +86,20 @@ namespace Slipstream.Items
                 //Removes tag if the immunity was given (that way allies somehow initially having the ImmuneToVoidDeath flag don't get screwed over)
                 if (changedFlag)
                     body.bodyFlags &= ~CharacterBody.BodyFlags.ImmuneToVoidDeath;
+                if (overlay)
+                {
+                    Destroy(overlay);
+                    overlay = null;
+                }
+
             }
 
             public void FixedUpdate()
             {
                 if (NetworkServer.active && !allyOwnerMaster)
                     body.inventory?.ResetItem(SlipContent.Items.BlackHealth);
+                if (model && !overlay)
+                    AddBlackOverlay();
             }
 
             public void ModifyStatArguments(RecalculateStatsAPI.StatHookEventArgs args)
@@ -94,7 +110,13 @@ namespace Slipstream.Items
 
             public void AddBlackOverlay()
             {
-                RoR2.TemporaryOverlay overlay;
+                overlay = new TemporaryOverlay();
+                overlay = body.gameObject.AddComponent<TemporaryOverlay>();
+                overlay.duration = 0f;
+                overlay.destroyComponentOnEnd = false;
+                overlay.destroyObjectOnEnd = false;
+                overlay.originalMaterial = material;
+                overlay.inspectorCharacterModel = model;
             }
         }
     }

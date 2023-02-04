@@ -27,7 +27,10 @@ namespace Slipstream.Items
         public static Dictionary<CharacterBody, bool> shouldTrigger = new Dictionary<CharacterBody, bool>();
         public static Color critShieldBaseColor = new Color(1f, 1f, 1f, 1f);
 
+        private static float timeAmount = 0.4f;
 
+        //need to add to this list for the healthbar to work, for some reason checking for the interface instances happens after the check inventory hook
+        public static List<ItemDef> critShieldItems = new List<ItemDef>();
 
         public static RoR2.UI.HealthBarStyle.BarStyle critShieldBarStyle;
 
@@ -85,15 +88,20 @@ namespace Slipstream.Items
         public class CriticalShieldData : ExtraHealthbarSegment.BarData
         {
             private bool enabled;
+            private bool cachedEnabled = false;
             private Material barMat = SlipAssets.Instance.MainAssetBundle.LoadAsset<Material>("matCriticalShield");
-            private Material voidMat;
+            private float currentVel;
+
+            private Run.TimeStamp timer;
+
+            public static Dictionary<HealthComponent, Material> materialShield= new Dictionary<HealthComponent, Material>();
 
 
             public override RoR2.UI.HealthBarStyle.BarStyle GetStyle()
             {
                 var style = critShieldBarStyle;
                 style.sizeDelta = bar.style.lowHealthOverStyle.sizeDelta;
-                style.baseColor = critShieldBaseColor;
+                style.baseColor = ExtraHealthbarSegment.defaultBaseColor;
                 style.imageType = Image.Type.Simple;
                 style.enabled = true;
 
@@ -108,15 +116,23 @@ namespace Slipstream.Items
 
                 //enabled = body.gameObject.GetComponent<ICriticalShield>() != null;
 
-                if(body.gameObject.GetComponent<ICriticalShield>() == null)
+                enabled = false;
+
+                bool hasItem = false;
+                foreach(ItemDef critShieldItemDef in critShieldItems)
                 {
-                    enabled = false;
-                    return;
+                    if (body.GetItemCount(critShieldItemDef) > 0)
+                    {
+                        hasItem = true;
+                        break;
+                    }
                 }
-
-                if (!body) return;
-                if (!body.healthComponent) return;
-
+                if (!body || !body.healthComponent || !hasItem /*|| body.gameObject.GetComponent<ICriticalShield>() == null*/)
+                {
+                    if (materialShield.ContainsKey(body.healthComponent))
+                        materialShield.Remove(body.healthComponent);
+                    return;
+                }                
                 enabled = true;
 
 
@@ -129,28 +145,47 @@ namespace Slipstream.Items
                 base.UpdateInfo(ref info, healthSource);
 
                 info.enabled = enabled && shouldTrigger[healthSource.body]; //&& healthSource.shield > 0;
+
                 var healthBarValues = healthSource.GetHealthBarValues();
 
-                /*if (!instanceMat)
-                {
-                    instanceMat = image.canvasRenderer.GetMaterial();
-                }*/
-               
-                barMat.SetTexture("_RemapTex", healthBarValues.hasVoidShields ? lowShieldVoid : lowShieldNormal);
-                //info.sprite = healthBarValues.hasVoidShields? lowShieldVoid : lowShieldNormal;
+                if(materialShield.ContainsKey(healthSource))
+                    materialShield[healthSource].SetTexture("_RemapTex", healthBarValues.hasVoidShields ? lowShieldVoid : lowShieldNormal);
 
                 float minPos = healthBarValues.healthFraction;
                 info.normalizedXMin = minPos;
+
+                if (cachedEnabled != info.enabled && info.enabled && healthSource.shield > 0) //if the bar just got enabled, start timer
+                {
+                    info.normalizedXMax = minPos;
+                    timer = Run.TimeStamp.now;
+                }
+                cachedEnabled = info.enabled;
+
                 float fullShieldFraction = ((healthSource.fullShield * threshold) / (healthSource.fullShield + healthSource.fullHealth)) * (1f - healthBarValues.curseFraction);
-                info.normalizedXMax = minPos + (fullShieldFraction);
+                if (timer != null && timer.timeSince <= timeAmount && enabled)
+                {
+                    info.normalizedXMax = Mathf.SmoothDamp(info.normalizedXMax, minPos + (fullShieldFraction), ref currentVel, timeAmount, Mathf.Infinity, timer.timeSince) /*(minPos + (fullShieldFraction)) * timer.timeSince*/;
+                    if (materialShield.ContainsKey(healthSource))
+                        materialShield[healthSource].SetFloat("_Boost", 1f + currentVel);
+                }  
+                else if (timer.timeSince > timeAmount && enabled)
+                {
+                    info.normalizedXMax = minPos + (fullShieldFraction);
+                    if (materialShield.ContainsKey(healthSource))
+                        materialShield[healthSource].SetFloat("_Boost", 1f);
+                    //timer = Run.TimeStamp.zero;
+                }
 
                 
             }
 
             public override void ApplyBar(ref HealthBar.BarInfo info, Image image, HealthComponent source, ref int i)
             {
-                if (source.GetHealthBarValues().hasVoidShields) barMat.SetTexture("_RemapTex", lowShieldVoid);
-                image.material = barMat;
+                if(!materialShield.ContainsKey(source))
+                    materialShield.Add(source, UnityEngine.Object.Instantiate(barMat));
+
+                if (source.GetHealthBarValues().hasVoidShields) materialShield[source].SetTexture("_RemapTex", lowShieldVoid);
+                image.material = materialShield[source];
                 base.ApplyBar(ref info, image, source, ref i);
             }
 

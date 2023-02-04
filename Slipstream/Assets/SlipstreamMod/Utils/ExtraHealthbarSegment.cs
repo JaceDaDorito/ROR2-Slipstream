@@ -17,7 +17,9 @@ namespace Slipstream.Utils
     public static class ExtraHealthbarSegment
     {
         private static List<Type> barDataTypes = new List<Type>();
-        public static void AddType<T>() where T : BarData, new()
+
+		public static Color defaultBaseColor = new Color(1f, 1f, 1f, 1f);
+		public static void AddType<T>() where T : BarData, new()
         {
             barDataTypes.Add(typeof(T));
         }
@@ -116,6 +118,19 @@ namespace Slipstream.Utils
 			public HealthBar bar;
 			public HealthBar.BarInfo info;
 			public HealthBarStyle.BarStyle? cachedStyle;
+			private Image _imageReference;
+			public virtual Image ImageReference
+			{
+				get => _imageReference;
+				set
+				{
+					if (_imageReference && _imageReference != value)
+					{
+						_imageReference.material = bar.barAllocator.elementPrefab.GetComponent<Image>().material;
+					}
+					_imageReference = value;
+				}
+			}
 
 			public abstract HealthBarStyle.BarStyle GetStyle();
 
@@ -156,7 +171,6 @@ namespace Slipstream.Utils
 		{
 			public List<BarData> barInfos;
 			public HealthBar healthBar;
-			private static Material beforeSwap;
 
 			public void CheckInventory(CharacterBody body)
 			{
@@ -180,29 +194,22 @@ namespace Slipstream.Utils
 			}
 			public void ApplyBar(ref int i)
 			{
-
-				if (beforeSwap)
-				{
-					foreach (var image in healthBar.barAllocator.elements)
-					{
-						image.material = beforeSwap;
-					}
-				}
-
 				foreach (var barInfo in barInfos)
 				{
 					ref var info = ref barInfo.info;
-					if (!info.enabled) continue;
+					if (!info.enabled)
+					{
+						barInfo.ImageReference = null; // Release the reference.
+						continue;
+					}
 
 					Image image = healthBar.barAllocator.elements[i];
-					if (!beforeSwap)
-					{
-						beforeSwap = image.material;
-						SlipLogger.LogD("bar mat:" + beforeSwap.name);
-					}
+					barInfo.ImageReference = image;
 					barInfo.ApplyBar(ref barInfo.info, image, healthBar.source, ref i);
 				}
 			}
+
+			//barInfo.ApplyBar(ref barInfo.info, image, healthBar.source, ref i);
 
 			public void Init(HealthBar healthBar)
 			{
