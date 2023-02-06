@@ -218,6 +218,12 @@
       "source": "embedded",
       "dependencies": {}
     },
+    "riskofthunder-r2api_rulebook": {
+      "version": "file:R2API_Rulebook",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {}
+    },
     "riskofthunder-r2api_sceneasset": {
       "version": "file:R2API_SceneAsset",
       "depth": 0,
@@ -243,11 +249,10 @@
       "dependencies": {}
     },
     "riskofthunder-ror2editorkit": {
-      "version": "https://github.com/risk-of-thunder/RoR2EditorKit.git",
+      "version": "file:RoR2EditorKit",
       "depth": 0,
-      "source": "git",
-      "dependencies": {},
-      "hash": "5b1b7461aebd858df30bfd824d1dd91ed1e90467"
+      "source": "embedded",
+      "dependencies": {}
     },
     "riskofthunder-ror2importextensions": {
       "version": "https://github.com/risk-of-thunder/RoR2ImportExtensions.git",

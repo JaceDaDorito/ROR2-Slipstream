@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 651547218
+CRC: 3978890326
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 25fdeee00d176199ec2d29c292b8fae6
+    Hash: 42fcf423a2f835a51107bbf1db95f7b0
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 9ad7c2a0ab2fda1b058d2cbd0c836ac4
+    Hash: 89bb072db928c93a7fdf78df5293ed46
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -42,21 +42,25 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 511512695, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
-  Script: {fileID: 488236779, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
-- Class: 114
   Script: {fileID: 11500000, guid: f8258ea15b8f74c4889ce485d21cbbb1, type: 3}
 - Class: 114
   Script: {fileID: 1297580292, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: 1918207524, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
+  Script: {fileID: 488236779, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
   Script: {fileID: 662316482, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: 1790887305, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: 296141222, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: 1245112779, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: 1431018688, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
-  Script: {fileID: 1790887305, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+  Script: {fileID: 678291247, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: adb84e30e02715445aeb9959894e3b4d, type: 3}
 - Class: 114
@@ -102,11 +106,13 @@ ClassTypes:
 - Class: 114
   Script: {fileID: -1193882409, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
+  Script: {fileID: 1783796254, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: -1294804675, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
   Script: {fileID: -1284244208, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: -1479993534, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
-- Class: 114
-  Script: {fileID: 296141222, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: -1387411909, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
@@ -115,8 +121,6 @@ ClassTypes:
   Script: {fileID: -1699741063, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: -1848696948, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
-- Class: 114
-  Script: {fileID: 678291247, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: 353067543, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
@@ -225,6 +229,7 @@ Assets:
 - Assets/SlipstreamMod/Content/GeneralMaterials/texAlphaGradientFlipped.png
 - Assets/SlipstreamMod/Content/Pickups/Equipments/SoulSucker/SoulSuckerTrap.prefab
 - Assets/SlipstreamMod/Content/GeneralMaterials/Stolen/texUIHighlightExecute.png
+- Assets/SlipstreamMod/Content/Skills/NanoFlame/MageNanoFlame.prefab
 - Assets/SlipstreamMod/Content/GeneralMaterials/ShaderTextures/texCloudDifferenceBW1.png
 - Assets/SlipstreamMod/Content/GeneralMaterials/Capture.PNG
 - Assets/SlipstreamMod/Content/Pickups/Items/PepperSpray/Assets/iconPepperSpeed.png
@@ -243,6 +248,7 @@ Assets:
 - Assets/SlipstreamMod/Content/iconSlipstreamExpansion.png
 - Assets/SlipstreamMod/Content/SlipstreamRunBehavior.prefab
 - Assets/SlipstreamMod/Content/GeneralMaterials/texAlphaGradientFlipped2.png
+- Assets/SlipstreamMod/Content/Skills/NanoFlame/MageNanoFlameGhost.prefab
 - Assets/SlipstreamMod/Content/GeneralMaterials/StolenRamps/texHippoRezRamp.png
 - Assets/SlipstreamMod/Content/GeneralMaterials/ShaderTextures/T_Noise_06.png
 - Assets/SlipstreamMod/Content/GeneralMaterials/iconSandsweptAffix.png
@@ -258,6 +264,7 @@ Assets:
 - Assets/SlipstreamMod/Content/Skins/GhostrunnerMerc/Assets/iconGhostrunnerMerc.png
 - Assets/SlipstreamMod/Content/Scenes/aridexpanse/dccs/dccsAridExpanseMonster.asset
 - Assets/SlipstreamMod/Content/GeneralMaterials/ShaderTextures/texSuperPerlin1.png
+- Assets/SlipstreamMod/Content/Skills/NanoFlame/NanoFlame.asset
 - Assets/SlipstreamMod/Content/Elites/Sandswept/Buff/GrainyExplode.asset
 - Assets/SlipstreamMod/Content/GeneralMaterials/ShaderTextures/texGrain2.png
 - Assets/SlipstreamMod/Content/Scenes/aridexpanse/dccs/dccsAridExpanseInteractables.asset
