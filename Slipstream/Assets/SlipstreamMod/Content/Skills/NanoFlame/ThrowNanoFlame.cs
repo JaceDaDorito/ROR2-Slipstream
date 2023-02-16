@@ -15,39 +15,66 @@ namespace EntityStates.Mage.Weapon
 {
     public class ThrowNanoFlame : BaseState
     {
-        public GameObject projectilePrefab = SlipAssets.Instance.MainAssetBundle.LoadAsset<GameObject>("MageNanoFlame");
+        private const string token = "SLIP_SKILL_NANOFLAME_DESC";
+
+        [ConfigurableField(ConfigName = "Damage Coeff", ConfigDesc = "Damage Coefficient of each fireball.", ConfigSection = "NanoFlame")]
+        [TokenModifier(token, StatTypes.MultiplyByN, 0, "100")]
         private static float damage = 3.5f;
+
+        public GameObject projectilePrefab = SlipAssets.Instance.MainAssetBundle.LoadAsset<GameObject>("MageNanoFlame");
+        public List<GameObject> instantiatedEffects = new List<GameObject>();
+        private GameObject muzzleFlashEffectPrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Mage/MuzzleflashMageFire.prefab").WaitForCompletion();
         private static float force = 30f;
-        public float charge = 0.2f;
+        private static float convergeDistance = 60f;
+        //public float charge;
         public float baseDuration = 0.4f;
         private float duration;
         private ChildLocator childLocator;
         private Transform head;
-        public static int maxBalls = 5;
+        //public static int maxBalls = NanoFlameChargeState.maxBalls;
         public float balls;
-        public static float[] angleOrder = {0f, 180f, 45f, 135f, 90f};
-        public static float distanceFromHead = 2;
-
+        public static float[] angleOrder = NanoFlameChargeState.angleOrder;
+        public static float arcRadius = NanoFlameChargeState.arcRadius;
+        private int projectileIndex = 0;
         public override void OnEnter()
         {
             base.OnEnter();
             duration = baseDuration / attackSpeedStat;
-            balls = Mathf.Clamp(charge/(1/maxBalls) + 1, 1, maxBalls);
+            //balls = (int)Mathf.Clamp(charge * (float)maxBalls - 1, 1f, maxBalls - 1);
+            this.PlayAnimation("Gesture, Additive", "FireWall");
+            Util.PlayAttackSpeedSound("Play_lemurianBruiser_m2_end", gameObject, characterBody.attackSpeed);
+            if (muzzleFlashEffectPrefab)
+            {
+                EffectManager.SimpleMuzzleFlash(muzzleFlashEffectPrefab, gameObject, "MuzzleLeft", false);
+                EffectManager.SimpleMuzzleFlash(muzzleFlashEffectPrefab, gameObject, "MuzzleRight", false);
+            }
             childLocator = base.GetModelChildLocator();
             if (childLocator)
             {
-                head = childLocator.FindChild("HeadCenter");
+                head = childLocator.FindChild("Head");
             }
-            Fire();
+            //Fire();
         }
 
         public override void FixedUpdate()
         {
             base.FixedUpdate();
-            if (base.isAuthority && fixedAge >= duration)
+            if (base.isAuthority)
             {
-                outer.SetNextStateToMain();
+                if (Mathf.Clamp(Mathf.Clamp01(fixedAge/duration) * balls, 0f, balls - 1) >= projectileIndex)
+                {
+                    Destroy(instantiatedEffects[projectileIndex]);
+                    Fire(projectileIndex);
+                    projectileIndex++;
+                }
+                if (fixedAge >= duration)
+                {
+                    outer.SetNextStateToMain();
+                }
+                
             }
+            
+
         }
 
         public override InterruptPriority GetMinimumInterruptPriority()
@@ -55,30 +82,37 @@ namespace EntityStates.Mage.Weapon
             return InterruptPriority.PrioritySkill;
         }
 
-        private void Fire()
+        private void Fire(int i)
         {
-            if (base.isAuthority)
-            {
-                Ray aimRay = base.GetAimRay();
+            Ray aimRay = base.GetAimRay();
+            //RaycastHit hit;
+            //bool raycast = Physics.Raycast(aimRay.origin, aimRay.direction, out hit, 30f);
+            //Util.PlayAttackSpeedSound("Play_magmaWorm_impact", base.gameObject, this.attackSpeedStat);
 
-                if (projectilePrefab != null)
+            if (projectilePrefab != null)
+            {
+                //var projectilePosition = Quaternion.LookRotation(head.forward);
+                /*Vector3 arcAngles = new Vector3((Mathf.Cos(angleOrder[i]) * distanceFromHead) + head.position.x,
+                                                 Mathf.Sin(angleOrder[i] * distanceFromHead) + head.position.y,
+                                                 head.position.z);
+                Vector3 ballPosition = arcAngles * characterBody.transform.rotation;*/
+
+                Quaternion localAngle = Quaternion.AngleAxis(angleOrder[i], Vector3.forward);
+                Vector3 ballPosition = ((head.rotation * localAngle) * (Vector3.right * arcRadius)) + head.position;
+
+                Ray resultRay;
+                resultRay = new Ray(ballPosition, (aimRay.origin + aimRay.direction * convergeDistance) - ballPosition);
+                FireProjectileInfo fireProjectileInfo = new FireProjectileInfo
                 {
-                    for (int i = 0; i < balls; i++)
-                    {
-                        Vector3 ballPosition = new Vector3((Mathf.Cos(angleOrder[i]) * distanceFromHead) + head.position.x, (Mathf.Sin(angleOrder[i] * distanceFromHead)) + head.position.y, head.position.z);
-                        FireProjectileInfo fireProjectileInfo = new FireProjectileInfo
-                        {
-                            projectilePrefab = this.projectilePrefab,
-                            position = ballPosition,
-                            rotation = Util.QuaternionSafeLookRotation(aimRay.direction),
-                            owner = base.gameObject,
-                            damage = this.damageStat * damage,
-                            force = force,
-                            crit = base.RollCrit()
-                        };
-                        ProjectileManager.instance.FireProjectile(fireProjectileInfo);
-                    }
-                }
+                    projectilePrefab = this.projectilePrefab,
+                    position = ballPosition,
+                    rotation = Util.QuaternionSafeLookRotation(resultRay.direction)/*raycast? Util.QuaternionSafeLookRotation(resultRay.direction): Util.QuaternionSafeLookRotation(aimRay.direction)*/,
+                    owner = base.gameObject,
+                    damage = this.damageStat * damage,
+                    force = force,
+                    crit = base.RollCrit()
+                };
+                ProjectileManager.instance.FireProjectile(fireProjectileInfo);
             }
         }
     }

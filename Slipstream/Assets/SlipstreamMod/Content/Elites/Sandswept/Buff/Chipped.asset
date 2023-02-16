@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Chipped
   m_EditorClassIdentifier: 
   iconPath: 
-  iconSprite: {fileID: 21300000, guid: 888ef98c30d67a24d8a357e2ea02e957, type: 3}
+  iconSprite: {fileID: 21300000, guid: 0c38828094c1f7740bc79c66a692e261, type: 3}
   buffColor: {r: 1, g: 0.5372549, b: 0.3882353, a: 1}
   canStack: 0
   eliteDef: {fileID: 0}

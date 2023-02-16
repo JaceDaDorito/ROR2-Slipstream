@@ -14,13 +14,13 @@
       "url": "https://packages.unity.com"
     },
     "com.passivepicasso.thunderkit": {
-      "version": "https://github.com/PassivePicasso/ThunderKit.git#6.0.1",
+      "version": "https://github.com/PassivePicasso/ThunderKit.git#7.0.0",
       "depth": 0,
       "source": "git",
       "dependencies": {
         "com.unity.scriptablebuildpipeline": "1.16.1"
       },
-      "hash": "f16eae2d2c2e77ef61d3584793bd45eca8aa22e7"
+      "hash": "756c098ffe35179497d7fe70e8b7a74483866678"
     },
     "com.unity.formats.fbx": {
       "version": "4.2.0",
@@ -267,12 +267,6 @@
       "source": "git",
       "dependencies": {},
       "hash": "45c07475c67adc4c63da663fe94fe4fa9f0efe14"
-    },
-    "tristanmcpherson-r2api": {
-      "version": "file:R2API",
-      "depth": 0,
-      "source": "embedded",
-      "dependencies": {}
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",

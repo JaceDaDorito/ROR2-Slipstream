@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "com.passivepicasso.thunderkit": "https://github.com/PassivePicasso/ThunderKit.git#6.0.1",
+    "com.passivepicasso.thunderkit": "https://github.com/PassivePicasso/ThunderKit.git#7.0.0",
     "com.unity.formats.fbx": "4.2.0",
     "com.unity.postprocessing": "2.3.0",
     "com.unity.probuilder": "4.4.0",

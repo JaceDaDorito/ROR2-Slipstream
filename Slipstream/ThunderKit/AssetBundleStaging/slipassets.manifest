@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 3978890326
+CRC: 3147839327
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 42fcf423a2f835a51107bbf1db95f7b0
+    Hash: 7b784570f12be2dc70ff33527f4bb236
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 89bb072db928c93a7fdf78df5293ed46
+    Hash: e925e1ef05781a6f0905a444b3f09b95
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -40,6 +40,8 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 816898038, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
+  Script: {fileID: 296141222, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
   Script: {fileID: 511512695, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: f8258ea15b8f74c4889ce485d21cbbb1, type: 3}
@@ -54,13 +56,19 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 1790887305, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
-  Script: {fileID: 296141222, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
-- Class: 114
   Script: {fileID: 1245112779, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: 1395413934, guid: da77c7bbf69f66ab2145560542327715, type: 3}
 - Class: 114
   Script: {fileID: 1431018688, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: 678291247, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: 1952984350, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: 353067543, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: 717380117, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: adb84e30e02715445aeb9959894e3b4d, type: 3}
 - Class: 114
@@ -106,10 +114,6 @@ ClassTypes:
 - Class: 114
   Script: {fileID: -1193882409, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
-  Script: {fileID: 1783796254, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
-- Class: 114
-  Script: {fileID: -1294804675, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
-- Class: 114
   Script: {fileID: -1284244208, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: -1479993534, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
@@ -118,19 +122,17 @@ ClassTypes:
 - Class: 114
   Script: {fileID: -1295980167, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
+  Script: {fileID: 707171152, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
   Script: {fileID: -1699741063, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: -1848696948, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
-  Script: {fileID: 353067543, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+  Script: {fileID: -317677761, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: -270136354, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: -1819008361, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
-- Class: 114
-  Script: {fileID: 1952984350, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
-- Class: 114
-  Script: {fileID: 717380117, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: -2053006600, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
@@ -147,8 +149,6 @@ ClassTypes:
   Script: {fileID: -1746479147, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 2651678a724e0a046809590077436ef6, type: 3}
-- Class: 114
-  Script: {fileID: 1395413934, guid: da77c7bbf69f66ab2145560542327715, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 7d2dc8cbdb9720c418fcff8f84588cab, type: 3}
 - Class: 114
@@ -178,12 +178,14 @@ Assets:
 - Assets/SlipstreamMod/Content/Scenes/aridexpanse/Assets/skyboxAridCubemap2.png
 - Assets/SlipstreamMod/Content/Skins/GhostrunnerMerc/Assets/CMerc_diffuse.png
 - Assets/SlipstreamMod/Content/Elites/Sandswept/Assets/matSandExplosionParticle.mat
+- Assets/SlipstreamMod/Content/GeneralMaterials/ShaderTextures/Flame1.png
 - Assets/SlipstreamMod/Content/Scenes/TestStage/matWindowsXPTerrain.mat
 - Assets/SlipstreamMod/Content/Elites/Sandswept/Assets/texCurseDebuff.png
 - Assets/SlipstreamMod/Content/Elites/Sandswept/Assets/matCoreExplosion.mat
 - Assets/SlipstreamMod/Content/Skills/Example/Example.asset
 - Assets/SlipstreamMod/Content/GeneralMaterials/iconSkillPlaceholder.png
 - Assets/SlipstreamMod/Content/Pickups/Items/PepperSpray/Assets/texRampPepperRad.png
+- Assets/SlipstreamMod/Content/GeneralMaterials/StolenRamps/texRampMageFire.png
 - Assets/SlipstreamMod/Content/Elites/Sandswept/Sandswept.asset
 - Assets/SlipstreamMod/Content/GeneralMaterials/texAlphaGradient1.png
 - Assets/Shaders/RoR2/Base/Shaders/FX/Hopoo Games/FX/Cloud Remap.asset
@@ -228,6 +230,7 @@ Assets:
 - Assets/SlipstreamMod/Content/GeneralMaterials/StolenRamps/texRampGreaterWisp.png
 - Assets/SlipstreamMod/Content/GeneralMaterials/texAlphaGradientFlipped.png
 - Assets/SlipstreamMod/Content/Pickups/Equipments/SoulSucker/SoulSuckerTrap.prefab
+- Assets/SlipstreamMod/Content/Skills/NanoFlame/MageNanoFlameChargeBolts.prefab
 - Assets/SlipstreamMod/Content/GeneralMaterials/Stolen/texUIHighlightExecute.png
 - Assets/SlipstreamMod/Content/Skills/NanoFlame/MageNanoFlame.prefab
 - Assets/SlipstreamMod/Content/GeneralMaterials/ShaderTextures/texCloudDifferenceBW1.png
@@ -312,12 +315,15 @@ Assets:
 - Assets/Shaders/RoR2/Base/Shaders/FX/Hopoo Games/FX/Cloud Intersection Remap.asset
 - Assets/SlipstreamMod/Content/GeneralMaterials/Stolen/texBanditSkullMask.png
 - Assets/Shaders/RoR2/Base/Shaders/FX/Hopoo Games/FX/Distortion.asset
+- Assets/SlipstreamMod/Content/Skills/NanoFlame/matNanoFlameHair.mat
 - Assets/SlipstreamMod/Content/Pickups/Items/GlassEye/Assets/glasseye_Flowmap.png
 - Assets/SlipstreamMod/Content/GeneralMaterials/Test2.mat
 - Assets/SlipstreamMod/Content/Pickups/Equipments/Incubator/BedeviledMark.asset
 - Assets/SlipstreamMod/Content/Pickups/Items/PepperSpray/PepperSpeed.asset
 - Assets/SlipstreamMod/Content/GeneralMaterials/ShaderTextures/texCloudWaterRipples.png
+- Assets/SlipstreamMod/Content/GeneralMaterials/ShaderTextures/lightRay.png
 - Assets/SlipstreamMod/Content/GeneralMaterials/Terrain/texGP2GrassTerrain.png
+- Assets/SlipstreamMod/Content/Skills/NanoFlame/texRampMageFireFlame.png
 - Assets/SlipstreamMod/Content/Elites/Sandswept/Assets/texRampSandOverlay.png
 - Assets/SlipstreamMod/Content/Pickups/Items/PepperSpray/Assets/matPepperRim.mat
 - Assets/SlipstreamMod/Content/GeneralMaterials/ShaderTextures/Cracks_7_-_512x512.png
@@ -332,6 +338,7 @@ Assets:
 - Assets/SlipstreamMod/Content/GeneralMaterials/ShaderTextures/texCloudOrganic1.png
 - Assets/SlipstreamMod/Content/GeneralMaterials/Normals/texNormalWeb.png
 - Assets/SlipstreamMod/Content/GeneralMaterials/texTileRustyMetal.png
+- Assets/SlipstreamMod/Content/Skills/NanoFlame/matMageNanoSparks.mat
 - Assets/SlipstreamMod/Content/SlipExpansionDef.asset
 - Assets/SlipstreamMod/Content/GeneralMaterials/Stolen/texOmniHitspark1Mask.png
 - Assets/SlipstreamMod/Content/GeneralMaterials/StolenRamps/texRampParentTeleport.png
@@ -351,12 +358,14 @@ Assets:
 - Assets/SlipstreamMod/Content/Scenes/aridexpanse/Assets/matAridTree.mat
 - Assets/SlipstreamMod/Content/Elites/Sandswept/Assets/matEliteSandOverlay.mat
 - Assets/SlipstreamMod/Content/Elites/Sandswept/Assets/matGlassLightShaft.mat
+- Assets/SlipstreamMod/Content/Skills/NanoFlame/texRampMageFireEdit.png
 - Assets/SlipstreamMod/Content/Scenes/aridexpanse/Assets/matAETerrain1.mat
 - Assets/SlipstreamMod/Content/Pickups/Items/PepperSpray/Assets/matPepperSprayEmit.mat
 - Assets/SlipstreamMod/Content/Elites/Sandswept/Assets/texRampSandTrail2.png
 - Assets/SlipstreamMod/Content/Elites/Sandswept/iddEliteSand.asset
 - Assets/SlipstreamMod/Content/GeneralMaterials/Terrain/texSMGrassTerrain2.png
 - Assets/SlipstreamMod/Content/Elites/Sandswept/Assets/matSandExplosionRing.mat
+- Assets/SlipstreamMod/Content/Skills/NanoFlame/matNanoFlameBall.mat
 - Assets/SlipstreamMod/Content/GeneralMaterials/Terrain/texRJGrassTerrain4.png
 - Assets/SlipstreamMod/Content/GeneralMaterials/ShaderTextures/texGrain1.png
 - Assets/SlipstreamMod/Content/Elites/Sandswept/Assets/SandSweptCrown_mask.png
@@ -398,7 +407,7 @@ Assets:
 - Assets/SlipstreamMod/Content/Pickups/Items/FriendshipBracelet/FriendshipBracelet.asset
 - Assets/SlipstreamMod/Content/Elites/Sandswept/AffixSandDeathOrbEffect.prefab
 - Assets/SlipstreamMod/Content/GeneralMaterials/ShaderTextures/T_Noise_02.png
-- Assets/SlipstreamMod/Content/Skills/primednanoflameficon.png
+- Assets/SlipstreamMod/Content/Skills/NanoFlame/iconPrimedNanoFlame.png
 - Assets/Shaders/RoR2/Base/Shaders/Deferred/Hopoo Games/Deferred/Snow Topped.asset
 - Assets/SlipstreamMod/Content/GeneralMaterials/ShaderTextures/texEgyptThing.png
 - Assets/SlipstreamMod/Content/Pickups/Interfaces/texCriticalVoidShiIndi.png
@@ -423,6 +432,7 @@ Assets:
 - Assets/SlipstreamMod/Content/Elites/Sandswept/EliteSandKnockbackVisual.prefab
 - Assets/SlipstreamMod/Content/GeneralMaterials/ShaderTextures/sand_particle.png
 - Assets/SlipstreamMod/Content/GeneralMaterials/Stolen/texParticleDust3Mask.png
+- Assets/SlipstreamMod/Content/GeneralMaterials/ShaderTextures/fireEmber.png
 - Assets/SlipstreamMod/Content/GeneralMaterials/ShaderTextures/texCloudPixel.png
 - Assets/SlipstreamMod/Content/GeneralMaterials/ShaderTextures/texLightning3Mask.png
 - Assets/SlipstreamMod/Content/GeneralMaterials/StolenRamps/texRampHuntressSoft.png
@@ -439,6 +449,7 @@ Assets:
 - Assets/SlipstreamMod/Content/Elites/Sandswept/Assets/SandSweptCrown_emission.png
 - Assets/SlipstreamMod/Content/Elites/Sandswept/EliteSandKnockbackIndicator.prefab
 - Assets/SlipstreamMod/Content/Elites/Sandswept/Assets/texRampSandTrail.png
+- Assets/Mesh/pebble.fbx
 - Assets/Shaders/RoR2/Base/Shaders/Deferred/Hopoo Games/Deferred/Standard.asset
 - Assets/SlipstreamMod/Content/GeneralMaterials/ShaderTextures/Portal_08.png
 - Assets/SlipstreamMod/Content/Elites/Sandswept/SandDustExplosion.prefab
@@ -458,6 +469,7 @@ Assets:
 - Assets/SlipstreamMod/Content/Pickups/Items/GlassEye/Assets/matGlassEyeGlowy.mat
 - Assets/SlipstreamMod/Content/Pickups/Items/PepperSpray/Assets/matPepperSprayOldSmoke.mat
 - Assets/SlipstreamMod/Content/GeneralMaterials/Normals/texBBMudNormal.png
+- Assets/SlipstreamMod/Content/Skills/NanoFlame/matNanoFlameLightRays.mat
 - Assets/SlipstreamMod/Content/GeneralMaterials/texBlack.png
 - Assets/SlipstreamMod/Content/Elites/Sandswept/EliteSandKnockback.prefab
 - Assets/SlipstreamMod/Content/Elites/Sandswept/Assets/texSandGlass3.png

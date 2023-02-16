@@ -9,9 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7533678987062620392}
-  - component: {fileID: 6206266136878204489}
+  - component: {fileID: 5222305077834885434}
+  - component: {fileID: 2850459829217984246}
   m_Layer: 14
-  m_Name: Hitbox
+  m_Name: ProximityDetonator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31,7 +32,20 @@ Transform:
   m_Father: {fileID: 6436002662116523954}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6206266136878204489
+--- !u!135 &5222305077834885434
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7010548269512956571}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.9
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2850459829217984246
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -40,9 +54,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 7010548269512956571}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 1783796254, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+  m_Script: {fileID: 707171152, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myTeamFilter: {fileID: -1179551592655048302}
+  triggerEvents:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3162508549120644696}
+        m_MethodName: SetAlive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8195876356787717388
 GameObject:
   m_ObjectHideFlags: 0
@@ -53,7 +82,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6436002662116523954}
   - component: {fileID: 9051246596222461128}
-  - component: {fileID: 1007973458198394215}
   - component: {fileID: 1156126049026965417}
   - component: {fileID: 313578833730585297}
   - component: {fileID: 8382721158076778874}
@@ -61,8 +89,8 @@ GameObject:
   - component: {fileID: -8804783987359135024}
   - component: {fileID: -1179551592655048302}
   - component: {fileID: 4146482331340140242}
-  - component: {fileID: 843182731426153986}
   - component: {fileID: -7420754969701133073}
+  - component: {fileID: 3162508549120644696}
   m_Layer: 14
   m_Name: MageNanoFlame
   m_TagString: Untagged
@@ -118,19 +146,6 @@ MonoBehaviour:
     i15: 0
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 1
---- !u!114 &1007973458198394215
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8195876356787717388}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -1895344032, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  defaultTeam: -1
 --- !u!114 &1156126049026965417
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -149,7 +164,8 @@ MonoBehaviour:
   ghostTransformAnchor: {fileID: 0}
   startSound: 
   cannotBeDeleted: 0
-  flightSoundLoop: {fileID: 0}
+  flightSoundLoop: {fileID: -7154016848351746104, guid: 00000000000000000000000000000000,
+    type: 0}
   canImpactOnTrigger: 0
   allowPrediction: 1
   owner: {fileID: 0}
@@ -199,7 +215,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifetime: 10
   lifetimeExpiredEffect: {fileID: 0}
-  desiredForwardSpeed: 200
+  desiredForwardSpeed: 120
   updateAfterFiring: 0
   enableVelocityOverLifetime: 0
   velocityOverLifetime:
@@ -276,23 +292,8 @@ MonoBehaviour:
   destroyWhenNotAlive: 1
   destroyOnWorld: 1
   impactEffect: {fileID: 0}
-  hitSoundString: 
-  enemyHitSoundString: 
---- !u!114 &843182731426153986
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8195876356787717388}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -1294804675, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  groupName: 
-  hitBoxes:
-  - {fileID: 6206266136878204489}
+  hitSoundString: Play_fireballsOnHit_impact
+  enemyHitSoundString: Play_fireballsOnHit_impact
 --- !u!135 &-7420754969701133073
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -306,3 +307,56 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.2
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3162508549120644696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8195876356787717388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -317677761, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  falloffModel: 0
+  blastRadius: 4
+  blastDamageCoefficient: 1
+  blastProcCoefficient: 1
+  blastAttackerFiltering: 0
+  bonusBlastForce: {x: 0, y: 0, z: 0}
+  canRejectForce: 1
+  projectileHealthComponent: {fileID: 0}
+  explosionEffect: {fileID: 0}
+  explosionSoundString: 
+  fireChildren: 0
+  childrenProjectilePrefab: {fileID: 0}
+  childrenCount: 1
+  childrenDamageCoefficient: 1
+  minAngleOffset: {x: 0, y: 1, z: 0}
+  maxAngleOffset: {x: 0, y: 1, z: 0}
+  minRollDegrees: 0
+  rangeRollDegrees: 0
+  minPitchDegrees: 0
+  rangePitchDegrees: 0
+  useLocalSpaceForChildren: 0
+  applyDot: 0
+  dotIndex: -1
+  dotDuration: 0
+  dotDamageMultiplier: 1
+  applyMaxStacksFromAttacker: 0
+  maxStacksFromAttacker: 4294967295
+  calculateTotalDamage: 0
+  totalDamageMultiplier: 0
+  impactEffect: {fileID: 0}
+  lifetimeExpiredSoundString: 
+  lifetimeExpiredSound: {fileID: 0}
+  offsetForLifetimeExpiredSound: 0
+  destroyOnEnemy: 1
+  destroyOnWorld: 1
+  impactOnWorld: 1
+  timerAfterImpact: 0
+  lifetime: 4
+  lifetimeAfterImpact: 0
+  lifetimeRandomOffset: 0
+  transformSpace: 1

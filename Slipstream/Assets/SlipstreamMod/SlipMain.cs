@@ -11,7 +11,6 @@ using R2API.ContentManagement;
 using System.Linq;
 using System.Security;
 using System.Security.Permissions;
-using R2API.Networking;
 using R2API.Utils;
 
 #pragma warning disable CS0618
