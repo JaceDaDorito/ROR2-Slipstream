@@ -17,7 +17,7 @@ namespace Slipstream.Equipments
 	public class SoulSucker : EquipmentBase
     {
 		
-        public override EquipmentDef EquipmentDef { get; } = SlipAssets.Instance.MainAssetBundle.LoadAsset<EquipmentDef>("SoulSucker");
+        public override EquipmentDef EquipmentDef { get; } = SlipAssets.LoadAsset<EquipmentDef>("SoulSucker", SlipBundle.Equipments);
 
         public static DeployableSlot SoulSuckerTrapDeployable;
         public static GameObject ProjectilePrefab;
@@ -25,7 +25,7 @@ namespace Slipstream.Equipments
         {
             base.Initialize();
             On.RoR2.CharacterBody.RecalculateStats += CharacterBody_RecalculateStats;
-			ProjectilePrefab = SlipAssets.Instance.MainAssetBundle.LoadAsset<GameObject>("SoulSuckerProjectile.prefab");
+			ProjectilePrefab = SlipAssets.LoadAsset<GameObject>("SoulSuckerProjectile.prefab", SlipBundle.Equipments);
 			//ProjectilePrefab.GetComponent<ProjectileController>().ghostPrefab = Addressables.LoadAssetAsync<GameObject>("83c50e38bf2b31c4fb10d9b657f5f780").WaitForCompletion();
             SoulSuckerTrapDeployable = DeployableAPI.RegisterDeployableSlot((CharacterMaster self, int multiplier) => 1);
         }

@@ -19,8 +19,8 @@ namespace Slipstream.Items
 
     public class BlackHealth : ItemBase
     {
-        public override ItemDef ItemDef { get; } = SlipAssets.Instance.MainAssetBundle.LoadAsset<ItemDef>("BlackHealth");
-        private static Material material = SlipAssets.Instance.MainAssetBundle.LoadAsset<Material>("matBlackBlood");
+        public override ItemDef ItemDef { get; } = SlipAssets.LoadAsset<ItemDef>("BlackHealth", SlipBundle.Items);
+        private static Material material = SlipAssets.LoadAsset<Material>("matBlackBlood", SlipBundle.Items);
 
         public static float armorIncrease = Coalition.armorIncrease;
 

@@ -1,0 +1,31 @@
+{
+    "strings":
+    {
+	"SLIP_ITEM_FRIENDSHIPBRACELET_NAME": "Friendship Bracelet",
+	"SLIP_ITEM_FRIENDSHIPBRACELET_PICKUP": "Allies inherit the effects of some of your items.",
+	"SLIP_ITEM_FRIENDSHIPBRACELET_DESC": "Allies inherit the effects of <style=cIsUtility>{0} <style=cStack>(+{0} per stack)</style> of your items</style>.",
+	"SLIP_ITEM_FRIENDSHIPBRACELET_LORE": "Your my frien :)",
+	
+	"SLIP_ITEM_GLASSEYE_NAME": "Bionic Eye",
+	"SLIP_ITEM_GLASSEYE_PICKUP": "While you have a shield, gain a critical strike damage boost.",
+	"SLIP_ITEM_GLASSEYE_DESC": "While you have a shield, gain a <style=cIsDamage>{2}% </style><style=cStack>(+{3}% per stack) </style><style=cIsDamage>critical strike damage boost</style>. Grants <style=cIsDamage>{1}% crit chance </style>and <style=cIsHealing>shield</style> equal to <style=cIsHealing>{0}%</style> of your maximum health.",
+	"SLIP_ITEM_GLASSEYE_LORE": "Like most technological marvels before it, bionics – touted as the greatest advancement in medical science since discovery of Penicillin – quickly became a topic of public obsession, to the point of hysteria across both Earth & Mars.\n\nMany people desiring bionic “upgrades” – for one reason or another – went to extreme lengths in order to reach their goals. Some repeatedly broke bones in order to qualify for titanium implants throughout their bodies, others arranged accidents in order to gain a mechanical arm or leg.\n\nIn one case, the famous ‘William R Smith’ – known as an early advocate for personal shielding technologies – reportedly gouged out their right eye with a pair of gardening sheers with the intent of replacing the eye with a self-made, bionic glass eye.\n\nUniquely, this bionic eye used an integrated shield generator in place of the standard mechanical lens used at the time, using the glass structure of the eye as a medium to control the shield-based lens instead.\n\n-    A history of early bionics, Chapter 2 – Public Perception, Overall Obsession",
+
+	"SLIP_ITEM_PEPPERSPRAY_NAME": "Pepper Spray",
+    	"SLIP_ITEM_PEPPERSPRAY_PICKUP": "Stun enemies and gain a speed boost when your shield is low. Speed boost duration scales with amount of shield.",
+    	"SLIP_ITEM_PEPPERSPRAY_DESC": "Falling below <style=cIsHealing>{1}% shield</style> <style=cIsUtility>stuns all enemies</style> in a {2}m <style=cStack>(+{3}m per stack)</style> radius and gives you a <style=cIsUtility>{4}% speed boost</style> whose time scales with your total shield percentage up to {5} seconds. Effect recharges at full shield. Grants <style=cIsHealing>shield</style> equal to <style=cIsHealing>{0}%</style> of your maximum health.",
+    	"SLIP_ITEM_PEPPERSPRAY_LORE": "Order: F.O.A.-Brand Shield-Adaptive Pepper-Spray®\nTracking Number: 84******\nEstimated Delivery: 10/11/2056\nShipping Method: Priority\nShipping Address: 223 Marred Falls Ln, Valles Marineris, Mars\n\nDo you sometimes feel helpless? How about weak and defenseless? Does your family wonder why you come back home battered and bruised? Do you suffer from chronic, involuntary knife-induced avulsions?\n\nHaving trouble with those bullies again? Ugh! What a drag!\n\nFret no longer with the F.O.A. PEPPER SPRAY®! This little number will make up for any baseline bodily incompetence ranging from weakness to meekness to a general lack of integrity. It's so easy to use — just pop the cap off, press the button, and WOW, look at it go! \n\n\"I've never felt safer in my whole life.\" - A satisfied customer.\n\"It's so easy! I can't spray myself even if I tried!\" - A satisfied customer.\n\"It even works on my husband!\" - A satisfied customer.\n\nThe secret is in the Hypercyclic Friend-Or-Foe Shield Generator System (patent pending)! With it, the pepper spray cannot in any way, shape, or form affect its user. Just look at how well it works and how easily Edith (age 89) can take control over these three highly-trained security guards! \n\nGo, Edith!\n\n[The feed is dominated by sounds of violence, spraying, screaming, and the electric crackle of an unstable shield. An old woman cackles as she proclaims \"It's just that easy! Ho, ho, ho...\"]\n\nIf you sign up in the next thirty minutes, you can get yourself another pack of F.O.A. PEPPER SPRAY® ABSOLUTELY FREE! That's right, ABSOLUTELY FREE! That's a one thousand-credit value for ABSOLUTELY FREE!\n\nCall now!\n\n[All prices included do not include shipping and handling. All shipping and handling prices may vary based on location and proximity to our distribution centers. All prices cited are distributed in three easy payments. F.O.A. Industries® is not responsible for personal injury incurred from using our product. All rights reserved.]",
+
+	"SLIP_ITEM_RUSTYGEN_NAME": "Faint S.O.S.",
+	"SLIP_ITEM_RUSTYGEN_PICKUP": "While you have a shield, reduce debuff timers.",
+	"SLIP_ITEM_RUSTYGEN_DESC": "Gain a <style=cIsHealing>shield</style> equal to <style=cIsHealing>{0}%</style> of your maximum health. While you have a <style=cIsHealing>shield</style>, reduce debuff timers by {1}% <style=cStack>(+{1}% per stack)</style>.",
+	"SLIP_ITEM_RUSTYGEN_LORE": "...Out here, no one will save you. The lights on my satellite S.O.S. have begun to dim, food's running low... All I've got left is myself, and you Victor. \n<style=cIsDamage>*Sounds of brutal, unparalleled violence can be heard over the recorder*</style>",
+
+	"SLIP_ITEM_CHUNGUS_NAME": "Charged Fungus",
+	"SLIP_ITEM_CHUNGUS_PICKUP": "Passively heal while your equipment is charged",
+	"SLIP_ITEM_CHUNGUS_DESC": "While you have a stock of your equipment, <style=cIsHealing>Heal for {3}% of your maximum hp</style> every second",
+	"SLIP_ITEM_CHANGUS_LORE": "Whats up oc?"
+
+	
+    }
+}

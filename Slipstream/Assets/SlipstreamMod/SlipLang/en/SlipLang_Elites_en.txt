@@ -1,0 +1,8 @@
+{
+    "strings":
+    {
+	"SLIP_MODIFIER_SANDSWEPT": "Sandswept {0}",
+	"SLIP_EQUIP_AFFIXSANDSWEPT_NAME": "The Third Wish",
+	"SLIP_EQUIP_AFFIXSANDSWEPT_PICKUP": "Become an aspect of sand."
+    }
+}

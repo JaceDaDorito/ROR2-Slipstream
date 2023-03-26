@@ -84,7 +84,7 @@ Material:
     - _DstBlend: 0
     - _ExternalAlpha: 1
     - _Fade: 1
-    - _FadeCloseDistance: 0.301
+    - _FadeCloseDistance: 0.4
     - _FadeCloseOn: 1
     - _FresnelOn: 0
     - _FresnelPower: 0

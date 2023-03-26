@@ -11,7 +11,7 @@ namespace Slipstream.Buffs
 {
     public class ChungusBuff : BuffBase
     {
-        public override BuffDef BuffDef => SlipAssets.Instance.MainAssetBundle.LoadAsset<BuffDef>("ChungusBuff");
+        public override BuffDef BuffDef => SlipAssets.LoadAsset<BuffDef>("ChungusBuff", SlipBundle.Items);
 
         public static BuffDef buff;
 

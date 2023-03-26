@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-9158328363872440518
+--- !u!114 &-3441690072439955794
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Active: 1
   LanguageArtifactPath: <LanguageStaging>
---- !u!114 &-1626408173488622178
+--- !u!114 &-1572175513239099461
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -40,7 +40,7 @@ MonoBehaviour:
   m_Name: StageLanguageAndSoundbanks
   m_EditorClassIdentifier: 
   Data:
-  - {fileID: -1626408173488622178}
-  - {fileID: -9158328363872440518}
+  - {fileID: -1572175513239099461}
+  - {fileID: -3441690072439955794}
   QuickAccess: 0
-  manifest: {fileID: 11400000, guid: 9376c88ecd6b60240b2ed7fdcfee6d45, type: 2}
+  manifest: {fileID: 0}

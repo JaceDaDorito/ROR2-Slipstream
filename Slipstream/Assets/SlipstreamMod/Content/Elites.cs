@@ -24,7 +24,6 @@ namespace Slipstream.Modules
             base.Initialize();
             SlipLogger.LogI($"Initializing Elites...");
             GetInitializedEliteEquipmentBases();
-            OnListCreated += LateEliteSetup;
         }
 
         protected override IEnumerable<EliteEquipmentBase> GetInitializedEliteEquipmentBases()

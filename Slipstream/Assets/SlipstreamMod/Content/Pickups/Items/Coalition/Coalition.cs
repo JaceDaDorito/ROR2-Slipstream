@@ -17,7 +17,7 @@ namespace Slipstream.Items
     public class Coalition : ItemBase
     {
         private const string token = "SLIP_ITEM_COALITION_DESC";
-        public override ItemDef ItemDef { get; } = SlipAssets.Instance.MainAssetBundle.LoadAsset<ItemDef>("Coalition");
+        public override ItemDef ItemDef { get; } = SlipAssets.LoadAsset<ItemDef>("Coalition", SlipBundle.Items);
 
         [ConfigurableField(ConfigName = "Allies are immunte to void death", ConfigDesc = "Prevents instant void explosion deaths (like the Void Reaver explosion) for allies.", ConfigSection = "Coalition")]
         //[TokenModifier(token, StatTypes.Default, 0)]
@@ -99,7 +99,7 @@ namespace Slipstream.Items
 
             private void Start()
             {
-                destroyEffectPrefab = SlipAssets.Instance.MainAssetBundle.LoadAsset<GameObject>("CoalitionPreDetonation");
+                destroyEffectPrefab = SlipAssets.LoadAsset<GameObject>("CoalitionPreDetonation", SlipBundle.Items);
 
                 //Adds Blackhealth item to all your allies
                 CharacterMaster master = body.master;
@@ -187,7 +187,7 @@ namespace Slipstream.Items
         public class CoalitionBarData : ExtraHealthbarSegment.BarData
         {
             private bool enabled;
-            private Material barMat = SlipAssets.Instance.MainAssetBundle.LoadAsset<Material>("matCriticalShield");
+            private Material barMat = SlipAssets.LoadAsset<Material>("matCriticalShield", SlipBundle.Base);
 
             private float threshold;
 

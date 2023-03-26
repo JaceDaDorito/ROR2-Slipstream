@@ -88,7 +88,6 @@ GameObject:
   - component: {fileID: 8416721656212135178}
   - component: {fileID: -8804783987359135024}
   - component: {fileID: -1179551592655048302}
-  - component: {fileID: 4146482331340140242}
   - component: {fileID: -7420754969701133073}
   - component: {fileID: 3162508549120644696}
   m_Layer: 14
@@ -164,8 +163,7 @@ MonoBehaviour:
   ghostTransformAnchor: {fileID: 0}
   startSound: 
   cannotBeDeleted: 0
-  flightSoundLoop: {fileID: -7154016848351746104, guid: 00000000000000000000000000000000,
-    type: 0}
+  flightSoundLoop: {fileID: 0}
   canImpactOnTrigger: 0
   allowPrediction: 1
   owner: {fileID: 0}
@@ -277,23 +275,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultTeam: -1
---- !u!114 &4146482331340140242
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8195876356787717388}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1952984350, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  destroyWhenNotAlive: 1
-  destroyOnWorld: 1
-  impactEffect: {fileID: 0}
-  hitSoundString: Play_fireballsOnHit_impact
-  enemyHitSoundString: Play_fireballsOnHit_impact
 --- !u!135 &-7420754969701133073
 SphereCollider:
   m_ObjectHideFlags: 0

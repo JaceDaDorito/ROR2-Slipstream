@@ -95,12 +95,11 @@ namespace Slipstream
 
         public static class Scenes
         {
-            public static SceneDef TestStage;
             public static SceneDef aridexpanse;
         }
         public override string identifier => SlipMain.GUID;
 
-        public override R2APISerializableContentPack SerializableContentPack { get; protected set; } = SlipAssets.Instance.MainAssetBundle.LoadAsset<R2APISerializableContentPack>("ContentPack");
+        public override R2APISerializableContentPack SerializableContentPack { get; protected set; } = SlipAssets.LoadAsset<R2APISerializableContentPack>("ContentPack", SlipBundle.Main);
         public override Action[] LoadDispatchers { get; protected set; }
         public override Action[] PopulateFieldsDispatchers { get; protected set; }
 
@@ -153,14 +152,14 @@ namespace Slipstream
                 },*/
                 delegate
                 {
-                    SerializableContentPack.entityStateTypes = typeof(SlipContent).Assembly.GetTypes()
+                    SerializableContentPack.entityStateTypes = typeof(SlipContent).Assembly.GetTypesSafe()
                         .Where(type => typeof(EntityStates.EntityState).IsAssignableFrom(type))
                         .Select(type => new EntityStates.SerializableEntityStateType(type))
                         .ToArray();
                 },
                 delegate
                 {
-                   SerializableContentPack.effectPrefabs = SlipAssets.LoadAllAssetsOfType<GameObject>().Where(go => go.GetComponent<EffectComponent>()).ToArray();
+                   SerializableContentPack.effectPrefabs = SlipAssets.LoadAllAssetsOfType<GameObject>(SlipBundle.All).Where(go => go.GetComponent<EffectComponent>()).ToArray();
                 },
                 delegate
                 {

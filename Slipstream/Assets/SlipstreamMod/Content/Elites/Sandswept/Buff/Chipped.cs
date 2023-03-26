@@ -20,13 +20,13 @@ namespace Slipstream.Buffs
 {
     public class Chipped : BuffBase
     {
-        public override BuffDef BuffDef { get; } = SlipAssets.Instance.MainAssetBundle.LoadAsset<BuffDef>("Chipped");
+        public override BuffDef BuffDef { get; } = SlipAssets.LoadAsset<BuffDef>("Chipped", SlipBundle.Elites);
         public static BuffDef buff;
 
         public static float chippedAmount = GenericUtils.ConvertPercentCursedToCurseInput(AffixSandswept.chippedPercentage);
         public static float nerfedChippedAmount = GenericUtils.ConvertPercentCursedToCurseInput(AffixSandswept.nerfedChippedPercentage);
 
-        public static Material glassMaterial = SlipAssets.Instance.MainAssetBundle.LoadAsset<Material>("matIsGlass");
+        public static Material glassMaterial = SlipAssets.LoadAsset<Material>("matIsGlass", SlipBundle.Elites);
         private static float flashDuration = 1f;
         public override void Initialize()
         {

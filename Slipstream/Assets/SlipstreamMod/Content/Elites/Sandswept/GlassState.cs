@@ -33,10 +33,10 @@ namespace EntityStates.Sandswept
 
         //private List<Material> instancesOverlay;
         private List<CharacterModel.RendererInfo> rendererList = new List<CharacterModel.RendererInfo>();
-        public Material frozenOverlayMaterial = SlipAssets.Instance.MainAssetBundle.LoadAsset<Material>("matIsGlass");
-        public Material frozenFlashMaterial = SlipAssets.Instance.MainAssetBundle.LoadAsset<Material>("matIsGlassFlash");
-        private GameObject original = SlipAssets.Instance.MainAssetBundle.LoadAsset<GameObject>("EliteSandKnockbackIndicator");
-        private GameObject sandExplosion = SlipAssets.Instance.MainAssetBundle.LoadAsset<GameObject>("SandDustExplosion");
+        public Material frozenOverlayMaterial = SlipAssets.LoadAsset<Material>("matIsGlass", SlipBundle.Elites);
+        public Material frozenFlashMaterial = SlipAssets.LoadAsset<Material>("matIsGlassFlash", SlipBundle.Elites);
+        private GameObject original = SlipAssets.LoadAsset<GameObject>("EliteSandKnockbackIndicator", SlipBundle.Elites);
+        private GameObject sandExplosion = SlipAssets.LoadAsset<GameObject>("SandDustExplosion", SlipBundle.Elites);
 
         private Color CurrentColor;
 

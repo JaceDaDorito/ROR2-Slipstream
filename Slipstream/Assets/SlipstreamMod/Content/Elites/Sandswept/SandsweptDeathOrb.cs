@@ -10,6 +10,7 @@ namespace Slipstream.Orbs
 	{
 		private const float speed = 30f;
 		private CharacterBody characterBody;
+		private GameObject orbPrefab = SlipAssets.LoadAsset<GameObject>("AffixSandDeathOrbEffect", SlipBundle.Elites);
 		public override void Begin()
 		{
 			base.duration = base.distanceToTarget / speed;
@@ -20,7 +21,7 @@ namespace Slipstream.Orbs
 			};
 			effectData.SetHurtBoxReference(this.target);
 			//AffixSandDeathOrbEffect
-			EffectManager.SpawnEffect(SlipAssets.Instance.MainAssetBundle.LoadAsset<GameObject>("AffixSandDeathOrbEffect"), effectData, true);
+			EffectManager.SpawnEffect(orbPrefab, effectData, true);
 			HurtBox hurtBox = this.target.GetComponent<HurtBox>();
 			characterBody = (hurtBox != null) ? hurtBox.healthComponent.GetComponent<CharacterBody>() : null;
 		}

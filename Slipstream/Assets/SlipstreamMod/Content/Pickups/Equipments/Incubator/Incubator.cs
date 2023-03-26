@@ -12,7 +12,7 @@ namespace Slipstream.Equipments
     [DisabledContent]
     public class Incubator : EquipmentBase
     {
-        public override RoR2.EquipmentDef EquipmentDef { get; } = SlipAssets.Instance.MainAssetBundle.LoadAsset<RoR2.EquipmentDef>("Incubator");
+        public override RoR2.EquipmentDef EquipmentDef { get; } = SlipAssets.LoadAsset<RoR2.EquipmentDef>("Incubator", SlipBundle.Equipments);
 
         public override void Initialize()
         {

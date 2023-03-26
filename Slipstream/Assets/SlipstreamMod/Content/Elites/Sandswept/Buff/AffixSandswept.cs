@@ -51,11 +51,13 @@ namespace Slipstream.Buffs
      */
     public class AffixSandswept : BuffBase
     {
-        public override BuffDef BuffDef { get; } = SlipAssets.Instance.MainAssetBundle.LoadAsset<BuffDef>("AffixSandswept");
+        public override BuffDef BuffDef { get; } = SlipAssets.LoadAsset<BuffDef>("AffixSandswept", SlipBundle.Elites);
         public static BuffDef buff;
         //public BuffDef grainDebuff = SlipAssets.Instance.MainAssetBundle.LoadAsset<BuffDef>("Grainy");
 
-        private static GameObject knockbackExplosion = SlipAssets.Instance.MainAssetBundle.LoadAsset<GameObject>("EliteSandKnockback");
+        private static GameObject knockbackExplosion = SlipAssets.LoadAsset<GameObject>("EliteSandKnockback", SlipBundle.Elites);
+
+        private static GameObject eliteKnockbackVisual = SlipAssets.LoadAsset<GameObject>("EliteSandKnockbackVisual", SlipBundle.Elites);
 
         public EntityStateMachine targetStateMachine;
 
@@ -309,7 +311,7 @@ namespace Slipstream.Buffs
             Vector3 feetPosition = body.footPosition;
             float combinedRadius = CalculateRadius(body);
 
-            EffectManager.SpawnEffect(SlipAssets.Instance.MainAssetBundle.LoadAsset<GameObject>("EliteSandKnockbackVisual"), new EffectData
+            EffectManager.SpawnEffect(eliteKnockbackVisual, new EffectData
             {
                 origin = feetPosition,
                 scale = combinedRadius

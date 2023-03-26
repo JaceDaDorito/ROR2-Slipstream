@@ -21,7 +21,8 @@ namespace EntityStates.Mage.Weapon
         [TokenModifier(token, StatTypes.MultiplyByN, 0, "100")]
         private static float damage = 3.5f;
 
-        public GameObject projectilePrefab = SlipAssets.Instance.MainAssetBundle.LoadAsset<GameObject>("MageNanoFlame");
+        public GameObject projectilePrefab = SlipAssets.LoadAsset<GameObject>("MageNanoFlame", SlipBundle.Skills);
+        public GameObject effectStartPrefab = SlipAssets.LoadAsset<GameObject>("MageNanoFlameStartEffect", SlipBundle.Skills);
         public List<GameObject> instantiatedEffects = new List<GameObject>();
         private GameObject muzzleFlashEffectPrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Mage/MuzzleflashMageFire.prefab").WaitForCompletion();
         private static float force = 30f;
@@ -59,19 +60,23 @@ namespace EntityStates.Mage.Weapon
         public override void FixedUpdate()
         {
             base.FixedUpdate();
-            if (base.isAuthority)
+
+            if (Mathf.Clamp(Mathf.Clamp01(fixedAge / duration) * balls, 0f, balls - 1) >= projectileIndex)
             {
-                if (Mathf.Clamp(Mathf.Clamp01(fixedAge/duration) * balls, 0f, balls - 1) >= projectileIndex)
+                Destroy(instantiatedEffects[projectileIndex]);
+                if (base.isAuthority)
                 {
-                    Destroy(instantiatedEffects[projectileIndex]);
                     Fire(projectileIndex);
                     projectileIndex++;
                 }
+            }
+
+            if (base.isAuthority)
+            {
                 if (fixedAge >= duration)
                 {
                     outer.SetNextStateToMain();
                 }
-                
             }
             
 
@@ -113,6 +118,11 @@ namespace EntityStates.Mage.Weapon
                     crit = base.RollCrit()
                 };
                 ProjectileManager.instance.FireProjectile(fireProjectileInfo);
+
+                EffectManager.SpawnEffect(effectStartPrefab, new EffectData
+                {
+                    origin = ballPosition
+                }, true);
             }
         }
     }

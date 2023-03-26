@@ -10,7 +10,7 @@ namespace Slipstream.Buffs
     public class PepperSpeed : BuffBase
     {
         //Establishes buff PepperSpeed
-        public override BuffDef BuffDef { get; } = SlipAssets.Instance.MainAssetBundle.LoadAsset<BuffDef>("PepperSpeed");
+        public override BuffDef BuffDef { get; } = SlipAssets.LoadAsset<BuffDef>("PepperSpeed", SlipBundle.Items);
         public static BuffDef buff;
         public override void Initialize()
         {

@@ -18,15 +18,15 @@ namespace Slipstream.Scenes
 {
     public class AridExpanse : SceneBase
     {
-        public override SceneDef SceneDef { get; } = SlipAssets.Instance.MainAssetBundle.LoadAsset<SceneDef>("aridexpanse");
+        public override SceneDef SceneDef { get; } = SlipAssets.LoadAsset<SceneDef>("aridexpanse", SlipBundle.Scenes);
 
 
         private static MusicTrackDef music = Addressables.LoadAssetAsync<MusicTrackDef>("RoR2/Base/Common/muFULLSong02.asset").WaitForCompletion();
         private static MusicTrackDef bossMusic = Addressables.LoadAssetAsync<MusicTrackDef>("RoR2/Base/Common/muSong05.asset").WaitForCompletion();
         private static SceneCollection sceneEntryGroup = Addressables.LoadAssetAsync<SceneCollection>("RoR2/Base/SceneGroups/sgStage1.asset").WaitForCompletion(); //Stage 1s
         private static SceneCollection sceneDestinations = Addressables.LoadAssetAsync<SceneCollection>("RoR2/Base/SceneGroups/sgStage2.asset").WaitForCompletion(); // Stage 2s
-        private static DccsPool intPool { get; } = SlipAssets.Instance.MainAssetBundle.LoadAsset<DccsPool>("dpAridExpanseInteractables");
-        private static DccsPool monsterPool { get; } = SlipAssets.Instance.MainAssetBundle.LoadAsset<DccsPool>("dpAridExpanseMons");
+        private static DccsPool intPool { get; } = SlipAssets.LoadAsset<DccsPool>("dpAridExpanseInteractables", SlipBundle.Scenes);
+        private static DccsPool monsterPool { get; } = SlipAssets.LoadAsset<DccsPool>("dpAridExpanseMons", SlipBundle.Scenes);
 
         private static Material golemPlainsBazaarMat = Addressables.LoadAssetAsync<Material>("RoR2/Base/bazaar/matBazaarSeerGolemplains.mat").WaitForCompletion();
         private static Material bazaarMat;
@@ -51,7 +51,7 @@ namespace Slipstream.Scenes
             SceneDef.destinationsGroup = sceneDestinations;
 
             bazaarMat = UnityEngine.Object.Instantiate(golemPlainsBazaarMat);
-            bazaarMat.mainTexture = SlipAssets.Instance.MainAssetBundle.LoadAsset<Texture>("Capture");
+            bazaarMat.mainTexture = SlipAssets.LoadAsset<Texture>("Capture", SlipBundle.Base);
             SceneDef.portalMaterial = bazaarMat;
 
             //Makes dlc a requirement for dlc content

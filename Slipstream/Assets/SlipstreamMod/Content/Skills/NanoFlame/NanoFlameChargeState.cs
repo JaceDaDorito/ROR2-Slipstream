@@ -19,7 +19,7 @@ namespace EntityStates.Mage.Weapon {
         
 
         private Animator animator;
-        public GameObject effectPrefab = SlipAssets.Instance.MainAssetBundle.LoadAsset<GameObject>("MageNanoFlameChargeBolts");
+        public GameObject effectPrefab = SlipAssets.LoadAsset<GameObject>("MageNanoFlameChargeBolts", SlipBundle.Skills);
         private List<GameObject> instantiatedEffects = new List<GameObject>();
         private int effectIndex = 0;
         public static float[] angleOrder = { 0f, 180f, 45f, 135f, 90f };
@@ -28,7 +28,7 @@ namespace EntityStates.Mage.Weapon {
 
         private ChildLocator childLocator;
         private Transform head;
-        private static float baseDuration = 1.5f;
+        private static float baseDuration = 2f;
         private float duration;
         private float minChargeDuration = 0.3f;
         public static GameObject crosshairOverridePrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Mage/MageCrosshair.prefab").WaitForCompletion();
@@ -54,8 +54,8 @@ namespace EntityStates.Mage.Weapon {
             {
                 head = childLocator.FindChild("Head");
             }
-            Util.PlayAttackSpeedSound("Play_grandParent_attack3_sun_spawn", gameObject, attackSpeedStat);
-            loopSoundInstanceId = this.loopSoundInstanceId = Util.PlayAttackSpeedSound("Play_grandParent_attack3_sun_damageLoop", base.gameObject, this.attackSpeedStat);
+            Util.PlayAttackSpeedSound("Play_moonBrother_blueWall_slam_start", gameObject, attackSpeedStat);
+            loopSoundInstanceId = this.loopSoundInstanceId = Util.PlayAttackSpeedSound("Play_lunar_wisp_attack2_chargeLoop", base.gameObject, this.attackSpeedStat);
             base.StartAimMode(duration + 2, false);
         }
 

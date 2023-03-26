@@ -18,7 +18,7 @@ namespace Slipstream.Utils
 {
     public class ExpansionUtils
     {
-        public static ExpansionDef slipexpansion = SlipAssets.Instance.MainAssetBundle.LoadAsset<ExpansionDef>("SlipExpansionDef");
+        public static ExpansionDef slipexpansion = SlipAssets.LoadAsset<ExpansionDef>("SlipExpansionDef", SlipBundle.Main);
         public void Init()
         {
             //This code runs on startup of the mod to load the lock icon and set the disabled icon to the lock icon

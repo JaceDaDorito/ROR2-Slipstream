@@ -11,7 +11,7 @@ namespace Slipstream.Items
     public class RustyGenerator : ItemBase
     {
         private const string token = "SLIP_ITEM_RUSTYGEN_DESC";
-        public override ItemDef ItemDef { get; } = SlipAssets.Instance.MainAssetBundle.LoadAsset<ItemDef>("RustyGenerator");
+        public override ItemDef ItemDef { get; } = SlipAssets.LoadAsset<ItemDef>("RustyGenerator", SlipBundle.Items);
 
         //baseShield configurable field
         [ConfigurableField(ConfigName = "Base Shield", ConfigDesc = "Shield percentage after having at least one stack.", ConfigSection = "RustyGenerator")]

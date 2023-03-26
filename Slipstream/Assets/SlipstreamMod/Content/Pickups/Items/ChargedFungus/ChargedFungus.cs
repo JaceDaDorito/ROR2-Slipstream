@@ -15,11 +15,11 @@ namespace Slipstream.Items
     public class ChargedFungus : ItemBase
     {
         private const string token = "SLIP_ITEM_CHUNGUS_DESC";
-        public override ItemDef ItemDef => SlipAssets.Instance.MainAssetBundle.LoadAsset<ItemDef>("ChargedFungus");
+        public override ItemDef ItemDef => SlipAssets.LoadAsset<ItemDef>("ChargedFungus", SlipBundle.Items);
 
        
 
-        [ConfigurableField(ConfigName = "Healing Percentage", ConfigDesc = "Amount healed per second while equipment is charged", ConfigSection = "Charged Fungus")]
+        [ConfigurableField(ConfigName = "Healing Percentage", ConfigDesc = "Amount healed per second while equipment is charged", ConfigSection = "ChargedFungus")]
         [TokenModifier(token, StatTypes.MultiplyByN, 3, "100")]
         public static float HealingPercentage = 0.03f;
 
