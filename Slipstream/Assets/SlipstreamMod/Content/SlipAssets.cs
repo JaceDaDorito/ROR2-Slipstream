@@ -242,6 +242,15 @@ namespace Slipstream
                 return loadedAssets.ToArray();
             }
 
+            var assetBundle = assetBundles[bundle];
+            if(assetBundle.isStreamedSceneAssetBundle)
+            {
+#if DEBUG
+                SlipLogger.LogW($"The  method \"{GetCallingMethod()}\" is calling \"LoadAllAssets<TAsset>(SlipBundle)\" with the argument \"{bundle}\", however, the assetbundle assigned to {bundle} is a streamed scene AssetBundle, which is not valid.\n" +
+    $"Do not call LoadAllAssetts<TAsset>(SlipBundle) while assigning the enum to a Streamed Scene AssetBundle, as this causes exceptions and errors.");
+#endif
+                return loadedAssets.ToArray();
+            }
             loadedAssets = assetBundles[bundle].LoadAllAssets<TAsset>().ToList();
 #if DEBUG
             if (loadedAssets.Count == 0)
@@ -255,7 +264,8 @@ namespace Slipstream
             {
                 foreach ((var _, var bndl) in assetBundles)
                 {
-                    output.AddRange(bndl.LoadAllAssets<TAsset>());
+                    if(!bndl.isStreamedSceneAssetBundle)
+                        output.AddRange(bndl.LoadAllAssets<TAsset>());
                 }
                 return;
             }
