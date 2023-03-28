@@ -107,6 +107,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a644a53693d44639c70550096ce74b93, type: 2}
   - {fileID: 11400000, guid: 19f404b4f1d413a691a8b0edda7faba9, type: 2}
   - {fileID: 11400000, guid: 2f0230b12529cadf82e6b0db93950626, type: 2}
+  - {fileID: 11400000, guid: 5ceb1d8ed3af40d4d806e9756b403649, type: 2}
 --- !u!114 &114431642618062350
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -127,11 +128,13 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 718e28a2b1bcb224497773a63ea78864, type: 2}
     - {fileID: 11400000, guid: fccef1283d796f24ab13ca388fece6c8, type: 2}
     - {fileID: 2800000, guid: c480f27397c93cf46948405eabcc232d, type: 3}
+    - {fileID: 2800000, guid: 98ae94a86ee861744b6edda4a779c457, type: 3}
     - {fileID: 4469780739943632523, guid: 34677373b0ebf1849948c92f9e0ced26, type: 3}
   - assetBundleName: slipbase
     assets:
     - {fileID: 102900000, guid: 10fdbbe9b3f0d3f4ebd88c5e3dd10369, type: 3}
     - {fileID: 102900000, guid: b365eedbb81d3c245995af13dbda9a84, type: 3}
+    - {fileID: 102900000, guid: 197451f18629b0544a07e9f32e73795b, type: 3}
   - assetBundleName: slipequipments
     assets:
     - {fileID: 102900000, guid: 5e93da1e7455dbb4ba37aef3abca437d, type: 3}
