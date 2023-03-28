@@ -12,7 +12,7 @@ namespace Slipstream.Items
     public class GlassEye : ItemBase
     {
         private const string token = "SLIP_ITEM_GLASSEYE_DESC";
-        public override ItemDef ItemDef { get; } = SlipAssets.Instance.MainAssetBundle.LoadAsset<ItemDef>("GlassEye");
+        public override ItemDef ItemDef { get; } = SlipAssets.LoadAsset<ItemDef>("GlassEye", SlipBundle.Items);
 
         //public static string section = "GlassEye";
 

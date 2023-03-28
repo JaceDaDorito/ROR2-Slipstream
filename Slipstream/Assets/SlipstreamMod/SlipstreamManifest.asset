@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-7646476185375340455
+--- !u!114 &-4467616490986340797
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -13,13 +13,11 @@ MonoBehaviour:
   m_Name: Files
   m_EditorClassIdentifier: 
   StagingPaths:
-  - <ManifestStagingRoot>
+  - <BuildPath>
   files:
   - {fileID: 2800000, guid: 5fc53213b7358dd49b9953c29358a105, type: 3}
   - {fileID: 4900000, guid: ddfe8be3934954f4aac2939fb12f5c66, type: 3}
-  - {fileID: 102900000, guid: 73d9964c5b16d9441b1f304e464adda0, type: 3}
-  - {fileID: 102900000, guid: 2808caf3af503eb4f803c32d100ca114, type: 3}
---- !u!114 &-5775786412066446189
+--- !u!114 &-3892906877110538616
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -28,24 +26,61 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17d1008b78cb6e846889b7778282fbef, type: 3}
-  m_Name: AssetBundleDefinitions
+  m_Script: {fileID: 11500000, guid: 3230df44b431ebc49a958dde5afa4f88, type: 3}
+  m_Name: LanguageFolderTree
   m_EditorClassIdentifier: 
   StagingPaths:
-  - <StageInAssetFolder>
-  assetBundles:
-  - assetBundleName: slipassets
-    assets:
-    - {fileID: 102900000, guid: 07aa771fa8bab384ca57a075b93a71ca, type: 3}
-  - assetBundleName: teststage
-    assets:
-    - {fileID: 102900000, guid: 095c9fdbe2a956842b95d921c9833e13, type: 3}
-  - assetBundleName: aridexpanse
-    assets:
-    - {fileID: 102900000, guid: ddb0f470f7ff4ad42ae5de4ec57c3ba7, type: 3}
---- !u!114 &-4602117282012248594
+  - <BuildPathPlugins>
+  rootFolderName: SlipLang
+  languageFolders:
+  - languageName: en
+    languageFiles:
+    - {fileID: 4900000, guid: 63f151b457c53864787588c306ca7666, type: 3}
+    - {fileID: 4900000, guid: fc291f64b11085e4a9d8af6830bb1057, type: 3}
+    - {fileID: 4900000, guid: 874239dc57fd2704383dd584b8217653, type: 3}
+    - {fileID: 4900000, guid: fa93ed0c0340c174ba3f2621708d1c28, type: 3}
+    - {fileID: 4900000, guid: 6007b2b38ee2439438e4830751e6e081, type: 3}
+--- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e563561e08b6a3642a487177f5cfbb37, type: 3}
+  m_Name: SlipstreamManifest
+  m_EditorClassIdentifier: 
+  Data:
+  - {fileID: 114211852988908172}
+  - {fileID: 114107831304456238}
+  - {fileID: 114431642618062350}
+  - {fileID: 114987763159783732}
+  - {fileID: -3892906877110538616}
+  - {fileID: 8324102109481770816}
+  - {fileID: -4467616490986340797}
+  identity: {fileID: 114211852988908172}
+  QuickAccess: 0
+--- !u!114 &114107831304456238
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b7e13dda513544419a89926bd12ad8a, type: 3}
+  m_Name: AssemblyDefinitions
+  m_EditorClassIdentifier: 
+  StagingPaths:
+  - <BuildPathPlugins>
+  definitions:
+  - {fileID: 5897886265953266890, guid: 48945b114b79a914c9ada363fa1172c2, type: 3}
+--- !u!114 &114211852988908172
+MonoBehaviour:
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -72,7 +107,72 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a644a53693d44639c70550096ce74b93, type: 2}
   - {fileID: 11400000, guid: 19f404b4f1d413a691a8b0edda7faba9, type: 2}
   - {fileID: 11400000, guid: 2f0230b12529cadf82e6b0db93950626, type: 2}
---- !u!114 &-198943577278717595
+  - {fileID: 11400000, guid: 5ceb1d8ed3af40d4d806e9756b403649, type: 2}
+--- !u!114 &114431642618062350
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17d1008b78cb6e846889b7778282fbef, type: 3}
+  m_Name: AssetBundleDefinitions
+  m_EditorClassIdentifier: 
+  StagingPaths:
+  - <BuildPathAssets>
+  assetBundles:
+  - assetBundleName: slipmain
+    assets:
+    - {fileID: 11400000, guid: 718e28a2b1bcb224497773a63ea78864, type: 2}
+    - {fileID: 11400000, guid: fccef1283d796f24ab13ca388fece6c8, type: 2}
+    - {fileID: 2800000, guid: c480f27397c93cf46948405eabcc232d, type: 3}
+    - {fileID: 2800000, guid: 98ae94a86ee861744b6edda4a779c457, type: 3}
+    - {fileID: 4469780739943632523, guid: 34677373b0ebf1849948c92f9e0ced26, type: 3}
+  - assetBundleName: slipbase
+    assets:
+    - {fileID: 102900000, guid: 10fdbbe9b3f0d3f4ebd88c5e3dd10369, type: 3}
+    - {fileID: 102900000, guid: b365eedbb81d3c245995af13dbda9a84, type: 3}
+    - {fileID: 102900000, guid: 197451f18629b0544a07e9f32e73795b, type: 3}
+  - assetBundleName: slipequipments
+    assets:
+    - {fileID: 102900000, guid: 5e93da1e7455dbb4ba37aef3abca437d, type: 3}
+  - assetBundleName: slipitems
+    assets:
+    - {fileID: 102900000, guid: b808334d6df79d04ea9cc113e9634ab9, type: 3}
+  - assetBundleName: slipelites
+    assets:
+    - {fileID: 102900000, guid: 1ade2495d5e4642439a9566875edaafa, type: 3}
+  - assetBundleName: slipscenes
+    assets:
+    - {fileID: 102900000, guid: b14c52089286cde479a666de6da11fe8, type: 3}
+  - assetBundleName: sliparidexpanse
+    assets:
+    - {fileID: 102900000, guid: ddb0f470f7ff4ad42ae5de4ec57c3ba7, type: 3}
+  - assetBundleName: slipskills
+    assets:
+    - {fileID: 102900000, guid: e13e78795b8747d4d8f4f964351deac8, type: 3}
+  - assetBundleName: slipskins
+    assets:
+    - {fileID: 102900000, guid: 2c8c1fdb0ba2fa5489915243ce1f3b6e, type: 3}
+--- !u!114 &114987763159783732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b243ff405b33b94dbf5b6775dd9aa33, type: 3}
+  m_Name: Files
+  m_EditorClassIdentifier: 
+  StagingPaths:
+  - <BuildPathSoundbanks>
+  files:
+  - {fileID: 102900000, guid: 2808caf3af503eb4f803c32d100ca114, type: 3}
+--- !u!114 &8324102109481770816
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -85,41 +185,5 @@ MonoBehaviour:
   m_Name: ThunderstoreData
   m_EditorClassIdentifier: 
   StagingPaths:
-  - <ManifestStagingRoot>
+  - <BuildPath>
   url: https://github.com/AtlanteanDotOrg/ROR2-Slipstream/tree/main
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e563561e08b6a3642a487177f5cfbb37, type: 3}
-  m_Name: SlipstreamManifest
-  m_EditorClassIdentifier: 
-  Data:
-  - {fileID: -4602117282012248594}
-  - {fileID: 2204156757372025435}
-  - {fileID: -5775786412066446189}
-  - {fileID: -198943577278717595}
-  - {fileID: -7646476185375340455}
-  identity: {fileID: -4602117282012248594}
-  QuickAccess: 0
---- !u!114 &2204156757372025435
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b7e13dda513544419a89926bd12ad8a, type: 3}
-  m_Name: AssemblyDefinitions
-  m_EditorClassIdentifier: 
-  StagingPaths:
-  - <ManifestStagingRoot>
-  definitions:
-  - {fileID: 5897886265953266890, guid: 48945b114b79a914c9ada363fa1172c2, type: 3}

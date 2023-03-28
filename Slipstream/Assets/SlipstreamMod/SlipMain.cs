@@ -65,8 +65,9 @@ namespace Slipstream
             config = Config;
             SlipLogger.logger = Logger;
 
-            new SlipConfig().Init();
             new SlipAssets().Init();
+            //I could put a load bearing chuck here.
+            new SlipConfig().Init();
             new SlipContent().Init();
             new SlipLanguage().Init();
 

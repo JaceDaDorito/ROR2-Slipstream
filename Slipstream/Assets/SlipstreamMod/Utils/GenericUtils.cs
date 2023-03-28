@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using Slipstream;
 using UnityEngine.UI;
-using AddressablesHelper;
 using UnityEngine.AddressableAssets;
 using static RoR2.CharacterModel;
 using R2API;

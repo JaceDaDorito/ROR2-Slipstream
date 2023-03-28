@@ -14,13 +14,13 @@
       "url": "https://packages.unity.com"
     },
     "com.passivepicasso.thunderkit": {
-      "version": "https://github.com/PassivePicasso/ThunderKit.git#7.0.0",
+      "version": "https://github.com/PassivePicasso/ThunderKit.git#7.1.2",
       "depth": 0,
       "source": "git",
       "dependencies": {
         "com.unity.scriptablebuildpipeline": "1.16.1"
       },
-      "hash": "756c098ffe35179497d7fe70e8b7a74483866678"
+      "hash": "2cce48d97a8474e52552c8bd9a362496bcd2766a"
     },
     "com.unity.formats.fbx": {
       "version": "4.2.0",
@@ -33,10 +33,11 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.multiplayer-hlapi": {
-      "version": "file:RoR2MultiplayerHLAPI",
+      "version": "https://github.com/risk-of-thunder/UnityMultiplayerHLAPI.git",
       "depth": 0,
-      "source": "embedded",
-      "dependencies": {}
+      "source": "git",
+      "dependencies": {},
+      "hash": "ab4c0e7aca99354e4b5b211906e4acd83264ed12"
     },
     "com.unity.postprocessing": {
       "version": "2.3.0",
@@ -249,24 +250,25 @@
       "dependencies": {}
     },
     "riskofthunder-ror2editorkit": {
-      "version": "file:RoR2EditorKit",
-      "depth": 0,
-      "source": "embedded",
-      "dependencies": {}
-    },
-    "riskofthunder-ror2importextensions": {
-      "version": "https://github.com/risk-of-thunder/RoR2ImportExtensions.git",
+      "version": "https://github.com/risk-of-thunder/RoR2EditorKit.git#4.0.0",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "38a3716970e589ecc20e2292c13352bc0efaa1c5"
+      "hash": "2ada60d2536c863bce224179471fe7b62e836eaa"
+    },
+    "riskofthunder-ror2importextensions": {
+      "version": "https://github.com/risk-of-thunder/RoR2ImportExtensions.git#1.3.5",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "9acf13ca9731e1fea43d89b88c6bc054eb6cf32c"
     },
     "teammoonstorm-moonstormsharedutils": {
       "version": "https://github.com/TeamMoonstorm/MoonstormSharedUtils.git",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "45c07475c67adc4c63da663fe94fe4fa9f0efe14"
+      "hash": "916dd889afca071cbd01d21e81fe777abee6fd9f"
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",

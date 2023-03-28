@@ -18,7 +18,7 @@ namespace Slipstream.Items
         //Probably look at GlassEye.cs for your first reference of an item
 
         private const string token = "SLIP_ITEM_PEPPERSPRAY_DESC";
-        public override RoR2.ItemDef ItemDef { get; } = SlipAssets.Instance.MainAssetBundle.LoadAsset<RoR2.ItemDef>("PepperSpray");
+        public override RoR2.ItemDef ItemDef { get; } = SlipAssets.LoadAsset<RoR2.ItemDef>("PepperSpray", SlipBundle.Items);
 
         //public static string section;
 

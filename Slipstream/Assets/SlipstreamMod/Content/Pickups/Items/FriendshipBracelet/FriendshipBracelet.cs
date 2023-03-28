@@ -18,7 +18,7 @@ namespace Slipstream.Items
     public class FriendshipBracelet : ItemBase
     {
         private const string token = "SLIP_ITEM_FRIENDSHIPBRACELET_DESC";
-        public override ItemDef ItemDef { get; } = SlipAssets.Instance.MainAssetBundle.LoadAsset<ItemDef>("FriendshipBracelet");
+        public override ItemDef ItemDef { get; } = SlipAssets.LoadAsset<ItemDef>("FriendshipBracelet", SlipBundle.Items);
         [ConfigurableField(ConfigName = "Items Granted per Stack", ConfigDesc = "Number of items allies will gain from each stack.", ConfigSection = "FriendshipBracelet")]
         [TokenModifier(token, StatTypes.Default, 0)]
         public static int itemGrantPerStack = 1;

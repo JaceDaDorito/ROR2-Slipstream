@@ -18,7 +18,7 @@ namespace Slipstream.Items
     public class BrineSwarm : VoidItemBase
     {
         private const string token = "SLIP_ITEM_BRINESWARM_DESC";
-        public override RoR2.ItemDef ItemDef { get; } = SlipAssets.Instance.MainAssetBundle.LoadAsset<RoR2.ItemDef>("BrineSwarm");
+        public override RoR2.ItemDef ItemDef { get; } = SlipAssets.LoadAsset<RoR2.ItemDef>("BrineSwarm", SlipBundle.Items);
         
 
         [ConfigurableField(ConfigName = "Base Shield", ConfigDesc = "Shield percentage after having at least one stack.", ConfigSection = "BrineSwarm")]
@@ -53,7 +53,7 @@ namespace Slipstream.Items
 
         public override IEnumerable<RoR2.ItemDef> LoadItemsToInfect()
         {
-            return new RoR2.ItemDef[1] { SlipAssets.Instance.MainAssetBundle.LoadAsset<RoR2.ItemDef>("PepperSpray") };
+            return new RoR2.ItemDef[1] { SlipAssets.LoadAsset<RoR2.ItemDef>("PepperSpray", SlipBundle.Items) };
         }
 
         public class BrineSwarmBehavior : BaseItemBodyBehavior, IBodyStatArgModifier, SlipCriticalShield.ICriticalShield

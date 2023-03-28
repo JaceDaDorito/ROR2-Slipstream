@@ -21,7 +21,8 @@ namespace Slipstream.Buffs
 {
     public class Grainy : BuffBase
     {
-        public override BuffDef BuffDef { get; } = SlipAssets.Instance.MainAssetBundle.LoadAsset<BuffDef>("Grainy");
+        public override BuffDef BuffDef { get; } = SlipAssets.LoadAsset<BuffDef>("Grainy", SlipBundle.Elites);
+        private static Material eliteSandOverlay = SlipAssets.LoadAsset<Material>("matEliteSandOverlay", SlipBundle.Elites);
         public static BuffDef buff;
         private static int buffCount = AffixSandswept.buffCount;
 
@@ -122,7 +123,7 @@ namespace Slipstream.Buffs
                 temporaryOverlay = body.gameObject.AddComponent<TemporaryOverlay>();
                 temporaryOverlay.destroyComponentOnEnd = false;
                 temporaryOverlay.destroyObjectOnEnd = false;
-                temporaryOverlay.originalMaterial = SlipAssets.Instance.MainAssetBundle.LoadAsset<Material>("matEliteSandOverlay");
+                temporaryOverlay.originalMaterial = eliteSandOverlay;
                 initialMaterialTint = temporaryOverlay.originalMaterial.GetColor("_TintColor");
                 initialAlphaBoost = temporaryOverlay.originalMaterial.GetFloat("_AlphaBoost");
                 initialScrollSpeed = temporaryOverlay.originalMaterial.GetVector("_CutoffScroll").x;

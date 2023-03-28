@@ -7,7 +7,7 @@ namespace Slipstream.Unlocks
 {
     public class MercGhostrunnerUnlock : UnlockableBase
     {
-        public override MSUnlockableDef UnlockableDef { get; } = SlipAssets.Instance.MainAssetBundle.LoadAsset<MSUnlockableDef>("slip.skin.merc.ghostrunner");
+        public override MSUnlockableDef UnlockableDef { get; } = SlipAssets.LoadAsset<MSUnlockableDef>("slip.skin.merc.ghostrunner", SlipBundle.Skins);
 
         public sealed class MercGhostrunnerAchievement : BaseAchievement
         {

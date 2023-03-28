@@ -21,8 +21,8 @@ namespace Slipstream.Items
         public static float threshold = 0.5f;
 
 
-        private static Texture lowShieldNormal = SlipAssets.Instance.MainAssetBundle.LoadAsset<Texture>("texCriticalShieldIndi");
-        private static Texture lowShieldVoid = SlipAssets.Instance.MainAssetBundle.LoadAsset<Texture>("texCriticalVoidShiIndi");
+        private static Texture lowShieldNormal = SlipAssets.LoadAsset<Texture>("texCriticalShieldIndi", SlipBundle.Base);
+        private static Texture lowShieldVoid = SlipAssets.LoadAsset<Texture>("texCriticalVoidShiIndi", SlipBundle.Base);
 
         public static Dictionary<CharacterBody, bool> shouldTrigger = new Dictionary<CharacterBody, bool>();
         public static Color critShieldBaseColor = new Color(1f, 1f, 1f, 1f);
@@ -89,7 +89,7 @@ namespace Slipstream.Items
         {
             private bool enabled;
             private bool cachedEnabled = false;
-            private Material barMat = SlipAssets.Instance.MainAssetBundle.LoadAsset<Material>("matCriticalShield");
+            private Material barMat = SlipAssets.LoadAsset<Material>("matCriticalShield", SlipBundle.Base);
             private float currentVel;
 
             private Run.TimeStamp timer;

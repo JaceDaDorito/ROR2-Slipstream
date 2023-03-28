@@ -28,11 +28,11 @@ namespace Slipstream.Modules
         {
             for (int i = 0; i < key.Length; i++)
             {
-                SkillDef skill = SlipAssets.Instance.MainAssetBundle.LoadAsset<SkillDef>(skillString);
+                SkillDef skill = SlipAssets.LoadAsset<SkillDef>(skillString, SlipBundle.Skills);
                 SkillFamily skillFamily = Addressables.LoadAssetAsync<SkillFamily>(key[i]).WaitForCompletion();
                 UnlockableDef unlock = null;
                 if (unlockString != null)
-                    unlock = SlipAssets.Instance.MainAssetBundle.LoadAsset<UnlockableDef>(unlockString);
+                    unlock = SlipAssets.LoadAsset<UnlockableDef>(unlockString, SlipBundle.Skills);
                 if (skillFamily == null)
                 {
                     SlipLogger.LogE($"Skill Family doesn't exist when adding " + skill.skillNameToken);

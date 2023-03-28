@@ -20,7 +20,8 @@ namespace Slipstream.Buffs
 {
     public class GrainyExplode : BuffBase
     {
-        public override BuffDef BuffDef { get; } = SlipAssets.Instance.MainAssetBundle.LoadAsset<BuffDef>("GrainyExplode");
+        public override BuffDef BuffDef { get; } = SlipAssets.LoadAsset<BuffDef>("GrainyExplode", SlipBundle.Elites);
+        public static GameObject preGrainyExplosion = SlipAssets.LoadAsset<GameObject>("PreGrainyExplosionEffect", SlipBundle.Elites);
         public static DotController.DotIndex index;
         public static BuffDef buff;
         public override void Initialize()
@@ -38,7 +39,7 @@ namespace Slipstream.Buffs
             {
                 if (!preGrainyEffect)
                 {
-                    preGrainyEffect = UnityEngine.Object.Instantiate<GameObject>(SlipAssets.Instance.MainAssetBundle.LoadAsset<GameObject>("PreGrainyExplosionEffect"), body.transform);
+                    preGrainyEffect = UnityEngine.Object.Instantiate<GameObject>(preGrainyExplosion, body.transform);
                 }
             }
 

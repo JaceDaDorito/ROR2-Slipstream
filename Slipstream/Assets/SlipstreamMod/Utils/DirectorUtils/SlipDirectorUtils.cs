@@ -19,17 +19,17 @@ namespace Slipstream.Scenes
         [SystemInitializer(new Type[] { })]
         public static void Init()
         {
-            SlipDccs[] allSlipDccs = SlipAssets.LoadAllAssetsOfType<SlipDccs>();
+            SlipDccs[] allSlipDccs = SlipAssets.LoadAllAssetsOfType<SlipDccs>(SlipBundle.Scenes);
             foreach (SlipDccs slipDccs in allSlipDccs)
             {
                 slipDccs.ResolveAddressableCategories();
             }
-            SlipFamilyDccs[] allSlipFamilyDccs = SlipAssets.LoadAllAssetsOfType<SlipFamilyDccs>();
+            SlipFamilyDccs[] allSlipFamilyDccs = SlipAssets.LoadAllAssetsOfType<SlipFamilyDccs>(SlipBundle.Scenes);
             foreach (SlipFamilyDccs slipFamilyDccs in allSlipFamilyDccs)
             {
                 slipFamilyDccs.ResolveAddressableCategories();
             }
-            SlipDccsPool[] allSlipDccsPools = SlipAssets.LoadAllAssetsOfType<SlipDccsPool>();
+            SlipDccsPool[] allSlipDccsPools = SlipAssets.LoadAllAssetsOfType<SlipDccsPool>(SlipBundle.Scenes);
             foreach (SlipDccsPool slipDccsPool in allSlipDccsPools)
             {
                 slipDccsPool.ResolveAddressableCategories();

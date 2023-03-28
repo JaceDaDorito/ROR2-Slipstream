@@ -9,7 +9,7 @@ namespace Slipstream.Buffs
 {
     public class SoulRoot : BuffBase
     {
-        public override BuffDef BuffDef { get; } = SlipAssets.Instance.MainAssetBundle.LoadAsset<BuffDef>("SoulRoot");
+        public override BuffDef BuffDef { get; } = SlipAssets.LoadAsset<BuffDef>("SoulRoot", SlipBundle.Equipments);
 
     }
 
