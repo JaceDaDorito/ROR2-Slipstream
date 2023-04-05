@@ -264,11 +264,17 @@
       "hash": "9acf13ca9731e1fea43d89b88c6bc054eb6cf32c"
     },
     "teammoonstorm-moonstormsharedutils": {
-      "version": "https://github.com/TeamMoonstorm/MoonstormSharedUtils.git",
+      "version": "https://github.com/TeamMoonstorm/MoonstormSharedUtils.git#916dd889afca071cbd01d21e81fe777abee6fd9f",
       "depth": 0,
       "source": "git",
       "dependencies": {},
       "hash": "916dd889afca071cbd01d21e81fe777abee6fd9f"
+    },
+    "tristanmcpherson-r2api": {
+      "version": "file:R2API",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {}
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",

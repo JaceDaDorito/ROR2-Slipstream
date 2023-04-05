@@ -15,7 +15,7 @@ namespace Slipstream.Modules
         public static Elites Instance { get; set; }
         public static MSEliteDef[] LoadedSlipElites { get => SlipContent.Instance.SerializableContentPack.eliteDefs as MSEliteDef[]; }
         public override R2APISerializableContentPack SerializableContentPack => SlipContent.Instance.SerializableContentPack;
-        public override AssetBundle AssetBundle => SlipAssets.Instance.MainAssetBundle;
+        public override AssetBundle AssetBundle => SlipAssets.Instance.GetAssetBundle(SlipBundle.Elites);
 
 
         public override void Initialize()

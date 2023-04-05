@@ -308,7 +308,8 @@ MonoBehaviour:
   bonusBlastForce: {x: 0, y: 0, z: 0}
   canRejectForce: 1
   projectileHealthComponent: {fileID: 0}
-  explosionEffect: {fileID: 0}
+  explosionEffect: {fileID: 308721278615007683, guid: 6ae4805ed1ef1e5459354e3d13219922,
+    type: 3}
   explosionSoundString: 
   fireChildren: 0
   childrenProjectilePrefab: {fileID: 0}

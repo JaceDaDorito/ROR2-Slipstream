@@ -2,6 +2,6 @@
     "strings":
     {
 	"SLIP_SKILL_NANOFLAME_NAME": "Primed Nano-Flame",
-	"SLIP_SKILL_NANOFLAME_DESC": "<style=cIsDamage>Ignite</style>. Charge up to five piercing nano-flames that deal <style=cIsDamage>{0}% damage</style> each."
+	"SLIP_SKILL_NANOFLAME_DESC": "<style=cIsDamage>Ignite</style>. Charge up to five explosive nano-flames that deal <style=cIsDamage>{0}% damage</style> each."
     }
 }

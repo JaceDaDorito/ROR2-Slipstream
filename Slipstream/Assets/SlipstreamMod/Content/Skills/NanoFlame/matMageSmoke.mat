@@ -7,9 +7,9 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: matNanoFlameTrail
+  m_Name: matMageSmoke
   m_Shader: {fileID: 4800000, guid: bd3280d07a5a3f0459cc68bdc2b5feaa, type: 2}
-  m_ShaderKeywords: USE_CLOUDS VERTEXCOLOR
+  m_ShaderKeywords: USE_CLOUDS
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -24,8 +24,8 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Cloud1Tex:
-        m_Texture: {fileID: 2800000, guid: 3c7266ec39424fd4e8c8dcceb92706d2, type: 3}
-        m_Scale: {x: 0.25, y: 1}
+        m_Texture: {fileID: 2800000, guid: bd7cfc3d496dfa54498e0248cc6b35ce, type: 3}
+        m_Scale: {x: 0.7, y: 0.7}
         m_Offset: {x: 0, y: 0}
     - _Cloud2Tex:
         m_Texture: {fileID: 0}
@@ -48,7 +48,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 34f0904c51bf71c4ab4950cf00c9c3f3, type: 3}
+        m_Texture: {fileID: 2800000, guid: 7c520865ab57bcc408df6499725e4ea2, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -64,12 +64,12 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _RemapTex:
-        m_Texture: {fileID: 2800000, guid: 5ec5b986891c27048a4ebb767c72a6b4, type: 3}
+        m_Texture: {fileID: 2800000, guid: 0c30367bdccf4af4aa043e6f391c8d38, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _AlphaBias: 0.045
-    - _AlphaBoost: 2.1
+    - _AlphaBias: 0.135
+    - _AlphaBoost: 0.62
     - _Boost: 1
     - _BumpScale: 1
     - _CalcTextureAlphaOn: 0
@@ -92,7 +92,7 @@ Material:
     - _Glossiness: 0.5
     - _GlossyReflections: 1
     - _InternalSimpleBlendMode: 0
-    - _InvFade: 0.1
+    - _InvFade: 0
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
@@ -105,12 +105,12 @@ Material:
     - _UVSec: 0
     - _UseUV1On: 0
     - _VertexAlphaOn: 0
-    - _VertexColorOn: 1
+    - _VertexColorOn: 0
     - _VertexOffsetOn: 0
     - _ZTest: 4
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _CutoffScroll: {r: -20, g: 0, b: 0, a: 0}
+    - _CutoffScroll: {r: 0, g: 0, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _TintColor: {r: 1, g: 1, b: 1, a: 1}

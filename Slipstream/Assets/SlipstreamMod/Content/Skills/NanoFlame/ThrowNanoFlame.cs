@@ -61,14 +61,20 @@ namespace EntityStates.Mage.Weapon
         {
             base.FixedUpdate();
 
-            if (Mathf.Clamp(Mathf.Clamp01(fixedAge / duration) * balls, 0f, balls - 1) >= projectileIndex)
+            float formula = Mathf.Clamp(Mathf.Clamp01(this.fixedAge / duration) * balls, 0, balls - 1);
+            if (formula >= projectileIndex)
             {
-                Destroy(instantiatedEffects[projectileIndex]);
-                if (base.isAuthority)
+                float difference = formula - projectileIndex;
+                for (int i = 0; i < (int)(difference) + 1; i++)
                 {
-                    Fire(projectileIndex);
-                    projectileIndex++;
+                    Destroy(instantiatedEffects[projectileIndex]);
+                    if (base.isAuthority)
+                    {
+                        Fire(projectileIndex);
+                        projectileIndex++;
+                    }
                 }
+
             }
 
             if (base.isAuthority)
@@ -78,7 +84,7 @@ namespace EntityStates.Mage.Weapon
                     outer.SetNextStateToMain();
                 }
             }
-            
+
 
         }
 
