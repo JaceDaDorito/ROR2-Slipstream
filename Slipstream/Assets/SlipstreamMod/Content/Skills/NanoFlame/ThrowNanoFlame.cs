@@ -32,8 +32,7 @@ namespace EntityStates.Mage.Weapon
         private float duration;
         private ChildLocator childLocator;
         private Transform head;
-        //public static int maxBalls = NanoFlameChargeState.maxBalls;
-        public float balls;
+        public int balls;
         public static float[] angleOrder = NanoFlameChargeState.angleOrder;
         public static float arcRadius = NanoFlameChargeState.arcRadius;
         private int projectileIndex = 0;
@@ -41,7 +40,6 @@ namespace EntityStates.Mage.Weapon
         {
             base.OnEnter();
             duration = baseDuration / attackSpeedStat;
-            //balls = (int)Mathf.Clamp(charge * (float)maxBalls - 1, 1f, maxBalls - 1);
             this.PlayAnimation("Gesture, Additive", "FireWall");
             Util.PlayAttackSpeedSound("Play_lemurianBruiser_m2_end", gameObject, characterBody.attackSpeed);
             if (muzzleFlashEffectPrefab)
@@ -55,6 +53,19 @@ namespace EntityStates.Mage.Weapon
                 head = childLocator.FindChild("Head");
             }
             //Fire();
+        }
+
+        public override void OnExit()
+        {
+            base.OnExit();
+
+            //make sure the effects are destroyed, also im going in reverse order because throwing the balls goes in increasing order
+
+            int i = balls - 1;
+            while (instantiatedEffects[i] != null){
+                Destroy(instantiatedEffects[i]);
+                i--;
+            }
         }
 
         public override void FixedUpdate()
@@ -127,8 +138,9 @@ namespace EntityStates.Mage.Weapon
 
                 EffectManager.SpawnEffect(effectStartPrefab, new EffectData
                 {
-                    origin = ballPosition
-                }, true);
+                    origin = ballPosition,
+                    rotation = Util.QuaternionSafeLookRotation(resultRay.direction)
+                }, true);;
             }
         }
     }

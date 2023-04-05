@@ -92,7 +92,7 @@ Material:
     - _Glossiness: 0.5
     - _GlossyReflections: 1
     - _InternalSimpleBlendMode: 0
-    - _InvFade: 0.1
+    - _InvFade: 0
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
