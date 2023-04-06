@@ -9,9 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23c3a884997f30143ab7a1ec0a39ba90, type: 3}
-  m_Name: RoR2EditorKitSettings
+  m_Script: {fileID: -1746479147, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+  m_Name: Logs.BellFrog.0
   m_EditorClassIdentifier: 
-  tokenPrefix: SLIP
-  mainManifest: {fileID: 11400000, guid: d235d00bf8f752d40a8436b1de7891b5, type: 2}
-  madeRoR2EKAssetsNonEditable: 1
+  nameToken: SLIP_UNLOCKABLE_LOG_BELLFROG
+  displayModelPath: Prefabs/NullModel
+  displayModelPrefab: {fileID: 0}
+  hidden: 0
+  achievementIcon: {fileID: 0}

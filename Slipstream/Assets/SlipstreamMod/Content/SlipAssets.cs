@@ -30,7 +30,8 @@ namespace Slipstream
         Scenes, //contains assets RELATING to scenes (not necessarily the scene itself)
         AridExpanse, //contains Arid Expanse
         Skills, //contains alt skill assets
-        Skins //contains skin assets
+        Skins, //contains skin assets
+        BasicMonsters //contains all small monsters
     }
     public class SlipAssets : AssetsLoader<SlipAssets>
     {
@@ -50,7 +51,8 @@ namespace Slipstream
         private const string SCENES = "slipscenes"; 
         private const string ARIDEXPANSE = "sliparidexpanse"; 
         private const string SKILLS = "slipskills"; 
-        private const string SKINS = "slipskins"; 
+        private const string SKINS = "slipskins";
+        private const string BASICMONSTERS = "slipbasicmonsters";
 
         private static Dictionary<SlipBundle, AssetBundle> assetBundles = new Dictionary<SlipBundle, AssetBundle>();
         [Obsolete("LoadAsset should not be used without specifying the SlipBundle")]

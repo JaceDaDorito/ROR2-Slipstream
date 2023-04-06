@@ -1,8 +1,77 @@
 fileFormatVersion: 2
-guid: 72f64d325a471b94e89ce9a6903b0e3b
+guid: 4bebd6b597734674f83e8ea3b16f5d7b
 ModelImporter:
   serializedVersion: 19301
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      74: 1138058251333943779
+    second: Armature|Ascend
+  - first:
+      74: -6600551893797887106
+    second: Armature|BlipBite
+  - first:
+      74: -3543989208067336772
+    second: Armature|BlipHit
+  - first:
+      74: 3564771280022096030
+    second: Armature|BlipIdle
+  - first:
+      74: -2242875465196890815
+    second: Armature|BlipMiss
+  - first:
+      74: -1546269450740963774
+    second: Armature|BlipStart
+  - first:
+      74: -982115091633673366
+    second: Armature|Death
+  - first:
+      74: -5392195937436897604
+    second: Armature|Descend
+  - first:
+      74: 5353265489658553476
+    second: Armature|Flinch1
+  - first:
+      74: -4636185406064623199
+    second: Armature|Flinch2
+  - first:
+      74: 1709923294520805577
+    second: Armature|Flinch3
+  - first:
+      74: 9149661223541978141
+    second: Armature|Hurt
+  - first:
+      74: -8945691123924629249
+    second: Armature|Idle
+  - first:
+      74: 1079665108409675491
+    second: Armature|Jump
+  - first:
+      74: 9218157010744241517
+    second: Armature|Landing
+  - first:
+      74: 3741975146168832115
+    second: Armature|Pitch
+  - first:
+      74: -2518215943710957957
+    second: Armature|Shader NodetreeAction.003
+  - first:
+      74: -682236144924341708
+    second: Armature|Spawn
+  - first:
+      74: 7537566770862333395
+    second: Armature|WalkB
+  - first:
+      74: -8544585974868978012
+    second: Armature|WalkF
+  - first:
+      74: -6817237131120210026
+    second: Armature|WalkL
+  - first:
+      74: -8146231096655356941
+    second: Armature|WalkR
+  - first:
+      74: 8612617642206311228
+    second: Armature|Yaw
   externalObjects: {}
   materials:
     materialImportMode: 1
@@ -31,7 +100,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     extraUserProperties: []
     clipAnimations: []
-    isReadable: 1
+    isReadable: 0
   meshes:
     lODScreenPercentages: []
     globalScale: 1

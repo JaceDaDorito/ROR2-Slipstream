@@ -26,6 +26,7 @@ namespace Slipstream.Items
 
         public static Dictionary<CharacterBody, bool> shouldTrigger = new Dictionary<CharacterBody, bool>();
         public static Color critShieldBaseColor = new Color(1f, 1f, 1f, 1f);
+        
 
         private static float timeAmount = 0.4f;
 
@@ -91,6 +92,7 @@ namespace Slipstream.Items
             private bool cachedEnabled = false;
             private Material barMat = SlipAssets.LoadAsset<Material>("matCriticalShield", SlipBundle.Base);
             private float currentVel;
+            private Vector2 scale = new Vector2(0.7f, 0.2f);
 
             private Run.TimeStamp timer;
 
@@ -151,6 +153,8 @@ namespace Slipstream.Items
                 if(materialShield.ContainsKey(healthSource))
                     materialShield[healthSource].SetTexture("_RemapTex", healthBarValues.hasVoidShields ? lowShieldVoid : lowShieldNormal);
 
+                
+
                 float minPos = healthBarValues.healthFraction;
                 info.normalizedXMin = minPos;
 
@@ -162,6 +166,10 @@ namespace Slipstream.Items
                 cachedEnabled = info.enabled;
 
                 float fullShieldFraction = ((healthSource.fullShield * threshold) / (healthSource.fullShield + healthSource.fullHealth)) * (1f - healthBarValues.curseFraction);
+
+                /*Vector2 newScale = new Vector2(scale.x * fullShieldFraction * 2, scale.y);
+                materialShield[healthSource].SetTextureScale("_Cloud1Tex", newScale);*/
+
                 if (timer != null && timer.timeSince <= timeAmount && enabled)
                 {
                     info.normalizedXMax = Mathf.SmoothDamp(info.normalizedXMax, minPos + (fullShieldFraction), ref currentVel, timeAmount, Mathf.Infinity, timer.timeSince) /*(minPos + (fullShieldFraction)) * timer.timeSince*/;
