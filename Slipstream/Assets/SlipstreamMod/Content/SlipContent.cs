@@ -37,6 +37,7 @@ namespace Slipstream
             #endregion
 
             #region Enemies
+            //public static BodyDef
             #endregion
         }
         public static class Elites
@@ -112,6 +113,10 @@ namespace Slipstream
                 delegate
                 {
                     new Slipstream.Buffs.Buffs().Initialize();
+                },
+                delegate
+                {
+                    new Slipstream.Characters.Characters().Initialize();
                 },
                 delegate
                 {

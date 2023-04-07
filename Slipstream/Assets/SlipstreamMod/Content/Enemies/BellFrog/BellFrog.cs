@@ -2,11 +2,11 @@
 using UnityEngine;
 using Moonstorm;
 
-namespace Slipstream.Monsters
+namespace Slipstream.Characters
 {
     public sealed class BellFrog : MonsterBase
     {
-        public override MSMonsterDirectorCard MonsterDirectorCard { get => throw new System.NotImplementedException(); }
+        public override MSMonsterDirectorCard MonsterDirectorCard { get; } = SlipAssets.LoadAsset<MSMonsterDirectorCard>("msmdcBellFrog", SlipBundle.BasicMonsters);
 
         public override GameObject BodyPrefab { get; } = SlipAssets.LoadAsset<GameObject>("BellFrogBody", SlipBundle.BasicMonsters);
 

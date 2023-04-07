@@ -155,6 +155,7 @@ namespace Slipstream
                     case ARIDEXPANSE: LoadBundle(path, SlipBundle.AridExpanse); break;
                     case SKILLS: LoadBundle(path, SlipBundle.Skills); break;
                     case SKINS: LoadBundle(path, SlipBundle.Skins); break;
+                    case BASICMONSTERS: LoadBundle(path, SlipBundle.BasicMonsters); break;
                     default: SlipLogger.LogW($"Invalid or Unexpected file in the AssetBundles folder (File name: {fileName}, Path: {path})"); break;
                 }
             }

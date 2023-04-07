@@ -134,7 +134,7 @@ Material:
     - _CloudOffsetOn: 0
     - _CloudsOn: 1
     - _ColorsOn: 0
-    - _Cull: 0
+    - _Cull: 2
     - _Cutoff: 0.5
     - _DecalLayer: 0
     - _Depth: 0.2
@@ -144,8 +144,8 @@ Material:
     - _DistortionStrength: 0.1
     - _DitherOn: 0
     - _DstBlend: 0
-    - _EliteBrightnessMax: 1
-    - _EliteBrightnessMin: 0
+    - _EliteBrightnessMax: 6.5
+    - _EliteBrightnessMin: -4.09
     - _EliteIndex: 0
     - _EmPower: 1
     - _EnableCutout: 0
@@ -166,7 +166,7 @@ Material:
     - _ForceSpecOn: 0
     - _FresnelBoost: 1
     - _FresnelOn: 0
-    - _FresnelPower: 0
+    - _FresnelPower: 1
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
@@ -194,9 +194,9 @@ Material:
     - _SliceHeight: 5
     - _Smoothness: 0
     - _SmoothnessTextureChannel: 0
-    - _SpecularExponent: 1
+    - _SpecularExponent: 5.56
     - _SpecularHighlights: 1
-    - _SpecularStrength: 0
+    - _SpecularStrength: 0.732
     - _SplatmapOn: 0
     - _SplatmapTileScale: 1
     - _SrcBlend: 1
