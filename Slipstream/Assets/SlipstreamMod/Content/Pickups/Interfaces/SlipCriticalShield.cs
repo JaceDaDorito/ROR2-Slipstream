@@ -92,7 +92,7 @@ namespace Slipstream.Items
             private bool cachedEnabled = false;
             private Material barMat = SlipAssets.LoadAsset<Material>("matCriticalShield", SlipBundle.Base);
             private float currentVel;
-            private Vector2 scale = new Vector2(0.7f, 0.2f);
+            private Vector2 scale = new Vector2(2f, 0.2f);
 
             private Run.TimeStamp timer;
 
@@ -184,7 +184,10 @@ namespace Slipstream.Items
                     //timer = Run.TimeStamp.zero;
                 }
 
-                
+                Vector2 newScale = new Vector2(scale.x * (info.normalizedXMax - info.normalizedXMin), scale.y);
+                if (materialShield.ContainsKey(healthSource))
+                    materialShield[healthSource].SetTextureScale("_Cloud1Tex", newScale);
+
             }
 
             public override void ApplyBar(ref HealthBar.BarInfo info, Image image, HealthComponent source, ref int i)

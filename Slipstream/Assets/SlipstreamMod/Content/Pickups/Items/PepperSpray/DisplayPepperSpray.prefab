@@ -51,8 +51,6 @@ MonoBehaviour:
     ignoreOverlays: 0
     hideOnDeath: 0
   hideOnDeathObjects: []
-  visibilityLevel: 3
-  isDead: 0
 --- !u!1 &6860688519899495449
 GameObject:
   m_ObjectHideFlags: 0

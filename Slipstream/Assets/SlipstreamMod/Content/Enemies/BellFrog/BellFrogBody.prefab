@@ -203,7 +203,7 @@ MonoBehaviour:
   baseMaxHealth: 180
   baseRegen: 0
   baseMaxShield: 0
-  baseMoveSpeed: 8
+  baseMoveSpeed: 6
   baseAcceleration: 80
   baseJumpPower: 17
   baseDamage: 12
@@ -314,7 +314,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   customName: Body
   initialStateType:
-    _typeName: EntityStates.SpawnTeleporterState, RoR2, Version=0.0.0.0, Culture=neutral,
+    _typeName: Slipstream.Characters.SpawnState, Slipstream, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
   mainStateType:
     _typeName: EntityStates.GenericCharacterMain, RoR2, Version=0.0.0.0, Culture=neutral,

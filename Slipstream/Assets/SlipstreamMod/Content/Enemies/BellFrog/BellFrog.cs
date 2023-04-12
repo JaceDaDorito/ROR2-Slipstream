@@ -1,6 +1,7 @@
 ﻿using RoR2;
 using UnityEngine;
 using Moonstorm;
+using EntityStates;
 
 namespace Slipstream.Characters
 {
@@ -12,5 +13,14 @@ namespace Slipstream.Characters
 
         public override GameObject MasterPrefab { get; } = SlipAssets.LoadAsset<GameObject>("BellFrogMaster", SlipBundle.BasicMonsters);
     }
-}
 
+    internal class SpawnState : BaseState
+    {
+        public override void OnEnter()
+        {
+            base.OnEnter();
+            base.PlayAnimation("Body", "Spawn");
+            Util.PlaySound("Play_bellBody_spawn", base.gameObject);
+        }
+    }
+}
