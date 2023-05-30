@@ -452,6 +452,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   address: RoR2/Base/Mage/OmniImpactVFXLightningMage.prefab
   setPositionAndRotationToZero: 0
+  useLocalPositionAndRotation: 0
   refreshInEditor: 1
   hasNetworkIdentity: 0
 --- !u!4 &1124730045
@@ -752,10 +753,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8dd71d31a6b07746998fb168915f35f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  address: RoR2/Base/LunarExploder/LunarExploderBody.prefab
-  setPositionAndRotationToZero: 0
+  address: RoR2/Base/Captain/TracerCaptainShotgun.prefab
+  setPositionAndRotationToZero: 1
+  useLocalPositionAndRotation: 1
   refreshInEditor: 1
-  hasNetworkIdentity: 1
+  hasNetworkIdentity: 0
 --- !u!4 &1975282914
 Transform:
   m_ObjectHideFlags: 0
@@ -764,7 +766,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1975282912}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 494.92297, y: -18.175268, z: 35.218346}
+  m_LocalPosition: {x: 446, y: -18.175268, z: 742}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -839,6 +841,75 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 667ad637e1d719747ba62c6930db4251, type: 3}
+--- !u!1001 &3892727866304860607
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3892727866290937669, guid: d978af8e335096b4a951d24b102a2dc9,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3892727866290937669, guid: d978af8e335096b4a951d24b102a2dc9,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3892727866290937669, guid: d978af8e335096b4a951d24b102a2dc9,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3892727866290937669, guid: d978af8e335096b4a951d24b102a2dc9,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3892727866290937669, guid: d978af8e335096b4a951d24b102a2dc9,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3892727866290937669, guid: d978af8e335096b4a951d24b102a2dc9,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3892727866290937669, guid: d978af8e335096b4a951d24b102a2dc9,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3892727866290937669, guid: d978af8e335096b4a951d24b102a2dc9,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3892727866290937669, guid: d978af8e335096b4a951d24b102a2dc9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3892727866290937669, guid: d978af8e335096b4a951d24b102a2dc9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3892727866290937669, guid: d978af8e335096b4a951d24b102a2dc9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3892727866290937676, guid: d978af8e335096b4a951d24b102a2dc9,
+        type: 3}
+      propertyPath: m_Name
+      value: TracerCommandoSharpshooter
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d978af8e335096b4a951d24b102a2dc9, type: 3}
 --- !u!1001 &4542836050536719298
 PrefabInstance:
   m_ObjectHideFlags: 0
