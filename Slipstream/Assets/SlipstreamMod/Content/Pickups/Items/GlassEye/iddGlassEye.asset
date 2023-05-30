@@ -15,6 +15,7 @@ MonoBehaviour:
   keyAsset: {fileID: 11400000, guid: 529b3da692233904f86cd35c979ebef5, type: 2}
   displayPrefabs:
   - {fileID: 5834791129691109250, guid: 7f3a4b2657fc8ae49a307e6e34af0075, type: 3}
+  - {fileID: 5834791129691109250, guid: 7f3a4b2657fc8ae49a307e6e34af0075, type: 3}
   displayPrefab: {fileID: 5834791129691109250, guid: 7f3a4b2657fc8ae49a307e6e34af0075,
     type: 3}
   namedDisplayDictionary:
@@ -25,14 +26,14 @@ MonoBehaviour:
       asset: {fileID: 0}
     displayRules:
     - ruleType: 0
-      displayPrefabIndex: 0
+      displayPrefabIndex: 1
       childName: Chest
       localPos: {x: 0.09959, y: 0.1803, z: 0.20208}
       localAngles: {x: 17.81564, y: 266.7696, z: 315.3183}
       localScales: {x: 0.09, y: 0.09, z: 0.09}
       limbMask: 0
     - ruleType: 0
-      displayPrefabIndex: 0
+      displayPrefabIndex: 1
       childName: Chest
       localPos: {x: -0.09959, y: 0.1803, z: 0.20208}
       localAngles: {x: 17.81564, y: 266.7696, z: 315.3183}
@@ -45,7 +46,7 @@ MonoBehaviour:
       asset: {fileID: 0}
     displayRules:
     - ruleType: 0
-      displayPrefabIndex: 0
+      displayPrefabIndex: 1
       childName: Head
       localPos: {x: -0.00175, y: 1.81762, z: 1.41006}
       localAngles: {x: 359.665, y: 90.13082, z: 74.80558}
@@ -58,14 +59,14 @@ MonoBehaviour:
       asset: {fileID: 0}
     displayRules:
     - ruleType: 0
-      displayPrefabIndex: 0
+      displayPrefabIndex: 1
       childName: Chest
       localPos: {x: -0.11262, y: 0.25165, z: -0.18934}
       localAngles: {x: 11.48296, y: 2.61324, z: 53.11612}
       localScales: {x: 0.1, y: 0.1, z: 0.1}
       limbMask: 0
     - ruleType: 0
-      displayPrefabIndex: 0
+      displayPrefabIndex: 1
       childName: Chest
       localPos: {x: 0.11262, y: 0.25165, z: -0.18934}
       localAngles: {x: 11.48296, y: 2.61324, z: 53.11612}
@@ -78,7 +79,7 @@ MonoBehaviour:
       asset: {fileID: 0}
     displayRules:
     - ruleType: 0
-      displayPrefabIndex: 0
+      displayPrefabIndex: 1
       childName: Head
       localPos: {x: -0.00026, y: 0.05955, z: 0.11185}
       localAngles: {x: 4.68347, y: 266.9248, z: 315.4409}
@@ -91,7 +92,7 @@ MonoBehaviour:
       asset: {fileID: 0}
     displayRules:
     - ruleType: 0
-      displayPrefabIndex: 0
+      displayPrefabIndex: 1
       childName: Head
       localPos: {x: -0.0075, y: 0.20265, z: 0.09782}
       localAngles: {x: 30.62883, y: 271.5639, z: 323.6266}
@@ -104,14 +105,14 @@ MonoBehaviour:
       asset: {fileID: 0}
     displayRules:
     - ruleType: 0
-      displayPrefabIndex: 0
+      displayPrefabIndex: 1
       childName: CannonHeadR
       localPos: {x: 0.00816, y: 0.24499, z: 0.02846}
       localAngles: {x: 0, y: 90, z: 50}
       localScales: {x: 0.25, y: 0.25, z: 0.25}
       limbMask: 0
     - ruleType: 0
-      displayPrefabIndex: 0
+      displayPrefabIndex: 1
       childName: CannonHeadL
       localPos: {x: 0.00816, y: 0.24499, z: 0.02846}
       localAngles: {x: 0, y: 90, z: 50}
@@ -124,7 +125,7 @@ MonoBehaviour:
       asset: {fileID: 0}
     displayRules:
     - ruleType: 0
-      displayPrefabIndex: 0
+      displayPrefabIndex: 1
       childName: Head
       localPos: {x: -0.00559, y: 0.60015, z: -0.37798}
       localAngles: {x: 0, y: 270, z: 315}
@@ -137,7 +138,7 @@ MonoBehaviour:
       asset: {fileID: 0}
     displayRules:
     - ruleType: 0
-      displayPrefabIndex: 0
+      displayPrefabIndex: 1
       childName: Head
       localPos: {x: 0, y: 0.86512, z: 0.40597}
       localAngles: {x: 0.02972, y: 268.6376, z: 316.2501}
@@ -150,14 +151,14 @@ MonoBehaviour:
       asset: {fileID: 0}
     displayRules:
     - ruleType: 0
-      displayPrefabIndex: 0
+      displayPrefabIndex: 1
       childName: Head
       localPos: {x: -0.00137, y: 0.25542, z: 0.07056}
       localAngles: {x: 359.9853, y: 270.0591, z: 336.2188}
       localScales: {x: 0.07, y: 0.07, z: 0.07}
       limbMask: 0
     - ruleType: 0
-      displayPrefabIndex: 0
+      displayPrefabIndex: 1
       childName: Head
       localPos: {x: -0.00081, y: 0.1591, z: 0.11131}
       localAngles: {x: 359.9853, y: 270.0591, z: 336.2188}
@@ -170,7 +171,7 @@ MonoBehaviour:
       asset: {fileID: 0}
     displayRules:
     - ruleType: 0
-      displayPrefabIndex: 0
+      displayPrefabIndex: 1
       childName: Head
       localPos: {x: -0.00057, y: 0.25958, z: 0.07313}
       localAngles: {x: 0, y: 270, z: 315}
@@ -183,7 +184,7 @@ MonoBehaviour:
       asset: {fileID: 0}
     displayRules:
     - ruleType: 0
-      displayPrefabIndex: 0
+      displayPrefabIndex: 1
       childName: Head
       localPos: {x: 0.40533, y: 2.90303, z: -0.95697}
       localAngles: {x: 359.1059, y: 90.55366, z: 16.35868}
@@ -196,7 +197,7 @@ MonoBehaviour:
       asset: {fileID: 0}
     displayRules:
     - ruleType: 0
-      displayPrefabIndex: 0
+      displayPrefabIndex: 1
       childName: Chest
       localPos: {x: 0, y: 0.18474, z: -0.23695}
       localAngles: {x: 1.1528, y: 90.21712, z: 333.3737}
@@ -209,7 +210,7 @@ MonoBehaviour:
       asset: {fileID: 0}
     displayRules:
     - ruleType: 0
-      displayPrefabIndex: 0
+      displayPrefabIndex: 1
       childName: HeadCenter
       localPos: {x: -0.01566, y: -0.02453, z: 0.00075}
       localAngles: {x: 3.05233, y: 1.58859, z: 43.1984}
@@ -222,7 +223,7 @@ MonoBehaviour:
       asset: {fileID: 0}
     displayRules:
     - ruleType: 0
-      displayPrefabIndex: 0
+      displayPrefabIndex: 1
       childName: GunScope
       localPos: {x: -0.07452, y: -0.15054, z: 0.31055}
       localAngles: {x: 0, y: 90, z: 137.3076}
@@ -235,14 +236,14 @@ MonoBehaviour:
       asset: {fileID: 0}
     displayRules:
     - ruleType: 0
-      displayPrefabIndex: 0
+      displayPrefabIndex: 1
       childName: ForeArmR
       localPos: {x: 0.21941, y: 0.34926, z: -0.08725}
       localAngles: {x: 329.3667, y: 22.74583, z: 322.0292}
       localScales: {x: 0.14, y: 0.14, z: 0.14}
       limbMask: 0
     - ruleType: 0
-      displayPrefabIndex: 0
+      displayPrefabIndex: 1
       childName: ForeArmR
       localPos: {x: 0.18387, y: 0.30166, z: 0.1076}
       localAngles: {x: 302.6943, y: 118.6929, z: 162.8692}
@@ -255,7 +256,7 @@ MonoBehaviour:
       asset: {fileID: 0}
     displayRules:
     - ruleType: 0
-      displayPrefabIndex: 0
+      displayPrefabIndex: 1
       childName: Weapon
       localPos: {x: 0, y: 14.50415, z: 1.04097}
       localAngles: {x: 2, y: 90, z: 39.0826}
