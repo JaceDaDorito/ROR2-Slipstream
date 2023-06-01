@@ -1,14 +1,35 @@
-#Slipstream
-Slipstream is an in-the-works content mod that aims to vary your Risk of Rain 2 runs with build defining items, brand-new enemy encounters, and breath taking locales. We hope to make Petrichor V a wild ride to explore!
+﻿# Slipstream
+**Slipstream** is a in-the-works content mod for Risk of Rain 2. Currently, there isn't a public build but this project will remain open source as we develop. This mod's end goal is the vary your runs with interesting items, new enemy encounters, and fun locales. We hope to make your journey into Petrichor V a wild one!
 
-Currently, we don't have stages or many items but we are working hard to try and add some soon. Contact (JaceDaDorito#7035) on Discord if there is any issues, most of the devs here are extremely new to modding so be patient.
+We also adopted EliteVariety but we are doing heavy reworks on all of the elites.
 
-##Credits
-*Code - JaceDaDorito, Atlantean/Dot/Org, Zach, MoonlitWyvern
-*Experienced Code/Unity Support - Nebby, swuff, Twiner (Thank you for doing what you do, you guys are great and without your expertise, Lost In Transit, Rain of Stages, and Thunderkit this mod wouldn't exist)
-*2D Artists - Kamei, Runefield, JaceDaDorito, Vaikyia, Dodu, splet, Hans, KoopaHunter197
-*Modelers/3D Artists - Kamei, foodrelatedname, dotflare
-*Writing - LordBidoof, splet, JaceDaDorito
-*Special Thanks - TheTimesweeper, PlasmaCore, Alexis, Ochus, Lompl, Schmizz, Hyperin, Knowledge, Spacecats, SilverSinz
+**Put screenshots of content here**
 
-Go play Lost In Transit btw good mod.
+**Put item list here**
+
+## Credits
+Lead Developer
+* JaceDaDorito
+
+Coders
+* Atlantean/Dot/Org, Knowledge, JaceDaDorito
+
+MSU Maintainer
+* Nebby
+
+Art / Models / Animations
+* Kamei, Runefield, Vaikyia, Dodu, splet, Hans, KoopaHunter197, foodrelatedname, dotflare, 2cute2game/kota, JestAnAnimator/Lui, bruh, Niorin, LiminalSeraphim, JaceDaDorito
+
+Writing
+* LordBidoof, splet, JaceDaDorito
+
+Previous Contributors
+* GrooveSalad, Zach, HeyImNoop
+
+EliteVariety Adoption
+* TheMysticSword
+
+Special Thanks
+* Helping Indirectly / Advice - swuff★, Twiner/PassivePicasso, Ghor, Sky, TheTimesweeper, Bubbet, PlasmaCore, Zenitherium, The Rest of the Starstorm 2 Team
+* Other Wonderful People - Alexis, Ochus, Lompl, Schmizz, Hyperin, Knowledge, Spacecats, SilverSinz, MoonlitWyvern, pixlgray, IbanPlay, ItsDoge/Katie, Kae, pkpseudo, Alph, RoverdriveX, Mandy, Nincity
+

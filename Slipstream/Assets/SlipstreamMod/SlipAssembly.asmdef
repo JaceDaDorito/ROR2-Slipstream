@@ -18,7 +18,6 @@
         "R2API.Networking.dll",
         "R2API.Prefab.dll",
         "R2API.RecalculateStats.dll",
-        "R2API.Sound.dll",
         "MonoMod.Utils.dll",
         "Mono.Cecil.dll",
         "DebugToolkit.dll",
