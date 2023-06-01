@@ -1,4 +1,4 @@
-﻿# Slipstream
+# Slipstream
 **Slipstream** is a in-the-works content mod for Risk of Rain 2. Currently, there isn't a public build but this project will remain open source as we develop. This mod's end goal is the vary your runs with interesting items, new enemy encounters, and fun locales. We hope to make your journey into Petrichor V a wild one!
 
 We also adopted EliteVariety but we are doing heavy reworks on all of the elites.
