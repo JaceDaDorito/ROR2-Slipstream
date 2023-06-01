@@ -46,7 +46,7 @@ Slipstream is open source but please inform the main team of any contributions y
 | R2API Submodule Installer | Enabled | Hit disable all button, the Serialized Hard Dependencies will stay enabled |
 | Install RoR2MultiplayerHLAPI | Disabled |  |
 | Install RoR2EditorKit | Disabled |  |
-| Install Risk of Options | Disabled | We don't have Risk of Options Support Right now |
+| Install Risk of Options | Enabled | |
 | Get Bitness | Enabled |  |
 | Beep | Enabled |  |
 | Prompt Restart | Enabled |  |
@@ -55,3 +55,34 @@ Slipstream is open source but please inform the main team of any contributions y
     * Find your RoR2 Executable, select it
     * Hit Import
 * You're now ready to start development.
+
+## Issues Q&A
+
+Q: I'm having an issue where certain components cannot be added or general instability
+* A: Make sure you didn't leave Install RoR2MultiplayerHLAPI and Install RoR2EditorKit enabled, having these enabled will cause issues due to duplicate assemblies
+
+Q: How do I build?
+* A: Do the following:
+    * Go into Assets/Editor/Base
+    * Click on the Nebby folder
+    * Press ``Ctrl+D`` to duplicate, rename the duplicate to your username
+    * Enter the duplicate folder
+    * Rename pipelines, and path assets
+    * Click the "Build" pipeline
+    * On the Copy job, click Destination, make sure the destination is the same name as your Path asset, enclosed by <>
+    * Click the "TestingPath" asset
+    * On the Constant path component, set the value to your R2ModMan profile's plugins folder
+    * Running the build pipeline should output the built mod into your r2modman profile
+
+Q: When I build my project using the pipelines no DLL is created
+* A: Check the pipeline log, it usually logs anything and everything regarding issues with the build process, there's also a high chance that a duplicate MMHook assembly (such as AssemblyCSharp mmhook) is causing issues. If this is the case, go into HookGenPatcher's plugins folder and delete MMHOOK_AssemblyCSharp.dll
+
+Q: I fetched origin on my fork, and now i have general instability and/or weird error logs on my console.
+* A: This tends to be normal and usually caused when a dependency is updated on the package's manifest file. we recommend doing the following:
+    * Close your unity project
+    * Go to the project root folder
+    * Open the Packages folder
+    * Select everything on the folder EXCECPT ``manifest.json`` and ``packages-lock.json``
+    * Delete the selected contents
+    * Open your unity project
+    * Reimport your game, remember to recheck your import configuration
