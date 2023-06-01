@@ -56,6 +56,21 @@ Slipstream is open source but please inform the main team of any contributions y
     * Hit Import
 * You're now ready to start development.
 
+## Getting the ripped shaders
+* Some materials will have lost data and you need the ripped shaders to work with them.
+* Follow this [guide](https://risk-of-thunder.github.io/R2Wiki/Mod-Creation/Assets/Extraction/) until you reach the Export -> Export all files step.
+* Instead, find a singular shader file and select it.
+* Do Export -> Export all files of selected type
+* After all the shaders are exported, go to the export location, GameAssets -> Risk of Rain 2 -> ExportedProject -> Assets. In there, drag out the listed folders into the Assets -> Shaders folder.
+*  * Calm Water
+*  * Decalicious
+*  * Le Tai's Asset
+*  * Psychose Interactive
+*  * RoR2
+*  * Shader
+*  * TextMesh Pro
+*  **DO NOT** remove the gitignore in the folder. Doing so will allow the shaders to be pushed onto github.
+
 ## Issues Q&A
 
 Q: I'm having an issue where certain components cannot be added or general instability
