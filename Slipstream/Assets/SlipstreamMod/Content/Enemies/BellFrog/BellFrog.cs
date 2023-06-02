@@ -14,13 +14,7 @@ namespace Slipstream.Characters
         public override GameObject MasterPrefab { get; } = SlipAssets.LoadAsset<GameObject>("BellFrogMaster", SlipBundle.BasicMonsters);
     }
 
-    internal class SpawnState : BaseState
+    internal class SpawnState : GenericCharacterSpawnState
     {
-        public override void OnEnter()
-        {
-            base.OnEnter();
-            base.PlayAnimation("Body", "Spawn");
-            Util.PlaySound("Play_bellBody_spawn", base.gameObject);
-        }
     }
 }

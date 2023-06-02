@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionBounces: 1
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
-  m_Sun: {fileID: 0}
+  m_Sun: {fileID: 143253599}
   m_IndirectSpecularColor: {r: 0.30462563, g: 0.336516, b: 0.42820618, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
@@ -1518,8 +1518,7 @@ MonoBehaviour:
   m_Script: {fileID: 1052602003, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  surfaceDef: {fileID: 7317754273265066030, guid: 00000000000000000000000000000000,
-    type: 0}
+  surfaceDef: {fileID: 0}
 --- !u!114 &2020615254459021788
 MonoBehaviour:
   m_ObjectHideFlags: 0
