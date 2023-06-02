@@ -16,8 +16,8 @@ MonoBehaviour:
   ShowOnStartup: 1
   notifyWhenImportCompletes: 1
   GameExecutable: Risk of Rain 2.exe
-  GamePath: E:\SteamLibraryE\steamapps\common\Risk of Rain 2
-  Is64Bit: 1
+  GamePath: D:\SteamLibrary\steamapps\common\Risk of Rain 2
+  Is64Bit: 0
   DateTimeFormat: HH:mm:ss:fff
   CreatedDateFormat: MMM/dd HH:mm:ss
   ShowLogWindow: 1
@@ -25,6 +25,7 @@ MonoBehaviour:
   SelectedPipeline: {fileID: 0}
   SelectedManifest: {fileID: 0}
   QuickAccessPipelines: []
-  QuickAccessManifests: []
+  QuickAccessManifests:
+  - {fileID: 11400000, guid: 5ceb1d8ed3af40d4d806e9756b403649, type: 2}
   ImportConfiguration: {fileID: 11400000, guid: c04106331f8c7b04388c84e27a179d95,
     type: 2}
