@@ -17,6 +17,7 @@ namespace Slipstream.Modules
         {
             AddSkillToFamily("Marauder", "RoR2/Base/Bandit2/Bandit2BodySpecialFamily.asset");
             AddSkillToFamily("NanoFlame", "RoR2/Base/Mage/MageBodySecondaryFamily.asset");
+            AddSkillToFamily("Sharpshooter", "RoR2/Base/Commando/CommandoBodyPrimaryFamily.asset");
         }
 
         public static void AddSkillToFamily(string skillString, string key, string unlockString = null)

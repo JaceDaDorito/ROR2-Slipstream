@@ -33,6 +33,7 @@ MonoBehaviour:
   skillDefs:
   - {fileID: 11400000, guid: af842af7d2ecee34d9caf02b7dfdd5af, type: 2}
   - {fileID: 11400000, guid: 96f6b654a6a5db94d83bdf026dc5e427, type: 2}
+  - {fileID: 11400000, guid: 75c325f424f3a9d4ab3a90f11202441a, type: 2}
   skillFamilies: []
   sceneDefs: []
   itemDefs: []
