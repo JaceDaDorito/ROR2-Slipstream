@@ -14,7 +14,13 @@ namespace Slipstream.Characters
         public override GameObject MasterPrefab { get; } = SlipAssets.LoadAsset<GameObject>("BellFrogMaster", SlipBundle.BasicMonsters);
     }
 
-    internal class SpawnState : GenericCharacterSpawnState
+    internal class SpawnState : GenericCharacterSpawnState{}
+
+    public class DeathState : GenericCharacterDeath
     {
+        public override void OnEnter()
+        {
+            base.OnEnter();
+        }
     }
 }

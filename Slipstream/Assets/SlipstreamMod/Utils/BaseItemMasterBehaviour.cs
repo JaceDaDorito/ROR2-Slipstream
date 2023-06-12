@@ -218,7 +218,12 @@ namespace Slipstream.Items
 		private static void UpdateMasterItemBehaviorStacks(CharacterMaster master)
 		{
 			ref BaseItemMasterBehavior.NetworkContextSet networkContext = ref BaseItemMasterBehavior.GetNetworkContext();
-			BaseItemMasterBehavior[] array = BaseItemMasterBehavior.masterToItemBehaviors[master];
+			BaseItemMasterBehavior[] arr;
+			bool success = BaseItemMasterBehavior.masterToItemBehaviors.TryGetValue(master, out arr);
+			if (!success)
+			{
+				return;
+			}
 			BaseItemBodyBehavior.ItemTypePair[] itemTypePairs = networkContext.itemTypePairs;
 			Inventory inventory = master.inventory;
 			if (inventory)
@@ -226,14 +231,14 @@ namespace Slipstream.Items
 				for (int i = 0; i < itemTypePairs.Length; i++)
 				{
 					BaseItemBodyBehavior.ItemTypePair itemTypePair = itemTypePairs[i];
-					ref BaseItemMasterBehavior behavior = ref array[i];
+					ref BaseItemMasterBehavior behavior = ref arr[i];
 					BaseItemMasterBehavior.SetItemStack(master, ref behavior, itemTypePair.behaviorType, inventory.GetItemCount(itemTypePair.itemIndex));
 				}
 				return;
 			}
 			for (int j = 0; j < itemTypePairs.Length; j++)
 			{
-				ref BaseItemMasterBehavior ptr = ref array[j];
+				ref BaseItemMasterBehavior ptr = ref arr[j];
 				if (ptr != null)
 				{
 					Destroy(ptr);

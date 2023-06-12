@@ -53,7 +53,8 @@ MonoBehaviour:
   musicTrackDefs: []
   gameEndingDefs: []
   miscPickupDefs: []
-  entityStateConfigurations: []
+  entityStateConfigurations:
+  - {fileID: 11400000, guid: 25c3cd54f8ad59e44a5e151278f85bfa, type: 2}
   entityStateTypes: []
   expansionDefs:
   - {fileID: 11400000, guid: fccef1283d796f24ab13ca388fece6c8, type: 2}

@@ -18,6 +18,7 @@ namespace Slipstream.Items
     {
         private const string token = "SLIP_ITEM_COALITION_DESC";
         public override ItemDef ItemDef { get; } = SlipAssets.LoadAsset<ItemDef>("Coalition", SlipBundle.Items);
+        public static GameObject effectStartPrefab = SlipAssets.LoadAsset<GameObject>("CoalitionPreDetonation", SlipBundle.Items);
 
         [ConfigurableField(ConfigName = "Allies are immunte to void death", ConfigDesc = "Prevents instant void explosion deaths (like the Void Reaver explosion) for allies.", ConfigSection = "Coalition")]
         //[TokenModifier(token, StatTypes.Default, 0)]
@@ -36,6 +37,8 @@ namespace Slipstream.Items
         public class CoalitionIntervalsBetweenDeaths : MonoBehaviour
         {
             public List<CharacterBody> deathList = new List<CharacterBody>();
+            public List<GameObject> effectList = new List<GameObject>();
+            
             private Run.FixedTimeStamp timer;
             private static float totalPhaseTime = 2f;
             private static float pauseTime = 0.5f;
@@ -59,8 +62,16 @@ namespace Slipstream.Items
                     {
                         if (timer.timeSince >= index * intervalTime)
                         {
-                            //put spawn effect deathList[index] here
-                            SlipLogger.LogD("index added");
+#if DEBUG
+                            SlipLogger.LogD($"Spawned Effect at index " + index);
+#endif
+                            GameObject gameObject = UnityEngine.Object.Instantiate<GameObject>(effectStartPrefab, deathList[index].coreTransform);
+                            gameObject.transform.localPosition = Vector3.zero;
+                            gameObject.transform.localRotation = Quaternion.identity;
+                            gameObject.transform.localScale = gameObject.transform.localScale * deathList[index].bestFitRadius;
+
+                            effectList.Add(gameObject);
+
                             index++;
                         }
                     }
@@ -72,10 +83,20 @@ namespace Slipstream.Items
                     {
                         if (timer.timeSince >= deathIndex * intervalTime + totalPhaseTime + pauseTime)
                         {
-                            
-                            deathList[0].healthComponent.Suicide();
+#if DEBUG
+                            SlipLogger.LogD($"Start destruction " + deathIndex);
+#endif
+                            Destroy(effectList[0]);
+                            effectList.RemoveAt(0);
+#if DEBUG
+                            SlipLogger.LogD($"Destroyed Effect at index " + deathIndex);
+#endif
+                            deathList[0].healthComponent.Suicide(null, null, DamageType.VoidDeath);
                             deathList.RemoveAt(0);
                             deathIndex++;
+#if DEBUG
+                            SlipLogger.LogD($"Finished " + deathIndex);
+#endif
                         }
                     }
                     else if (timer.timeSince >= totalPhaseTime * 2f + pauseTime)
@@ -93,55 +114,97 @@ namespace Slipstream.Items
             [ItemDefAssociation(useOnClient = false, useOnServer = true)]
             public static ItemDef GetItemDef() => SlipContent.Items.Coalition;
 
-            private GameObject destroyEffectPrefab;
+            private static GameObject destroyEffectPrefab = SlipAssets.LoadAsset<GameObject>("CoalitionPreDetonation", SlipBundle.Items);
             private List<CharacterBody> deathList = new List<CharacterBody>();
-
-
-            private void Start()
-            {
-                destroyEffectPrefab = SlipAssets.LoadAsset<GameObject>("CoalitionPreDetonation", SlipBundle.Items);
-
-                //Adds Blackhealth item to all your allies
-                CharacterMaster master = body.master;
-                if (master)
-                {
-                    foreach (CharacterMaster characterMaster in CharacterMaster.instancesList)
-                    {
-                        if (characterMaster.minionOwnership && characterMaster.minionOwnership.ownerMaster == master)
-                        {
-                            characterMaster.inventory.GiveItem(SlipContent.Items.BlackHealth);
-                        }
-                    }
-                }
-            }
-
-            private void OnDestroy()
-            {
-                //When you get rid of Coalition, get rid of Blackhealth from all allies
-                CharacterMaster master = body.master;
-                if (master)
-                {
-                    foreach (CharacterMaster characterMaster in CharacterMaster.instancesList)
-                    {
-                        if (characterMaster.minionOwnership && characterMaster.minionOwnership.ownerMaster == master)
-                        {
-                            characterMaster.inventory.ResetItem(SlipContent.Items.BlackHealth);
-                        }
-                    }
-                }
-            }
+            private MinionOwnership.MinionGroup minionGroup;
+            private int previousStack;
 
             private void OnEnable()
             {
                 MasterSummon.onServerMasterSummonGlobal += MasterSummon_onServerMasterSummonGlobal;
                 On.RoR2.HealthComponent.UpdateLastHitTime += HealthComponent_UpdateLastHitTime;
+
+                UpdateAllMinions(stack);
             }
 
             private void OnDisable()
             {
                 MasterSummon.onServerMasterSummonGlobal -= MasterSummon_onServerMasterSummonGlobal;
                 On.RoR2.HealthComponent.UpdateLastHitTime -= HealthComponent_UpdateLastHitTime;
+
+                UpdateAllMinions(0);
             }
+
+            private void FixedUpdate()
+            {
+                if (previousStack != stack)
+                    UpdateAllMinions(stack);
+            }
+            private void MasterSummon_onServerMasterSummonGlobal(MasterSummon.MasterSummonReport report)
+            {
+                //If allies are gained while having Coalition, give them Blackhealth
+                if (body.master && body.master == report.leaderMasterInstance)
+                {
+                    CharacterMaster summonMasterInstance = report.summonMasterInstance;
+                    if (summonMasterInstance)
+                    {
+                        if (summonMasterInstance.GetBody())
+                        {
+                            UpdateMinionGroup(body);
+                            UpdateMinionInventory(summonMasterInstance.inventory, stack);
+                        }
+                    }
+                }
+            }
+
+            private void UpdateMinionGroup(CharacterBody charBody)
+            {
+                minionGroup = MinionOwnership.MinionGroup.FindGroup(body.master.netId);
+            }
+
+            private void UpdateAllMinions(int newStack)
+            {
+                if((body != null) ? body.master : null)
+                {
+                    UpdateMinionGroup(body);
+                    if(minionGroup != null)
+                    {
+                        foreach(MinionOwnership minionOwnership in minionGroup.members)
+                        {
+                            if (minionOwnership)
+                            {
+                                CharacterMaster minionMaster = minionOwnership.GetComponent<CharacterMaster>();
+                                CharacterBody minionBody = minionMaster.GetBody();
+                                if (minionMaster && minionMaster.inventory && minionBody)
+                                {
+                                    UpdateMinionInventory(minionMaster.inventory, newStack);
+                                }
+                            }
+                        }
+                        previousStack = newStack;
+                    }
+                }
+            }
+
+            private void UpdateMinionInventory(Inventory inventory, int newStack)
+            {
+                if(inventory && newStack > 0)
+                {
+                    int itemCount = inventory.GetItemCount(SlipContent.Items.BlackHealth);
+                    if (itemCount < stack)
+                        inventory.GiveItem(SlipContent.Items.BlackHealth, stack - itemCount);
+                    else if (itemCount > stack)
+                        inventory.RemoveItem(SlipContent.Items.BlackHealth, itemCount - stack);
+                }
+                else
+                {
+                    inventory.ResetItem(SlipContent.Items.BlackHealth);
+                }
+            }
+
+            
+
+
             private void HealthComponent_UpdateLastHitTime(On.RoR2.HealthComponent.orig_UpdateLastHitTime orig, HealthComponent self, float damageValue, Vector3 damagePosition, bool damageIsSilent, GameObject attacker)
             {
                 //call orig to make sure that Elixr is activated first. This only matters at 1 stack though.
@@ -153,34 +216,18 @@ namespace Slipstream.Items
                 {
                     CharacterMaster master = body.master;
                     CoalitionIntervalsBetweenDeaths deathComponent = body.gameObject.AddComponent<CoalitionIntervalsBetweenDeaths>();
-                    foreach (CharacterMaster characterMaster in CharacterMaster.instancesList)
+                    foreach (MinionOwnership minionOwnership in minionGroup.members)
                     {
-                        if (characterMaster.minionOwnership && characterMaster.minionOwnership.ownerMaster == master)
+                        if (minionOwnership)
                         {
-                            CharacterBody allybody = characterMaster.GetBody();
-                            //EffectData effectData = new EffectData { origin = allybody.corePosition, scale = allybody.radius};
-
-                            //EffectManager.SpawnEffect(destroyEffectPrefab, effectData, true);
-                            //characterMaster.GetBody()?.healthComponent.Suicide();
-
-                            deathComponent.deathList.Add(allybody);
+                            CharacterBody minionBody = minionOwnership.GetComponent<CharacterMaster>().GetBody();
+                            deathComponent.deathList.Add(minionBody);
                         }
                     }
                 }
             }
 
-            private void MasterSummon_onServerMasterSummonGlobal(MasterSummon.MasterSummonReport report)
-            {
-                //If allies are gained while having Coalition, give them Blackhealth
-                if (body.master && body.master == report.leaderMasterInstance)
-                {
-                    CharacterMaster summonMasterInstance = report.summonMasterInstance;
-                    if (summonMasterInstance)
-                    {
-                        summonMasterInstance.inventory.GiveItem(SlipContent.Items.BlackHealth);
-                    }
-                }
-            }
+            
 
         }
 

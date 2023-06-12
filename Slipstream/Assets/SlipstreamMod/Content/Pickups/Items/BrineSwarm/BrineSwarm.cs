@@ -15,6 +15,7 @@ using System.Collections.Generic;
 
 namespace Slipstream.Items
 {
+    [DisabledContent]
     public class BrineSwarm : VoidItemBase
     {
         private const string token = "SLIP_ITEM_BRINESWARM_DESC";

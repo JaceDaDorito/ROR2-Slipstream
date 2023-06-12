@@ -21,6 +21,8 @@ namespace Slipstream.Items
     {
         public override ItemDef ItemDef { get; } = SlipAssets.LoadAsset<ItemDef>("BlackHealth", SlipBundle.Items);
         private static Material material = SlipAssets.LoadAsset<Material>("matBlackBlood", SlipBundle.Items);
+        private static Texture2D ramp = SlipAssets.LoadAsset<Texture2D>("texRampCoalition", SlipBundle.Items);
+        private static int EliteRampPropertyID => Shader.PropertyToID("_EliteRamp");
 
         public static float armorIncrease = Coalition.armorIncrease;
 
@@ -57,8 +59,6 @@ namespace Slipstream.Items
 
             public static RoR2.ItemDef GetItemDef() => SlipContent.Items.BlackHealth;
 
-            CharacterMaster allyOwnerMaster;
-
             private bool changedFlag;
 
             private TemporaryOverlay overlay;
@@ -69,15 +69,12 @@ namespace Slipstream.Items
             {
                 //Makes owners of Blackhealth completely immune to void explosions (when its enabled)
                 changedFlag = false;
-                allyOwnerMaster = body.master?.minionOwnership.ownerMaster;
                 if ((body.bodyFlags & CharacterBody.BodyFlags.ImmuneToVoidDeath) == CharacterBody.BodyFlags.None && preventsVoidDeath)
                 {
                     changedFlag = true;
                     body.bodyFlags |= CharacterBody.BodyFlags.ImmuneToVoidDeath;
                 }
                 model = body.modelLocator.modelTransform.GetComponent<CharacterModel>();
-                if (model)
-                    AddBlackOverlay();
 
             }
 
@@ -94,21 +91,12 @@ namespace Slipstream.Items
 
             }
 
-            public void FixedUpdate()
-            {
-                if (NetworkServer.active && !allyOwnerMaster)
-                    body.inventory?.ResetItem(SlipContent.Items.BlackHealth);
-                if (model && !overlay)
-                    AddBlackOverlay();
-            }
-
             public void ModifyStatArguments(RecalculateStatsAPI.StatHookEventArgs args)
             {
-                if (allyOwnerMaster)
-                    args.armorAdd += allyOwnerMaster.inventory.GetItemCount(SlipContent.Items.Coalition) * armorIncrease;
+                args.armorAdd += stack * armorIncrease;
             }
 
-            public void AddBlackOverlay()
+            /*public void AddBlackOverlay()
             {
                 overlay = new TemporaryOverlay();
                 overlay = body.gameObject.AddComponent<TemporaryOverlay>();
@@ -117,7 +105,7 @@ namespace Slipstream.Items
                 overlay.destroyObjectOnEnd = false;
                 overlay.originalMaterial = material;
                 overlay.inspectorCharacterModel = model;
-            }
+            }*/
         }
     }
 }

@@ -9,7 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: matGlassLightShaft
   m_Shader: {fileID: 4800000, guid: bd3280d07a5a3f0459cc68bdc2b5feaa, type: 2}
-  m_ShaderKeywords: USE_CLOUDS VERTEXALPHA VERTEXCOLOR
+  m_ShaderKeywords: DISABLEREMAP USE_CLOUDS VERTEXALPHA VERTEXCOLOR
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -24,7 +24,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Cloud1Tex:
-        m_Texture: {fileID: 2800000, guid: 27ed4b356b70bc04c94bde73f356d0b8, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Cloud2Tex:
@@ -48,7 +48,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: c7ad9e72dd1caf3458fbf608e8264045, type: 3}
+        m_Texture: {fileID: 2800000, guid: f87b002b3643c3540890d0785ecd0ab1, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -79,7 +79,7 @@ Material:
     - _Cutoff: 0.5
     - _DepthOffset: -2.4
     - _DetailNormalMapScale: 1
-    - _DisableRemapOn: 0
+    - _DisableRemapOn: 1
     - _DistortionStrength: -2
     - _DstBlend: 0
     - _ExternalAlpha: 1
