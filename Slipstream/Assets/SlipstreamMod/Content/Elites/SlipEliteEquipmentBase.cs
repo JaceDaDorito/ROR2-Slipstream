@@ -8,7 +8,6 @@ using UnityEngine.UI;
 using UnityEngine.AddressableAssets;
 using static RoR2.CharacterModel;
 using R2API;
-using Slipstream.Utils;
 using Slipstream.Buffs;
 
 namespace Slipstream.Equipments

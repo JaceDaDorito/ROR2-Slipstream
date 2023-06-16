@@ -9,7 +9,6 @@ using RoR2.Items;
 using TMPro;
 using UnityEngine.UI;
 using System.Collections.Generic;
-using Slipstream.Utils;
 using RoR2.UI;
 
 namespace Slipstream.Items
@@ -29,6 +28,7 @@ namespace Slipstream.Items
         
 
         private static float timeAmount = 0.4f;
+        
 
         //need to add to this list for the healthbar to work, for some reason checking for the interface instances happens after the check inventory hook
         public static List<ItemDef> critShieldItems = new List<ItemDef>();

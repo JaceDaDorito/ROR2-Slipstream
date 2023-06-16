@@ -7,9 +7,9 @@
 	"SLIP_ITEM_CHANGUS_LORE": "Whats up oc?",
 
 	"SLIP_ITEM_COALITION_NAME": "Coalition",
-	"SLIP_ITEM_COALITION_PICKUP": "Your allies are nigh invincible... <color=#FF7F7F>BUT they all fall when your blood weakens.</color>",
-	"SLIP_ITEM_COALITION_DESC": "Coalition stats here.",
-	"SLIP_ITEM_COALITION_LORE": "Coalition lore here.",
+	"SLIP_ITEM_COALITION_PICKUP": "Your allies are nigh-unbreakable... <color=#FF7F7F>BUT they only persist with your blood.</color>",
+	"SLIP_ITEM_COALITION_DESC": "Your allies gain <style=cIsHealing>{1}</style> <style=cStack>(+{1} per stack)</style> <style=cIsHealing>armor</style> and are immune to <style=cIsDamage>void damage.</style> Falling below <style=cIsHealth>{0}% health</style> <style=cStack>(scales hyperbollically towards {2}%)</style> will kill all allies.",
+	"SLIP_ITEM_COALITION_LORE": "Do you see me, Brother?\n\nWithout your leadership, every pitiful creature within your vast menagerie buckles to my will.\n\nMy War is endless. It persists as My heart does.\nMy Constructs are endless. They do not hunger, they do not thirst, they do not expire — for My blood grants them strength.\nMy Coalition is endless. It needs no master but Me, no motivation but Mine and Mine alone.\n\nI know you warned me of doing this, Brother — that Blood is dangerous if untempered: it is unstable, bound to the life of its master.\n\nBut I turned that weakness into my intent.\n\nI know what I am doing. You would be proud if you could see it.\n\nNothing of my artifice ends until I do.",
 
 	"SLIP_ITEM_FRIENDSHIPBRACELET_NAME": "Friendship Bracelet",
 	"SLIP_ITEM_FRIENDSHIPBRACELET_PICKUP": "Allies inherit the effects of some of your items.",

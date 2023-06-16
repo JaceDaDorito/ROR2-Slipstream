@@ -64,6 +64,8 @@ namespace Slipstream.Items
             [ItemDefAssociation(useOnClient = true, useOnServer = true)]
             public static RoR2.ItemDef GetItemDef() => SlipContent.Items.PepperSpray;
 
+            public static GameObject explosionEffect = SlipAssets.Instance.MainAssetBundle.LoadAsset<GameObject>("PepperSprayExplosion");
+
             private Image image;
 
             //private bool shouldTrigger = false;
@@ -106,7 +108,7 @@ namespace Slipstream.Items
                 sprayAttack.falloffModel = RoR2.BlastAttack.FalloffModel.None;
                 sprayAttack.maxTimer = 0f;
                 sprayAttack.damageType = DamageType.Stun1s;
-                sprayAttack.explosionEffect = SlipAssets.Instance.MainAssetBundle.LoadAsset<GameObject>("PepperSprayExplosion");
+                sprayAttack.explosionEffect = explosionEffect;
                 //sprayAttack.delayEffect = Resources.Load<GameObject>("Prefabs/Effects/ImpactEffects/AffixWhiteExplosion");
                 hitBoxStun.GetComponent<RoR2.TeamFilter>().teamIndex = RoR2.TeamComponent.GetObjectTeam(body.gameObject);
 

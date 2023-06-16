@@ -11,7 +11,7 @@ using R2API;
 
 namespace Slipstream
 {
-    public static class GenericUtils
+    public static class SlipUtils
     {
         private static GameObject hauntedPrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/EliteHaunted/PickupEliteHaunted.prefab").WaitForCompletion();
         private static GameObject firePrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/EliteFire/PickupEliteFire.prefab").WaitForCompletion();
@@ -75,6 +75,11 @@ namespace Slipstream
             if (!master)
                 return null;
             return master.GetBody();
+        }
+
+        public static Color ColorRGB(float rUnscaled, float gUnscaled, float bUnscaled, float a = 1f)
+        {
+            return new Color(rUnscaled / 255f, gUnscaled / 255f, bUnscaled / 255f, a);
         }
     }
 }

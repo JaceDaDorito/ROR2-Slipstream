@@ -23,8 +23,8 @@ namespace Slipstream.Buffs
         public override BuffDef BuffDef { get; } = SlipAssets.LoadAsset<BuffDef>("Chipped", SlipBundle.Elites);
         public static BuffDef buff;
 
-        public static float chippedAmount = GenericUtils.ConvertPercentCursedToCurseInput(AffixSandswept.chippedPercentage);
-        public static float nerfedChippedAmount = GenericUtils.ConvertPercentCursedToCurseInput(AffixSandswept.nerfedChippedPercentage);
+        public static float chippedAmount = SlipUtils.ConvertPercentCursedToCurseInput(AffixSandswept.chippedPercentage);
+        public static float nerfedChippedAmount = SlipUtils.ConvertPercentCursedToCurseInput(AffixSandswept.nerfedChippedPercentage);
 
         public static Material glassMaterial = SlipAssets.LoadAsset<Material>("matIsGlass", SlipBundle.Elites);
         private static float flashDuration = 1f;

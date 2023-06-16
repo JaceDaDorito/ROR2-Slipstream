@@ -26,7 +26,7 @@ namespace Slipstream.Buffs
         public static BuffDef buff;
         private static int buffCount = AffixSandswept.buffCount;
 
-        public static Color dangerColor = ColorUtils.ColorRGB(255f, 56f, 99f, 1f);
+        public static Color dangerColor = SlipUtils.ColorRGB(255f, 56f, 99f, 1f);
         public static float endTintAlpha = 70f / 255f;
         public static float endAlphaBoost = 17f;
         public static float endScrollSpeed = 0.6f;
@@ -34,11 +34,6 @@ namespace Slipstream.Buffs
         public override void Initialize()
         {
             buff = BuffDef;
-
-            //GlobalEventManager.onCharacterDeathGlobal += GlobalEventManager_onCharacterDeathGlobal;
-            //GlobalEventManager.onServerDamageDealt += GlobalEventManager_onServerDamageDealt;
-
-            //On.RoR2.CharacterModel.UpdateOverlays += CharacterModel_UpdateOverlays;
         }
 
 

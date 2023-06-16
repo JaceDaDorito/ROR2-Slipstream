@@ -5,19 +5,20 @@ using Slipstream.Modules;
 using Moonstorm;
 using Slipstream.Items;
 using Slipstream.Scenes;
-using Slipstream.Utils;
 using R2API;
 using R2API.ContentManagement;
 using System.Linq;
 using System.Security;
 using System.Security.Permissions;
 using R2API.Utils;
+using RoR2.ExpansionManagement;
+using RoR2;
 
 #pragma warning disable CS0618
 [assembly: SecurityPermission(SecurityAction.RequestMinimum, SkipVerification = true)]
 #pragma warning restore CS0618
 [module: UnverifiableCode]
-[assembly: SearchableAttribute.OptIn]
+[assembly: HG.Reflection.SearchableAttribute.OptIn]
 
 
 namespace Slipstream
@@ -34,17 +35,12 @@ namespace Slipstream
     [BepInDependency("com.bepis.r2api.recalculatestats")]
     [BepInDependency("com.bepis.r2api.sound")]
     [BepInDependency("com.TeamMoonstorm.MoonstormSharedUtils", BepInDependency.DependencyFlags.HardDependency)]
-    //[BepInDependency("com.TheMysticSword.AspectAbilities", BepInDependency.DependencyFlags.SoftDependency)]
 
     [NetworkCompatibility(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.EveryoneNeedSameModVersion)]
     [BepInPlugin(GUID, MODNAME, VERSION)]
     //[R2APISubmoduleDependency(nameof(DotAPI), nameof(DamageAPI), nameof(PrefabAPI), nameof(DeployableAPI), nameof(SoundAPI))]
     public class SlipMain : BaseUnityPlugin
     {
-        //Big credit to Starstorm/Lost in Transit devs Swuff and NebNeb, the structure of the mod is purely based off of LIT and without them I wouldn't know what to do.
-        //To Swuff and Neb: Don't get made at me for this ^ lol, but seriously if you have any problems with Slipstream's structure being extremely based off of LIT please let me know. -JaceDaDorito
-
-        //Strings for mod details. Very self explainitory.
         internal const string GUID = "com.TeamSlipstream.Slipstream";
         internal const string MODNAME = "Slipstream";
         internal const string VERSION = "0.0.1";
@@ -65,24 +61,37 @@ namespace Slipstream
             config = Config;
             SlipLogger.logger = Logger;
 
-            new SlipAssets().Init();
-            //I could put a load bearing chuck here.
-            new SlipConfig().Init();
-            new SlipContent().Init();
-            new SlipLanguage().Init();
-
-            //new CriticalShield().Init();
-            new SlipCriticalShield().Init();
-            new VoidShieldCatalog().Init();
-            new ExpansionUtils().Init();
-            //new SlipDirectorUtilsHandler().Init();
+            StartupInitialization();
 
             //Allows organized configurable fields of public static fields.
-            ConfigurableFieldManager.AddMod(this);
+            Moonstorm.ConfigSystem.AddMod(this);
 
             //Slipstream now loads alongside the game "and will properly show percentage increase in the loading screen" -Neb
         }
 
+        private void StartupInitialization()
+        {
+            new SlipAssets().Init();
+            new SlipConfig().Init();
+            new SlipContent().Init();
+            new SlipLanguage().Init();
+            new SlipHooks().Init();
+            new SlipCriticalShield().Init();
+            new VoidShieldCatalog().Init();
+            new PickupSizeExceptionIL().Init();
+            GenerateLockIcon();
+        }
+
+        public static ExpansionDef slipexpansion;
+        public static void GenerateLockIcon()
+        {
+            //This code runs on startup of the mod to load the lock icon and set the disabled icon to the lock icon
+            //Loads SOTV to reference 
+            slipexpansion = SlipAssets.LoadAsset<ExpansionDef>("SlipExpansionDef", SlipBundle.Main);
+            ExpansionDef expansionDef = LegacyResourcesAPI.Load<ExpansionDef>("ExpansionDefs/DLC1");
+
+            slipexpansion.disabledIconSprite = expansionDef.disabledIconSprite;
+        }
 
     }
 }

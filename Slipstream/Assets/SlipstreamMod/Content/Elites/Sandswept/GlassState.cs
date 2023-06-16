@@ -27,8 +27,8 @@ namespace EntityStates.Sandswept
         protected static float invulnDuration = AffixSandswept.timeInvulnerable;
         private float animatorVel = 0f;
 
-        public static Color beginColor = ColorUtils.ColorRGB(255f, 255f, 255f);
-        public static Color endColor = ColorUtils.ColorRGB(168f, 50f, 76f);
+        public static Color beginColor = SlipUtils.ColorRGB(255f, 255f, 255f);
+        public static Color endColor = SlipUtils.ColorRGB(168f, 50f, 76f);
         //(94f, 255f, 236f)
 
         //private List<Material> instancesOverlay;
@@ -116,7 +116,7 @@ namespace EntityStates.Sandswept
                         }
                     }*/
 
-                    GenericUtils.OverrideBodyMaterials(model, frozenOverlayMaterial, rendererList);
+                    SlipUtils.OverrideBodyMaterials(model, frozenOverlayMaterial, rendererList);
 
                     //sets the material of the mf's item displays to be glass
                     ItemDisplay[] itemDisplays = modelTransform.GetComponentsInChildren<ItemDisplay>();

@@ -9,7 +9,6 @@ using R2API;
 using RoR2.Items;
 using TMPro;
 using UnityEngine.UI;
-using Slipstream.Utils;
 using System.Collections.Generic;
 
 namespace Slipstream.Items
@@ -32,7 +31,19 @@ namespace Slipstream.Items
         [TokenModifier(token, StatTypes.Default, 1)]
         public static float armorIncrease = 100f;
 
+        [ConfigurableField(ConfigName = "Max health threshold", ConfigDesc = "Hypothetical max health threshold percentage possible", ConfigSection = "Coalition")]
+        [TokenModifier(token, StatTypes.MultiplyByN, 2, "100")]
+        public static float maxPercentage = 1f;
+
+
         public static RoR2.UI.HealthBarStyle.BarStyle coalitionBarStyle;
+        public static DamageAPI.ModdedDamageType BlackBlood;
+
+        public override void Initialize()
+        {
+            base.Initialize();
+            ExtraHealthbarSegment.AddType<CoalitionBarData>();
+        }
 
         public class CoalitionIntervalsBetweenDeaths : MonoBehaviour
         {
@@ -91,7 +102,7 @@ namespace Slipstream.Items
 #if DEBUG
                             SlipLogger.LogD($"Destroyed Effect at index " + deathIndex);
 #endif
-                            deathList[0].healthComponent.Suicide(null, null, DamageType.VoidDeath);
+                            deathList[0].healthComponent.Suicide();
                             deathList.RemoveAt(0);
                             deathIndex++;
 #if DEBUG
@@ -113,9 +124,6 @@ namespace Slipstream.Items
         {
             [ItemDefAssociation(useOnClient = false, useOnServer = true)]
             public static ItemDef GetItemDef() => SlipContent.Items.Coalition;
-
-            private static GameObject destroyEffectPrefab = SlipAssets.LoadAsset<GameObject>("CoalitionPreDetonation", SlipBundle.Items);
-            private List<CharacterBody> deathList = new List<CharacterBody>();
             private MinionOwnership.MinionGroup minionGroup;
             private int previousStack;
 
@@ -211,7 +219,7 @@ namespace Slipstream.Items
                 orig(self, damageValue, damagePosition, damageIsSilent, attacker);
 
                 //Kill all allies when player is below the current threshold.
-                float threshold = Moonstorm.MSUtil.InverseHyperbolicScaling(amplificationPercentage, amplificationPercentage, 1, stack);
+                float threshold = Moonstorm.MSUtil.InverseHyperbolicScaling(amplificationPercentage, amplificationPercentage, maxPercentage, stack);
                 if (body == self.body && (body.healthComponent.health + body.healthComponent.shield)/body.healthComponent.fullCombinedHealth < threshold && body.gameObject.GetComponent<CoalitionIntervalsBetweenDeaths>() == null) //Character body check and ratio of curent health compared to the threshold
                 {
                     CharacterMaster master = body.master;
@@ -234,15 +242,17 @@ namespace Slipstream.Items
         public class CoalitionBarData : ExtraHealthbarSegment.BarData
         {
             private bool enabled;
-            private Material barMat = SlipAssets.LoadAsset<Material>("matCriticalShield", SlipBundle.Base);
+            private Material barMat = SlipAssets.LoadAsset<Material>("matCoalitionBloodBar", SlipBundle.Items);
 
             private float threshold;
+            private static float width = 0.05f;
+            //private static float height = 0.2f;
 
+            public static Dictionary<HealthComponent, Material> materialBlood = new Dictionary<HealthComponent, Material>();
 
             public override RoR2.UI.HealthBarStyle.BarStyle GetStyle()
             {
                 var style = coalitionBarStyle;
-                style.sprite = bar.style.barrierBarStyle.sprite;
                 style.sizeDelta = bar.style.barrierBarStyle.sizeDelta;
                 style.baseColor = ExtraHealthbarSegment.defaultBaseColor;
                 style.imageType = Image.Type.Simple;
@@ -267,6 +277,13 @@ namespace Slipstream.Items
                     enabled = true;
                     threshold = Moonstorm.MSUtil.InverseHyperbolicScaling(amplificationPercentage, amplificationPercentage, 1, count);
                 }
+                else
+                {
+                    if (materialBlood.ContainsKey(body.healthComponent))
+                        materialBlood.Remove(body.healthComponent);
+                    return;
+                }
+                enabled = true;
             }
 
             public override void UpdateInfo(ref RoR2.UI.HealthBar.BarInfo info, HealthComponent healthSource)
@@ -277,14 +294,18 @@ namespace Slipstream.Items
 
                 info.enabled = enabled; //&& healthSource.shield > 0;
 
-                info.normalizedXMin = threshold - 0.2f;
-                info.normalizedXMax = threshold + 0.2f;
+                info.normalizedXMin = threshold - (width / 2f);
+                info.normalizedXMax = threshold + (width / 2f);
             }
 
             public override void ApplyBar(ref RoR2.UI.HealthBar.BarInfo info, Image image, HealthComponent source, ref int i)
             {
 
                 //image.material = barMat;
+                if (!materialBlood.ContainsKey(source))
+                    materialBlood.Add(source, UnityEngine.Object.Instantiate(barMat));
+
+                image.material = materialBlood[source];
                 base.ApplyBar(ref info, image, source, ref i);
             }
 

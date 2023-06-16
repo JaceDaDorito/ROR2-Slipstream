@@ -11,7 +11,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-namespace Slipstream.Utils
+namespace Slipstream
 {
     //Credit to Bubbet for most of the code here
     public static class ExtraHealthbarSegment

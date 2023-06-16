@@ -20,6 +20,7 @@ namespace Slipstream.Items
     public class BlackHealth : ItemBase
     {
         public override ItemDef ItemDef { get; } = SlipAssets.LoadAsset<ItemDef>("BlackHealth", SlipBundle.Items);
+        public static ItemDef item;
         private static Material material = SlipAssets.LoadAsset<Material>("matBlackBlood", SlipBundle.Items);
         private static Texture2D ramp = SlipAssets.LoadAsset<Texture2D>("texRampCoalition", SlipBundle.Items);
         private static int EliteRampPropertyID => Shader.PropertyToID("_EliteRamp");
@@ -28,11 +29,13 @@ namespace Slipstream.Items
 
         private static bool preventsVoidDeath = Coalition.preventsVoidDeath;
 
-        public static Color blackOverHealthColor = ColorUtils.ColorRGB(11f, 11f, 9f);
-        public static Color blackHealingHealthColor = ColorUtils.ColorRGB(159f, 160, 159f);
+        public static Color blackOverHealthColor = SlipUtils.ColorRGB(11f, 11f, 9f);
+        public static Color blackHealingHealthColor = SlipUtils.ColorRGB(159f, 160, 159f);
 
         public override void Initialize()
         {
+            base.Initialize();
+            item = ItemDef;
             On.RoR2.UI.HealthBar.UpdateBarInfos += new On.RoR2.UI.HealthBar.hook_UpdateBarInfos(HealthBar_UpdateBarInfos);
         }
 
