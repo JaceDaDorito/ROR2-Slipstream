@@ -56,7 +56,7 @@ namespace Slipstream.Items
         }
 
 
-        public class BlackHealthBehavior : BaseItemBodyBehavior, IBodyStatArgModifier
+        public class BlackHealthBehavior : BaseItemBodyBehavior, IBodyStatArgModifier, IOnKilledServerReceiver
         {
             [ItemDefAssociation(useOnClient = true, useOnServer = true)]
 
@@ -97,6 +97,18 @@ namespace Slipstream.Items
             public void ModifyStatArguments(RecalculateStatsAPI.StatHookEventArgs args)
             {
                 args.armorAdd += stack * armorIncrease;
+            }
+
+            public void OnKilledServer(DamageReport damageReport)
+            {
+                Util.PlaySound("Play_nullifier_death_vortex_explode", base.gameObject);
+
+                Transform transform = body.modelLocator.modelTransform;
+                if (transform)
+                {
+                    Destroy(transform.gameObject);
+                    transform = null;
+                }
             }
 
             /*public void AddBlackOverlay()

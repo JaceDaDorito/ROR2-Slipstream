@@ -64,7 +64,7 @@ namespace Slipstream.Items
             [ItemDefAssociation(useOnClient = true, useOnServer = true)]
             public static RoR2.ItemDef GetItemDef() => SlipContent.Items.PepperSpray;
 
-            public static GameObject explosionEffect = SlipAssets.Instance.MainAssetBundle.LoadAsset<GameObject>("PepperSprayExplosion");
+            public static GameObject explosionEffect = SlipAssets.LoadAsset<GameObject>("PepperSprayExplosion", SlipBundle.Items);
 
             private Image image;
 

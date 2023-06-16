@@ -215,11 +215,6 @@ namespace EntityStates.Sandswept
 
         public override void OnExit()
         {
-            /*if (temporaryOverlay)
-                Destroy(temporaryOverlay);*/
-
-            //gameObject.GetComponent<AffixSandswept.AffixSandsweptBehavior>().isGlass = false;
-            //EffectManager.SpawnEffect()
             Util.PlaySound("Play_char_glass_death", base.gameObject);
 
             if (eliteSandKnockbackIndicator)
