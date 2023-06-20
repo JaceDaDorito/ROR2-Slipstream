@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -794597441, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
-  m_Name: aridexpanse
+  m_Name: slip_aridexpanse
   m_EditorClassIdentifier: 
   sceneAddress:
     m_AssetGUID: 
     m_SubObjectName: 
     m_SubObjectType: 
-  baseSceneNameOverride: aridexpanse
+  baseSceneNameOverride: slip_aridexpanse
   sceneType: 1
   isOfflineScene: 0
   stageOrder: 1

@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StagingPaths:
   - <BuildPath>
+  includeMetaFiles: 0
   files:
   - {fileID: 2800000, guid: 5fc53213b7358dd49b9953c29358a105, type: 3}
   - {fileID: 4900000, guid: 5294be857f94c3048bd64e90c8600cca, type: 3}
@@ -134,6 +135,7 @@ MonoBehaviour:
     - {fileID: 102900000, guid: 10fdbbe9b3f0d3f4ebd88c5e3dd10369, type: 3}
     - {fileID: 102900000, guid: b365eedbb81d3c245995af13dbda9a84, type: 3}
     - {fileID: 102900000, guid: 197451f18629b0544a07e9f32e73795b, type: 3}
+    - {fileID: 102900000, guid: 4a56bacf31457ed4c9210e978c9cb44c, type: 3}
   - assetBundleName: slipequipments
     assets:
     - {fileID: 102900000, guid: 5e93da1e7455dbb4ba37aef3abca437d, type: 3}
@@ -172,6 +174,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StagingPaths:
   - <BuildPathSoundbanks>
+  includeMetaFiles: 0
   files:
   - {fileID: 102900000, guid: 2808caf3af503eb4f803c32d100ca114, type: 3}
 --- !u!114 &8324102109481770816

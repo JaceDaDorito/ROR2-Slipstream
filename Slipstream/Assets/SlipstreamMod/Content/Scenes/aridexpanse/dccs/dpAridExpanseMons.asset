@@ -23,8 +23,7 @@ MonoBehaviour:
       hasBeenSerialized: 1
       requiredExpansions: []
       dccsKey: 
-      requiredExpansionsKeys:
-      - RoR2/DLC1/Common/DLC1.asset
+      requiresDLC1Expansion: 0
     includedIfNoConditionsMet:
     - dccs: {fileID: 11400000, guid: e52c5824652974c4e802b8bfea604e22, type: 2}
       weight: 1
@@ -40,25 +39,25 @@ MonoBehaviour:
       hasBeenSerialized: 1
       requiredExpansions: []
       dccsKey: RoR2/Base/Common/dccsLemurianFamily.asset
-      requiredExpansionsKeys: []
+      requiresDLC1Expansion: 0
     - dccs: {fileID: 0}
       weight: 1
       hasBeenSerialized: 1
       requiredExpansions: []
       dccsKey: RoR2/Base/Common/dccsBeetleFamily.asset
-      requiredExpansionsKeys: []
+      requiresDLC1Expansion: 0
     - dccs: {fileID: 0}
       weight: 1
       hasBeenSerialized: 1
       requiredExpansions: []
       dccsKey: RoR2/Base/Common/dccsGolemFamily.asset
-      requiredExpansionsKeys: []
+      requiresDLC1Expansion: 0
     - dccs: {fileID: 0}
       weight: 1
       hasBeenSerialized: 1
       requiredExpansions: []
       dccsKey: RoR2/Base/Common/dccsJellyfishFamily.asset
-      requiredExpansionsKeys: []
+      requiresDLC1Expansion: 0
     includedIfNoConditionsMet: []
     hasBeenSerialized: 1
   - name: VoidInvasion
@@ -70,7 +69,6 @@ MonoBehaviour:
       hasBeenSerialized: 1
       requiredExpansions: []
       dccsKey: RoR2/DLC1/Common/dccsVoidFamily.asset
-      requiredExpansionsKeys:
-      - RoR2/DLC1/Common/DLC1.asset
+      requiresDLC1Expansion: 1
     includedIfNoConditionsMet: []
     hasBeenSerialized: 1

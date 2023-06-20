@@ -18,7 +18,7 @@ namespace Slipstream.Scenes
 {
     public class AridExpanse : SceneBase
     {
-        public override SceneDef SceneDef { get; } = SlipAssets.LoadAsset<SceneDef>("aridexpanse", SlipBundle.Scenes);
+        public override SceneDef SceneDef { get; } = SlipAssets.LoadAsset<SceneDef>("slip_aridexpanse", SlipBundle.Scenes);
 
 
         private static MusicTrackDef music = Addressables.LoadAssetAsync<MusicTrackDef>("RoR2/Base/Common/muFULLSong02.asset").WaitForCompletion();
