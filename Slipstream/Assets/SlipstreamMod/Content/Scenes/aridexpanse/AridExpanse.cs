@@ -16,6 +16,7 @@ using RoR2.ContentManagement;
 
 namespace Slipstream.Scenes
 {
+    [DisabledContent]
     public class AridExpanse : SceneBase
     {
         public override SceneDef SceneDef { get; } = SlipAssets.LoadAsset<SceneDef>("slip_aridexpanse", SlipBundle.Scenes);

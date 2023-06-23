@@ -150,7 +150,7 @@ MonoBehaviour:
     - {fileID: 102900000, guid: b14c52089286cde479a666de6da11fe8, type: 3}
   - assetBundleName: sliparidexpanse
     assets:
-    - {fileID: 102900000, guid: ddb0f470f7ff4ad42ae5de4ec57c3ba7, type: 3}
+    - {fileID: 102900000, guid: 693e2076e66120346b5ae44fdb8ce894, type: 3}
   - assetBundleName: slipskills
     assets:
     - {fileID: 102900000, guid: e13e78795b8747d4d8f4f964351deac8, type: 3}
