@@ -88,7 +88,7 @@ GraphicsSettings:
       useDetailNormalMap: 1
       useCascadedShadowMaps: 1
       prefer32BitShadowMaps: 0
-      enableLPPV: 1
+      enableLPPV: 0
       useDitherMaskForAlphaBlendedShadows: 1
     m_Automatic: 0
   - serializedVersion: 5
