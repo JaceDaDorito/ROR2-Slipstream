@@ -22,8 +22,8 @@ MonoBehaviour:
   ShowLogWindow: 1
   LogPackageSourceTimings: 0
   ImageCachePath: Library/MarkdownImageCache
-  CachedImageCount: 1
-  CacheSize: 0
+  CachedImageCount: 20
+  CacheSize: 0.13
   MarkdownOpenMode: 1
   SelectedPipeline: {fileID: 0}
   SelectedManifest: {fileID: 0}

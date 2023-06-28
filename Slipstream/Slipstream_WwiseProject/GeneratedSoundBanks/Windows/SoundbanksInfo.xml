@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="12" SoundbankVersion="135">
+	<RootPaths>
+		<ProjectRoot>D:\Slipstream\WWiseTest\ROR2-Slipstream\Slipstream\Slipstream_WwiseProject\</ProjectRoot>
+		<SourceFilesRoot>D:\Slipstream\WWiseTest\ROR2-Slipstream\Slipstream\Slipstream_WwiseProject\.cache\Windows\</SourceFilesRoot>
+		<SoundBanksRoot>D:\Slipstream\WWiseTest\ROR2-Slipstream\Slipstream\Slipstream_WwiseProject\GeneratedSoundBanks\Windows\</SoundBanksRoot>
+		<ExternalSourcesInputFile></ExternalSourcesInputFile>
+		<ExternalSourcesOutputRoot>D:\Slipstream\WWiseTest\ROR2-Slipstream\Slipstream\Slipstream_WwiseProject\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
+	</RootPaths>
+	<DialogueEvents/>
+	<StreamedFiles/>
+	<MediaFilesNotInAnyBank/>
+	<SoundBanks>
+		<SoundBank Id="1355168291" Language="SFX" Hash="4204904655">
+			<ObjectPath>Init</ObjectPath>
+			<ShortName>Init</ShortName>
+			<Path>Init.bnk</Path>
+		</SoundBank>
+		<SoundBank Id="3584427858" Language="SFX" Hash="4136870262">
+			<ObjectPath>\SoundBanks\Default Work Unit\Slip_Soundbank1</ObjectPath>
+			<ShortName>Slip_Soundbank1</ShortName>
+			<Path>Slip_Soundbank1.bnk</Path>
+		</SoundBank>
+	</SoundBanks>
+</SoundBanksInfo>
