@@ -65,6 +65,8 @@ namespace Slipstream.Items
 
             }
 
+            //takes totalPhaseTime + pauseTime amount of time for each explosion to go off
+
             private void FixedUpdate()
             {
                 if(timer.timeSince > 0)
