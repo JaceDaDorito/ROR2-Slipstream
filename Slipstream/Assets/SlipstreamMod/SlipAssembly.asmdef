@@ -31,7 +31,10 @@
         "UnityEngine.UI.dll",
         "Unity.TextMeshPro.dll",
         "RoR2.dll",
-        "R2API.Core.dll"
+        "R2API.Core.dll",
+        "R2API.Stages.dll",
+        "R2API.Addressables.dll",
+        "LocationsOfPrecipitation.dll"
     ],
     "autoReferenced": true,
     "defineConstraints": [],
