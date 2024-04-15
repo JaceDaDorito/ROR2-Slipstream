@@ -1,4 +1,4 @@
-﻿using Moonstorm;
+﻿using MSU;
 using UnityEngine.AddressableAssets;
 using RoR2;
 using System;
@@ -45,11 +45,11 @@ namespace Slipstream.Items
 				MethodInfo methodInfo;
 				if ((methodInfo = (itemDefAssociationAttribute.target as MethodInfo)) == null)
 				{
-					SlipLogger.LogE("ItemDefAssociationAttribute cannot be applied to object of type '" + ((itemDefAssociationAttribute != null) ? itemDefAssociationAttribute.GetType().FullName : null) + "'");
+					SlipLog.Error("ItemDefAssociationAttribute cannot be applied to object of type '" + ((itemDefAssociationAttribute != null) ? itemDefAssociationAttribute.GetType().FullName : null) + "'");
 				}
 				else if (!methodInfo.IsStatic)
 				{
-					SlipLogger.LogE(string.Concat(new string[]
+					SlipLog.Error(string.Concat(new string[]
 					{
 						"ItemDefAssociationAttribute cannot be applied to method ",
 						methodInfo.DeclaringType.FullName,
@@ -63,7 +63,7 @@ namespace Slipstream.Items
 					Type type = itemDefAssociationAttribute.behaviorTypeOverride ?? methodInfo.DeclaringType;
 					if (!masterBehaviourType.IsAssignableFrom(type))
 					{
-						SlipLogger.LogE(string.Concat(new string[]
+						SlipLog.Error(string.Concat(new string[]
 						{
 							"ItemDefAssociationAttribute cannot be applied to method ",
 							methodInfo.DeclaringType.FullName,
@@ -78,7 +78,7 @@ namespace Slipstream.Items
 					}
 					else if (type.IsAbstract)
 					{
-						SlipLogger.LogE(string.Concat(new string[]
+						SlipLog.Error(string.Concat(new string[]
 						{
 							"ItemDefAssociationAttribute cannot be applied to method ",
 							methodInfo.DeclaringType.FullName,
@@ -102,11 +102,11 @@ namespace Slipstream.Items
 						Type returnType = methodInfo.ReturnType;
 						array[num] = (((returnType != null) ? returnType.FullName : null) ?? "void");
 						array[6] = itemDefType.FullName;
-						SlipLogger.LogE(string.Format(format, array));
+						SlipLog.Error(string.Format(format, array));
 					}
 					else if (methodInfo.GetGenericArguments().Length != 0)
 					{
-						SlipLogger.LogE(string.Format("{0} cannot be applied to method {1}.{2}: {3}.{4} must take no arguments.", new object[]
+						SlipLog.Error(string.Format("{0} cannot be applied to method {1}.{2}: {3}.{4} must take no arguments.", new object[]
 						{
 							"ItemDefAssociationAttribute",
 							methodInfo.DeclaringType.FullName,
@@ -120,11 +120,11 @@ namespace Slipstream.Items
 						ItemDef itemDef = (ItemDef)methodInfo.Invoke(null, Array.Empty<object>());
 						if (!itemDef)
 						{
-							SlipLogger.LogE(methodInfo.DeclaringType.FullName + "." + methodInfo.Name + " returned null.");
+							SlipLog.Error(methodInfo.DeclaringType.FullName + "." + methodInfo.Name + " returned null.");
 						}
 						else if (itemDef.itemIndex < (ItemIndex)0)
 						{
-							SlipLogger.LogE(string.Format("{0}.{1} returned an ItemDef that's not registered in the ItemCatalog. result={2}", methodInfo.DeclaringType.FullName, methodInfo.Name, itemDef));
+							SlipLog.Error(string.Format("{0}.{1} returned an ItemDef that's not registered in the ItemCatalog. result={2}", methodInfo.DeclaringType.FullName, methodInfo.Name, itemDef));
 						}
 						else
 						{

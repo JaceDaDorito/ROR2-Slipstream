@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Moonstorm;
+using MSU;
 using RoR2;
 using R2API;
 using UnityEngine.AddressableAssets;
@@ -9,21 +9,52 @@ using UnityEngine.Networking;
 using RoR2.Items;
 using Slipstream.Buffs;
 using RoR2.Orbs;
+using RoR2.ContentManagement;
+using MSU.Config;
 
 namespace Slipstream.Items
 {
-    public class ChargedFungus : ItemBase
+    public class ChargedFungus : SlipItem, IContentPackModifier
     {
-        private const string token = "SLIP_ITEM_CHUNGUS_DESC";
-        public override ItemDef ItemDef => SlipAssets.LoadAsset<ItemDef>("ChargedFungus", SlipBundle.Items);
+        private const string TOKEN = "SLIP_ITEM_CHUNGUS_DESC";
+        public override ItemDef ItemDef => _itemDef;
 
-       
+        private ItemDef _itemDef;
 
-        [ConfigurableField(ConfigName = "Healing Percentage", ConfigDesc = "Amount healed per second while equipment is charged", ConfigSection = "ChargedFungus")]
-        [TokenModifier(token, StatTypes.MultiplyByN, 3, "100")]
+        private AssetCollection _assetCollection;
+        public override NullableRef<GameObject> ItemDisplayPrefab => null;
+
+        [ConfigureField(SlipConfig.ITEMS, ConfigNameOverride = "Healing Percentage", ConfigDescOverride = "Amount healed per second while equipment is charged", ConfigSectionOverride = "ChargedFungus")]
+        [FormatToken(TOKEN, FormatTokenAttribute.OperationTypeEnum.MultiplyByN, 100)]
         public static float HealingPercentage = 0.03f;
 
-       
+
+        public void ModifyContentPack(ContentPack contentPack)
+        {
+            contentPack.AddContentFromAssetCollection(_assetCollection);
+        }
+        public override void Initialize()
+        {
+        }
+        public override bool IsAvailable(ContentPack contentPack)
+        {
+            return true;
+        }
+
+        public override IEnumerator LoadContentAsync()
+        {
+            var request = SlipAssets.LoadAssetAsync<AssetCollection>("acChargedFungus", SlipBundle.Items);
+
+            request.StartLoad();
+            while (!request.IsComplete)
+                yield return null;
+
+            _assetCollection = request.Asset;
+
+            _itemDef = _assetCollection.FindAsset<ItemDef>("ChargedFungus");
+            yield break;
+
+        }
 
         public class ChungusBehavior : BaseItemBodyBehavior
         {
@@ -34,11 +65,6 @@ namespace Slipstream.Items
 
             [ItemDefAssociation(useOnServer = true, useOnClient = true)]
             public static RoR2.ItemDef GetItemDef() => SlipContent.Items.ChargedFungus;
-
-           
-           
-                
-            
 
             public void FixedUpdate()
             {
@@ -63,13 +89,6 @@ namespace Slipstream.Items
                             });
                             body.AddBuff(SlipContent.Buffs.ChungusBuff);
 
-
-
-                            /*if (healtimer <= 0)
-                            {
-                                body.healthComponent.HealFraction(HealingPercentage, default(ProcChainMask));
-                                healtimer = 1;
-                            }*/
                         }
 
                         if (body.equipmentSlot.stock == 0 && body.HasBuff(SlipContent.Buffs.ChungusBuff))
@@ -79,9 +98,28 @@ namespace Slipstream.Items
                     }
 
                 }
-            }
+            }     
+        }
+    }
+    public class ChungusBuffBehavior : BuffBehaviour
+    {
+        [BuffDefAssociation]
+        public static BuffDef GetBuffDef() => SlipContent.Buffs.ChungusBuff;
+        public float healingtime = 1f;
 
-            
+
+        private void FixedUpdate()
+        {
+            healingtime -= Time.fixedDeltaTime;
+
+
+            if (healingtime <= 0f)
+            {
+                healingtime = 1f;
+                CharacterBody.healthComponent.HealFraction(ChargedFungus.HealingPercentage, default);
+
+
+            }
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using Moonstorm;
+﻿using MSU;
+using MSU.Config;
 using Slipstream.Buffs;
 using RoR2;
 using System;
@@ -6,57 +7,64 @@ using UnityEngine;
 using UnityEngine.Networking;
 using R2API;
 using RoR2.Items;
-using On.RoR2;
-using On.RoR2.UI;
 using TMPro;
 using UnityEngine.UI;
+using RoR2.ContentManagement;
+using System.Collections;
 
 namespace Slipstream.Items
 {
-    public class PepperSpray: ItemBase
+    public class PepperSpray: SlipItem
     {
         //Probably look at GlassEye.cs for your first reference of an item
 
-        private const string token = "SLIP_ITEM_PEPPERSPRAY_DESC";
-        public override RoR2.ItemDef ItemDef { get; } = SlipAssets.LoadAsset<RoR2.ItemDef>("PepperSpray", SlipBundle.Items);
+        private const string TOKEN = "SLIP_ITEM_PEPPERSPRAY_DESC";
+        public override RoR2.ItemDef ItemDef => _itemDef;
+        private ItemDef _itemDef;
+        public override NullableRef<GameObject> ItemDisplayPrefab => _itemDisplayPrefab;
+        private GameObject _itemDisplayPrefab;
 
         //public static string section;
 
         //Establishes the config fields to allow easy changes in values in certain calculations and such.
 
-        [ConfigurableField(ConfigName = "Base Shield", ConfigDesc = "Shield percentage after having at least one stack.", ConfigSection = "PepperSpray")]
-        [TokenModifier(token, StatTypes.MultiplyByN, 0, "100")]
+        [ConfigureField(SlipConfig.ITEMS, ConfigNameOverride = "Base Shield", ConfigDescOverride = "Shield percentage after having at least one stack.", ConfigSectionOverride = "PepperSpray")]
+        [FormatToken(SlipConfig.ITEMS, FormatTokenAttribute.OperationTypeEnum.MultiplyByN, 100)]
         public static float baseShield = 0.08f;
 
-        //[ConfigurableField(ConfigName = "Shield Threshold", ConfigDesc = "Percentage of total shield in order to trigger the effect.", ConfigSection = "PepperSpray")]
-        [TokenModifier(token, StatTypes.MultiplyByN, 1, "100")]
+        [ConfigureField(SlipConfig.ITEMS, ConfigNameOverride = "Shield Threshold", ConfigDescOverride = "Percentage of total shield in order to trigger the effect.", ConfigSectionOverride = "PepperSpray")]
+        [FormatToken(SlipConfig.ITEMS, FormatTokenAttribute.OperationTypeEnum.MultiplyByN, 100)]
         public static float threshold = SlipCriticalShield.threshold;
 
-        [ConfigurableField(ConfigName = "Base Radius", ConfigDesc = "Initial radius of the stun effect.", ConfigSection = "PepperSpray")]
-        [TokenModifier(token, StatTypes.Default, 2)]
+        [ConfigureField(SlipConfig.ITEMS, ConfigNameOverride = "Base Radius", ConfigDescOverride = "Initial radius of the stun effect.", ConfigSectionOverride = "PepperSpray")]
         public static float baseRadius = 13.0f;
 
-        [ConfigurableField(ConfigName = "Radius Increase", ConfigDesc = "Amount of increased stun radius per stack.", ConfigSection = "PepperSpray")]
-        [TokenModifier(token, StatTypes.Default, 3)]
+        [ConfigureField(SlipConfig.ITEMS, ConfigNameOverride = "Radius Increase", ConfigDescOverride = "Amount of increased stun radius per stack.", ConfigSectionOverride = "PepperSpray")]
         public static float radiusPerStack = 6.0f;
 
-        [ConfigurableField(ConfigName = "Speed Increase", ConfigDesc = "Movement speed increase when Pepper Speed is active.", ConfigSection = "PepperSpray")]
-        [TokenModifier(token, StatTypes.MultiplyByN, 4, "100")]
+        [ConfigureField(SlipConfig.ITEMS, ConfigNameOverride = "Speed Increase", ConfigDescOverride = "Movement speed increase when Pepper Speed is active.", ConfigSectionOverride = "PepperSpray")]
+        [FormatToken(SlipConfig.ITEMS, FormatTokenAttribute.OperationTypeEnum.MultiplyByN, 100)]
         public static float speedIncrease = 0.6f;
 
-        [ConfigurableField(ConfigName = "Max Speed Duration", ConfigDesc = "The time on your buff if your entire healthbar is shield + Base Speed Duration Constant.", ConfigSection = "PepperSpray")]
-        [TokenModifier(token, StatTypes.Default, 5)]
+        [ConfigureField(SlipConfig.ITEMS, ConfigNameOverride = "Max Speed Duration", ConfigDescOverride = "The time on your buff if your entire healthbar is shield + Base Speed Duration Constant.", ConfigSectionOverride = "PepperSpray")]
         public static float maxBuffTime = 20.0f;
 
-        [ConfigurableField(ConfigName = "Base Speed Duration Constant", ConfigDesc = "Initial amount of speed with one stack.", ConfigSection = "PepperSpray")]
-        //[TokenModifier(token, StatTypes.Default, 5)]
+        [ConfigureField(SlipConfig.ITEMS, ConfigNameOverride = "Base Speed Duration Constant", ConfigDescOverride = "Initial amount of speed with one stack.", ConfigSectionOverride = "PepperSpray")]
         public static float buffTimeConstant = 1.0f;
-
-        //public static string explosionSoundString = "Fart";
 
         public override void Initialize()
         {
             Slipstream.Items.SlipCriticalShield.critShieldItems.Add(ItemDef);
+        }
+
+        public override bool IsAvailable(ContentPack contentPack)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override IEnumerator LoadContentAsync()
+        {
+            throw new NotImplementedException();
         }
 
         public class PepperSprayBehavior : BaseItemBodyBehavior, IBodyStatArgModifier, SlipCriticalShield.ICriticalShield
@@ -67,20 +75,10 @@ namespace Slipstream.Items
             public static GameObject explosionEffect = SlipAssets.LoadAsset<GameObject>("PepperSprayExplosion", SlipBundle.Items);
 
             private Image image;
-
-            //private bool shouldTrigger = false;
-
-            //This just adds an initial shield when you have atleast one stack.
-            /*public void Awake()
-            {
-                body.RecalculateStats();
-            }*/
             public void ModifyStatArguments(RecalculateStatsAPI.StatHookEventArgs args)
             {
                 args.baseShieldAdd += body.healthComponent.fullHealth * baseShield;
             }
-
-            //The trigger should only happen once until you recharge, not after everytime you get hit below the threshold
             public void Trigger()
             {
                 if (NetworkServer.active)
@@ -88,7 +86,6 @@ namespace Slipstream.Items
                     FireStunSpray();
                     body.AddTimedBuff(SlipContent.Buffs.PepperSpeed.buffIndex, maxBuffTime * (body.healthComponent.fullShield / (body.healthComponent.fullShield + body.healthComponent.fullHealth)) + buffTimeConstant);
                 }
-                //Util.PlaySound(explosionSoundString, gameObject);
                 RoR2.Util.PlaySound("Play_PepperSpray_SFX", gameObject);
             }
 

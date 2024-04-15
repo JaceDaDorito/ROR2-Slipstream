@@ -9,7 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68b43d1b0b7e3074e9c105a44212585b, type: 3}
-  m_Name: msmdcBellFrog
+  m_Script: {fileID: 1229136950, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+  m_Name: acGlassEye
   m_EditorClassIdentifier: 
-  _serializedCardPairs: []
+  assets:
+  - {fileID: 11400000, guid: 529b3da692233904f86cd35c979ebef5, type: 2}
+  - {fileID: 5834791129691109250, guid: 7f3a4b2657fc8ae49a307e6e34af0075, type: 3}

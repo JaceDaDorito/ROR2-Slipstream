@@ -1,4 +1,4 @@
-﻿using Moonstorm;
+﻿using MSU;
 using Slipstream.Buffs;
 using RoR2;
 using System;
@@ -16,7 +16,7 @@ namespace Slipstream.Items
     public class SlipCriticalShield
     {
 
-        [ConfigurableField(ConfigName = "Shield Threshold", ConfigDesc = "Percentage of total shield in order to trigger effects like Pepper Spray and Brine Swarm", ConfigSection = "CriticalShield")]
+        [ConfigureField(ConfigNameOverride = "Shield Threshold", ConfigDescOverride = "Percentage of total shield in order to trigger effects like Pepper Spray and Brine Swarm", ConfigSectionOverride = "CriticalShield")]
         public static float threshold = 0.5f;
 
 

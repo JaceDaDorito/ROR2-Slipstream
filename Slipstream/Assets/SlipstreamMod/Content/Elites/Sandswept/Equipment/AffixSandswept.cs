@@ -1,5 +1,5 @@
 ﻿using KinematicCharacterController;
-using Moonstorm;
+using MSU;
 using RoR2;
 using System.Collections.Generic;
 using UnityEngine;

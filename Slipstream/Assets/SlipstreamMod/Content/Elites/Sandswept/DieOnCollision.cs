@@ -22,14 +22,14 @@ public class DieOnCollision : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        //SlipLogger.LogD(body.name + " collided with something");
+        //SlipLog.Debug(body.name + " collided with something");
         if(collision.gameObject.layer == LayerIndex.world.intVal && !collided)
         {
             collided = true;
-            //SlipLogger.LogD(body.name + " died");
+            //SlipLog.Debug(body.name + " died");
             AffixSandswept.FireKBBlast(body);
             AffixSandswept.CreateOrb(body, attackerBody);
-            SlipLogger.LogD(gameObject + " glass statue died to Collision");
+            SlipLog.Debug(gameObject + " glass statue died to Collision");
             if (attackerBody)
                 body.healthComponent.Suicide(attackerBody?.gameObject);
             else

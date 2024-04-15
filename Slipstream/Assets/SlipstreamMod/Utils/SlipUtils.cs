@@ -1,12 +1,7 @@
-﻿using KinematicCharacterController;
-using Moonstorm;
-using RoR2;
+﻿using RoR2;
 using System.Collections.Generic;
 using UnityEngine;
-using Slipstream;
-using UnityEngine.UI;
 using UnityEngine.AddressableAssets;
-using static RoR2.CharacterModel;
 using R2API;
 
 namespace Slipstream

@@ -1,38 +1,53 @@
-﻿using Moonstorm;
-using Slipstream.Buffs;
-using RoR2;
-using System;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using MSU;
+using RoR2;
+using R2API;
 using UnityEngine.AddressableAssets;
 using UnityEngine.Networking;
-using R2API;
 using RoR2.Items;
-using TMPro;
+using Slipstream.Buffs;
+using RoR2.Orbs;
+using RoR2.ContentManagement;
+using MSU.Config;
 using UnityEngine.UI;
-using System.Collections.Generic;
+
 
 namespace Slipstream.Items
 {
-    public class Coalition : ItemBase
+    public class Coalition : SlipItem, IContentPackModifier
     {
-        private const string token = "SLIP_ITEM_COALITION_DESC";
-        public override ItemDef ItemDef { get; } = SlipAssets.LoadAsset<ItemDef>("Coalition", SlipBundle.Items);
-        public static GameObject effectStartPrefab = SlipAssets.LoadAsset<GameObject>("CoalitionPreDetonation", SlipBundle.Items);
+        private const string TOKEN = "SLIP_ITEM_COALITION_DESC";
+        public override ItemDef ItemDef => _itemDef;
 
-        [ConfigurableField(ConfigName = "Allies are immunte to void death", ConfigDesc = "Prevents instant void explosion deaths (like the Void Reaver explosion) for allies.", ConfigSection = "Coalition")]
-        //[TokenModifier(token, StatTypes.Default, 0)]
+        private ItemDef _itemDef;
+        public ItemDef BlackHealthItemDef => _blackHealthItemDef;
+
+        private ItemDef _blackHealthItemDef;
+
+        public override NullableRef<GameObject> ItemDisplayPrefab => _itemDisplay;
+
+        private GameObject _itemDisplay;
+
+        private static GameObject effectStartPrefab;
+
+        public static Color blackOverHealthColor = SlipUtils.ColorRGB(11f, 11f, 9f);
+        public static Color blackHealingHealthColor = SlipUtils.ColorRGB(159f, 160, 159f);
+
+        [ConfigureField(SlipConfig.ITEMS, ConfigNameOverride = "Allies are immunte to void death", ConfigDescOverride = "Prevents instant void explosion deaths (like the Void Reaver explosion) for allies.", ConfigSectionOverride = "Coalition")]
+        //[FormatToken(TOKEN, StatTypes.Default, 0)]
         public static bool preventsVoidDeath = true;
 
-        [ConfigurableField(ConfigName = "Initial health threshold/Hyperbolic Scaling", ConfigDesc = "Initial health threshold percentage at one stack and hyperbolic staling", ConfigSection = "Coalition")]
-        [TokenModifier(token, StatTypes.MultiplyByN, 0, "100")]
+        [ConfigureField(SlipConfig.ITEMS, ConfigNameOverride = "Initial health threshold/Hyperbolic Scaling", ConfigDescOverride = "Initial health threshold percentage at one stack and hyperbolic staling", ConfigSectionOverride = "Coalition")]
+        [FormatToken(TOKEN, FormatTokenAttribute.OperationTypeEnum.MultiplyByN, 100)]
         public static float amplificationPercentage = 0.25f;
 
-        [ConfigurableField(ConfigName = "Armor increase per stack", ConfigDesc = "Armor increase applied to allies per stack", ConfigSection = "Coalition")]
-        [TokenModifier(token, StatTypes.Default, 1)]
+        [ConfigureField(SlipConfig.ITEMS, ConfigNameOverride = "Armor increase per stack", ConfigDescOverride = "Armor increase applied to allies per stack", ConfigSectionOverride = "Coalition")]
         public static float armorIncrease = 100f;
 
-        [ConfigurableField(ConfigName = "Max health threshold", ConfigDesc = "Hypothetical max health threshold percentage possible", ConfigSection = "Coalition")]
-        [TokenModifier(token, StatTypes.MultiplyByN, 2, "100")]
+        [ConfigureField(SlipConfig.ITEMS, ConfigNameOverride = "Max health threshold", ConfigDescOverride = "Hypothetical max health threshold percentage possible", ConfigSectionOverride = "Coalition")]
+        [FormatToken(TOKEN, FormatTokenAttribute.OperationTypeEnum.MultiplyByN, 100)]
         public static float maxPercentage = 1f;
 
 
@@ -41,8 +56,49 @@ namespace Slipstream.Items
 
         public override void Initialize()
         {
-            base.Initialize();
+            On.RoR2.UI.HealthBar.UpdateBarInfos += new On.RoR2.UI.HealthBar.hook_UpdateBarInfos(HealthBar_UpdateBarInfos);
+
             ExtraHealthbarSegment.AddType<CoalitionBarData>();
+        }
+
+        public override bool IsAvailable(ContentPack contentPack)
+        {
+            return true;
+        }
+
+        public override IEnumerator LoadContentAsync()
+        {
+            var request = SlipAssets.LoadAssetAsync<AssetCollection>("acCoalition", SlipBundle.Items);
+
+            request.StartLoad();
+            while (!request.IsComplete)
+                yield return null;
+
+            var collection = request.Asset;
+
+            _itemDef = collection.FindAsset<ItemDef>("Coalition");
+            _blackHealthItemDef = collection.FindAsset<ItemDef>("BlackHealth");
+            _itemDisplay = collection.FindAsset<GameObject>("DisplayCoalition");
+            effectStartPrefab = collection.FindAsset<GameObject>("CoalitionPreDetonation");
+        }
+        public void ModifyContentPack(ContentPack contentPack)
+        {
+            contentPack.itemDefs.AddSingle(_blackHealthItemDef);
+        }
+        private void HealthBar_UpdateBarInfos(On.RoR2.UI.HealthBar.orig_UpdateBarInfos orig, RoR2.UI.HealthBar self)
+        {
+            orig(self);
+            CharacterBody characterBody = self.source?.body;
+            if (characterBody)
+            {
+                Inventory inventory = characterBody.inventory;
+                if (inventory && inventory.GetItemCount(BlackHealthItemDef) > 0)
+                {
+                    //going to change the visuals of this soon
+                    self.barInfoCollection.trailingOverHealthbarInfo.color = blackOverHealthColor;
+                    self.barInfoCollection.instantHealthbarInfo.color = blackHealingHealthColor;
+                }
+            }
         }
 
         public class CoalitionIntervalsBetweenDeaths : MonoBehaviour
@@ -61,7 +117,7 @@ namespace Slipstream.Items
                 
                 timer = Run.FixedTimeStamp.now;
                 intervalTime = totalPhaseTime / deathList.Count;
-                SlipLogger.LogD("Timer on coalition started" + intervalTime);
+                SlipLog.Debug("Timer on coalition started" + intervalTime);
 
             }
 
@@ -76,7 +132,7 @@ namespace Slipstream.Items
                         if (timer.timeSince >= index * intervalTime)
                         {
 #if DEBUG
-                            SlipLogger.LogD($"Spawned Effect at index " + index);
+                            SlipLog.Debug($"Spawned Effect at index " + index);
 #endif
                             GameObject gameObject = UnityEngine.Object.Instantiate<GameObject>(effectStartPrefab, deathList[index].coreTransform);
                             gameObject.transform.localPosition = Vector3.zero;
@@ -97,24 +153,24 @@ namespace Slipstream.Items
                         if (timer.timeSince >= deathIndex * intervalTime + totalPhaseTime + pauseTime)
                         {
 #if DEBUG
-                            SlipLogger.LogD($"Start destruction " + deathIndex);
+                            SlipLog.Debug($"Start destruction " + deathIndex);
 #endif
                             Destroy(effectList[0]);
                             effectList.RemoveAt(0);
 #if DEBUG
-                            SlipLogger.LogD($"Destroyed Effect at index " + deathIndex);
+                            SlipLog.Debug($"Destroyed Effect at index " + deathIndex);
 #endif
                             deathList[0].healthComponent.Suicide();
                             deathList.RemoveAt(0);
                             deathIndex++;
 #if DEBUG
-                            SlipLogger.LogD($"Finished " + deathIndex);
+                            SlipLog.Debug($"Finished " + deathIndex);
 #endif
                         }
                     }
                     else if (timer.timeSince >= totalPhaseTime * 2f + pauseTime)
                     {
-                        SlipLogger.LogD("deathcomponent destroyed");
+                        SlipLog.Debug("deathcomponent destroyed");
                         Destroy(this);
                         
                     }
@@ -221,7 +277,7 @@ namespace Slipstream.Items
                 orig(self, damageValue, damagePosition, damageIsSilent, attacker);
 
                 //Kill all allies when player is below the current threshold.
-                float threshold = Moonstorm.MSUtil.InverseHyperbolicScaling(amplificationPercentage, amplificationPercentage, maxPercentage, stack);
+                float threshold = MSU.MSUtil.InverseHyperbolicScaling(amplificationPercentage, amplificationPercentage, maxPercentage, stack);
                 if (body == self.body && (body.healthComponent.health + body.healthComponent.shield)/body.healthComponent.fullCombinedHealth < threshold && body.gameObject.GetComponent<CoalitionIntervalsBetweenDeaths>() == null) //Character body check and ratio of curent health compared to the threshold
                 {
                     CharacterMaster master = body.master;
@@ -236,9 +292,51 @@ namespace Slipstream.Items
                     }
                 }
             }
+        }
 
-            
+        public class BlackHealthBehavior : BaseItemBodyBehavior, IBodyStatArgModifier, IOnKilledServerReceiver
+        {
+            [ItemDefAssociation(useOnClient = true, useOnServer = true)]
 
+            public static RoR2.ItemDef GetItemDef() => SlipContent.Items.BlackHealth;
+
+            private bool changedFlag;
+
+            public void OnEnable()
+            {
+                //Makes owners of Blackhealth completely immune to void explosions (when its enabled)
+                changedFlag = false;
+                if ((body.bodyFlags & CharacterBody.BodyFlags.ImmuneToVoidDeath) == CharacterBody.BodyFlags.None && preventsVoidDeath)
+                {
+                    changedFlag = true;
+                    body.bodyFlags |= CharacterBody.BodyFlags.ImmuneToVoidDeath;
+                }
+
+            }
+
+            public void OnDisable()
+            {
+                //Removes tag if the immunity was given (that way allies somehow initially having the ImmuneToVoidDeath flag don't get screwed over)
+                if (changedFlag)
+                    body.bodyFlags &= ~CharacterBody.BodyFlags.ImmuneToVoidDeath;
+            }
+
+            public void ModifyStatArguments(RecalculateStatsAPI.StatHookEventArgs args)
+            {
+                args.armorAdd += stack * armorIncrease;
+            }
+
+            public void OnKilledServer(DamageReport damageReport)
+            {
+                Util.PlaySound("Play_nullifier_death_vortex_explode", base.gameObject);
+
+                Transform transform = body.modelLocator.modelTransform;
+                if (transform)
+                {
+                    Destroy(transform.gameObject);
+                    transform = null;
+                }
+            }
         }
 
         public class CoalitionBarData : ExtraHealthbarSegment.BarData
@@ -277,7 +375,7 @@ namespace Slipstream.Items
                 if (count > 0)
                 {
                     enabled = true;
-                    threshold = Moonstorm.MSUtil.InverseHyperbolicScaling(amplificationPercentage, amplificationPercentage, 1, count);
+                    threshold = MSU.MSUtil.InverseHyperbolicScaling(amplificationPercentage, amplificationPercentage, 1, count);
                 }
                 else
                 {

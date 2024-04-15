@@ -1,4 +1,4 @@
-﻿using Moonstorm;
+﻿using MSU;
 using RoR2;
 using System;
 using UnityEngine;
@@ -10,17 +10,17 @@ namespace Slipstream.Items
 {
     public class RustyGenerator : ItemBase
     {
-        private const string token = "SLIP_ITEM_RUSTYGEN_DESC";
+        private const string TOKEN = "SLIP_ITEM_RUSTYGEN_DESC";
         public override ItemDef ItemDef { get; } = SlipAssets.LoadAsset<ItemDef>("RustyGenerator", SlipBundle.Items);
 
         //baseShield configurable field
-        [ConfigurableField(ConfigName = "Base Shield", ConfigDesc = "Shield percentage after having at least one stack.", ConfigSection = "RustyGenerator")]
-        [TokenModifier(token, StatTypes.MultiplyByN, 0, "100")]
+        [ConfigureField(ConfigNameOverride = "Base Shield", ConfigDescOverride = "Shield percentage after having at least one stack.", ConfigSectionOverride = "RustyGenerator")]
+        [FormatToken(TOKEN, StatTypes.MultiplyByN, 0, "100")]
         public static float baseShield = 0.05f;
 
         //debuffDurationReduction configurable field
-        [ConfigurableField(ConfigName = "Debuff Duration Reduction", ConfigDesc = "Percentage of debuff time reduced by one item.", ConfigSection = "RustyGenerator")]
-        [TokenModifier(token, StatTypes.MultiplyByN, 1, "100")]
+        [ConfigureField(ConfigNameOverride = "Debuff Duration Reduction", ConfigDescOverride = "Percentage of debuff time reduced by one item.", ConfigSectionOverride = "RustyGenerator")]
+        [FormatToken(TOKEN, StatTypes.MultiplyByN, 1, "100")]
         public static float debuffDurationReduction = 0.2f; //Og 0.12
 
         //Hooks! We love hooks :)

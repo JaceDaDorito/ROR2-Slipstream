@@ -1,5 +1,4 @@
-﻿using Moonstorm;
-using Moonstorm.Components;
+﻿using MSU;
 using R2API;
 using RoR2;
 using System.Linq;
@@ -77,19 +76,19 @@ namespace Slipstream.Buffs
                 
                 if (temporaryOverlay != null)
                 {
-                    //SlipLogger.LogD("Start of Overlay");
+                    //SlipLog.Debug("Start of Overlay");
                     buffOnBody = body.GetBuffCount(buff);
 
                     if (buffOnBody > 1 && buffOnBody != cachedCount && temporaryOverlay.materialInstance != null)
                     {
-                        //SlipLogger.LogD("Start of overlay creation");
+                        //SlipLog.Debug("Start of overlay creation");
                         cachedCount = buffOnBody; //Small optimization so  this code doesn't run every frame  until there is a change in the buff on the body
 
                         currentTint = CalculateIntervals(initialMaterialTint.a, endTintAlpha, buffCount, buffOnBody);
                         currentAlphaBoost = CalculateIntervals(initialAlphaBoost, endAlphaBoost, buffCount, buffOnBody);
                         currentScrollSpeed = CalculateIntervals(initialScrollSpeed, endScrollSpeed, buffCount, buffOnBody);
 
-                        //SlipLogger.LogD("value finding");
+                        //SlipLog.Debug("value finding");
                         if (buffOnBody <= buffCount - AffixSandswept.buffsApplied)
                             tintColor = new Color(initialMaterialTint.r, initialMaterialTint.g, initialMaterialTint.b, currentTint);
                         else
@@ -106,7 +105,7 @@ namespace Slipstream.Buffs
                 }
                 else
                 {
-                    //SlipLogger.LogD("Overlay Reinitialized");
+                    //SlipLog.Debug("Overlay Reinitialized");
                     InitializeOverlay();
                 }
                 

@@ -1,5 +1,4 @@
-﻿using Moonstorm;
-using Moonstorm.Components;
+﻿using MSU;
 using Slipstream.Buffs;
 using RoR2;
 using RoR2.ExpansionManagement;

@@ -1,4 +1,4 @@
-﻿using Moonstorm;
+﻿using MSU;
 using R2API.ScriptableObjects;
 using RoR2.ContentManagement;
 using System.Collections.Generic;
@@ -36,7 +36,7 @@ namespace Slipstream.Modules
                     unlock = SlipAssets.LoadAsset<UnlockableDef>(unlockString, SlipBundle.Skills);
                 if (skillFamily == null)
                 {
-                    SlipLogger.LogE($"Skill Family doesn't exist when adding " + skill.skillNameToken);
+                    SlipLog.Error($"Skill Family doesn't exist when adding " + skill.skillNameToken);
                     break;
                 }
                 SkillFamily.Variant variant = new SkillFamily.Variant

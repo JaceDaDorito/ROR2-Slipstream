@@ -1,4 +1,4 @@
-﻿using Moonstorm;
+﻿using MSU;
 using R2API.ScriptableObjects;
 using RoR2.ContentManagement;
 using System.Collections.Generic;
@@ -15,7 +15,7 @@ namespace EntityStates.Commando.CommandoWeapon
 {
     public class SharpshooterState : BaseSkillState, SteppedSkillDef.IStepSetter
     {
-        private const string token = "SLIP_SKILL_SHARPSHOOTER_DESC";
+        private const string TOKEN = "SLIP_SKILL_SHARPSHOOTER_DESC";
         public static GameObject muzzleEffectPrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Bandit2/MuzzleflashBandit2.prefab").WaitForCompletion();
 
         public static GameObject hitEffectPrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Bandit2/HitsparkBandit.prefab").WaitForCompletion();

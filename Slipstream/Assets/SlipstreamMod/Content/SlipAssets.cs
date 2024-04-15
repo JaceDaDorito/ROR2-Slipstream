@@ -1,19 +1,17 @@
-﻿//using Slipstream.Utils;
-using Moonstorm.Loaders;
-using Moonstorm;
-using RoR2;
+﻿using R2API;
+using MSU;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
 using UnityEngine;
-using UnityEngine.AddressableAssets;
-using UnityEngine.Rendering.PostProcessing;
 using Path = System.IO.Path;
+using UObject = UnityEngine.Object;
+using System.Collections;
+
 
 namespace Slipstream
 {
@@ -33,15 +31,8 @@ namespace Slipstream
         Skins, //contains skin assets
         BasicMonsters //contains all small monsters
     }
-    public class SlipAssets : AssetsLoader<SlipAssets>
+    public class SlipAssets
     {
-
-        //Notice for Slipstream developers:
-        //If you want to use assets in our bundles now, you have to do SlipAssets.LoadAsset<[Type]>([assetstring], SlipBundles.[bundle]);
-        //So for example, if you want to load the PepperSpray item display material you do:
-        //  SlipAssets.LoadAsset<Material>("matPepperSpray", SlipBundles.Items);
-        //The material of PepperSpray is found with the other items so thats why its in the Item bundle.
-
         private const string ASSET_BUNDLE_FOLDER_NAME = "assetbundles";
         private const string MAIN = "slipmain"; 
         private const string BASE = "slipbase"; 
@@ -54,41 +45,249 @@ namespace Slipstream
         private const string SKINS = "slipskins";
         private const string BASICMONSTERS = "slipbasicmonsters";
 
-        private static Dictionary<SlipBundle, AssetBundle> assetBundles = new Dictionary<SlipBundle, AssetBundle>();
-        [Obsolete("LoadAsset should not be used without specifying the SlipBundle")]
-        public new static TAsset LoadAsset<TAsset>(string name) where TAsset : UnityEngine.Object
+
+        private static string SoundBankPath { get => Path.Combine(Path.GetDirectoryName(SlipMain.instance.Info.Location), "soundbanks", "SlipBNK.bnk"); }
+        private static string AssetBundleFolderPath => Path.Combine(Path.GetDirectoryName(SlipMain.instance.Info.Location), ASSET_BUNDLE_FOLDER_NAME);
+
+        private static Dictionary<SlipBundle, AssetBundle> _assetBundles = new Dictionary<SlipBundle, AssetBundle>();
+        private static AssetBundle[] _streamedSceneBundles = Array.Empty<AssetBundle>();
+
+        public static ResourceAvailability AssetsAvailability = new ResourceAvailability();
+
+
+        public static AssetBundle GetAssetBundle(SlipBundle bundle)
         {
-#if DEBUG
-            SlipLogger.LogW($"Method {GetCallingMethod()} is trying to load an asset of name {name} and type {typeof(TAsset).Name} without specifying what bundle to use for loading. This causes large performance loss as SS2Assets has to search thru the entire bundle collection. Avoid calling LoadAsset without specifying the AssetBundle.");
-#endif
-            return LoadAsset<TAsset>(name, SlipBundle.All);
+            return _assetBundles[bundle];
         }
 
-        [Obsolete("LoadAllAssetsOfType should not be used without specifying the SS2Bundle")]
-        public new static TAsset[] LoadAllAssetsOfType<TAsset>() where TAsset : UnityEngine.Object
+        public static TAsset LoadAsset<TAsset>(string name, SlipBundle bundle) where TAsset : UObject
         {
+            TAsset asset = null;
+            if (bundle == SlipBundle.All)
+            {
+                return FindAsset<TAsset>(name);
+            }
+
+            asset = _assetBundles[bundle].LoadAsset<TAsset>(name);
+
 #if DEBUG
-            SlipLogger.LogW($"Method {GetCallingMethod()} is trying to load all assets of type {typeof(TAsset).Name} without specifying what bundle to use for loading. This causes large performance loss as SS2Assets has to search thru the entire bundle collection. Avoid calling LoadAsset without specifying the AssetBundle.");
+            if (!asset)
+            {
+                SlipLog.Warning($"The method \"{GetCallingMethod()}\" is calling \"LoadAsset<TAsset>(string, SlipBundle)\" with the arguments \"{typeof(TAsset).Name}\", \"{name}\" and \"{bundle}\", however, the asset could not be found.\n" +
+                    $"A complete search of all the bundles will be done and the correct bundle enum will be logged.");
+
+                return LoadAsset<TAsset>(name, SlipBundle.All);
+            }
 #endif
-            return LoadAllAssetsOfType<TAsset>(SlipBundle.All);
+            return asset;
         }
-        public static TAsset LoadAsset<TAsset>(string name, SlipBundle bundle) where TAsset : UnityEngine.Object
+
+        public static SlipAssetRequest<TAsset> LoadAssetAsync<TAsset>(string name, SlipBundle bundle) where TAsset : UObject
         {
-            if (Instance == null)
-            {
-                SlipLogger.LogE("Cannot load asset when there's no isntance of SS2Assets!");
-                return null;
-            }
-            return Instance.LoadAssetInternal<TAsset>(name, bundle);
+            return new SlipAssetRequest<TAsset>(name, bundle);
         }
-        public static TAsset[] LoadAllAssetsOfType<TAsset>(SlipBundle bundle) where TAsset : UnityEngine.Object
+
+        public static TAsset[] LoadAllAssets<TAsset>(SlipBundle bundle) where TAsset : UObject
         {
-            if (Instance == null)
+            TAsset[] loadedAssets = null;
+            if (bundle == SlipBundle.All)
             {
-                SlipLogger.LogE("Cannot load asset when there's no instance of SS2Assets!");
-                return null;
+                return FindAssets<TAsset>();
             }
-            return Instance.LoadAllAssetsOfTypeInternal<TAsset>(bundle);
+            loadedAssets = _assetBundles[bundle].LoadAllAssets<TAsset>();
+
+#if DEBUG
+            if (loadedAssets.Length == 0)
+            {
+                SlipLog.Warning($"Could not find any asset of type {typeof(TAsset).Name} inside the bundle {bundle}");
+            }
+#endif
+            return loadedAssets;
+        }
+
+        public static SlipAssetRequest<TAsset> LoadAllAssetsAsync<TAsset>(SlipBundle bundle) where TAsset : UObject
+        {
+            return new SlipAssetRequest<TAsset>(bundle);
+        }
+
+        internal static IEnumerator Initialize()
+        {
+            SlipLog.Info($"Initializing Assets");
+
+            ParallelCoroutineHelper helper1 = new ParallelCoroutineHelper();
+
+            helper1.Add(LoadAssetBundles);
+            helper1.Add(LoadSoundbank);
+
+            helper1.Start();
+            while (!helper1.IsDone()) yield return null;
+
+            ParallelCoroutineHelper helper2 = new ParallelCoroutineHelper();
+            helper2.Add(SwapShaders);
+            helper2.Add(SwapAddressableShaders);
+
+            helper2.Start();
+            while (!helper2.IsDone())
+                yield return null;
+
+            AssetsAvailability.MakeAvailable();
+            yield break;
+        }
+
+        private static IEnumerator LoadAssetBundles()
+        {
+            ParallelCoroutineHelper helper = new ParallelCoroutineHelper();
+
+            List<(string path, SlipBundle bundleEnum, AssetBundle loadedBundle)> pathsAndBundles = new List<(string path, SlipBundle bundleEnum, AssetBundle loadedBundle)>();
+
+            string[] paths = GetAssetBundlePaths();
+            for (int i = 0; i < paths.Length; i++)
+            {
+                string path = paths[i];
+                helper.Add(LoadFromPath, pathsAndBundles, path, i, paths.Length);
+            }
+
+            helper.Start();
+            while (!helper.IsDone())
+                yield return null;
+
+            foreach ((string path, SlipBundle bundleEnum, AssetBundle assetBundle) in pathsAndBundles)
+            {
+                if (bundleEnum == SlipBundle.Invalid)
+                {
+                    HG.ArrayUtils.ArrayAppend(ref _streamedSceneBundles, assetBundle);
+                }
+                else
+                {
+                    _assetBundles[bundleEnum] = assetBundle;
+                }
+            }
+        }
+
+        private static IEnumerator LoadSoundbank()
+        {
+            byte[] soundBankBytes;
+
+            using (FileStream stream = File.Open(SoundBankPath, FileMode.Open))
+            {
+                soundBankBytes = new byte[stream.Length];
+                var task = stream.ReadAsync(soundBankBytes, 0, soundBankBytes.Length);
+
+                while (!task.IsCompleted)
+                    yield return null;
+            }
+
+            SoundAPI.SoundBanks.Add(soundBankBytes);
+        }
+
+        private static IEnumerator LoadFromPath(List<(string path, SlipBundle bundleEnum, AssetBundle loadedBundle)> list, string path, int index, int totalPaths)
+        {
+            string fileName = Path.GetFileName(path);
+            SlipBundle? slipBundleEnum = null;
+
+            switch (fileName)
+            {
+                case BASE: slipBundleEnum = SlipBundle.Main; break;
+                case EQUIPS: slipBundleEnum = SlipBundle.Equipments; break;
+                case ITEMS: slipBundleEnum = SlipBundle.Items; break;
+                case ELITES: slipBundleEnum = SlipBundle.Elites; break;
+                case SCENES: slipBundleEnum = SlipBundle.Scenes; break;
+                case ARIDEXPANSE: slipBundleEnum = SlipBundle.AridExpanse; break;
+                case SKILLS: slipBundleEnum = SlipBundle.Skills; break;
+                case SKINS: slipBundleEnum = SlipBundle.Skins; break;
+                case BASICMONSTERS: slipBundleEnum = SlipBundle.BasicMonsters; break;
+                default: slipBundleEnum = SlipBundle.Invalid; break;
+            }
+
+            var request = AssetBundle.LoadFromFileAsync(path);
+            while (!request.isDone)
+                yield return null;
+
+            AssetBundle bundle = request.assetBundle;
+            //Throw if no bundle was loaded
+            if (!bundle)
+            {
+                throw new FileLoadException($"AssetBundle.LoadFromFile did not return an asset bundle. (Path={path})");
+            }
+
+            //The switch statement considered this a streamed scene bundle
+            if (slipBundleEnum == SlipBundle.Invalid)
+            {
+                //supposed bundle is not streamed scene? throw exception.
+                if (!bundle.isStreamedSceneAssetBundle)
+                {
+                    throw new Exception($"AssetBundle in specified path is not a streamed scene bundle, but its file name was not found in the Switch statement. have you forgotten to setup the enum and file name in your assets class? (Path={path})");
+                }
+                else
+                {
+                    //bundle is streamed scene, add to the list and break.
+                    list.Add((path, SlipBundle.Invalid, bundle));
+                    yield break;
+                }
+            }
+
+            //The switch statement considered this to not be a streamed scene bundle, but an assets bundle.
+            list.Add((path, slipBundleEnum.Value, bundle));
+            yield break;
+        }
+
+
+        private static string[] GetAssetBundlePaths()
+        {
+            return Directory.GetFiles(AssetBundleFolderPath)
+               .Where(filePath => !filePath.EndsWith(".manifest"))
+               .ToArray();
+        }
+
+        private static IEnumerator SwapShaders()
+        {
+            return ShaderUtil.SwapStubbedShadersAsync(_assetBundles.Values.ToArray());
+        }
+
+        private static IEnumerator SwapAddressableShaders()
+        {
+            return ShaderUtil.LoadAddressableMaterialShadersAsync(_assetBundles.Values.ToArray());
+        }
+
+        private static TAsset FindAsset<TAsset>(string name) where TAsset : UnityEngine.Object
+        {
+            TAsset loadedAsset = null;
+            SlipBundle foundInBundle = SlipBundle.Invalid;
+            foreach ((var enumVal, var assetBundle) in _assetBundles)
+            {
+                loadedAsset = assetBundle.LoadAsset<TAsset>(name);
+
+                if (loadedAsset)
+                {
+                    foundInBundle = enumVal;
+                    break;
+                }
+            }
+
+#if DEBUG
+            if (loadedAsset)
+                SlipLog.Info($"Asset of type {typeof(TAsset).Name} with name {name} was found inside bundle {foundInBundle}, it is recommended that you load the asset directly.");
+            else
+                SlipLog.Warning($"Could not find asset of type {typeof(TAsset).Name} with name {name} in any of the bundles.");
+#endif
+
+            return loadedAsset;
+        }
+
+        private static TAsset[] FindAssets<TAsset>() where TAsset : UnityEngine.Object
+        {
+            List<TAsset> assets = new List<TAsset>();
+            foreach ((_, var bundles) in _assetBundles)
+            {
+                assets.AddRange(bundles.LoadAllAssets<TAsset>());
+            }
+
+#if DEBUG
+            if (assets.Count == 0)
+                SlipLog.Warning($"Could not find any asset of type {typeof(TAsset).Name} in any of the bundles");
+#endif
+
+            return assets.ToArray();
         }
 
 #if DEBUG
@@ -100,21 +299,22 @@ namespace Slipstream
             {
                 var frame = stackTrace.GetFrame(stackFrameIndex);
                 var method = frame.GetMethod();
-
                 if (method == null)
                     continue;
 
                 var declaringType = method.DeclaringType;
-                if (declaringType == typeof(SlipBundle))
+                if (declaringType.IsGenericType && declaringType.DeclaringType == typeof(SlipAssets))
+                    continue;
+
+                if (declaringType == typeof(SlipAssets))
                     continue;
 
                 var fileName = frame.GetFileName();
                 var fileLineNumber = frame.GetFileLineNumber();
                 var fileColumnNumber = frame.GetFileColumnNumber();
 
-                return $"{declaringType.FullName}.{method.Name}({GetMethodParams(method)}) (fileName: {fileName}, Location: L{fileLineNumber} C{fileColumnNumber})";
+                return $"{declaringType.FullName}.{method.Name}({GetMethodParams(method)}) (fileName={fileName}, Location=L{fileLineNumber} C{fileColumnNumber})";
             }
-
             return "[COULD NOT GET CALLING METHOD]";
         }
 
@@ -132,204 +332,195 @@ namespace Slipstream
             return stringBuilder.ToString();
         }
 #endif
-        public override AssetBundle MainAssetBundle => GetAssetBundle(SlipBundle.Main);
-        public string AssemblyDir => Path.GetDirectoryName(SlipMain.pluginInfo.Location);
-        public AssetBundle GetAssetBundle(SlipBundle bundle)
+    }
+
+    public class SlipAssetRequest<TAsset> where TAsset : UObject
+    {
+        public TAsset Asset => _asset;
+        private TAsset _asset;
+
+        public IEnumerable<TAsset> Assets => _assets;
+        private List<TAsset> _assets;
+
+        public SlipBundle TargetBundle => _targetBundle;
+        private SlipBundle _targetBundle;
+
+        public NullableRef<string> AssetName => _assetName;
+        private NullableRef<string> _assetName;
+
+        private bool _singleAssetLoad = true;
+
+        public bool IsComplete => !_internalCoroutine.MoveNext();
+        private IEnumerator _internalCoroutine;
+
+        public void StartLoad()
         {
-            return assetBundles[bundle];
-        }
-        internal void Init()
-        {
-            var bundlePaths = GetAssetBundlePaths();
-            foreach (string path in bundlePaths)
+            if (_singleAssetLoad)
             {
-                var fileName = Path.GetFileName(path);
-                switch (fileName)
-                {
-                    case MAIN: LoadBundle(path, SlipBundle.Main); break;
-                    case BASE: LoadBundle(path, SlipBundle.Base); break;
-                    case EQUIPS: LoadBundle(path, SlipBundle.Equipments); break;
-                    case ITEMS: LoadBundle(path, SlipBundle.Items); break;
-                    case ELITES: LoadBundle(path, SlipBundle.Elites); break;
-                    case SCENES: LoadBundle(path, SlipBundle.Scenes); break;
-                    case ARIDEXPANSE: LoadBundle(path, SlipBundle.AridExpanse); break;
-                    case SKILLS: LoadBundle(path, SlipBundle.Skills); break;
-                    case SKINS: LoadBundle(path, SlipBundle.Skins); break;
-                    case BASICMONSTERS: LoadBundle(path, SlipBundle.BasicMonsters); break;
-                    default: SlipLogger.LogW($"Invalid or Unexpected file in the AssetBundles folder (File name: {fileName}, Path: {path})"); break;
-                }
+                _internalCoroutine = LoadSingleAsset();
             }
-
-            void LoadBundle(string path, SlipBundle bundleEnum)
+            else
             {
-                try
-                {
-                    AssetBundle bundle = AssetBundle.LoadFromFile(path);
-                    if (!bundle)
-                    {
-                        throw new FileLoadException("AssetBundle.LoadFromFile did not return an asset bundle");
-                    }
-
-                    if (assetBundles.ContainsKey(bundleEnum))
-                    {
-                        throw new InvalidOperationException($"AssetBundle in path loaded succesfully, but the assetBundles dictionary already contains an entry for {bundleEnum}.");
-                    }
-
-                    assetBundles[bundleEnum] = bundle;
-                }
-                catch (Exception e)
-                {
-                    SlipLogger.LogE($"Could not load assetbundle at path {path} and assign to enum {bundleEnum}. {e}");
-                }
+                _internalCoroutine = LoadMultipleAsset();
             }
         }
 
-        private TAsset LoadAssetInternal<TAsset>(string name, SlipBundle bundle) where TAsset : UnityEngine.Object
+        private IEnumerator LoadSingleAsset()
         {
-            TAsset asset = null;
-            if (bundle == SlipBundle.All)
+            AssetBundleRequest request = null;
+            if (_targetBundle == SlipBundle.All)
             {
-                asset = FindAsset<TAsset>(name, out SlipBundle foundInBundle);
+                foreach (SlipBundle enumVal in Enum.GetValues(typeof(SlipBundle)))
+                {
+                    if (enumVal == SlipBundle.Invalid || enumVal == SlipBundle.All)
+                        continue;
+
+                    var bundle = SlipAssets.GetAssetBundle(enumVal);
+                    request = bundle.LoadAssetAsync<TAsset>(AssetName);
+                    while (!request.isDone)
+                    {
+                        yield return null;
+                    }
+
+                    _asset = (TAsset)request.asset;
+                    if (Asset)
+                    {
+                        _targetBundle = enumVal;
+                        yield break;
+                    }
+                }
+
 #if DEBUG
-                if (!asset)
+                if (!Asset)
                 {
-                    SlipLogger.LogW($"Could not find asset of type {typeof(TAsset).Name} with name {name} in any of the bundles.");
+                    _targetBundle = SlipBundle.Invalid;
+                    SlipLog.Warning($"Could not find asset of type {typeof(TAsset).Name} with name {AssetName} in any of the bundles.");
                 }
                 else
                 {
-                    SlipLogger.LogI($"Asset of type {typeof(TAsset).Name} was found inside bundle {foundInBundle}, it is recommended that you load the asset directly");
+                    SlipLog.Info($"Asset of type {typeof(TAsset).Name} with name {AssetName} was found inside bundle {TargetBundle}, it is recommended that you load the asset directly.");
                 }
 #endif
-                return asset;
+                yield break;
             }
 
-            asset = assetBundles[bundle].LoadAsset<TAsset>(name);
+            request = SlipAssets.GetAssetBundle(TargetBundle).LoadAssetAsync<TAsset>(AssetName);
+            while (!request.isDone)
+                yield return null;
+
+            _asset = (TAsset)request.asset;
 #if DEBUG
-            if (!asset)
+            if (!_asset)
             {
-                SlipLogger.LogW($"The  method \"{GetCallingMethod()}\" is calling \"LoadAsset<TAsset>(string, SlipBundle)\" with the arguments \"{typeof(TAsset).Name}\", \"{name}\" and \"{bundle}\", however, the asset could not be found.\n" +
-                    $"A complete search of all the bundles will be done and the correct bundle enum will be logged.");
-                return LoadAssetInternal<TAsset>(name, SlipBundle.All);
+                SlipLog.Warning($"The method \"{GetCallingMethod()}\" is calling a CommissionAssetRequest.StartLoad() while the class has the values \"{typeof(TAsset).Name}\", \"{AssetName}\" and \"{TargetBundle}\", however, the asset could not be found.\n" +
+        $"A complete search of all the bundles will be done and the correct bundle enum will be logged.");
+
+                _targetBundle = SlipBundle.All;
+                this._internalCoroutine = LoadSingleAsset();
+                yield break;
             }
 #endif
-            return asset;
+        }
 
-            TAsset FindAsset<TAsset>(string assetName, out SlipBundle foundInBundle) where TAsset : UnityEngine.Object
+        private IEnumerator LoadMultipleAsset()
+        {
+            _assets.Clear();
+
+            AssetBundleRequest request = null;
+            if (TargetBundle == SlipBundle.All)
             {
-                foreach ((var enumVal, var assetBundle) in assetBundles)
+                foreach (SlipBundle enumVal in Enum.GetValues(typeof(SlipBundle)))
                 {
-                    var loadedAsset = assetBundle.LoadAsset<TAsset>(assetName);
-                    if (loadedAsset)
-                    {
-                        foundInBundle = enumVal;
-                        return loadedAsset;
-                    }
-                }
-                foundInBundle = SlipBundle.Invalid;
-                return null;
-            }
-        }
+                    if (enumVal == SlipBundle.All || enumVal == SlipBundle.Invalid)
+                        continue;
 
-        private TAsset[] LoadAllAssetsOfTypeInternal<TAsset>(SlipBundle bundle) where TAsset : UnityEngine.Object
-        {
-            List<TAsset> loadedAssets = new List<TAsset>();
-            if (bundle == SlipBundle.All)
-            {
-                FindAssets<TAsset>(loadedAssets);
+                    request = SlipAssets.GetAssetBundle(enumVal).LoadAllAssetsAsync<TAsset>();
+                    while (!request.isDone)
+                        yield return null;
+
+                    _assets.AddRange(request.allAssets.OfType<TAsset>());
+                }
+
 #if DEBUG
-                if (loadedAssets.Count == 0)
+                if (_assets.Count == 0)
                 {
-                    SlipLogger.LogW($"Could not find any asset of type {typeof(TAsset)} inside any of the bundles");
+                    SlipLog.Warning($"Could not find any asset of type {typeof(TAsset).Name} in any of the bundles");
                 }
 #endif
-                return loadedAssets.ToArray();
+                yield break;
             }
 
-            var assetBundle = assetBundles[bundle];
-            if(assetBundle.isStreamedSceneAssetBundle)
-            {
+            request = SlipAssets.GetAssetBundle(TargetBundle).LoadAllAssetsAsync<TAsset>();
+            while (!request.isDone) yield return null;
+
+            _assets.AddRange(request.allAssets.OfType<TAsset>());
+
 #if DEBUG
-                SlipLogger.LogW($"The  method \"{GetCallingMethod()}\" is calling \"LoadAllAssets<TAsset>(SlipBundle)\" with the argument \"{bundle}\", however, the assetbundle assigned to {bundle} is a streamed scene AssetBundle, which is not valid.\n" +
-    $"Do not call LoadAllAssetts<TAsset>(SlipBundle) while assigning the enum to a Streamed Scene AssetBundle, as this causes exceptions and errors.");
-#endif
-                return loadedAssets.ToArray();
-            }
-            loadedAssets = assetBundles[bundle].LoadAllAssets<TAsset>().ToList();
-#if DEBUG
-            if (loadedAssets.Count == 0)
+            if (_assets.Count == 0)
             {
-                SlipLogger.LogW($"Could not find any asset of type {typeof(TAsset)} inside the bundle {bundle}");
+                SlipLog.Warning($"Could not find any asset of type {typeof(TAsset)} inside the bundle {TargetBundle}");
             }
 #endif
-            return loadedAssets.ToArray();
 
-            void FindAssets<TAsset>(List<TAsset> output) where TAsset : UnityEngine.Object
+            yield break;
+        }
+
+#if DEBUG
+        private static string GetCallingMethod()
+        {
+            var stackTrace = new StackTrace();
+
+            for (int stackFrameIndex = 0; stackFrameIndex < stackTrace.FrameCount; stackFrameIndex++)
             {
-                foreach ((var _, var bndl) in assetBundles)
-                {
-                    if(!bndl.isStreamedSceneAssetBundle)
-                        output.AddRange(bndl.LoadAllAssets<TAsset>());
-                }
-                return;
+                var frame = stackTrace.GetFrame(stackFrameIndex);
+                var method = frame.GetMethod();
+                if (method == null)
+                    continue;
+
+                var declaringType = method.DeclaringType;
+                if (declaringType.IsGenericType && declaringType.DeclaringType == typeof(SlipAssets))
+                    continue;
+
+                if (declaringType == typeof(SlipAssets))
+                    continue;
+
+                var fileName = frame.GetFileName();
+                var fileLineNumber = frame.GetFileLineNumber();
+                var fileColumnNumber = frame.GetFileColumnNumber();
+
+                return $"{declaringType.FullName}.{method.Name}({GetMethodParams(method)}) (fileName={fileName}, Location=L{fileLineNumber} C{fileColumnNumber})";
             }
+            return "[COULD NOT GET CALLING METHOD]";
         }
 
-        internal void SwapMaterialShaders()
+        private static string GetMethodParams(MethodBase methodBase)
         {
-            SwapShadersFromMaterials(LoadAllAssetsOfType<Material>(SlipBundle.All).Where(mat => mat.shader.name.StartsWith("Stubbed")));
-        }
+            var parameters = methodBase.GetParameters();
+            if (parameters.Length == 0)
+                return string.Empty;
 
-        internal void FinalizeCopiedMaterials()
-        {
-            foreach (var (_, bundle) in assetBundles)
+            StringBuilder stringBuilder = new StringBuilder();
+            foreach (var parameter in parameters)
             {
-                FinalizeMaterialsWithAddressableMaterialShader(bundle);
+                stringBuilder.Append(parameter.ToString() + ", ");
             }
+            return stringBuilder.ToString();
+        }
+#endif
+
+        internal SlipAssetRequest(string name, SlipBundle bundle)
+        {
+            _singleAssetLoad = true;
+            _assetName = name;
+            _targetBundle = bundle;
         }
 
-        private string[] GetAssetBundlePaths()
+        internal SlipAssetRequest(SlipBundle bundle)
         {
-            return Directory.GetFiles(Path.Combine(AssemblyDir, ASSET_BUNDLE_FOLDER_NAME))
-               .Where(filePath => !filePath.EndsWith(".manifest"))
-               .ToArray();
+            _singleAssetLoad = false;
+            _assetName = new NullableRef<string>();
+            _assets = new List<TAsset>();
+            _targetBundle = bundle;
         }
     }
-
-    /*public class SlipAssets : AssetsLoader<SlipAssets>
-    {
-        //Loads all assets such as models, effects, and soundbanks (not yet but soon)
-        private const string assetBundleFolderName = "assetbundles";
-        private const string mainAssetBundleName = "slipassets";
-
-        public static ReadOnlyCollection<AssetBundle> assetBundles;
-        public override AssetBundle MainAssetBundle => assetBundles[0];
-        public string AssemblyDir => Path.GetDirectoryName(SlipMain.pluginInfo.Location);
-        //private string SoundBankPath { get => Path.Combine(AssemblyDir, "SlipSoundBnk.bnk"); }
-
-        internal void Init()
-        {
-            List<AssetBundle> loadedBundles = new List<AssetBundle>();
-            var bundlePaths = GetAssetBundlePaths();
-            for (int i = 0; i < bundlePaths.Length; i++)
-            {
-                loadedBundles.Add(AssetBundle.LoadFromFile(bundlePaths[i]));
-            }
-            assetBundles = new ReadOnlyCollection<AssetBundle>(loadedBundles);
-
-            //LoadPostProcessing();
-        }
-
-        internal void SwapMaterialShaders()
-        {
-            SwapShadersFromMaterialsInBundle(MainAssetBundle);
-        }
-
-        private string[] GetAssetBundlePaths()
-        {
-            return Directory.GetFiles(Path.Combine(AssemblyDir, assetBundleFolderName))
-               .Where(filePath => !filePath.EndsWith(".manifest"))
-               .OrderByDescending(path => Path.GetFileName(path).Equals(mainAssetBundleName))
-               .ToArray();
-        }
-    }*/
 }

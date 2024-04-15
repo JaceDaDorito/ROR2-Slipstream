@@ -1,5 +1,4 @@
-﻿using Moonstorm;
-using Moonstorm.Components;
+﻿using MSU;
 using R2API;
 using RoR2;
 using System.Linq;
@@ -130,14 +129,14 @@ namespace Slipstream.Buffs
         {
             if (bodyIndex == BodyIndex.None)
             {
-                SlipLogger.LogD($"Tried to add a master to the blacklist, but it's index is none.");
+                SlipLog.Debug($"Tried to add a master to the blacklist, but it's index is none.");
                 return;
             }
 
             if (blacklistedBodyIndices.Contains(bodyIndex))
             {
                 GameObject prefab = BodyCatalog.GetBodyPrefab(bodyIndex);
-                SlipLogger.LogD($"Master PRefab {prefab} is already blacklisted.");
+                SlipLog.Debug($"Master PRefab {prefab} is already blacklisted.");
                 return;
             }
 
@@ -152,7 +151,7 @@ namespace Slipstream.Buffs
                 //If the body died to void damage, just kill it and fire the knockback
                 if (body.HasBuff(BuffDef.buffIndex) && ((obj.damageInfo.damageType & DamageType.VoidDeath) > 0))
                 {
-                    SlipLogger.LogD(body + " glass statue died to Void Damage");
+                    SlipLog.Debug(body + " glass statue died to Void Damage");
                     FireKBBlast(body);
                 }
                 //If the body just died, is Sandswept, isn't in the glass state, make body into glass state.
@@ -201,7 +200,7 @@ namespace Slipstream.Buffs
                         doc.collided = true;
                     }
                     AffixSandswept.CreateOrb(body, obj.attackerBody);
-                    SlipLogger.LogD(body + " glass statue died to Damage");
+                    SlipLog.Debug(body + " glass statue died to Damage");
                     FireKBBlast(body);
                 }
             }        
@@ -269,7 +268,7 @@ namespace Slipstream.Buffs
 
         public static void FireKBBlast(CharacterBody body)
         {
-            SlipLogger.LogD("Fired Sandswept Glass Explosion");
+            SlipLog.Debug("Fired Sandswept Glass Explosion");
 
             Vector3 feetPosition = body.footPosition;
             float combinedRadius = CalculateRadius(body);
@@ -295,7 +294,7 @@ namespace Slipstream.Buffs
                 NetworkServer.Spawn(explosion);
             }
             else
-                SlipLogger.LogE("Couldn't fire upward blast in AffixSandswept FireKBBlast");
+                SlipLog.Error("Couldn't fire upward blast in AffixSandswept FireKBBlast");
         }
 
         public class AffixSandsweptBehavior : BaseBuffBodyBehavior, IOnIncomingDamageServerReceiver, IOnDamageDealtServerReceiver

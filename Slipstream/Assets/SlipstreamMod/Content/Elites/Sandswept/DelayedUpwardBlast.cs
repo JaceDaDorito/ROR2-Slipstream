@@ -55,9 +55,9 @@ namespace Slipstream.Components
             bullseyeSearch.searchDirection = searchDirection;
             bullseyeSearch.RefreshCandidates();
 
-            SlipLogger.LogD("Sandswept Bullseye Search Creation");
+            SlipLog.Debug("Sandswept Bullseye Search Creation");
             IEnumerable<HurtBox> list = bullseyeSearch.GetResults();
-            SlipLogger.LogD("Sandswept Bullseye Search Results");
+            SlipLog.Debug("Sandswept Bullseye Search Results");
             foreach (HurtBox hurtbox in list)
             {
                 CharacterBody indexBody = hurtbox.healthComponent.body;
@@ -124,9 +124,9 @@ namespace Slipstream.Components
             bullseyeSearch.searchDirection = body.transform.forward;
             bullseyeSearch.RefreshCandidates();
 
-            SlipLogger.LogD("Sandswept Bullseye Search Creation");
+            SlipLog.Debug("Sandswept Bullseye Search Creation");
             IEnumerable<HurtBox> list = bullseyeSearch.GetResults();
-            SlipLogger.LogD("Sandswept Bullseye Search Results");
+            SlipLog.Debug("Sandswept Bullseye Search Results");
             foreach (HurtBox hurtbox in list)
             {
                 CharacterBody indexBody = hurtbox.healthComponent.body;

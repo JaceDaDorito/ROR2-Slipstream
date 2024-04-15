@@ -1,4 +1,4 @@
-﻿using Moonstorm;
+﻿using MSU;
 using UnityEngine.AddressableAssets;
 using Slipstream.Buffs;
 using RoR2;
@@ -12,23 +12,44 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 using RoR2.Items;
 using System.Linq;
+using MSU.Config;
+using RoR2.ContentManagement;
+using System.Collections;
 
 namespace Slipstream.Items
 {
-    public class FriendshipBracelet : ItemBase
+    public class FriendshipBracelet : SlipItem
     {
-        private const string token = "SLIP_ITEM_FRIENDSHIPBRACELET_DESC";
-        public override ItemDef ItemDef { get; } = SlipAssets.LoadAsset<ItemDef>("FriendshipBracelet", SlipBundle.Items);
-        [ConfigurableField(ConfigName = "Items Granted per Stack", ConfigDesc = "Number of items allies will gain from each stack.", ConfigSection = "FriendshipBracelet")]
-        [TokenModifier(token, StatTypes.Default, 0)]
+        private const string TOKEN = "SLIP_ITEM_FRIENDSHIPBRACELET_DESC";
+        public override ItemDef ItemDef => _itemDef;
+
+        public override NullableRef<GameObject> ItemDisplayPrefab => throw new NotImplementedException();
+
+        private ItemDef _itemDef;
+
+        [ConfigureField(SlipConfig.ITEMS, ConfigNameOverride = "Items Granted per Stack", ConfigDescOverride = "Number of items allies will gain from each stack.", ConfigSectionOverride = "FriendshipBracelet")]
         public static int itemGrantPerStack = 1;
-        [ConfigurableField(ConfigName = "Affects Engineer Turrets", ConfigDesc = "Should Friendship Bracelet grant extra items to Engineer Turrets?", ConfigSection = "FriendshipBracelet")]
+        [ConfigureField(SlipConfig.ITEMS, ConfigNameOverride = "Affects Engineer Turrets", ConfigDescOverride = "Should Friendship Bracelet grant extra items to Engineer Turrets?", ConfigSectionOverride = "FriendshipBracelet")]
         public static bool affectsEngineerTurrets = false;
         public override void Initialize()
         {
-            base.Initialize();
             //hook makes sure allies that experience item transformations are still tracking the proper item indices - so they get the proper items removed
             On.RoR2.CharacterMasterNotificationQueue.SendTransformNotification_CharacterMaster_ItemIndex_ItemIndex_TransformationType += CharacterMasterNotificationQueue_SendTransformNotification_CharacterMaster_ItemIndex_ItemIndex_TransformationType;
+        }
+        public override bool IsAvailable(ContentPack contentPack)
+        {
+            return true;
+        }
+
+        public override IEnumerator LoadContentAsync()
+        {
+            var request = SlipAssets.LoadAssetAsync<ItemDef>("FriendshipBracelet", SlipBundle.Items);
+
+            request.StartLoad();
+            while (!request.IsComplete)
+                yield return null;
+
+            _itemDef = request.Asset;
         }
 
         private void CharacterMasterNotificationQueue_SendTransformNotification_CharacterMaster_ItemIndex_ItemIndex_TransformationType(On.RoR2.CharacterMasterNotificationQueue.orig_SendTransformNotification_CharacterMaster_ItemIndex_ItemIndex_TransformationType orig, CharacterMaster characterMaster, ItemIndex oldIndex, ItemIndex newIndex, CharacterMasterNotificationQueue.TransformationType transformationType)
@@ -44,12 +65,12 @@ namespace Slipstream.Items
                         if (allyItemHandler.braceletItemAcquisitionOrder[i] == oldIndex)
                         {
                             allyItemHandler.braceletItemAcquisitionOrder[i] = newIndex;
-                            //SlipLogger.LogI(string.Format("Changed {0} to {1} for {2}", ItemCatalog.GetItemDef(oldIndex).name, ItemCatalog.GetItemDef(allyItemHandler.braceletItemAcquisitionOrder[i]).name, characterMaster));
                         }
                     }
                 }
             }
         }
+
         //attached to all allies of players w/ the item, tracks the items already given to them individually
         public class FriendshipBraceletAllyServer : MonoBehaviour
         {
@@ -257,11 +278,11 @@ namespace Slipstream.Items
                 {
                     Inventory inventory = ally.master?.inventory;
                     ItemIndex itemIndex = ally.braceletItemAcquisitionOrder[i];
-                    //SlipLogger.LogI("Attempting removal of " + ItemCatalog.GetItemDef(itemIndex).name);
+                    //SlipLog.Info("Attempting removal of " + ItemCatalog.GetItemDef(itemIndex).name);
                     if (inventory && inventory.GetItemCount(itemIndex) > 0)
                     {
                         inventory.RemoveItem(itemIndex);
-                        //SlipLogger.LogI(string.Format("Removed item {0} from {1}", ItemCatalog.GetItemDef(itemIndex).name, ally.master));
+                        //SlipLog.Info(string.Format("Removed item {0} from {1}", ItemCatalog.GetItemDef(itemIndex).name, ally.master));
                     }
                     ally.braceletItemAcquisitionOrder.RemoveAt(i);
                 }

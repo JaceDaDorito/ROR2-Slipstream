@@ -9,219 +9,154 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c9c430476270cb42ae82672a367a0e1, type: 3}
+  m_Script: {fileID: 11500000, guid: a4e121de46f1e5741803234bbc5af467, type: 3}
   m_Name: iddCoalitionOwner
   m_EditorClassIdentifier: 
   keyAsset: {fileID: 0}
   displayPrefabs:
   - {fileID: 6161637393896316007, guid: 6c3600a9a09944047a5082eee44e9e99, type: 3}
-  displayPrefab: {fileID: 0}
-  namedDisplayDictionary:
+  displayDictionaryEntries:
   - idrsName: idrsBandit2
-    idrs:
-      address: 
-      useDirectReference: 0
-      asset: {fileID: 0}
-    displayRules:
+    rules:
     - ruleType: 0
       displayPrefabIndex: 0
       childName: Head
       localPos: {x: -0.0011, y: 0.30072, z: 0.01123}
       localAngles: {x: 5.37988, y: 0.01943, z: 359.9898}
-      localScales: {x: 0.23, y: 0.23, z: 0.23}
+      localScale: {x: 0.23, y: 0.23, z: 0.23}
       limbMask: 0
   - idrsName: idrsCaptain
-    idrs:
-      address: 
-      useDirectReference: 0
-      asset: {fileID: 0}
-    displayRules:
+    rules:
     - ruleType: 0
       displayPrefabIndex: 0
       childName: Head
       localPos: {x: -0.0011, y: 0.30072, z: 0.01123}
       localAngles: {x: 5.37988, y: 0.01943, z: 359.9898}
-      localScales: {x: 0.23, y: 0.23, z: 0.23}
+      localScale: {x: 0.23, y: 0.23, z: 0.23}
       limbMask: 0
   - idrsName: idrsCommando
-    idrs:
-      address: 
-      useDirectReference: 0
-      asset: {fileID: 0}
-    displayRules:
+    rules:
     - ruleType: 0
       displayPrefabIndex: 0
       childName: Head
       localPos: {x: -0.0011, y: 0.30072, z: 0.01123}
       localAngles: {x: 5.37988, y: 0.01943, z: 359.9898}
-      localScales: {x: 0.23, y: 0.23, z: 0.23}
+      localScale: {x: 0.23, y: 0.23, z: 0.23}
       limbMask: 0
   - idrsName: idrsCroco
-    idrs:
-      address: 
-      useDirectReference: 0
-      asset: {fileID: 0}
-    displayRules:
+    rules:
     - ruleType: 0
       displayPrefabIndex: 0
       childName: Head
       localPos: {x: -0.0011, y: 0.30072, z: 0.01123}
       localAngles: {x: 5.37988, y: 0.01943, z: 359.9898}
-      localScales: {x: 0.23, y: 0.23, z: 0.23}
+      localScale: {x: 0.23, y: 0.23, z: 0.23}
       limbMask: 0
   - idrsName: idrsEngi
-    idrs:
-      address: 
-      useDirectReference: 0
-      asset: {fileID: 0}
-    displayRules:
+    rules:
     - ruleType: 0
       displayPrefabIndex: 0
       childName: Chest
       localPos: {x: 0, y: 0, z: 0}
       localAngles: {x: 0, y: 0, z: 0}
-      localScales: {x: 0, y: 0, z: 0}
+      localScale: {x: 0, y: 0, z: 0}
       limbMask: 0
   - idrsName: idrsEngiTurret
-    idrs:
-      address: 
-      useDirectReference: 0
-      asset: {fileID: 0}
-    displayRules:
+    rules:
     - ruleType: 0
       displayPrefabIndex: 0
       childName: Head
       localPos: {x: 0, y: 0, z: 0}
       localAngles: {x: 0, y: 0, z: 0}
-      localScales: {x: 0, y: 0, z: 0}
+      localScale: {x: 0, y: 0, z: 0}
       limbMask: 0
   - idrsName: idrsEngiWalkerTurret
-    idrs:
-      address: 
-      useDirectReference: 0
-      asset: {fileID: 0}
-    displayRules:
+    rules:
     - ruleType: 0
       displayPrefabIndex: 0
       childName: Head
       localPos: {x: 0, y: 0, z: 0}
       localAngles: {x: 0, y: 0, z: 0}
-      localScales: {x: 0, y: 0, z: 0}
+      localScale: {x: 0, y: 0, z: 0}
       limbMask: 0
   - idrsName: idrsHuntress
-    idrs:
-      address: 
-      useDirectReference: 0
-      asset: {fileID: 0}
-    displayRules:
+    rules:
     - ruleType: 0
       displayPrefabIndex: 0
       childName: Head
       localPos: {x: 0, y: 0, z: 0}
       localAngles: {x: 0, y: 0, z: 0}
-      localScales: {x: 0, y: 0, z: 0}
+      localScale: {x: 0, y: 0, z: 0}
       limbMask: 0
   - idrsName: idrsLoader
-    idrs:
-      address: 
-      useDirectReference: 0
-      asset: {fileID: 0}
-    displayRules:
+    rules:
     - ruleType: 0
       displayPrefabIndex: 0
       childName: Head
       localPos: {x: 0, y: 0, z: 0}
       localAngles: {x: 0, y: 0, z: 0}
-      localScales: {x: 0, y: 0, z: 0}
+      localScale: {x: 0, y: 0, z: 0}
       limbMask: 0
   - idrsName: idrsMage
-    idrs:
-      address: 
-      useDirectReference: 0
-      asset: {fileID: 0}
-    displayRules:
+    rules:
     - ruleType: 0
       displayPrefabIndex: 0
       childName: Head
       localPos: {x: 0, y: 0, z: 0}
       localAngles: {x: 0, y: 0, z: 0}
-      localScales: {x: 0, y: 0, z: 0}
+      localScale: {x: 0, y: 0, z: 0}
       limbMask: 0
   - idrsName: idrsMerc
-    idrs:
-      address: 
-      useDirectReference: 0
-      asset: {fileID: 0}
-    displayRules:
+    rules:
     - ruleType: 0
       displayPrefabIndex: 0
       childName: Head
       localPos: {x: 0, y: 0, z: 0}
       localAngles: {x: 0, y: 0, z: 0}
-      localScales: {x: 0, y: 0, z: 0}
+      localScale: {x: 0, y: 0, z: 0}
       limbMask: 0
   - idrsName: idrsScav
-    idrs:
-      address: 
-      useDirectReference: 0
-      asset: {fileID: 0}
-    displayRules:
+    rules:
     - ruleType: 0
       displayPrefabIndex: 0
       childName: Chest
       localPos: {x: 0, y: 0, z: 0}
       localAngles: {x: 0, y: 0, z: 0}
-      localScales: {x: 0, y: 0, z: 0}
+      localScale: {x: 0, y: 0, z: 0}
       limbMask: 0
   - idrsName: idrsToolbot
-    idrs:
-      address: 
-      useDirectReference: 0
-      asset: {fileID: 0}
-    displayRules:
+    rules:
     - ruleType: 0
       displayPrefabIndex: 0
       childName: Head
       localPos: {x: 0, y: 0, z: 0}
       localAngles: {x: 0, y: 0, z: 0}
-      localScales: {x: 0, y: 0, z: 0}
+      localScale: {x: 0, y: 0, z: 0}
       limbMask: 0
   - idrsName: idrsTreebot
-    idrs:
-      address: 
-      useDirectReference: 0
-      asset: {fileID: 0}
-    displayRules:
+    rules:
     - ruleType: 0
       displayPrefabIndex: 0
       childName: FlowerBase
       localPos: {x: 0, y: 0, z: 0}
       localAngles: {x: 0, y: 0, z: 0}
-      localScales: {x: 0, y: 0, z: 0}
+      localScale: {x: 0, y: 0, z: 0}
       limbMask: 0
   - idrsName: idrsRailGunner
-    idrs:
-      address: 
-      useDirectReference: 0
-      asset: {fileID: 0}
-    displayRules:
+    rules:
     - ruleType: 0
       displayPrefabIndex: 0
       childName: Head
       localPos: {x: 0, y: 0, z: 0}
       localAngles: {x: 0, y: 0, z: 0}
-      localScales: {x: 0, y: 0, z: 0}
+      localScale: {x: 0, y: 0, z: 0}
       limbMask: 0
   - idrsName: idrsVoidSurvivor
-    idrs:
-      address: 
-      useDirectReference: 0
-      asset: {fileID: 0}
-    displayRules:
+    rules:
     - ruleType: 0
       displayPrefabIndex: 0
       childName: Head
       localPos: {x: 0, y: 0, z: 0}
       localAngles: {x: 0, y: 0, z: 0}
-      localScales: {x: 0, y: 0, z: 0}
+      localScale: {x: 0, y: 0, z: 0}
       limbMask: 0

@@ -4,38 +4,40 @@ using RoR2;
 using UnityEngine;
 using System.Linq;
 using R2API;
-using Moonstorm.Loaders;
+using MSU.Config;
+using System.Collections;
+using MSU;
 
 namespace Slipstream
 {
-    public class SlipConfig : ConfigLoader<SlipConfig>
+    public class SlipConfig
     {
-        //Adds config options that applies to the entire mod rather than a particular thing. For example, disabling ALL of our items.
+        public const string PREFIX = "Slip.";
+        public const string MAIN = PREFIX + "Main";
+        public const string ITEMS = PREFIX + "Items";
+        public const string EQUIPS = PREFIX + "Equips";
 
-        public const string items = "Slip.Items";
-        public const string equips = "Slip.Equips";
+        internal static ConfigFactory ConfigFactory { get; private set; }
 
-        public override BaseUnityPlugin MainClass { get; } = SlipMain.instance;
+        public static ConfigFile ConfigMain { get; private set; }
+        public static ConfigFile ConfigItem { get; private set; }
+        public static ConfigFile ConfigEquip { get; private set; }
 
-        public override bool CreateSubFolder => true;
-
-        public static ConfigFile itemConfig;
-        public static ConfigFile equipsConfig;
-
-        internal static ConfigEntry<bool> enableItems;
-        internal static ConfigEntry<bool> enableEquipments;
-
-        public void Init()
+        internal static IEnumerator RegisterToModSettingsManager()
         {
-            itemConfig = CreateConfigFile(items, true);
-            equipsConfig = CreateConfigFile(equips, true);
+            var request = SlipAssets.LoadAssetAsync<Sprite>("Icon", SlipBundle.Main);
 
-            //SetConfigs();
+            request.StartLoad();
+            while (!request.IsComplete)
+                yield return null;
         }
 
-        /*internal static void SetConfigs()
+        internal SlipConfig(BaseUnityPlugin bup)
         {
-
-        }*/
+            ConfigFactory = new ConfigFactory(bup, true);
+            ConfigMain = ConfigFactory.CreateConfigFile(MAIN, true);
+            ConfigItem = ConfigFactory.CreateConfigFile(ITEMS, true);
+            ConfigEquip = ConfigFactory.CreateConfigFile(EQUIPS, true);
+        }
     }
 }

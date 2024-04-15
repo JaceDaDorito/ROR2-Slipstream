@@ -65,7 +65,7 @@ namespace Slipstream.Unlocks
                     if(increment)
                         counter++;
                     increment = true;
-                    //SlipLogger.LogD("&Current Ghostrunner Count: " + counter);
+                    //SlipLog.Debug("&Current Ghostrunner Count: " + counter);
                     if (counter >= 2)
                         base.Grant();
                 }

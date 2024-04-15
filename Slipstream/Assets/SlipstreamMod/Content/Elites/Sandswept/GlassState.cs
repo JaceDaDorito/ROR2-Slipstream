@@ -124,7 +124,7 @@ namespace EntityStates.Sandswept
                     {
                         for (int i = 0; i < itemDisplays.Length; i++)
                         {
-                            SlipLogger.LogD("ItemDisplay " + i + ": " + itemDisplays[i]);
+                            SlipLog.Debug("ItemDisplay " + i + ": " + itemDisplays[i]);
                             var rendererInfos = itemDisplays[i].rendererInfos;
                             for(int j = 0; j < rendererInfos.Length; j++)
                             {
@@ -264,7 +264,7 @@ namespace EntityStates.Sandswept
 
                 if (base.fixedAge >= duration)
                 {
-                    SlipLogger.LogD(characterBody + " glass statue died to Age.");
+                    SlipLog.Debug(characterBody + " glass statue died to Age.");
                     CommitSuicide();
                 }
                     

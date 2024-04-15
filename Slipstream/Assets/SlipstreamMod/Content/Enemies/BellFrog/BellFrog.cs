@@ -1,6 +1,6 @@
 ﻿using RoR2;
 using UnityEngine;
-using Moonstorm;
+using MSU;
 using EntityStates;
 
 namespace Slipstream.Characters

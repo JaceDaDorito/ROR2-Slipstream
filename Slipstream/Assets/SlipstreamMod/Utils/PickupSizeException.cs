@@ -31,22 +31,13 @@ namespace Slipstream.Items
             ILCursor c = new ILCursor(il);
             bool found = c.TryGotoNext(
                 MoveType.After,
-                /*x => x.MatchLdarg(0),
-                x => x.MatchLdarg(0),
-                x => x.MatchLdfld<PickupDisplay>(nameof(PickupDisplay.modelScale)),
-                x => x.MatchLdsfld<PickupDisplay>(nameof(PickupDisplay.idealVolume)),
-                x => x.MatchLdcR4(out _),
-                x => x.MatchCallOrCallvirt(typeof(UnityEngine.Mathf).GetMethod("Pow")),
-                x => x.MatchLdloc(out _),
-                x => x.MatchLdcR4(out _),
-                x => x.MatchCallOrCallvirt(typeof(UnityEngine.Mathf).GetMethod("Pow")),*/
                 x => x.MatchDiv(),
                 x => x.MatchMul(),
                 x => x.MatchStfld<PickupDisplay>(nameof(PickupDisplay.modelScale)));
             if (found)
             {
 #if DEBUG
-                SlipLogger.LogI($"IL found in PickupDisplay_RebuildModel");
+                SlipLog.Info($"IL found in PickupDisplay_RebuildModel");
 #endif
 
                 c.Emit(OpCodes.Ldarg_0);
@@ -57,7 +48,7 @@ namespace Slipstream.Items
                 });
             }
             else
-                SlipLogger.LogW($"Cound't find Rebuid Model location. Can't inject Pickup Exception");
+                SlipLog.Warning($"Cound't find Rebuid Model location. Can't inject Pickup Exception");
         }
     }
 }

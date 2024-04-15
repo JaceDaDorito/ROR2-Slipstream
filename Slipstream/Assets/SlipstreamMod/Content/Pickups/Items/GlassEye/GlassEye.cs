@@ -1,47 +1,72 @@
-﻿using Moonstorm;
+﻿using MSU;
+using MSU.Config;
 using RoR2;
 using System;
 using UnityEngine;
 using UnityEngine.Networking;
 using R2API;
 using RoR2.Items;
+using RoR2.ContentManagement;
+using System.Collections;
 
 namespace Slipstream.Items
 {
     //Reminder to implement the new critdmg stat instead of this
-    public class GlassEye : ItemBase
+    public class GlassEye : SlipItem
     {
-        private const string token = "SLIP_ITEM_GLASSEYE_DESC";
+        private const string TOKEN = "SLIP_ITEM_GLASSEYE_DESC";
         public override ItemDef ItemDef { get; } = SlipAssets.LoadAsset<ItemDef>("GlassEye", SlipBundle.Items);
 
-        //public static string section = "GlassEye";
+        private ItemDef _itemDef;
 
-        [ConfigurableField(ConfigName = "Base Shield", ConfigDesc = "Shield percentage after having at least one stack.", ConfigSection = "GlassEye")]
-        [TokenModifier(token, StatTypes.MultiplyByN, 0, "100")]
+        public override NullableRef<GameObject> ItemDisplayPrefab => throw new NotImplementedException();
+
+        private GameObject _itemDisplayPrefab;
+
+        [ConfigureField(SlipConfig.ITEMS, ConfigNameOverride = "Base Shield", ConfigDescOverride = "Shield percentage after having at least one stack.", ConfigSectionOverride = "GlassEye")]
+        [FormatToken(TOKEN, FormatTokenAttribute.OperationTypeEnum.MultiplyByN, 100)]
         public static float baseShield = 0.06f;
 
-        [ConfigurableField(ConfigName = "Base Crit", ConfigDesc = "Crit chance given when having at least one stack.", ConfigSection = "GlassEye")]
-        [TokenModifier(token, StatTypes.Default, 1)]
+        [ConfigureField(SlipConfig.ITEMS, ConfigNameOverride = "Base Crit", ConfigDescOverride = "Crit chance given when having at least one stack.", ConfigSectionOverride = "GlassEye")]
         public static float baseCrit = 5;
 
-        [ConfigurableField(ConfigName = "Initial Crit Dmg", ConfigDesc = "Initial crit dmg on first stack.", ConfigSection = "GlassEye")]
-        [TokenModifier(token, StatTypes.MultiplyByN, 2, "100")]
+        [ConfigureField(SlipConfig.ITEMS, ConfigNameOverride = "Initial Crit Dmg", ConfigDescOverride = "Initial crit dmg on first stack.", ConfigSectionOverride = "GlassEye")]
+        [FormatToken(TOKEN, FormatTokenAttribute.OperationTypeEnum.MultiplyByN, 100)]
         public static float initialCritDmg = 0.2f;
 
-        [ConfigurableField(ConfigName = "Crit Dmg per Stack", ConfigDesc = "Increased crit damage per item stack.", ConfigSection = "GlassEye")]
-        [TokenModifier(token, StatTypes.MultiplyByN, 3, "100")]
+        [ConfigureField(SlipConfig.ITEMS, ConfigNameOverride = "Crit Dmg per Stack", ConfigDescOverride = "Increased crit damage per item stack.", ConfigSectionOverride = "GlassEye")]
+        [FormatToken(TOKEN, FormatTokenAttribute.OperationTypeEnum.MultiplyByN, 100)]
         public static float stackCritDmg = 0.1f;
 
-        //Color SuperCrit = new Color(0.495194f, 0.5953774f, 0.9811321f); Color for later, just dont know how to do it yet
+        public override void Initialize()
+        {
+        }
+
+        public override bool IsAvailable(ContentPack contentPack)
+        {
+            return true;
+        }
+
+        public override IEnumerator LoadContentAsync()
+        {
+            var request = SlipAssets.LoadAssetAsync<AssetCollection>("acChargedFungus", SlipBundle.Items);
+
+            request.StartLoad();
+            while (!request.IsComplete)
+                yield return null;
+
+            var collection = request.Asset;
+
+            _itemDef = collection.FindAsset<ItemDef>("ChargedFungus");
+            _itemDisplayPrefab = collection.FindAsset<GameObject>("DisplayGlassEye");
+            yield break;
+        }
+
         public class GlassEyeBehavior : BaseItemBodyBehavior, IBodyStatArgModifier
         {
             [ItemDefAssociation(useOnClient = true, useOnServer = true)]
             public static ItemDef GetItemDef() => SlipContent.Items.GlassEye;
 
-            /*public void Awake()
-            {
-                body.RecalculateStats();
-            }*/
             public void ModifyStatArguments(RecalculateStatsAPI.StatHookEventArgs args)
             {
                 args.baseShieldAdd += body.healthComponent.fullHealth * baseShield;
@@ -53,37 +78,6 @@ namespace Slipstream.Items
                     args.critDamageMultAdd += (float)(stackCritDmg * (stack - 1) + initialCritDmg);
                 }
             }
-
-
-            /*
-            public void OnIncomingDamageOther(HealthComponent victimHealthComponent, DamageInfo damageInfo)
-            {
-                if (NetworkServer.active)
-                {
-                    CharacterBody damageSource;
-                    if (damageInfo.attacker != null)
-                    {
-                        damageSource = damageInfo.attacker.GetComponent<CharacterBody>();
-                    }
-                    else
-                    {
-                        return;
-                    }
-
-                    //Checks if shield is active and if the damage dealt is a crit (whether it be procced or a backstab)
-                    //Well this crit check does not work at all. I think crit damage becomes a stat when DLC comes out so I think its best to wait
-                    
-                    if (damageSource != null && damageSource.healthComponent.shield > 0)
-                    {
-                        if (damageInfo.crit || BackstabManager.IsBackstab(-(damageSource.corePosition - damageInfo.position), body))
-                        {
-                            damageInfo.damage *= (float)(1 + (stackCritDmg * stack));
-
-                            //damageInfo.damageColorIndex = SlipDmgColorCatalog.loadedIndices[0];
-                        }
-                    }
-                }
-            }*/
         }
     }
 }

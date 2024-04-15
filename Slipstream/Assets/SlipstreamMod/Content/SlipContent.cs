@@ -1,20 +1,139 @@
 ﻿using RoR2.ContentManagement;
 using R2API.ScriptableObjects;
 using R2API.ContentManagement;
-using Moonstorm.Loaders;
 using System;
-using System.Collections.Generic;
-using Slipstream.Modules;
 using System.Linq;
 using RoR2;
 using UnityEngine;
-using Moonstorm;
-
+using System.Collections;
+using MSU;
+using RoR2.ExpansionManagement;
 
 namespace Slipstream
 {
-    public class SlipContent : ContentLoader<SlipContent>
+    public class SlipContent : IContentPackProvider
     {
+        public string identifier => SlipMain.GUID;
+        public static ReadOnlyContentPack ReadOnlyContentPack => new ReadOnlyContentPack(SlipContentPack);
+        internal static ContentPack SlipContentPack { get; } = new ContentPack();
+
+        internal static ParallelCoroutineHelper _parallelPreLoadDispatchers = new ParallelCoroutineHelper();
+        internal static Func<IEnumerator>[] _loadDispatchers;
+        internal static ParallelCoroutineHelper _parallelPostLoadDispatchers = new ParallelCoroutineHelper();
+
+        private static Action[] _fieldAssignDispatchers;
+
+        public IEnumerator LoadStaticContentAsync(LoadStaticContentAsyncArgs args)
+        {
+            var enumerator = SlipAssets.Initialize();
+            while (enumerator.MoveNext()) yield return null;
+
+            _parallelPreLoadDispatchers.Start();
+            while (!_parallelPreLoadDispatchers.IsDone()) yield return null;
+
+            for (int i = 0; i < _loadDispatchers.Length; i++)
+            {
+                args.ReportProgress(Util.Remap(i + 1, 0f, _loadDispatchers.Length, 0.1f, 0.2f));
+                enumerator = _loadDispatchers[i]();
+
+                while (enumerator.MoveNext())
+                    yield return null;
+            }
+
+            _parallelPostLoadDispatchers.Start();
+            while (!_parallelPostLoadDispatchers.IsDone()) yield return null;
+
+            for (int i = 0; i < _fieldAssignDispatchers.Length; i++)
+            {
+                args.ReportProgress(Util.Remap(i + 1, 0f, _loadDispatchers.Length, 0.1f, 0.2f));
+                _fieldAssignDispatchers[i]();
+                yield return null;
+            }
+        }
+
+        public IEnumerator FinalizeAsync(FinalizeAsyncArgs args)
+        {
+            args.ReportProgress(1f);
+            yield break;
+        }
+
+        public IEnumerator GenerateContentPackAsync(GetContentPackAsyncArgs args)
+        {
+            ContentPack.Copy(SlipContentPack, args.output);
+            yield break;
+        }
+
+        private void AddSelf(ContentManager.AddContentPackProviderDelegate addContentPackProvider)
+        {
+            addContentPackProvider(this);
+        }
+
+        private IEnumerator AddExpansionDef()
+        {
+            SlipAssetRequest<ExpansionDef> expansionDefRequest = SlipAssets.LoadAssetAsync<ExpansionDef>("SlipExpansionDef", SlipBundle.Main);
+
+            expansionDefRequest.StartLoad();
+            while (!expansionDefRequest.IsComplete)
+                yield return null;
+
+            SlipContentPack.expansionDefs.AddSingle(expansionDefRequest.Asset);
+        }
+
+        internal SlipContent()
+        {
+            ContentManager.collectContentPackProviders += AddSelf;
+
+            SlipAssets.AssetsAvailability.CallWhenAvailable(() =>
+            {
+                _parallelPreLoadDispatchers.Add(SlipConfig.RegisterToModSettingsManager);
+                _parallelPreLoadDispatchers.Add(AddExpansionDef);
+            });
+
+            SlipMain main = SlipMain.instance;
+            _loadDispatchers = new Func<IEnumerator>[]
+            {
+                () =>
+                {
+                    EquipmentModule.AddProvider(main, ContentUtil.CreateContentPieceProvider<EquipmentDef>(main, SlipContentPack));
+                    return EquipmentModule.InitialzeEquipments(main);
+                },
+                () =>
+                {
+                    ItemModule.AddProvider(main, ContentUtil.CreateContentPieceProvider<ItemDef>(main, SlipContentPack));
+                    return ItemModule.InitializeItems(main);
+                },
+                () =>
+                {
+                    CharacterModule.AddProvider(main, ContentUtil.CreateGameObjectContentPieceProvider<CharacterBody>(main, SlipContentPack));
+                    return CharacterModule.InitializeCharacters(main);
+                }
+            };
+
+            _fieldAssignDispatchers = new Action[]
+            {
+                () =>
+                {
+                    ContentUtil.PopulateTypeFields(typeof(Buffs), SlipContentPack.buffDefs);
+                },
+                () =>
+                {
+                    ContentUtil.PopulateTypeFields(typeof(Elites), SlipContentPack.eliteDefs);
+                },
+                () =>
+                {
+                    ContentUtil.PopulateTypeFields(typeof(Equipments), SlipContentPack.equipmentDefs);
+                },
+                () =>
+                {
+                    ContentUtil.PopulateTypeFields(typeof(Items), SlipContentPack.itemDefs);
+                },
+                () =>
+                {
+                    ContentUtil.PopulateTypeFields(typeof(Scenes), SlipContentPack.sceneDefs);
+                }
+            };
+        }
+
         //Handles Content implementation, add Definitions to items here accordingly.
         public static class Buffs
         {
@@ -96,107 +215,6 @@ namespace Slipstream
         public static class Scenes
         {
             public static SceneDef aridexpanse;
-        }
-        public override string identifier => SlipMain.GUID;
-
-        public override R2APISerializableContentPack SerializableContentPack { get; protected set; } = SlipAssets.LoadAsset<R2APISerializableContentPack>("ContentPack", SlipBundle.Main);
-        public override Action[] LoadDispatchers { get; protected set; }
-        public override Action[] PopulateFieldsDispatchers { get; protected set; }
-
-        public override void Init()
-        {
-            base.Init();
-            LoadDispatchers = new Action[]
-            {
-                #region delegates
-                delegate
-                {
-                    new Slipstream.Buffs.Buffs().Initialize();
-                },
-                delegate
-                {
-                    new Slipstream.Characters.Characters().Initialize();
-                },
-                delegate
-                {
-                    new Modules.Projectiles().Initialize();
-                },
-                
-                delegate
-                {
-                    new Modules.Equipments().Initialize();
-                },
-                delegate
-                {
-                    new Modules.Items().Initialize();
-                },
-                delegate
-                {
-                    new Modules.Elites().Initialize();
-                },
-                delegate
-                {
-                    new Modules.Scenes().Initialize();
-                },
-                delegate
-                {
-                    new Modules.Unlocks().Initialize();
-                },
-                delegate
-                {
-                    new VanillaSkillCatalog().Initialize();
-                },
-                /*delegate
-                {
-                    new Modules.VanillaSkillCatalog().Initialize();
-                },*/
-                /*delegate
-                {
-                    new ItemDisplays().Initialize();
-                },*/
-                delegate
-                {
-                    SerializableContentPack.entityStateTypes = typeof(SlipContent).Assembly.GetTypesSafe()
-                        .Where(type => typeof(EntityStates.EntityState).IsAssignableFrom(type))
-                        .Select(type => new EntityStates.SerializableEntityStateType(type))
-                        .ToArray();
-                },
-                delegate
-                {
-                   SerializableContentPack.effectPrefabs = SlipAssets.LoadAllAssetsOfType<GameObject>(SlipBundle.All).Where(go => go.GetComponent<EffectComponent>()).ToArray();
-                },
-                delegate
-                {
-                   SlipAssets.Instance.SwapMaterialShaders();
-                }
-                #endregion
-            };
-
-            PopulateFieldsDispatchers = new Action[]
-            {
-                #region delegates
-                delegate
-                {
-                    PopulateTypeFields(typeof(Buffs), ContentPack.buffDefs);
-                },
-                delegate
-                {
-                    PopulateTypeFields(typeof(Elites), ContentPack.eliteDefs);
-                },
-                delegate
-                {
-                    PopulateTypeFields(typeof(Equipments), ContentPack.equipmentDefs);
-                },
-                delegate
-                {
-                    PopulateTypeFields(typeof(Items), ContentPack.itemDefs);
-                },
-                delegate
-                {
-                    PopulateTypeFields(typeof(Scenes), ContentPack.sceneDefs);
-                }
-                #endregion
-            };
         }
     }
 }

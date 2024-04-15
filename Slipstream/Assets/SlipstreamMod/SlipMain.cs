@@ -2,7 +2,7 @@
 using BepInEx.Configuration;
 using HG.Reflection;
 using Slipstream.Modules;
-using Moonstorm;
+using MSU;
 using Slipstream.Items;
 using Slipstream.Scenes;
 using R2API;
@@ -49,7 +49,7 @@ namespace Slipstream
 
         public static PluginInfo pluginInfo;
 
-        public static ConfigFile config;
+        public static SlipConfig config;
 
         public static bool DEBUG = false;
 
@@ -58,27 +58,17 @@ namespace Slipstream
             //Establishes an instance of the mod, config, and console logger.
             instance = this;
             pluginInfo = Info;
-            config = Config;
-            SlipLogger.logger = Logger;
 
-            StartupInitialization();
-
-            //Allows organized configurable fields of public static fields.
-            Moonstorm.ConfigSystem.AddMod(this);
-
-            //Slipstream now loads alongside the game "and will properly show percentage increase in the loading screen" -Neb
-        }
-
-        private void StartupInitialization()
-        {
-            new SlipAssets().Init();
-            new SlipConfig().Init();
-            new SlipContent().Init();
-            new SlipLanguage().Init();
+            
+            new SlipLog(Logger);
+            config = new SlipConfig(this);
+            new SlipContent();
             new SlipHooks().Init();
             new SlipCriticalShield().Init();
             new VoidShieldCatalog().Init();
-            new PickupSizeExceptionIL().Init();
+
+
+            MSU.LanguageFileLoader.AddLanguageFilesFromMod(this, "SlipLang");
             GenerateLockIcon();
         }
 

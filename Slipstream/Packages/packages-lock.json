@@ -168,6 +168,12 @@
       "source": "embedded",
       "dependencies": {}
     },
+    "riskofthunder-r2api_sound": {
+      "version": "file:R2API_Sound",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {}
+    },
     "riskofthunder-r2api_stages": {
       "version": "file:R2API_Stages",
       "depth": 0,
@@ -229,7 +235,7 @@
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "3fa8438a4489db83e2890c8ff0f7da87af358da4"
+      "hash": "8a927e3bb7ac555d5eb0248119c193fbd34d7f9f"
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",

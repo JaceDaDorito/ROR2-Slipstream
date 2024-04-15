@@ -121,7 +121,7 @@ namespace EntityStates.Sandswept
                     differenceFeet = characterBody.footPosition.y - hit.point.y;
                     if (raycastToGround && differenceFeet < 1f)
                     {
-                        SlipLogger.LogD(characterBody + " glass statue died to Raycast.");
+                        SlipLog.Debug(characterBody + " glass statue died to Raycast.");
                         doc.collided = true;
                         CommitSuicide();
                     }

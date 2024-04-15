@@ -1,4 +1,4 @@
-﻿using Moonstorm;
+﻿using MSU;
 using R2API.ScriptableObjects;
 using RoR2.ContentManagement;
 using System.Collections.Generic;
@@ -15,10 +15,10 @@ namespace EntityStates.Mage.Weapon
 {
     public class ThrowNanoFlame : BaseState
     {
-        private const string token = "SLIP_SKILL_NANOFLAME_DESC";
+        private const string TOKEN = "SLIP_SKILL_NANOFLAME_DESC";
 
-        [ConfigurableField(ConfigName = "Damage Coeff", ConfigDesc = "Damage Coefficient of each fireball.", ConfigSection = "NanoFlame")]
-        [TokenModifier(token, StatTypes.MultiplyByN, 0, "100")]
+        [ConfigureField(ConfigNameOverride = "Damage Coeff", ConfigDescOverride = "Damage Coefficient of each fireball.", ConfigSectionOverride = "NanoFlame")]
+        [FormatToken(TOKEN, StatTypes.MultiplyByN, 0, "100")]
         private static float damage = 3.5f;
 
         public GameObject projectilePrefab = SlipAssets.LoadAsset<GameObject>("MageNanoFlame", SlipBundle.Skills);

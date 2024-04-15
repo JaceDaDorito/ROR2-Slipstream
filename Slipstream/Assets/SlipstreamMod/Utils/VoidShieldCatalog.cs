@@ -1,16 +1,4 @@
-﻿using Moonstorm;
-using UnityEngine.AddressableAssets;
-using Slipstream.Buffs;
-using RoR2;
-using System;
-using UnityEngine;
-using UnityEngine.Networking;
-using R2API;
-using RoR2.Items;
-using On.RoR2;
-using On.RoR2.UI;
-using TMPro;
-using UnityEngine.UI;
+﻿using UnityEngine;
 using System.Collections.Generic;
 
 namespace Slipstream.Items

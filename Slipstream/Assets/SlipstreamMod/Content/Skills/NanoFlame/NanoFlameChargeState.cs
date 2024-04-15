@@ -1,4 +1,4 @@
-﻿using Moonstorm;
+﻿using MSU;
 using R2API.ScriptableObjects;
 using RoR2.ContentManagement;
 using System.Collections.Generic;
@@ -61,11 +61,6 @@ namespace EntityStates.Mage.Weapon {
 
         public override void OnExit()
         {
-            /*for(int i = 0; i < instantiatedEffects.Count; i++)
-            {
-                Destroy(instantiatedEffects[i]);
-            }*/
-            //instantiatedEffects.Clear();
             if (crosshairOverrideRequest != null)
             {
                 crosshairOverrideRequest.Dispose();
